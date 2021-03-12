@@ -1,5 +1,6 @@
 extends Node2D
 
+# 状態
 enum eState {
 	INIT,
 	EXEC,
@@ -38,21 +39,20 @@ class AdvTextMgr:
 			idx += 1
 		return ret
 
-var _msg  = AdvTextMgr.new()
-var _data = null
+var _msg              = AdvTextMgr.new()
 var _timer:float      = 0
 var _text_timer:float = 0
 var _state            = eState.INIT
 var _next_state       = eState.INIT
 var _int_stack        = []
 var _call_stack       = []
-var _pc:int          = 0
-var _max_pc:int      = 0
-var _previous_pc:int = 0
-var _diff_pc:float   = 0.0
-var _script_data     = []
-var _start_funcname  := "" # 開始関数名
-var _funcname        := "" # 現在実行中の関数名
+var _pc:int           = 0
+var _max_pc:int       = 0
+var _previous_pc:int  = 0
+var _diff_pc:float    = 0.0
+var _script_data      = []
+var _start_funcname   := "" # 開始関数名
+var _funcname         := "" # 現在実行中の関数名
 
 onready var _talk_text = $TalkText
 onready var _cursor    = $Cursor
@@ -138,15 +138,25 @@ func _update_exec():
 
 # 更新・キー待ち
 func _update_key_wait(delta:float):
+	var text = _msg.get_text()
+	var text_length = text.length()
 	if Input.is_action_just_pressed("ui_accept"):
-		_cursor.hide()
-		_msg.clear()
-		_next_state = eState.EXEC
-		return
+		# テキスト送り
+		if _text_timer < text_length:
+			# テキストをすべて表示
+			_text_timer = text_length
+		else:
+			# 次のテキストに進む
+			_cursor.hide()
+			_msg.clear()
+			_text_timer = 0
+			_next_state = eState.EXEC
+			return
 	
 	# 会話テキスト表示
 	_talk_text.show()
-	_talk_text.text = _msg.get_text()
+	_text_timer = min(text_length, _text_timer + delta * 50)
+	_talk_text.text = text.left(int(_text_timer))
 	
 	# カーソル表示
 	_cursor.show()
