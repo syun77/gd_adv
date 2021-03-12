@@ -1,5 +1,11 @@
 extends Node2D
 
+# テキスト速度
+const TEXT_SPEED := 50.0
+
+# テキスト管理
+const AdvTextMgr = preload("res://src/common/adv/AdvTextMgr.gd")
+
 # 状態
 enum eState {
 	INIT,
@@ -21,25 +27,7 @@ enum eCmdMesType {
 	NOTICE = 9, # 通知
 }
 
-class AdvTextMgr:
-	var msg_list = []
-	func _init() -> void:
-		msg_list = []
-	func clear() -> void:
-		msg_list.clear()
-	func add(texts) -> void:
-		msg_list.append(texts)
-	func get_text() -> String:
-		var ret = ""
-		var idx = 0
-		for msg in msg_list:
-			if idx > 0:
-				ret += "\n"
-			ret += msg
-			idx += 1
-		return ret
-
-var _msg              = AdvTextMgr.new()
+var _msg              := AdvTextMgr.new()
 var _timer:float      = 0
 var _text_timer:float = 0
 var _state            = eState.INIT
@@ -103,7 +91,9 @@ func _update_init():
 
 # 更新・実行
 func _update_exec():
-	for cnt in range(1000):
+	var cnt = 0 # 無限ループ防止用
+	while cnt < 1000:
+		cnt += 1
 		if _pc >= _max_pc:
 			# TODO: ジャンプ先がある場合は読み込みし直す
 			# スクリプト終了
@@ -155,7 +145,7 @@ func _update_key_wait(delta:float):
 	
 	# 会話テキスト表示
 	_talk_text.show()
-	_text_timer = min(text_length, _text_timer + delta * 50)
+	_text_timer = min(text_length, _text_timer + delta * TEXT_SPEED)
 	_talk_text.text = text.left(int(_text_timer))
 	
 	# カーソル表示
