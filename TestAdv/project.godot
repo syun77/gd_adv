@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Adv",
+"language": "GDScript",
+"path": "res://src/common/adv/AdvUtil.gd"
+} ]
 _global_script_class_icons={
-
+"Adv": ""
 }
 
 [application]
@@ -18,6 +23,10 @@ _global_script_class_icons={
 config/name="TestAdv"
 run/main_scene="res://src/common/adv/AdvMgr.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+AdvUtil="*res://src/common/adv/AdvUtil.gd"
 
 [rendering]
 

@@ -3,6 +3,9 @@ extends Node2D
 # テキスト速度
 const TEXT_SPEED := 50.0
 
+# スクリプト管理
+const AdvScript = preload("res://src/common/adv/AdvScript.gd")
+
 # テキスト管理
 const AdvTextMgr = preload("res://src/common/adv/AdvTextMgr.gd")
 
@@ -27,25 +30,18 @@ enum eCmdMesType {
 	NOTICE = 9, # 通知
 }
 
-var _msg              := AdvTextMgr.new()
+var _script:AdvScript = null
 var _timer:float      = 0
 var _text_timer:float = 0
 var _state            = eState.INIT
 var _next_state       = eState.INIT
-var _int_stack        = []
-var _call_stack       = []
-var _pc:int           = 0
-var _max_pc:int       = 0
-var _previous_pc:int  = 0
-var _diff_pc:float    = 0.0
-var _script_data      = []
-var _start_funcname   := "" # 開始関数名
-var _funcname         := "" # 現在実行中の関数名
+var _msg              := AdvTextMgr.new()
 
 onready var _talk_text = $TalkText
 onready var _cursor    = $Cursor
 
 func _ready() -> void:
+	_script = AdvScript.new(self)
 	_talk_text.hide()
 	_cursor.hide()
 
@@ -65,66 +61,15 @@ func _process(delta: float) -> void:
 
 # 更新・初期化
 func _update_init():
-	# TODO: ファイル存在チェック
-	# スクリプトを読み込む
-	var file = File.new()
-	file.open("res://assets/adv/adv000.txt", File.READ)
-	# すべて読み込む
-	var text = file.get_as_text()
-	
-	for line in text.split("\n"):
-		var data = line.split(",")
-		if data.size() <= 0:
-			continue
-		_script_data.append(data)
-	_max_pc = _script_data.size()
-	
-	print(_script_data)
-	file.close()
-	
-	# 各種変数を初期化
-	_previous_pc = _pc
-	_int_stack.clear()
-	_call_stack.clear()
-	
+	_script.open("res://assets/adv/adv000.txt")
 	_next_state = eState.EXEC
 
 # 更新・実行
 func _update_exec():
-	var cnt = 0 # 無限ループ防止用
-	while cnt < 1000:
-		cnt += 1
-		if _pc >= _max_pc:
-			# TODO: ジャンプ先がある場合は読み込みし直す
-			# スクリプト終了
-			queue_free()
-			return
-		
-		# スクリプトデータ取得
-		var line = _script_data[_pc]
-		print("[SCRIPT]", line)
-		
-		# コマンドと引数を分割する
-		var cmd = line[0]
-		var args = []
-		for i in range(1, line.size()):
-			args.append(line[i])
-		
-		if _start_funcname != "":
-			# 関数を直接呼び出す
-			if cmd == "FUNC_START" and args[0] == _start_funcname:
-				# 対象の関数が見つかった
-				_start_funcname = ""
-				_funcname = args[0]
-			_pc += 1
-			continue # 次の行に進む
-		
-		_pc += 1
-		
-		# コマンド解析
-		var is_exit = _parse_command(cmd, args)
-		if is_exit:
-			break # yieldします
+	_script.update()
+	if _script.is_end():
+		# 終了
+		queue_free()
 
 # 更新・キー待ち
 func _update_key_wait(delta:float):
@@ -148,32 +93,23 @@ func _update_key_wait(delta:float):
 	_text_timer = min(text_length, _text_timer + delta * TEXT_SPEED)
 	_talk_text.text = text.left(int(_text_timer))
 	
-	# カーソル表示
-	_cursor.show()
-	_cursor.rect_position.y = 500 + 8 * abs(sin(_timer * 4))
+	if _text_timer >= text_length:
+		# カーソル表示
+		_cursor.show()
+		_cursor.rect_position.y = 500 + 8 * abs(sin(_timer * 4))
 
-# コマンド解析
-func _parse_command(cmd:String, args:PoolStringArray) -> bool:
-	var is_exit = false
-	match cmd:
-		"MSG":
-			is_exit = _parse_message(args)
-	
-	if _state != _next_state:
-		# 状態遷移する
-		is_exit = true
-	return is_exit
 
 # メッセージ解析
-func _parse_message(args:PoolStringArray) -> bool:
+func _MSG(args:PoolStringArray) -> int:
 	var is_exit = false
 	var type = eCmdMesType.NONE
 	if args[0] != "":
 		type = int(args[0])
 	if type == eCmdMesType.NOTICE:
 		# TODO: 通知メッセージ
-		return is_exit
+		return Adv.eRet.YIELD
 	
+	var ret = Adv.eRet.CONTINUE
 	var texts = args[1]
 	_msg.add(texts)
 	match type:
@@ -182,5 +118,6 @@ func _parse_message(args:PoolStringArray) -> bool:
 			pass
 		eCmdMesType.PF:
 			_next_state = eState.KEY_WAIT
+			ret = Adv.eRet.YIELD
 	
-	return is_exit
+	return ret
