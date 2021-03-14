@@ -1,0 +1,324 @@
+CRAFT_CHK($CRAFT1, $CRAFT2)
+if($RET) {
+	if(%GAIN_PHONE_CELLOPHANE == false) {
+		if($CRAFT1 == ITEM_CELLOPHANE || $CRAFT2 == ITEM_CELLOPHANE) {
+			// スマホと色セロファンを合成
+			call cellophane_phone
+		}
+	}
+	// アイテム合成
+	ITEM_DEL($CRAFT1)
+	ITEM_DEL($CRAFT2)
+	ITEM_ADD($RET)
+	return
+}
+
+if($ITEM == ITEM_SMART_PHONE) {
+	goto smart_phone
+}
+elif($ITEM == ITEM_BOU_MEMO) {
+	goto bou_memo
+}
+elif($ITEM == ITEM_BOOKLET && %S205_COMPLETED == false) {
+	goto booklet
+}
+elif($ITEM == ITEM_FLOWER_MEMO) {
+	// 花を植えるメモ
+	goto flower_memo
+}
+elif(ITEM_COLOR_BLUE <= $ITEM && $ITEM <= ITEM_COLOR_ORANGE) {
+	// 絵の具
+	goto color_tube
+}
+elif($ITEM == ITEM_PHONE_CELLOPHANE) {
+	select("スマートフォンから"
+	"色セロハンを取り外す？")
+	{"はい"
+		ITEM_DEL(ITEM_PHONE_CELLOPHANE)
+		ITEM_ADD2(ITEM_SMART_PHONE)
+		ITEM_ADD2(ITEM_CELLOPHANE)
+
+		// ライトを白に戻す
+		$LIGHT_COLOR = C_WHITE
+		%PHONE_CELLOPHANE_ENABLE = false
+	}
+	{"いいえ"
+	}
+	return
+}
+elif($ITEM == ITEM_BLUE_MEMO) {
+	call blue_memo
+}
+elif($ITEM == ITEM_MUSIC_MEMO) {
+	call music_memo
+}
+else {
+	// アイテム詳細説明を表示する
+	ITEM_DETAIL($ITEM)
+}
+return
+
+// ------------------------------
+// 「美・応・有」のメモを調べた
+bou_memo:
+DRI(102)
+"メモには「美・応・有」と書かれている/"
+ERI()
+WAIT(20)
+return
+
+// ------------------------------
+// スマートフォンを調べた
+smart_phone:
+if($SP_PRG == SP_PRG_CALL_TAXI) {
+	// 電話してタクシーを呼ぶ
+	// スマートフォンを表示
+	DRI(1)
+	"[$hero:305]こんな時間に大丈夫かな……/"
+	CLS()
+
+	"電話帳に登録しているタクシー会社に"
+	"電話をかけてみた/"
+
+	SE(@"phone")
+	WAIT(300)
+
+	"「現在、通話はできない状態となっています」/"
+
+	"……？"
+	"通信状況が悪いのかも……/"
+
+	SE(@"phone")
+	WAIT(100)
+
+	"もう一度かけなおしてみたが、"
+	"同じ音声メッセージが流れるだけだった/"
+
+	"故障かと思って、ネットで調べようとするが、"
+	"それもつながらない/"
+
+	ERI()
+
+	"[$hero:306]……うーん/"
+	"[$hero:307]こんなときに故障するなんて……/"
+
+	$SP_PRG = SP_PRG_NONE
+	// タクシーを呼ぼうとした
+	%S102_CALL_TAXI = true
+}
+elif($SP_PRG == SP_PRG_LIGHT) {
+	// スマホのライトをつける
+	DRI(1)
+	"私のスマートフォン……"
+	"壊れていないといいけれど……/"
+
+	SE(@"dial")
+	%LIGHT_ON_ESC = true
+	ERI()
+	$SP_PRG = SP_PRG_NONE
+}
+else {
+	// アイテム詳細情報を表示する
+	ITEM_DETAIL($ITEM)
+}
+
+return
+
+// ------------------------------
+// 絵の具を調べた
+color_tube:
+
+if($ITEM == ITEM_COLOR_RED) {
+	$TEMP1 = 0 // 赤いの絵の具
+}
+elif($ITEM == ITEM_COLOR_ORANGE) {
+	$TEMP1 = 1 // 橙の絵の具
+}
+elif($ITEM == ITEM_COLOR_YELLOW) {
+	$TEMP1 = 2 // 黄色の絵の具
+}
+elif($ITEM == ITEM_COLOR_GREEN) {
+	$TEMP1 = 3 // 緑の絵の具
+}
+elif($ITEM == ITEM_COLOR_BLUE) {
+	$TEMP1 = 4 // 青い絵の具
+}
+elif($ITEM == ITEM_COLOR_INDIGO) {
+	$TEMP1 = 5 // 藍色の絵の具
+}
+else {
+	$TEMP1 = 6 // 紫の絵の具
+}
+
+$TEMP2 = eBit.CHECK_COLOR_RED + $TEMP1
+BIT_CHK($TEMP2)
+if($RET) {
+	// すでに調べた
+	ITEM_DETAIL($ITEM)
+	return
+}
+BIT_ON($TEMP2)
+
+// フラグが立っている合計を調べる
+BIT_SUM(eBit.CHECK_COLOR_RED, eBit.CHECK_COLOR_PURPLE)
+if($RET == 1) {
+	// 初回
+	$TEMP2 = 211 + $TEMP1
+	DRI($TEMP2, EF_ALPHA)
+	"[$hero:303]普通の絵の具だよね……/"
+	"[$hero:301]……/"
+	CLS()
+	"私は絵の具の裏を見てみた/"
+	$TEMP2 = 221 + $TEMP1
+	DRI($TEMP2, EF_ALPHA)
+	"[$hero:303]文字が書いてある……/"
+}
+elif($RET == 2) {
+	// 2回目
+	$TEMP2 = 211 + $TEMP1
+	DRI($TEMP2, EF_ALPHA)
+	"[$hero:303]ひょっとしたらこの絵の具も……/"
+	$TEMP2 = 221 + $TEMP1
+	DRI($TEMP2, EF_ALPHA)
+	"[$hero:301]うーん、どういう意味だろう……/"
+}
+else {
+	$TEMP2 = 211 + $TEMP1
+	DRI($TEMP2, EF_ALPHA)
+	"[$hero:303]この絵の具も……/"
+	$TEMP2 = 221 + $TEMP1
+	DRI($TEMP2, EF_ALPHA)
+	if($RET == 3) {
+		"[$hero:301]また別の文字ね……/"
+	}
+	elif($RET == 4) {
+		"[$hero:301]……/"
+		"[$hero:305]いままでの文字を組み合わせても"
+		"意味がわからないわ/"
+		"[$hero:303]他にも絵の具があるのかな/"
+	}
+	elif($RET == 5) {
+		"[$hero:301]……/"
+		"[$hero:303]この文字は何を意味するのだろうか……/"
+	}
+	elif($RET == 6) {
+		"[$hero:301]うーん、どういう意味だろう……/"
+	}
+	else {
+		"[$hero:301]……/"
+		"[$hero:305]これで７つの絵の具が手に入ったけど……/"
+		"[$hero:301]……/"
+		"[$hero:303]７つ、か……/"
+	}
+}
+
+CLS()
+ERI()
+WAIT(20)
+
+return
+
+// ------------------------------
+// 開花時期のメモを調べた
+booklet:
+// ノベルモードで表示
+MSG_MODE(MSG_NOVEL)
+DRI(204, EF_NONE)
+"■開花の季節について/"
+
+"【春〜夏】　　　　　【夏〜秋】"
+"・バラ　　　　　　　・アサガオ"
+"・ガーベラ　　　　　・ハイビスカス"
+"・チューリップ　　　・ヒマワリ"
+"・カーネーション　　・ニチニチソウ"
+"　　　　　　　　　　・カスミソウ@"
+" "
+"【秋〜冬】　　　　　【冬〜春】"
+"・ダリア　　　　　　・ビオラ"
+"・コスモス　　　　　・アリッサム"
+"・ケイトウ　　　　　・ネモフィラ"
+"・キンモクセイ　　　・ポインセチア"
+"　　　　　　　　　　・スイセン/"
+// 通常に戻す
+MSG_MODE(MSG_TALK)
+
+ERI(EF_NONE)
+
+return
+
+// ------------------------------
+// 花を植える季節のメモを調べた
+flower_memo:
+
+MSG_MODE(MSG_NOVEL)
+DRI(209, EF_NONE)
+
+"■花を植える季節のメモ/"
+
+"春は①③○○○は遅いかな？　それなら○○○③○○？@"
+"夏には○②○④○④なんてどうかしら？@"
+"秋はやっぱり○④○④、もしくは○③①ね。@"
+"冬には④②○○？　クリスマスには○②○○○①がないとね/"
+
+MSG_MODE(MSG_TALK)
+ERI(EF_NONE)
+
+return
+
+// ------------------------------
+// スマホと色セロファンを合成した
+def cellophane_phone {
+	DRI(300)
+	"[$hero:301]色セロハンを"
+	"スマートフォンにかぶせて……/"
+	DRI(301, EF_ALPHA)
+	"[$hero:301]これでライトの色を変えれば……/"
+	ERI(EF_POPUP)
+	WAIT(20)
+
+	// 青色に変更
+	$LIGHT_COLOR = C_BLUE
+	%PHONE_CELLOPHANE_ENABLE = true
+
+	return
+}
+
+// ------------------------------
+// 青色のメモを調べた
+def blue_memo {
+	if(%PHONE_CELLOPHANE_ENABLE) {
+		// 色セロハンをスマホに取り付けている
+		DRI(321)
+		if(%BLUE_MEMO_READ == false) {
+			"[$hero:305]……！？"
+			"メモの文字が変化している……/"
+		}
+		"[$hero:301]この文字は何を意味するのだろう……？/"
+		%BLUE_MEMO_READ = true
+	}
+	else {
+		// 通常
+		DRI(320)
+		if(%BLUE_MEMO_READ) {
+			"[$hero:301]青いライトを当てると"
+			"文字が変化するみたいね……/"
+		}
+		else {
+			"[$hero:301]四角が３つ並んでいるメモね……"
+			"何を意味するのかな……？/"
+		}
+		CLS()
+		ERI()
+		WAIT(20)
+	}
+}
+
+// ------------------------------
+def music_memo {
+	DRI(410)
+    SE_PITCH(@"book", 2)
+	"[$hero:303]音符が書かれたメモね……/"
+	WND_CLOSE()
+	ERI()
+	WAIT(30)
+}

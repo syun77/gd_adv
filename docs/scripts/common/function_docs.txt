@@ -1,0 +1,388 @@
+* WND_CLOSE
+ウィンドウを閉じる
+
+* MSG_MODE
+メッセージモードの設定
+@param mode=0 モード
+
+* WAIT
+一時停止
+@param frame 停止フレーム数
+
+* YIELD
+ゲームに制御を戻す
+@param frame=0 フレーム数
+
+* YIELD2
+ゲームに制御を戻す (無限フレーム数)
+
+* DRB
+背景画像の描画
+@param id 画像番号
+@param effectId=0 演出ID(EF_*)
+
+* ERB
+背景画像の消去
+@param effectId=0 演出ID(EF_*)
+
+* BG_PARAM
+背景の描画パラメータ設定
+@param xscale=1 拡大率(X)
+@param yscale=1 拡大率(Y)
+@param rot=0 回転値
+
+* BG_MOVE
+背景の移動 (現在の値に対するオフセット値)
+@param xofs=0 左上座標(X)
+@param yofs=0 左上座標(Y)
+@param xscale=0 拡大率(X)
+@param yscale=0 拡大率(Y)
+@param rot=0 回転値
+
+* BG_COLOR
+背景色の設定
+@param color=C_WHITE 色タイプ
+@param frame=0 フェード時間
+
+* BG_THETHOLD
+背景の2値化
+@param on=1 有効 or 無効
+@param color=C_WHITE 色タイプ
+@param frame=0 フェード時間
+@param threthold=0.5 しきい値
+
+* DRC
+キャラクターの描画
+@param id キャラクターID
+@param pos 表示場所
+@param effectId=0 演出ID(EF_*)
+
+* CH_MOVE
+キャラクターを移動する
+@param pos 表示場所
+@param xofs=0 座標(X)
+@param yofs=0 座標(Y)
+
+* CH_JUMP
+キャラクターをジャンプさせる
+@param pos 表示場所
+@param times=1 ジャンプ回数
+
+* CH_SHAKE
+キャラクターを揺らす
+@param pos 表示場所
+@param intensity=0.01 揺れ幅(画面サイズに対する割合)
+@param frame=20 フレーム数
+
+* CH_FLASH
+キャラクターを光らせる
+@param pos 表示場所
+@param color 色(BGR)
+@param frame フレーム数
+
+* DRS
+Spineを描画する
+@param id SpineのID
+@param anime=1 アニメーション番号
+@param cnt=1 ループ回数
+@param speed=1 再生速度
+@param startFrame=0 再生開始位置
+@param stopFrame=-1 停止位置
+
+* ERS
+Spineを消去する
+
+* SPINE_PLAY
+Spineアニメを再生する
+@param anime=1 アニメーション番号
+@param cnt=1 ループ回数
+@param speed=1 再生速度
+@param startFrame=0 再生開始位置
+@param stopFrame=-1 停止位置
+
+* SPINE_LOOP
+Spineアニメをループ再生する
+@param anime=1 アニメーション番号
+@param speed=1 再生速度
+@param startFrame=0 再生開始位置
+
+* SPINE_CHAIN
+Spineアニメ連続再生する
+@param anime=1 アニメーション番号
+@param speed=1 再生速度
+@param startFrame=0 再生開始位置
+
+* SPINE_MOVE
+Spineの移動 (現在の値に対するオフセット値)
+@param xofs=0
+@param yofs=0
+@param xscale=0 拡大率(X)
+@param yscale=0 拡大率(Y)
+@param rot=0 回転値
+
+* SPINE_SPEED
+Spineアニメの再生速度を設定する
+@param speed=1 再生速度
+
+* SPINE_MIX
+Spineアニメ切替時のブレンド設定
+@param first 遷移元のアニメーション番号
+@param second 遷移先のアニメーション番号
+@param duration=0.5 線形補間する時間の割合(0.0～1.0)
+
+* SPINE_SE
+Spine用の遅延SE再生
+@param seID SEのID
+
+* SPINE_VOICE
+Spine用の遅延ボイス再生
+@param voiceID ボイスのID
+
+* SPINE_VOICE_ENABLE
+Spine用のボイス再生設定
+@param flag=1 (1:有効 / 0:無効)
+
+* SPINE_TRACK
+SpineのTrackを設定する
+@param track Track番号
+@param name アニメーション名
+@param loop=1 ループ再生フラグ
+
+* SPINE_TRACK_CLEAR
+SpineのTrack再生を消去する
+@param track 消去するTrack番号
+
+*_SPINE_SLOT_ALPHA
+SpineのSlotのアルファ値を設定する
+@param name スロット名
+@param alpha アルファ値(0.0～1.0)
+
+* SPINE_ATTACHMENT
+SpineのSlotのアタッチメントを切り替える
+@parma slot スロット名
+@param name アタッチメント名
+
+*_SPINE_SLOT_ALPHA2
+SpineのSlotのアルファ値を設定する (遅延設定)
+@param name スロット名
+@param alpha アルファ値(0.0～1.0)
+
+* SPINE_ATTACHMENT2
+SpineのSlotのアタッチメントを切り替える (遅延設定)
+@parma slot スロット名
+@param name アタッチメント名
+
+* SPINE_DELAY
+Spineコマンドの遅延設定
+@param frame=1 フレーム数
+
+* SPINE_CLEAR
+Spineの初期化
+
+* SPINE_BIT_ON
+Spine再生遅延時にフラグをONにする
+@param flag ONにするフラグ番号
+
+* SPINE_BIT_OFF
+Spine再生遅延時にフラグをOFFにする
+@param flag OFFにするフラグ番号
+
+* DRI
+アイテムの描画
+@param id アイテム番号
+
+* ERI
+アイテムの消去
+
+* SEQ_DRAW
+シーケンサーを生成・再生する
+@param id シーケンサー名
+@param xpos 描画座標(X)
+@param ypos 描画座標(Y)
+
+* SEQ_ERASE
+シーケンサーを消去する
+
+* NAME_OFF
+話者名の消去
+
+* FACE_OFF
+顔ウィンドウの消去
+
+* CLS
+会話ウィンドウの設定をまとめて消去
+
+* BGM
+BGMの再生
+@param id BGMリソース名
+@param frame フェードインフレーム数
+@param isLoop ループするかどうか
+
+* BGM_OFF
+BGMの停止
+@param frame フェードアウトフレーム数
+
+* BGM_VOL
+BGMの音量変更
+@param vol 音量
+@param frame 音量変更のフレーム数
+
+* SE
+SEの再生
+@param id SEリソース名
+
+* SE_PITCH
+SEの再生（ピッチ指定）
+@param id SEリソース名
+@param pitch ピッチ（標準は1.0）
+
+* VOICE
+ボイスの再生
+@param id ボイスリソース名
+
+* VOICE_STOP
+ボイスの停止
+
+* FADE_IN
+フェードイン
+@param color 色(BGR)
+@param frame フレーム数
+
+* FADE_OUT
+フェードアウト
+@param color 色(BGR)
+@param frame フレーム数
+
+* FADE_WAIT
+フェード完了まで待つ
+
+* SHAKE
+画面を揺らす
+@param intensity=0.02 揺れ幅
+@param frame=30 フレーム数
+
+* FLASH
+画面をフラッシュする
+@param color 色(BGR)
+@param frame フレーム数
+
+* JUMP
+別スクリプトにジャンプする
+@param advId スクリプト番号
+@param jumpId=1 関数番号
+
+* JUMP_SCENE
+別のシーンへジャンプする
+@param sceneId シーンID
+
+* ITEM_ADD
+アイテムを取得する
+@param itemId アイテムID
+
+* ITEM_ADD2
+アイテムを取得する（メッセージとサウンドなし）
+@param itemId アイテムID
+
+* ITEM_HAS
+アイテムを所持ているかどうか
+@param itemId アイテムID
+
+* ITEM_DEL
+アイテムを削除する
+@param itemId アイテムID
+
+* ITEM_DEL_ALL
+所持アイテムをすべて削除する
+
+* ITEM_CHK
+アイテムを装備しているかどうか
+@param itemId アイテムID
+
+* ITEM_UNEQUIP
+装備しているアイテムを外す
+
+* CRAFT_CHK
+アイテム合成チェック
+@param itemId1 アイテム1
+@param itemId2 アイテム2
+
+* ITEM_DETAIL
+アイテムの詳細説明を表示する
+@param itemId アイテムID
+
+* NAME_INPUT
+名前入力
+@param caption キャプション文字列
+@param init 初期文字
+
+* NUM_INPUT
+数値入力
+@param answer 正解の番号
+@param idx 結果を保存する変数番号
+@param digit 桁数
+@param auto_check 自動チェック
+
+* PANEL_INPUT
+パネル入力
+@param panelID パネル番号
+
+* PIC_INPUT
+画像選択入力
+@param picID 画像番号
+@param idx 結果を保存する変数番号
+@param digit 答えの桁数
+
+* ESCAPE_EFFECT
+調査演出
+@param type 演出種別
+
+* SYSBIT_ON
+システムフラグを立てる
+@param flagId フラグ番号
+
+* SYSBIT_OFF
+システムフラグを下げる
+@param flagId フラグ番号
+
+* SYSBIT_CHK
+システムフラグをチェックする
+@param flagId フラグ番号
+
+* BIT_ON
+フラグを立てる
+@param flagId フラグ番号
+
+* BIT_OFF
+フラグを下げる
+@param flagId フラグ番号
+
+* BIT_CHK
+フラグをチェックする
+@param flagId フラグ番号
+
+* BIT_SUM
+フラグの立っている数をカウントする
+@param start 開始フラグ番号
+@param end  終端フラグ番号 (終端を含む)
+
+* VAR_GET
+変数の値を取得する
+@param varId 変数番号
+
+* VAR_SET
+変数の値を設定する
+@param varId 変数番号
+@param val   設定する値
+
+* AUTO_SAVE
+オートセーブを行う
+
+* GOTO_ROOM
+指定のルームに移動する
+
+* ADS_START
+広告を開始する
+
+* PUZZLE
+パズルを開始する
+@param puzzleId パズル番号
