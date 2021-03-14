@@ -1,0 +1,530 @@
+{
+	"ウィンドウを閉じる\n\n":
+	{
+		"prefix": "WND_CLOSE",
+		"body": "WND_CLOSE()\n$1",
+		"description": "ウィンドウを閉じる\n\n",
+	},
+	"メッセージモードの設定\n@param mode=0 モード\n\n":
+	{
+		"prefix": "MSG_MODE",
+		"body": "MSG_MODE(${1:mode=0})\n$2",
+		"description": "メッセージモードの設定\n@param mode=0 モード\n\n",
+	},
+	"一時停止\n@param frame 停止フレーム数\n\n":
+	{
+		"prefix": "WAIT",
+		"body": "WAIT(${1:frame})\n$2",
+		"description": "一時停止\n@param frame 停止フレーム数\n\n",
+	},
+	"ゲームに制御を戻す\n@param frame=0 フレーム数\n\n":
+	{
+		"prefix": "YIELD",
+		"body": "YIELD(${1:frame=0})\n$2",
+		"description": "ゲームに制御を戻す\n@param frame=0 フレーム数\n\n",
+	},
+	"ゲームに制御を戻す (無限フレーム数)\n\n":
+	{
+		"prefix": "YIELD2",
+		"body": "YIELD2()\n$1",
+		"description": "ゲームに制御を戻す (無限フレーム数)\n\n",
+	},
+	"背景画像の描画\n@param id 画像番号\n@param effectId=0 演出ID(EF_*)\n\n":
+	{
+		"prefix": "DRB",
+		"body": "DRB(${1:id}, ${2:effectId=0})\n$3",
+		"description": "背景画像の描画\n@param id 画像番号\n@param effectId=0 演出ID(EF_*)\n\n",
+	},
+	"背景画像の消去\n@param effectId=0 演出ID(EF_*)\n\n":
+	{
+		"prefix": "ERB",
+		"body": "ERB(${1:effectId=0})\n$2",
+		"description": "背景画像の消去\n@param effectId=0 演出ID(EF_*)\n\n",
+	},
+	"背景の描画パラメータ設定\n@param xscale=1 拡大率(X)\n@param yscale=1 拡大率(Y)\n@param rot=0 回転値\n\n":
+	{
+		"prefix": "BG_PARAM",
+		"body": "BG_PARAM(${1:xscale=1}, ${2:yscale=1}, ${3:rot=0})\n$4",
+		"description": "背景の描画パラメータ設定\n@param xscale=1 拡大率(X)\n@param yscale=1 拡大率(Y)\n@param rot=0 回転値\n\n",
+	},
+	"背景の移動 (現在の値に対するオフセット値)\n@param xofs=0 左上座標(X)\n@param yofs=0 左上座標(Y)\n@param xscale=0 拡大率(X)\n@param yscale=0 拡大率(Y)\n@param rot=0 回転値\n\n":
+	{
+		"prefix": "BG_MOVE",
+		"body": "BG_MOVE(${1:xofs=0}, ${2:yofs=0}, ${3:xscale=0}, ${4:yscale=0}, ${5:rot=0})\n$6",
+		"description": "背景の移動 (現在の値に対するオフセット値)\n@param xofs=0 左上座標(X)\n@param yofs=0 左上座標(Y)\n@param xscale=0 拡大率(X)\n@param yscale=0 拡大率(Y)\n@param rot=0 回転値\n\n",
+	},
+	"背景色の設定\n@param color=C_WHITE 色タイプ\n@param frame=0 フェード時間\n\n":
+	{
+		"prefix": "BG_COLOR",
+		"body": "BG_COLOR(${1:color=0}, ${2:frame=0})\n$3",
+		"description": "背景色の設定\n@param color=C_WHITE 色タイプ\n@param frame=0 フェード時間\n\n",
+	},
+	"BG_THRETHOLD":
+	{
+		"prefix": "BG_THRETHOLD",
+		"body": "BG_THRETHOLD(${1:on=1}, ${2:color=0}, ${3:frame=0}, ${4:threthold=0.5})\n$5",
+		"description": "",
+	},
+	"キャラクターの描画\n@param id キャラクターID\n@param pos 表示場所\n@param effectId=0 演出ID(EF_*)\n\n":
+	{
+		"prefix": "DRC",
+		"body": "DRC(${1:id}, ${2:pos}, ${3:effectId=0})\n$4",
+		"description": "キャラクターの描画\n@param id キャラクターID\n@param pos 表示場所\n@param effectId=0 演出ID(EF_*)\n\n",
+	},
+	"ERC":
+	{
+		"prefix": "ERC",
+		"body": "ERC(${1:pos}, ${2:effectId=0})\n$3",
+		"description": "",
+	},
+	"キャラクターを移動する\n@param pos 表示場所\n@param xofs=0 座標(X)\n@param yofs=0 座標(Y)\n\n":
+	{
+		"prefix": "CH_MOVE",
+		"body": "CH_MOVE(${1:pos}, ${2:xofs=0}, ${3:yofs=0})\n$4",
+		"description": "キャラクターを移動する\n@param pos 表示場所\n@param xofs=0 座標(X)\n@param yofs=0 座標(Y)\n\n",
+	},
+	"キャラクターをジャンプさせる\n@param pos 表示場所\n@param times=1 ジャンプ回数\n\n":
+	{
+		"prefix": "CH_JUMP",
+		"body": "CH_JUMP(${1:pos}, ${2:times=1})\n$3",
+		"description": "キャラクターをジャンプさせる\n@param pos 表示場所\n@param times=1 ジャンプ回数\n\n",
+	},
+	"キャラクターを揺らす\n@param pos 表示場所\n@param intensity=0.01 揺れ幅(画面サイズに対する割合)\n@param frame=20 フレーム数\n\n":
+	{
+		"prefix": "CH_SHAKE",
+		"body": "CH_SHAKE(${1:pos}, ${2:intensity=0.01}, ${3:frame=20})\n$4",
+		"description": "キャラクターを揺らす\n@param pos 表示場所\n@param intensity=0.01 揺れ幅(画面サイズに対する割合)\n@param frame=20 フレーム数\n\n",
+	},
+	"キャラクターを光らせる\n@param pos 表示場所\n@param color 色(BGR)\n@param frame フレーム数\n\n":
+	{
+		"prefix": "CH_FLASH",
+		"body": "CH_FLASH(${1:pos}, ${2:color=16777215}, ${3:frame=60})\n$4",
+		"description": "キャラクターを光らせる\n@param pos 表示場所\n@param color 色(BGR)\n@param frame フレーム数\n\n",
+	},
+	"Spineを描画する\n@param id SpineのID\n@param anime=1 アニメーション番号\n@param cnt=1 ループ回数\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n@param stopFrame=-1 停止位置\n\n":
+	{
+		"prefix": "DRS",
+		"body": "DRS(${1:id}, ${2:anime=1}, ${3:xscale=1}, ${4:yscale=1}, ${5:rot=0})\n$6",
+		"description": "Spineを描画する\n@param id SpineのID\n@param anime=1 アニメーション番号\n@param cnt=1 ループ回数\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n@param stopFrame=-1 停止位置\n\n",
+	},
+	"Spineを消去する\n\n":
+	{
+		"prefix": "ERS",
+		"body": "ERS()\n$1",
+		"description": "Spineを消去する\n\n",
+	},
+	"Spineアニメを再生する\n@param anime=1 アニメーション番号\n@param cnt=1 ループ回数\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n@param stopFrame=-1 停止位置\n\n":
+	{
+		"prefix": "SPINE_PLAY",
+		"body": "SPINE_PLAY(${1:anime=1}, ${2:cnt=1}, ${3:speed=1}, ${4:startFrame=0}, ${5:stopFrame=-1})\n$6",
+		"description": "Spineアニメを再生する\n@param anime=1 アニメーション番号\n@param cnt=1 ループ回数\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n@param stopFrame=-1 停止位置\n\n",
+	},
+	"Spineアニメをループ再生する\n@param anime=1 アニメーション番号\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n\n":
+	{
+		"prefix": "SPINE_LOOP",
+		"body": "SPINE_LOOP(${1:anime=1}, ${2:speed=1}, ${3:startFrame=0})\n$4",
+		"description": "Spineアニメをループ再生する\n@param anime=1 アニメーション番号\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n\n",
+	},
+	"Spineアニメ連続再生する\n@param anime=1 アニメーション番号\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n\n":
+	{
+		"prefix": "SPINE_CHAIN",
+		"body": "SPINE_CHAIN(${1:anime=1}, ${2:speed=1}, ${3:startFrame=0})\n$4",
+		"description": "Spineアニメ連続再生する\n@param anime=1 アニメーション番号\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n\n",
+	},
+	"Spineの移動 (現在の値に対するオフセット値)\n@param xofs=0\n@param yofs=0\n@param xscale=0 拡大率(X)\n@param yscale=0 拡大率(Y)\n@param rot=0 回転値\n\n":
+	{
+		"prefix": "SPINE_MOVE",
+		"body": "SPINE_MOVE(${1:xofs=0}, ${2:yofs=0}, ${3:xscale=0}, ${4:yscale=0}, ${5:rot=0})\n$6",
+		"description": "Spineの移動 (現在の値に対するオフセット値)\n@param xofs=0\n@param yofs=0\n@param xscale=0 拡大率(X)\n@param yscale=0 拡大率(Y)\n@param rot=0 回転値\n\n",
+	},
+	"Spineアニメの再生速度を設定する\n@param speed=1 再生速度\n\n":
+	{
+		"prefix": "SPINE_SPEED",
+		"body": "SPINE_SPEED(${1:speed=1})\n$2",
+		"description": "Spineアニメの再生速度を設定する\n@param speed=1 再生速度\n\n",
+	},
+	"Spineアニメ切替時のブレンド設定\n@param first 遷移元のアニメーション番号\n@param second 遷移先のアニメーション番号\n@param duration=0.5 線形補間する時間の割合(0.0～1.0)\n\n":
+	{
+		"prefix": "SPINE_MIX",
+		"body": "SPINE_MIX(${1:first}, ${2:second}, ${3:duration=0.5})\n$4",
+		"description": "Spineアニメ切替時のブレンド設定\n@param first 遷移元のアニメーション番号\n@param second 遷移先のアニメーション番号\n@param duration=0.5 線形補間する時間の割合(0.0～1.0)\n\n",
+	},
+	"Spine用の遅延SE再生\n@param seID SEのID\n\n":
+	{
+		"prefix": "SPINE_SE",
+		"body": "SPINE_SE(${1:seID})\n$2",
+		"description": "Spine用の遅延SE再生\n@param seID SEのID\n\n",
+	},
+	"Spine用の遅延ボイス再生\n@param voiceID ボイスのID\n\n":
+	{
+		"prefix": "SPINE_VOICE",
+		"body": "SPINE_VOICE(${1:voiceID})\n$2",
+		"description": "Spine用の遅延ボイス再生\n@param voiceID ボイスのID\n\n",
+	},
+	"Spine用のボイス再生設定\n@param flag=1 (1:有効 / 0:無効)\n\n":
+	{
+		"prefix": "SPINE_VOICE_ENABLE",
+		"body": "SPINE_VOICE_ENABLE(${1:flag=1})\n$2",
+		"description": "Spine用のボイス再生設定\n@param flag=1 (1:有効 / 0:無効)\n\n",
+	},
+	"SpineのTrackを設定する\n@param track Track番号\n@param name アニメーション名\n@param loop=1 ループ再生フラグ\n\n":
+	{
+		"prefix": "SPINE_TRACK",
+		"body": "SPINE_TRACK(${1:track}, ${2:name}, ${3:loop=1})\n$4",
+		"description": "SpineのTrackを設定する\n@param track Track番号\n@param name アニメーション名\n@param loop=1 ループ再生フラグ\n\n",
+	},
+	"SpineのTrack再生を消去する\n@param track 消去するTrack番号\n\n":
+	{
+		"prefix": "SPINE_TRACK_CLEAR",
+		"body": "SPINE_TRACK_CLEAR(${1:track})\n$2",
+		"description": "SpineのTrack再生を消去する\n@param track 消去するTrack番号\n\n",
+	},
+	"SPINE_SLOT_ALPHA":
+	{
+		"prefix": "SPINE_SLOT_ALPHA",
+		"body": "SPINE_SLOT_ALPHA(${1:name}, ${2:alpha})\n$3",
+		"description": "",
+	},
+	"SpineのSlotのアタッチメントを切り替える\n@parma slot スロット名\n@param name アタッチメント名\n\n":
+	{
+		"prefix": "SPINE_ATTACHMENT",
+		"body": "SPINE_ATTACHMENT(${1:slot}, ${2:name})\n$3",
+		"description": "SpineのSlotのアタッチメントを切り替える\n@parma slot スロット名\n@param name アタッチメント名\n\n",
+	},
+	"SPINE_SLOT_ALPHA2":
+	{
+		"prefix": "SPINE_SLOT_ALPHA2",
+		"body": "SPINE_SLOT_ALPHA2(${1:name}, ${2:alpha})\n$3",
+		"description": "",
+	},
+	"SpineのSlotのアタッチメントを切り替える (遅延設定)\n@parma slot スロット名\n@param name アタッチメント名\n\n":
+	{
+		"prefix": "SPINE_ATTACHMENT2",
+		"body": "SPINE_ATTACHMENT2(${1:slot}, ${2:name})\n$3",
+		"description": "SpineのSlotのアタッチメントを切り替える (遅延設定)\n@parma slot スロット名\n@param name アタッチメント名\n\n",
+	},
+	"Spineコマンドの遅延設定\n@param frame=1 フレーム数\n\n":
+	{
+		"prefix": "SPINE_DELAY",
+		"body": "SPINE_DELAY(${1:frame=1})\n$2",
+		"description": "Spineコマンドの遅延設定\n@param frame=1 フレーム数\n\n",
+	},
+	"Spineの初期化\n\n":
+	{
+		"prefix": "SPINE_CLEAR",
+		"body": "SPINE_CLEAR()\n$1",
+		"description": "Spineの初期化\n\n",
+	},
+	"Spine再生遅延時にフラグをONにする\n@param flag ONにするフラグ番号\n\n":
+	{
+		"prefix": "SPINE_BIT_ON",
+		"body": "SPINE_BIT_ON(${1:flag})\n$2",
+		"description": "Spine再生遅延時にフラグをONにする\n@param flag ONにするフラグ番号\n\n",
+	},
+	"Spine再生遅延時にフラグをOFFにする\n@param flag OFFにするフラグ番号\n\n":
+	{
+		"prefix": "SPINE_BIT_OFF",
+		"body": "SPINE_BIT_OFF(${1:flag})\n$2",
+		"description": "Spine再生遅延時にフラグをOFFにする\n@param flag OFFにするフラグ番号\n\n",
+	},
+	"アイテムの描画\n@param id アイテム番号\n\n":
+	{
+		"prefix": "DRI",
+		"body": "DRI(${1:id}, ${2:effectId=3})\n$3",
+		"description": "アイテムの描画\n@param id アイテム番号\n\n",
+	},
+	"アイテムの消去\n\n":
+	{
+		"prefix": "ERI",
+		"body": "ERI(${1:effectId=3})\n$2",
+		"description": "アイテムの消去\n\n",
+	},
+	"シーケンサーを生成・再生する\n@param id シーケンサー名\n@param xpos 描画座標(X)\n@param ypos 描画座標(Y)\n\n":
+	{
+		"prefix": "SEQ_DRAW",
+		"body": "SEQ_DRAW(${1:\"id\"}, ${2:xpos=0}, ${3:ypos=0})\n$4",
+		"description": "シーケンサーを生成・再生する\n@param id シーケンサー名\n@param xpos 描画座標(X)\n@param ypos 描画座標(Y)\n\n",
+	},
+	"シーケンサーを消去する\n\n":
+	{
+		"prefix": "SEQ_ERASE",
+		"body": "SEQ_ERASE()\n$1",
+		"description": "シーケンサーを消去する\n\n",
+	},
+	"話者名の消去\n\n":
+	{
+		"prefix": "NAME_OFF",
+		"body": "NAME_OFF()\n$1",
+		"description": "話者名の消去\n\n",
+	},
+	"顔ウィンドウの消去\n\n":
+	{
+		"prefix": "FACE_OFF",
+		"body": "FACE_OFF()\n$1",
+		"description": "顔ウィンドウの消去\n\n",
+	},
+	"会話ウィンドウの設定をまとめて消去\n\n":
+	{
+		"prefix": "CLS",
+		"body": "CLS()\n$1",
+		"description": "会話ウィンドウの設定をまとめて消去\n\n",
+	},
+	"BGMの再生\n@param id BGMリソース名\n@param frame フェードインフレーム数\n@param isLoop ループするかどうか\n\n":
+	{
+		"prefix": "BGM",
+		"body": "BGM(${1:\"id\"}, ${2:frame=0}, ${3:isLoop=1})\n$4",
+		"description": "BGMの再生\n@param id BGMリソース名\n@param frame フェードインフレーム数\n@param isLoop ループするかどうか\n\n",
+	},
+	"BGMの停止\n@param frame フェードアウトフレーム数\n\n":
+	{
+		"prefix": "BGM_OFF",
+		"body": "BGM_OFF(${1:frame=60})\n$2",
+		"description": "BGMの停止\n@param frame フェードアウトフレーム数\n\n",
+	},
+	"BGMの音量変更\n@param vol 音量\n@param frame 音量変更のフレーム数\n\n":
+	{
+		"prefix": "BGM_VOL",
+		"body": "BGM_VOL(${1:vol=1}, ${2:frame=0})\n$3",
+		"description": "BGMの音量変更\n@param vol 音量\n@param frame 音量変更のフレーム数\n\n",
+	},
+	"SEの再生\n@param id SEリソース名\n\n":
+	{
+		"prefix": "SE",
+		"body": "SE(${1:\"id\"})\n$2",
+		"description": "SEの再生\n@param id SEリソース名\n\n",
+	},
+	"SEの再生（ピッチ指定）\n@param id SEリソース名\n@param pitch ピッチ（標準は1.0）\n\n":
+	{
+		"prefix": "SE_PITCH",
+		"body": "SE_PITCH(${1:\"id\"}, ${2:pitch=1})\n$3",
+		"description": "SEの再生（ピッチ指定）\n@param id SEリソース名\n@param pitch ピッチ（標準は1.0）\n\n",
+	},
+	"ボイスの再生\n@param id ボイスリソース名\n\n":
+	{
+		"prefix": "VOICE",
+		"body": "VOICE(${1:\"id\"})\n$2",
+		"description": "ボイスの再生\n@param id ボイスリソース名\n\n",
+	},
+	"ボイスの停止\n\n":
+	{
+		"prefix": "VOICE_STOP",
+		"body": "VOICE_STOP()\n$1",
+		"description": "ボイスの停止\n\n",
+	},
+	"フェードイン\n@param color 色(BGR)\n@param frame フレーム数\n\n":
+	{
+		"prefix": "FADE_IN",
+		"body": "FADE_IN(${1:color}, ${2:frame})\n$3",
+		"description": "フェードイン\n@param color 色(BGR)\n@param frame フレーム数\n\n",
+	},
+	"フェードアウト\n@param color 色(BGR)\n@param frame フレーム数\n\n":
+	{
+		"prefix": "FADE_OUT",
+		"body": "FADE_OUT(${1:color}, ${2:frame})\n$3",
+		"description": "フェードアウト\n@param color 色(BGR)\n@param frame フレーム数\n\n",
+	},
+	"フェード完了まで待つ\n\n":
+	{
+		"prefix": "FADE_WAIT",
+		"body": "FADE_WAIT()\n$1",
+		"description": "フェード完了まで待つ\n\n",
+	},
+	"画面を揺らす\n@param intensity=0.02 揺れ幅\n@param frame=30 フレーム数\n\n":
+	{
+		"prefix": "SHAKE",
+		"body": "SHAKE(${1:intensity=0.002}, ${2:frame=30})\n$3",
+		"description": "画面を揺らす\n@param intensity=0.02 揺れ幅\n@param frame=30 フレーム数\n\n",
+	},
+	"画面をフラッシュする\n@param color 色(BGR)\n@param frame フレーム数\n\n":
+	{
+		"prefix": "FLASH",
+		"body": "FLASH(${1:color}, ${2:frame})\n$3",
+		"description": "画面をフラッシュする\n@param color 色(BGR)\n@param frame フレーム数\n\n",
+	},
+	"別スクリプトにジャンプする\n@param advId スクリプト番号\n@param jumpId=1 関数番号\n\n":
+	{
+		"prefix": "JUMP",
+		"body": "JUMP(${1:advId}, ${2:jumpId=1})\n$3",
+		"description": "別スクリプトにジャンプする\n@param advId スクリプト番号\n@param jumpId=1 関数番号\n\n",
+	},
+	"別のシーンへジャンプする\n@param sceneId シーンID\n\n":
+	{
+		"prefix": "JUMP_SCENE",
+		"body": "JUMP_SCENE(${1:sceneId})\n$2",
+		"description": "別のシーンへジャンプする\n@param sceneId シーンID\n\n",
+	},
+	"名前入力\n@param caption キャプション文字列\n@param init 初期文字\n\n":
+	{
+		"prefix": "NAME_INPUT",
+		"body": "NAME_INPUT(${1:caption}, ${2:init=\"\"})\n$3",
+		"description": "名前入力\n@param caption キャプション文字列\n@param init 初期文字\n\n",
+	},
+	"アイテムを取得する\n@param itemId アイテムID\n\n":
+	{
+		"prefix": "ITEM_ADD",
+		"body": "ITEM_ADD(${1:itemId})\n$2",
+		"description": "アイテムを取得する\n@param itemId アイテムID\n\n",
+	},
+	"アイテムを取得する（メッセージとサウンドなし）\n@param itemId アイテムID\n\n":
+	{
+		"prefix": "ITEM_ADD2",
+		"body": "ITEM_ADD2(${1:itemId})\n$2",
+		"description": "アイテムを取得する（メッセージとサウンドなし）\n@param itemId アイテムID\n\n",
+	},
+	"アイテムを所持ているかどうか\n@param itemId アイテムID\n\n":
+	{
+		"prefix": "ITEM_HAS",
+		"body": "ITEM_HAS(${1:itemId})\n$2",
+		"description": "アイテムを所持ているかどうか\n@param itemId アイテムID\n\n",
+	},
+	"アイテムを削除する\n@param itemId アイテムID\n\n":
+	{
+		"prefix": "ITEM_DEL",
+		"body": "ITEM_DEL(${1:itemId})\n$2",
+		"description": "アイテムを削除する\n@param itemId アイテムID\n\n",
+	},
+	"所持アイテムをすべて削除する\n\n":
+	{
+		"prefix": "ITEM_DEL_ALL",
+		"body": "ITEM_DEL_ALL()\n$1",
+		"description": "所持アイテムをすべて削除する\n\n",
+	},
+	"アイテムを装備しているかどうか\n@param itemId アイテムID\n\n":
+	{
+		"prefix": "ITEM_CHK",
+		"body": "ITEM_CHK(${1:itemId})\n$2",
+		"description": "アイテムを装備しているかどうか\n@param itemId アイテムID\n\n",
+	},
+	"装備しているアイテムを外す\n\n":
+	{
+		"prefix": "ITEM_UNEQUIP",
+		"body": "ITEM_UNEQUIP()\n$1",
+		"description": "装備しているアイテムを外す\n\n",
+	},
+	"アイテム合成チェック\n@param itemId1 アイテム1\n@param itemId2 アイテム2\n\n":
+	{
+		"prefix": "CRAFT_CHK",
+		"body": "CRAFT_CHK(${1:itemId1}, ${2:itemId2})\n$3",
+		"description": "アイテム合成チェック\n@param itemId1 アイテム1\n@param itemId2 アイテム2\n\n",
+	},
+	"アイテムの詳細説明を表示する\n@param itemId アイテムID\n\n":
+	{
+		"prefix": "ITEM_DETAIL",
+		"body": "ITEM_DETAIL(${1:itemId})\n$2",
+		"description": "アイテムの詳細説明を表示する\n@param itemId アイテムID\n\n",
+	},
+	"数値入力\n@param answer 正解の番号\n@param idx 結果を保存する変数番号\n@param digit 桁数\n@param auto_check 自動チェック\n\n":
+	{
+		"prefix": "NUM_INPUT",
+		"body": "NUM_INPUT(${1:answer}, ${2:idx}, ${3:digit}, ${4:autoCheck=0})\n$5",
+		"description": "数値入力\n@param answer 正解の番号\n@param idx 結果を保存する変数番号\n@param digit 桁数\n@param auto_check 自動チェック\n\n",
+	},
+	"画像選択入力\n@param picID 画像番号\n@param idx 結果を保存する変数番号\n@param digit 答えの桁数\n\n":
+	{
+		"prefix": "PIC_INPUT",
+		"body": "PIC_INPUT(${1:picId}, ${2:idx}, ${3:digit})\n$4",
+		"description": "画像選択入力\n@param picID 画像番号\n@param idx 結果を保存する変数番号\n@param digit 答えの桁数\n\n",
+	},
+	"KANA_INPUT":
+	{
+		"prefix": "KANA_INPUT",
+		"body": "KANA_INPUT(${1:kanaId})\n$2",
+		"description": "",
+	},
+	"パネル入力\n@param panelID パネル番号\n\n":
+	{
+		"prefix": "PANEL_INPUT",
+		"body": "PANEL_INPUT(${1:panelId})\n$2",
+		"description": "パネル入力\n@param panelID パネル番号\n\n",
+	},
+	"調査演出\n@param type 演出種別\n\n":
+	{
+		"prefix": "ESCAPE_EFFECT",
+		"body": "ESCAPE_EFFECT(${1:type})\n$2",
+		"description": "調査演出\n@param type 演出種別\n\n",
+	},
+	"システムフラグを立てる\n@param flagId フラグ番号\n\n":
+	{
+		"prefix": "SYSBIT_ON",
+		"body": "SYSBIT_ON(${1:flagId})\n$2",
+		"description": "システムフラグを立てる\n@param flagId フラグ番号\n\n",
+	},
+	"システムフラグを下げる\n@param flagId フラグ番号\n\n":
+	{
+		"prefix": "SYSBIT_OFF",
+		"body": "SYSBIT_OFF(${1:flagId})\n$2",
+		"description": "システムフラグを下げる\n@param flagId フラグ番号\n\n",
+	},
+	"システムフラグをチェックする\n@param flagId フラグ番号\n\n":
+	{
+		"prefix": "SYSBIT_CHK",
+		"body": "SYSBIT_CHK(${1:flagId})\n$2",
+		"description": "システムフラグをチェックする\n@param flagId フラグ番号\n\n",
+	},
+	"フラグを立てる\n@param flagId フラグ番号\n\n":
+	{
+		"prefix": "BIT_ON",
+		"body": "BIT_ON(${1:flagId})\n$2",
+		"description": "フラグを立てる\n@param flagId フラグ番号\n\n",
+	},
+	"フラグを下げる\n@param flagId フラグ番号\n\n":
+	{
+		"prefix": "BIT_OFF",
+		"body": "BIT_OFF(${1:flagId})\n$2",
+		"description": "フラグを下げる\n@param flagId フラグ番号\n\n",
+	},
+	"フラグをチェックする\n@param flagId フラグ番号\n\n":
+	{
+		"prefix": "BIT_CHK",
+		"body": "BIT_CHK(${1:flagId})\n$2",
+		"description": "フラグをチェックする\n@param flagId フラグ番号\n\n",
+	},
+	"フラグの立っている数をカウントする\n@param start 開始フラグ番号\n@param end  終端フラグ番号 (終端を含む)\n\n":
+	{
+		"prefix": "BIT_SUM",
+		"body": "BIT_SUM(${1:start}, ${2:end})\n$3",
+		"description": "フラグの立っている数をカウントする\n@param start 開始フラグ番号\n@param end  終端フラグ番号 (終端を含む)\n\n",
+	},
+	"変数の値を取得する\n@param varId 変数番号\n\n":
+	{
+		"prefix": "VAR_GET",
+		"body": "VAR_GET(${1:varId})\n$2",
+		"description": "変数の値を取得する\n@param varId 変数番号\n\n",
+	},
+	"変数の値を設定する\n@param varId 変数番号\n@param val   設定する値\n\n":
+	{
+		"prefix": "VAR_SET",
+		"body": "VAR_SET(${1:varId}, ${2:val})\n$3",
+		"description": "変数の値を設定する\n@param varId 変数番号\n@param val   設定する値\n\n",
+	},
+	"オートセーブを行う\n\n":
+	{
+		"prefix": "AUTO_SAVE",
+		"body": "AUTO_SAVE()\n$1",
+		"description": "オートセーブを行う\n\n",
+	},
+	"指定のルームに移動する\n\n":
+	{
+		"prefix": "GOTO_ROOM",
+		"body": "GOTO_ROOM(${1:room=\"room_title\"})\n$2",
+		"description": "指定のルームに移動する\n\n",
+	},
+	"広告を開始する\n\n":
+	{
+		"prefix": "ADS_START",
+		"body": "ADS_START()\n$1",
+		"description": "広告を開始する\n\n",
+	},
+	"LIGHT_RESET":
+	{
+		"prefix": "LIGHT_RESET",
+		"body": "LIGHT_RESET()\n$1",
+		"description": "",
+	},
+	"パズルを開始する\n@param puzzleId パズル番号\n\n":
+	{
+		"prefix": "PUZZLE",
+		"body": "PUZZLE(${1:puzzleId})\n$2",
+		"description": "パズルを開始する\n@param puzzleId パズル番号\n\n",
+	},
+}

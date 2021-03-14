@@ -12,10 +12,16 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Adv",
 "language": "GDScript",
-"path": "res://src/common/adv/AdvUtil.gd"
+"path": "res://src/common/adv/Adv.gd"
+}, {
+"base": "Node",
+"class": "AdvConst",
+"language": "GDScript",
+"path": "res://src/common/adv/AdvConst.gd"
 } ]
 _global_script_class_icons={
-"Adv": ""
+"Adv": "",
+"AdvConst": ""
 }
 
 [application]

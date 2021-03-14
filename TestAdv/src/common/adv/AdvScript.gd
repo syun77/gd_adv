@@ -72,11 +72,11 @@ func update() -> void:
 	while is_end() == false:
 		var ret := _loop()
 		match ret:
-			Adv.eRet.CONTINUE: # 続行
+			AdvConst.eRet.CONTINUE: # 続行
 				pass
-			Adv.eRet.YIELD:    # いったん抜ける
+			AdvConst.eRet.YIELD:    # いったん抜ける
 				break
-			Adv.eRet.EXIT:     # 強制終了
+			AdvConst.eRet.EXIT:     # 強制終了
 				_is_end = true
 				break
 			_:
@@ -91,7 +91,7 @@ func _loop() -> int:
 		if _pc >= _max_pc:
 			# TODO: ジャンプ先がある場合は読み込みし直す
 			# スクリプト終了
-			return Adv.eRet.EXIT
+			return AdvConst.eRet.EXIT
 		
 		# スクリプトデータ取得
 		var line = _script_data[_pc]
@@ -116,10 +116,10 @@ func _loop() -> int:
 		
 		# コマンド解析
 		var ret = _parse_command(cmd, args)
-		if ret != Adv.eRet.CONTINUE:
+		if ret != AdvConst.eRet.CONTINUE:
 			return ret
 		
-	return Adv.eRet.CONTINUE
+	return AdvConst.eRet.CONTINUE
 
 func _push_stack(v) -> void:
 	_int_stack.push_back(v)
@@ -144,7 +144,7 @@ func _parse_command(cmd:String, args:PoolStringArray) -> int:
 			return _parent.call(method, args)
 		else:
 			OS.alert("Error: 未実装のコマンド %s"%cmd)
-	return Adv.eRet.CONTINUE
+	return AdvConst.eRet.CONTINUE
 
 func _BOOL(args) -> void:
 	var p0 = int(args[0]) != 0

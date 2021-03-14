@@ -1,0 +1,2769 @@
+{
+	"色定数 (白)":
+	{
+		"prefix": "WHITE",
+		"body": "WHITE",
+		"description": "色定数 (白)",
+	},
+	"色定数 (黒)":
+	{
+		"prefix": "BLACK",
+		"body": "BLACK",
+		"description": "色定数 (黒)",
+	},
+	"色定数 (赤)":
+	{
+		"prefix": "RED",
+		"body": "RED",
+		"description": "色定数 (赤)",
+	},
+	"エフェクト (なし)":
+	{
+		"prefix": "EF_NONE",
+		"body": "EF_NONE",
+		"description": "エフェクト (なし)",
+	},
+	"エフェクト (スライド)":
+	{
+		"prefix": "EF_SLIDE",
+		"body": "EF_SLIDE",
+		"description": "エフェクト (スライド)",
+	},
+	"エフェクト (アルファ)":
+	{
+		"prefix": "EF_ALPHA",
+		"body": "EF_ALPHA",
+		"description": "エフェクト (アルファ)",
+	},
+	"エフェクト (ポップアップ)":
+	{
+		"prefix": "EF_POPUP",
+		"body": "EF_POPUP",
+		"description": "エフェクト (ポップアップ)",
+	},
+	"会話テキストモード (会話)":
+	{
+		"prefix": "MSG_TALK",
+		"body": "MSG_TALK",
+		"description": "会話テキストモード (会話)",
+	},
+	"会話テキストモード (吹き出し)":
+	{
+		"prefix": "MSG_FUKIDASHI",
+		"body": "MSG_FUKIDASHI",
+		"description": "会話テキストモード (吹き出し)",
+	},
+	"会話テキストモード (全画面)":
+	{
+		"prefix": "MSG_NOVEL",
+		"body": "MSG_NOVEL",
+		"description": "会話テキストモード (全画面)",
+	},
+	"スマートフォン進捗・何もしない":
+	{
+		"prefix": "SP_PRG_NONE",
+		"body": "SP_PRG_NONE",
+		"description": "スマートフォン進捗・何もしない",
+	},
+	"スマートフォン進捗・タクシーに電話をかける":
+	{
+		"prefix": "SP_PRG_CALL_TAXI",
+		"body": "SP_PRG_CALL_TAXI",
+		"description": "スマートフォン進捗・タクシーに電話をかける",
+	},
+	"スマートフォン進捗・ライトを付ける":
+	{
+		"prefix": "SP_PRG_LIGHT",
+		"body": "SP_PRG_LIGHT",
+		"description": "スマートフォン進捗・ライトを付ける",
+	},
+	"C_WHITE":
+	{
+		"prefix": "C_WHITE",
+		"body": "C_WHITE",
+		"description": "",
+	},
+	"C_RED":
+	{
+		"prefix": "C_RED",
+		"body": "C_RED",
+		"description": "",
+	},
+	"C_GREEN":
+	{
+		"prefix": "C_GREEN",
+		"body": "C_GREEN",
+		"description": "",
+	},
+	"C_BLUE":
+	{
+		"prefix": "C_BLUE",
+		"body": "C_BLUE",
+		"description": "",
+	},
+	"eSys.SYSBIT_000":
+	{
+		"prefix": "eSys.SYSBIT_000",
+		"body": "eSys.SYSBIT_000",
+		"description": "",
+	},
+	"最初の部屋をクリア":
+	{
+		"prefix": "eSys.COMPLETED_CH1",
+		"body": "eSys.COMPLETED_CH1",
+		"description": "最初の部屋をクリア",
+	},
+	"2つめの部屋をクリア":
+	{
+		"prefix": "eSys.COMPLETED_CH2",
+		"body": "eSys.COMPLETED_CH2",
+		"description": "2つめの部屋をクリア",
+	},
+	"3つめの部屋をクリア":
+	{
+		"prefix": "eSys.COMPLETED_CH3",
+		"body": "eSys.COMPLETED_CH3",
+		"description": "3つめの部屋をクリア",
+	},
+	"4つめの部屋をクリア":
+	{
+		"prefix": "eSys.COMPLETED_CH4",
+		"body": "eSys.COMPLETED_CH4",
+		"description": "4つめの部屋をクリア",
+	},
+	"5つめの部屋をクリア":
+	{
+		"prefix": "eSys.COMPLETED_CH5",
+		"body": "eSys.COMPLETED_CH5",
+		"description": "5つめの部屋をクリア",
+	},
+	"最後の部屋をクリア":
+	{
+		"prefix": "eSys.COMPLETED_LAST",
+		"body": "eSys.COMPLETED_LAST",
+		"description": "最後の部屋をクリア",
+	},
+	"追加シナリオ解放":
+	{
+		"prefix": "eSys.EXTRA_START",
+		"body": "eSys.EXTRA_START",
+		"description": "追加シナリオ解放",
+	},
+	"追加シナリオ問題編開始":
+	{
+		"prefix": "eSys.EXTRA_QUESTION",
+		"body": "eSys.EXTRA_QUESTION",
+		"description": "追加シナリオ問題編開始",
+	},
+	"eSys.SYSBIT_009":
+	{
+		"prefix": "eSys.SYSBIT_009",
+		"body": "eSys.SYSBIT_009",
+		"description": "",
+	},
+	"eSys.SYSBIT_010":
+	{
+		"prefix": "eSys.SYSBIT_010",
+		"body": "eSys.SYSBIT_010",
+		"description": "",
+	},
+	"eSys.SYSBIT_011":
+	{
+		"prefix": "eSys.SYSBIT_011",
+		"body": "eSys.SYSBIT_011",
+		"description": "",
+	},
+	"デバッグモード有効フラグ":
+	{
+		"prefix": "DEBUG_MODE",
+		"body": "DEBUG_MODE",
+		"description": "デバッグモード有効フラグ",
+	},
+	"BGMの再生を無効にする":
+	{
+		"prefix": "BGM_OFF",
+		"body": "BGM_OFF",
+		"description": "BGMの再生を無効にする",
+	},
+	"体験版フラグ":
+	{
+		"prefix": "TRIAL",
+		"body": "TRIAL",
+		"description": "体験版フラグ",
+	},
+	"FLG_003":
+	{
+		"prefix": "FLG_003",
+		"body": "FLG_003",
+		"description": "",
+	},
+	"FLG_004":
+	{
+		"prefix": "FLG_004",
+		"body": "FLG_004",
+		"description": "",
+	},
+	"FLG_005":
+	{
+		"prefix": "FLG_005",
+		"body": "FLG_005",
+		"description": "",
+	},
+	"FLG_006":
+	{
+		"prefix": "FLG_006",
+		"body": "FLG_006",
+		"description": "",
+	},
+	"FLG_007":
+	{
+		"prefix": "FLG_007",
+		"body": "FLG_007",
+		"description": "",
+	},
+	"場所表示無効フラグ":
+	{
+		"prefix": "PLACE_DISABLE",
+		"body": "PLACE_DISABLE",
+		"description": "場所表示無効フラグ",
+	},
+	"ライト点灯フラグ(イベント背景)":
+	{
+		"prefix": "LIGHT_ON",
+		"body": "LIGHT_ON",
+		"description": "ライト点灯フラグ(イベント背景)",
+	},
+	"ライト点灯フラグ(探索)":
+	{
+		"prefix": "LIGHT_ON_ESC",
+		"body": "LIGHT_ON_ESC",
+		"description": "ライト点灯フラグ(探索)",
+	},
+	"スマートフォン入手フラグ":
+	{
+		"prefix": "GAIN_SMART_PHONE",
+		"body": "GAIN_SMART_PHONE",
+		"description": "スマートフォン入手フラグ",
+	},
+	"黒板消し入手フラグ":
+	{
+		"prefix": "GAIN_BLACK_BOARD_ERASER",
+		"body": "GAIN_BLACK_BOARD_ERASER",
+		"description": "黒板消し入手フラグ",
+	},
+	"「美・応・有」と書かれていたメモの入手フラグ":
+	{
+		"prefix": "GAIN_BOU_MEMO",
+		"body": "GAIN_BOU_MEMO",
+		"description": "「美・応・有」と書かれていたメモの入手フラグ",
+	},
+	"タクシーに電話しようとした":
+	{
+		"prefix": "S102_CALL_TAXI",
+		"body": "S102_CALL_TAXI",
+		"description": "タクシーに電話しようとした",
+	},
+	"窓を調べた":
+	{
+		"prefix": "S107_CHECK_WINDOW",
+		"body": "S107_CHECK_WINDOW",
+		"description": "窓を調べた",
+	},
+	"時間割表の謎を解いた":
+	{
+		"prefix": "S109_COMPLETED",
+		"body": "S109_COMPLETED",
+		"description": "時間割表の謎を解いた",
+	},
+	"FLG_017":
+	{
+		"prefix": "FLG_017",
+		"body": "FLG_017",
+		"description": "",
+	},
+	"FLG_018":
+	{
+		"prefix": "FLG_018",
+		"body": "FLG_018",
+		"description": "",
+	},
+	"FLG_019":
+	{
+		"prefix": "FLG_019",
+		"body": "FLG_019",
+		"description": "",
+	},
+	"お母さんの写真入手フラグ":
+	{
+		"prefix": "GAIN_PASS_HOLDER",
+		"body": "GAIN_PASS_HOLDER",
+		"description": "お母さんの写真入手フラグ",
+	},
+	"花の開花時期のメモ入手フラグ":
+	{
+		"prefix": "GAIN_BOOKLET",
+		"body": "GAIN_BOOKLET",
+		"description": "花の開花時期のメモ入手フラグ",
+	},
+	"花を植えるメモ入手フラグ":
+	{
+		"prefix": "GAIN_FLOWER_MEMO",
+		"body": "GAIN_FLOWER_MEMO",
+		"description": "花を植えるメモ入手フラグ",
+	},
+	"FLG_023":
+	{
+		"prefix": "FLG_023",
+		"body": "FLG_023",
+		"description": "",
+	},
+	"FLG_024":
+	{
+		"prefix": "FLG_024",
+		"body": "FLG_024",
+		"description": "",
+	},
+	"出口の暗号を解いた":
+	{
+		"prefix": "S205_COMPLETED",
+		"body": "S205_COMPLETED",
+		"description": "出口の暗号を解いた",
+	},
+	"ロッカーのカギを解除":
+	{
+		"prefix": "S207_LOCKER_UNLOCK",
+		"body": "S207_LOCKER_UNLOCK",
+		"description": "ロッカーのカギを解除",
+	},
+	"ロッカー開いた":
+	{
+		"prefix": "S207_LOCKER_OPEN",
+		"body": "S207_LOCKER_OPEN",
+		"description": "ロッカー開いた",
+	},
+	"窓の暗号を解いた":
+	{
+		"prefix": "S206_UNLOCK",
+		"body": "S206_UNLOCK",
+		"description": "窓の暗号を解いた",
+	},
+	"宝箱の暗号を解いた":
+	{
+		"prefix": "S209_UNLOCK",
+		"body": "S209_UNLOCK",
+		"description": "宝箱の暗号を解いた",
+	},
+	"宝箱を調べた":
+	{
+		"prefix": "S209_COMPLETED",
+		"body": "S209_COMPLETED",
+		"description": "宝箱を調べた",
+	},
+	"赤の絵の具を入手":
+	{
+		"prefix": "GAIN_COLOR_RED",
+		"body": "GAIN_COLOR_RED",
+		"description": "赤の絵の具を入手",
+	},
+	"橙の絵の具を入手":
+	{
+		"prefix": "GAIN_COLOR_ORANGE",
+		"body": "GAIN_COLOR_ORANGE",
+		"description": "橙の絵の具を入手",
+	},
+	"黄色の絵の具を入手":
+	{
+		"prefix": "GAIN_COLOR_YELLOW",
+		"body": "GAIN_COLOR_YELLOW",
+		"description": "黄色の絵の具を入手",
+	},
+	"緑の絵の具を入手":
+	{
+		"prefix": "GAIN_COLOR_GREEN",
+		"body": "GAIN_COLOR_GREEN",
+		"description": "緑の絵の具を入手",
+	},
+	"青い絵の具を入手":
+	{
+		"prefix": "GAIN_COLOR_BLUE",
+		"body": "GAIN_COLOR_BLUE",
+		"description": "青い絵の具を入手",
+	},
+	"藍色の絵の具を入手":
+	{
+		"prefix": "GAIN_COLOR_INDIGO",
+		"body": "GAIN_COLOR_INDIGO",
+		"description": "藍色の絵の具を入手",
+	},
+	"紫の絵の具を入手":
+	{
+		"prefix": "GAIN_COLOR_PURPLE",
+		"body": "GAIN_COLOR_PURPLE",
+		"description": "紫の絵の具を入手",
+	},
+	"赤い絵の具を調べた":
+	{
+		"prefix": "CHECK_COLOR_RED",
+		"body": "CHECK_COLOR_RED",
+		"description": "赤い絵の具を調べた",
+	},
+	"橙の絵の具を調べた":
+	{
+		"prefix": "CHECK_COLOR_ORANGE",
+		"body": "CHECK_COLOR_ORANGE",
+		"description": "橙の絵の具を調べた",
+	},
+	"黄色の絵の具を調べた":
+	{
+		"prefix": "CHECK_COLOR_YELLOW",
+		"body": "CHECK_COLOR_YELLOW",
+		"description": "黄色の絵の具を調べた",
+	},
+	"緑の絵の具を調べた":
+	{
+		"prefix": "CHECK_COLOR_GREEN",
+		"body": "CHECK_COLOR_GREEN",
+		"description": "緑の絵の具を調べた",
+	},
+	"青い絵の具を調べた":
+	{
+		"prefix": "CHECK_COLOR_BLUE",
+		"body": "CHECK_COLOR_BLUE",
+		"description": "青い絵の具を調べた",
+	},
+	"藍色の絵の具を調べた":
+	{
+		"prefix": "CHECK_COLOR_INDIGO",
+		"body": "CHECK_COLOR_INDIGO",
+		"description": "藍色の絵の具を調べた",
+	},
+	"紫の絵の具を調べた":
+	{
+		"prefix": "CHECK_COLOR_PURPLE",
+		"body": "CHECK_COLOR_PURPLE",
+		"description": "紫の絵の具を調べた",
+	},
+	"FLG_045":
+	{
+		"prefix": "FLG_045",
+		"body": "FLG_045",
+		"description": "",
+	},
+	"FLG_046":
+	{
+		"prefix": "FLG_046",
+		"body": "FLG_046",
+		"description": "",
+	},
+	"FLG_047":
+	{
+		"prefix": "FLG_047",
+		"body": "FLG_047",
+		"description": "",
+	},
+	"FLG_048":
+	{
+		"prefix": "FLG_048",
+		"body": "FLG_048",
+		"description": "",
+	},
+	"FLG_049":
+	{
+		"prefix": "FLG_049",
+		"body": "FLG_049",
+		"description": "",
+	},
+	"色セロハンを入手":
+	{
+		"prefix": "GAIN_CELLOPHANE",
+		"body": "GAIN_CELLOPHANE",
+		"description": "色セロハンを入手",
+	},
+	"スマホに色セロハンをかぶせた":
+	{
+		"prefix": "GAIN_PHONE_CELLOPHANE",
+		"body": "GAIN_PHONE_CELLOPHANE",
+		"description": "スマホに色セロハンをかぶせた",
+	},
+	"スマホに色セロハンをかぶせたのが有効かどうか":
+	{
+		"prefix": "PHONE_CELLOPHANE_ENABLE",
+		"body": "PHONE_CELLOPHANE_ENABLE",
+		"description": "スマホに色セロハンをかぶせたのが有効かどうか",
+	},
+	"赤いドクロを入手":
+	{
+		"prefix": "GAIN_SKULL_RED",
+		"body": "GAIN_SKULL_RED",
+		"description": "赤いドクロを入手",
+	},
+	"緑のドクロを入手":
+	{
+		"prefix": "GAIN_SKULL_GREEN",
+		"body": "GAIN_SKULL_GREEN",
+		"description": "緑のドクロを入手",
+	},
+	"紺のドクロを入手":
+	{
+		"prefix": "GAIN_SKULL_NAVY",
+		"body": "GAIN_SKULL_NAVY",
+		"description": "紺のドクロを入手",
+	},
+	"青色のメモを入手":
+	{
+		"prefix": "GAIN_BLUE_MEMO",
+		"body": "GAIN_BLUE_MEMO",
+		"description": "青色のメモを入手",
+	},
+	"青いライトが当たった状態でメモを読んだ":
+	{
+		"prefix": "BLUE_MEMO_READ",
+		"body": "BLUE_MEMO_READ",
+		"description": "青いライトが当たった状態でメモを読んだ",
+	},
+	"FLG_058":
+	{
+		"prefix": "FLG_058",
+		"body": "FLG_058",
+		"description": "",
+	},
+	"FLG_059":
+	{
+		"prefix": "FLG_059",
+		"body": "FLG_059",
+		"description": "",
+	},
+	"金庫のカギを開けた":
+	{
+		"prefix": "SAFE_OPEN",
+		"body": "SAFE_OPEN",
+		"description": "金庫のカギを開けた",
+	},
+	"SAFE_DIAL_1_1":
+	{
+		"prefix": "SAFE_DIAL_1_1",
+		"body": "SAFE_DIAL_1_1",
+		"description": "",
+	},
+	"SAFE_DIAL_1_2":
+	{
+		"prefix": "SAFE_DIAL_1_2",
+		"body": "SAFE_DIAL_1_2",
+		"description": "",
+	},
+	"SAFE_DIAL_1_3":
+	{
+		"prefix": "SAFE_DIAL_1_3",
+		"body": "SAFE_DIAL_1_3",
+		"description": "",
+	},
+	"SAFE_DIAL_1_4":
+	{
+		"prefix": "SAFE_DIAL_1_4",
+		"body": "SAFE_DIAL_1_4",
+		"description": "",
+	},
+	"SAFE_DIAL_1_5":
+	{
+		"prefix": "SAFE_DIAL_1_5",
+		"body": "SAFE_DIAL_1_5",
+		"description": "",
+	},
+	"SAFE_DIAL_1_6":
+	{
+		"prefix": "SAFE_DIAL_1_6",
+		"body": "SAFE_DIAL_1_6",
+		"description": "",
+	},
+	"SAFE_DIAL_1_7":
+	{
+		"prefix": "SAFE_DIAL_1_7",
+		"body": "SAFE_DIAL_1_7",
+		"description": "",
+	},
+	"SAFE_DIAL_1_8":
+	{
+		"prefix": "SAFE_DIAL_1_8",
+		"body": "SAFE_DIAL_1_8",
+		"description": "",
+	},
+	"SAFE_DIAL_2_1":
+	{
+		"prefix": "SAFE_DIAL_2_1",
+		"body": "SAFE_DIAL_2_1",
+		"description": "",
+	},
+	"SAFE_DIAL_2_2":
+	{
+		"prefix": "SAFE_DIAL_2_2",
+		"body": "SAFE_DIAL_2_2",
+		"description": "",
+	},
+	"SAFE_DIAL_2_3":
+	{
+		"prefix": "SAFE_DIAL_2_3",
+		"body": "SAFE_DIAL_2_3",
+		"description": "",
+	},
+	"SAFE_DIAL_2_4":
+	{
+		"prefix": "SAFE_DIAL_2_4",
+		"body": "SAFE_DIAL_2_4",
+		"description": "",
+	},
+	"SAFE_DIAL_2_5":
+	{
+		"prefix": "SAFE_DIAL_2_5",
+		"body": "SAFE_DIAL_2_5",
+		"description": "",
+	},
+	"SAFE_DIAL_2_6":
+	{
+		"prefix": "SAFE_DIAL_2_6",
+		"body": "SAFE_DIAL_2_6",
+		"description": "",
+	},
+	"SAFE_DIAL_2_7":
+	{
+		"prefix": "SAFE_DIAL_2_7",
+		"body": "SAFE_DIAL_2_7",
+		"description": "",
+	},
+	"SAFE_DIAL_2_8":
+	{
+		"prefix": "SAFE_DIAL_2_8",
+		"body": "SAFE_DIAL_2_8",
+		"description": "",
+	},
+	"SAFE_DIAL_3_1":
+	{
+		"prefix": "SAFE_DIAL_3_1",
+		"body": "SAFE_DIAL_3_1",
+		"description": "",
+	},
+	"SAFE_DIAL_3_2":
+	{
+		"prefix": "SAFE_DIAL_3_2",
+		"body": "SAFE_DIAL_3_2",
+		"description": "",
+	},
+	"SAFE_DIAL_3_3":
+	{
+		"prefix": "SAFE_DIAL_3_3",
+		"body": "SAFE_DIAL_3_3",
+		"description": "",
+	},
+	"SAFE_DIAL_3_4":
+	{
+		"prefix": "SAFE_DIAL_3_4",
+		"body": "SAFE_DIAL_3_4",
+		"description": "",
+	},
+	"SAFE_DIAL_3_5":
+	{
+		"prefix": "SAFE_DIAL_3_5",
+		"body": "SAFE_DIAL_3_5",
+		"description": "",
+	},
+	"SAFE_DIAL_3_6":
+	{
+		"prefix": "SAFE_DIAL_3_6",
+		"body": "SAFE_DIAL_3_6",
+		"description": "",
+	},
+	"SAFE_DIAL_3_7":
+	{
+		"prefix": "SAFE_DIAL_3_7",
+		"body": "SAFE_DIAL_3_7",
+		"description": "",
+	},
+	"SAFE_DIAL_3_8":
+	{
+		"prefix": "SAFE_DIAL_3_8",
+		"body": "SAFE_DIAL_3_8",
+		"description": "",
+	},
+	"FLG_085":
+	{
+		"prefix": "FLG_085",
+		"body": "FLG_085",
+		"description": "",
+	},
+	"FLG_086":
+	{
+		"prefix": "FLG_086",
+		"body": "FLG_086",
+		"description": "",
+	},
+	"FLG_087":
+	{
+		"prefix": "FLG_087",
+		"body": "FLG_087",
+		"description": "",
+	},
+	"FLG_088":
+	{
+		"prefix": "FLG_088",
+		"body": "FLG_088",
+		"description": "",
+	},
+	"FLG_089":
+	{
+		"prefix": "FLG_089",
+		"body": "FLG_089",
+		"description": "",
+	},
+	"「黒」と書かれたカギを入手":
+	{
+		"prefix": "GAIN_KEY_C",
+		"body": "GAIN_KEY_C",
+		"description": "「黒」と書かれたカギを入手",
+	},
+	"「スラー」と書かれたカギを入手":
+	{
+		"prefix": "GAIN_KEY_D",
+		"body": "GAIN_KEY_D",
+		"description": "「スラー」と書かれたカギを入手",
+	},
+	"「四季」と書かれたカギを入手":
+	{
+		"prefix": "GAIN_KEY_G",
+		"body": "GAIN_KEY_G",
+		"description": "「四季」と書かれたカギを入手",
+	},
+	"「おり」と書かれたカギを入手":
+	{
+		"prefix": "GAIN_KEY_B",
+		"body": "GAIN_KEY_B",
+		"description": "「おり」と書かれたカギを入手",
+	},
+	"音符が書かれたメモを入手":
+	{
+		"prefix": "GAIN_MUSIC_MEMO",
+		"body": "GAIN_MUSIC_MEMO",
+		"description": "音符が書かれたメモを入手",
+	},
+	"黒板を見た":
+	{
+		"prefix": "S411_SAW_BLACK_BOARD",
+		"body": "S411_SAW_BLACK_BOARD",
+		"description": "黒板を見た",
+	},
+	"ベートーヴェンの目が動くのを確認した":
+	{
+		"prefix": "S406_SAW_BEETHOVEN",
+		"body": "S406_SAW_BEETHOVEN",
+		"description": "ベートーヴェンの目が動くのを確認した",
+	},
+	"FLG_097":
+	{
+		"prefix": "FLG_097",
+		"body": "FLG_097",
+		"description": "",
+	},
+	"FLG_098":
+	{
+		"prefix": "FLG_098",
+		"body": "FLG_098",
+		"description": "",
+	},
+	"FLG_099":
+	{
+		"prefix": "FLG_099",
+		"body": "FLG_099",
+		"description": "",
+	},
+	"FLG_100":
+	{
+		"prefix": "FLG_100",
+		"body": "FLG_100",
+		"description": "",
+	},
+	"FLG_101":
+	{
+		"prefix": "FLG_101",
+		"body": "FLG_101",
+		"description": "",
+	},
+	"FLG_102":
+	{
+		"prefix": "FLG_102",
+		"body": "FLG_102",
+		"description": "",
+	},
+	"FLG_103":
+	{
+		"prefix": "FLG_103",
+		"body": "FLG_103",
+		"description": "",
+	},
+	"FLG_104":
+	{
+		"prefix": "FLG_104",
+		"body": "FLG_104",
+		"description": "",
+	},
+	"FLG_105":
+	{
+		"prefix": "FLG_105",
+		"body": "FLG_105",
+		"description": "",
+	},
+	"FLG_106":
+	{
+		"prefix": "FLG_106",
+		"body": "FLG_106",
+		"description": "",
+	},
+	"FLG_107":
+	{
+		"prefix": "FLG_107",
+		"body": "FLG_107",
+		"description": "",
+	},
+	"FLG_108":
+	{
+		"prefix": "FLG_108",
+		"body": "FLG_108",
+		"description": "",
+	},
+	"FLG_109":
+	{
+		"prefix": "FLG_109",
+		"body": "FLG_109",
+		"description": "",
+	},
+	"FLG_110":
+	{
+		"prefix": "FLG_110",
+		"body": "FLG_110",
+		"description": "",
+	},
+	"FLG_111":
+	{
+		"prefix": "FLG_111",
+		"body": "FLG_111",
+		"description": "",
+	},
+	"FLG_112":
+	{
+		"prefix": "FLG_112",
+		"body": "FLG_112",
+		"description": "",
+	},
+	"FLG_113":
+	{
+		"prefix": "FLG_113",
+		"body": "FLG_113",
+		"description": "",
+	},
+	"FLG_114":
+	{
+		"prefix": "FLG_114",
+		"body": "FLG_114",
+		"description": "",
+	},
+	"FLG_115":
+	{
+		"prefix": "FLG_115",
+		"body": "FLG_115",
+		"description": "",
+	},
+	"FLG_116":
+	{
+		"prefix": "FLG_116",
+		"body": "FLG_116",
+		"description": "",
+	},
+	"FLG_117":
+	{
+		"prefix": "FLG_117",
+		"body": "FLG_117",
+		"description": "",
+	},
+	"FLG_118":
+	{
+		"prefix": "FLG_118",
+		"body": "FLG_118",
+		"description": "",
+	},
+	"FLG_119":
+	{
+		"prefix": "FLG_119",
+		"body": "FLG_119",
+		"description": "",
+	},
+	"FLG_120":
+	{
+		"prefix": "FLG_120",
+		"body": "FLG_120",
+		"description": "",
+	},
+	"FLG_121":
+	{
+		"prefix": "FLG_121",
+		"body": "FLG_121",
+		"description": "",
+	},
+	"FLG_122":
+	{
+		"prefix": "FLG_122",
+		"body": "FLG_122",
+		"description": "",
+	},
+	"FLG_123":
+	{
+		"prefix": "FLG_123",
+		"body": "FLG_123",
+		"description": "",
+	},
+	"FLG_124":
+	{
+		"prefix": "FLG_124",
+		"body": "FLG_124",
+		"description": "",
+	},
+	"FLG_125":
+	{
+		"prefix": "FLG_125",
+		"body": "FLG_125",
+		"description": "",
+	},
+	"FLG_126":
+	{
+		"prefix": "FLG_126",
+		"body": "FLG_126",
+		"description": "",
+	},
+	"FLG_127":
+	{
+		"prefix": "FLG_127",
+		"body": "FLG_127",
+		"description": "",
+	},
+	"FLG_128":
+	{
+		"prefix": "FLG_128",
+		"body": "FLG_128",
+		"description": "",
+	},
+	"FLG_129":
+	{
+		"prefix": "FLG_129",
+		"body": "FLG_129",
+		"description": "",
+	},
+	"FLG_130":
+	{
+		"prefix": "FLG_130",
+		"body": "FLG_130",
+		"description": "",
+	},
+	"FLG_131":
+	{
+		"prefix": "FLG_131",
+		"body": "FLG_131",
+		"description": "",
+	},
+	"FLG_132":
+	{
+		"prefix": "FLG_132",
+		"body": "FLG_132",
+		"description": "",
+	},
+	"FLG_133":
+	{
+		"prefix": "FLG_133",
+		"body": "FLG_133",
+		"description": "",
+	},
+	"FLG_134":
+	{
+		"prefix": "FLG_134",
+		"body": "FLG_134",
+		"description": "",
+	},
+	"FLG_135":
+	{
+		"prefix": "FLG_135",
+		"body": "FLG_135",
+		"description": "",
+	},
+	"FLG_136":
+	{
+		"prefix": "FLG_136",
+		"body": "FLG_136",
+		"description": "",
+	},
+	"FLG_137":
+	{
+		"prefix": "FLG_137",
+		"body": "FLG_137",
+		"description": "",
+	},
+	"FLG_138":
+	{
+		"prefix": "FLG_138",
+		"body": "FLG_138",
+		"description": "",
+	},
+	"FLG_139":
+	{
+		"prefix": "FLG_139",
+		"body": "FLG_139",
+		"description": "",
+	},
+	"FLG_140":
+	{
+		"prefix": "FLG_140",
+		"body": "FLG_140",
+		"description": "",
+	},
+	"FLG_141":
+	{
+		"prefix": "FLG_141",
+		"body": "FLG_141",
+		"description": "",
+	},
+	"FLG_142":
+	{
+		"prefix": "FLG_142",
+		"body": "FLG_142",
+		"description": "",
+	},
+	"FLG_143":
+	{
+		"prefix": "FLG_143",
+		"body": "FLG_143",
+		"description": "",
+	},
+	"FLG_144":
+	{
+		"prefix": "FLG_144",
+		"body": "FLG_144",
+		"description": "",
+	},
+	"FLG_145":
+	{
+		"prefix": "FLG_145",
+		"body": "FLG_145",
+		"description": "",
+	},
+	"FLG_146":
+	{
+		"prefix": "FLG_146",
+		"body": "FLG_146",
+		"description": "",
+	},
+	"FLG_147":
+	{
+		"prefix": "FLG_147",
+		"body": "FLG_147",
+		"description": "",
+	},
+	"FLG_148":
+	{
+		"prefix": "FLG_148",
+		"body": "FLG_148",
+		"description": "",
+	},
+	"FLG_149":
+	{
+		"prefix": "FLG_149",
+		"body": "FLG_149",
+		"description": "",
+	},
+	"FLG_150":
+	{
+		"prefix": "FLG_150",
+		"body": "FLG_150",
+		"description": "",
+	},
+	"FLG_151":
+	{
+		"prefix": "FLG_151",
+		"body": "FLG_151",
+		"description": "",
+	},
+	"FLG_152":
+	{
+		"prefix": "FLG_152",
+		"body": "FLG_152",
+		"description": "",
+	},
+	"FLG_153":
+	{
+		"prefix": "FLG_153",
+		"body": "FLG_153",
+		"description": "",
+	},
+	"FLG_154":
+	{
+		"prefix": "FLG_154",
+		"body": "FLG_154",
+		"description": "",
+	},
+	"FLG_155":
+	{
+		"prefix": "FLG_155",
+		"body": "FLG_155",
+		"description": "",
+	},
+	"FLG_156":
+	{
+		"prefix": "FLG_156",
+		"body": "FLG_156",
+		"description": "",
+	},
+	"FLG_157":
+	{
+		"prefix": "FLG_157",
+		"body": "FLG_157",
+		"description": "",
+	},
+	"FLG_158":
+	{
+		"prefix": "FLG_158",
+		"body": "FLG_158",
+		"description": "",
+	},
+	"FLG_159":
+	{
+		"prefix": "FLG_159",
+		"body": "FLG_159",
+		"description": "",
+	},
+	"FLG_160":
+	{
+		"prefix": "FLG_160",
+		"body": "FLG_160",
+		"description": "",
+	},
+	"FLG_161":
+	{
+		"prefix": "FLG_161",
+		"body": "FLG_161",
+		"description": "",
+	},
+	"FLG_162":
+	{
+		"prefix": "FLG_162",
+		"body": "FLG_162",
+		"description": "",
+	},
+	"FLG_163":
+	{
+		"prefix": "FLG_163",
+		"body": "FLG_163",
+		"description": "",
+	},
+	"FLG_164":
+	{
+		"prefix": "FLG_164",
+		"body": "FLG_164",
+		"description": "",
+	},
+	"FLG_165":
+	{
+		"prefix": "FLG_165",
+		"body": "FLG_165",
+		"description": "",
+	},
+	"FLG_166":
+	{
+		"prefix": "FLG_166",
+		"body": "FLG_166",
+		"description": "",
+	},
+	"FLG_167":
+	{
+		"prefix": "FLG_167",
+		"body": "FLG_167",
+		"description": "",
+	},
+	"FLG_168":
+	{
+		"prefix": "FLG_168",
+		"body": "FLG_168",
+		"description": "",
+	},
+	"FLG_169":
+	{
+		"prefix": "FLG_169",
+		"body": "FLG_169",
+		"description": "",
+	},
+	"FLG_170":
+	{
+		"prefix": "FLG_170",
+		"body": "FLG_170",
+		"description": "",
+	},
+	"FLG_171":
+	{
+		"prefix": "FLG_171",
+		"body": "FLG_171",
+		"description": "",
+	},
+	"FLG_172":
+	{
+		"prefix": "FLG_172",
+		"body": "FLG_172",
+		"description": "",
+	},
+	"FLG_173":
+	{
+		"prefix": "FLG_173",
+		"body": "FLG_173",
+		"description": "",
+	},
+	"FLG_174":
+	{
+		"prefix": "FLG_174",
+		"body": "FLG_174",
+		"description": "",
+	},
+	"FLG_175":
+	{
+		"prefix": "FLG_175",
+		"body": "FLG_175",
+		"description": "",
+	},
+	"FLG_176":
+	{
+		"prefix": "FLG_176",
+		"body": "FLG_176",
+		"description": "",
+	},
+	"FLG_177":
+	{
+		"prefix": "FLG_177",
+		"body": "FLG_177",
+		"description": "",
+	},
+	"FLG_178":
+	{
+		"prefix": "FLG_178",
+		"body": "FLG_178",
+		"description": "",
+	},
+	"FLG_179":
+	{
+		"prefix": "FLG_179",
+		"body": "FLG_179",
+		"description": "",
+	},
+	"FLG_180":
+	{
+		"prefix": "FLG_180",
+		"body": "FLG_180",
+		"description": "",
+	},
+	"FLG_181":
+	{
+		"prefix": "FLG_181",
+		"body": "FLG_181",
+		"description": "",
+	},
+	"FLG_182":
+	{
+		"prefix": "FLG_182",
+		"body": "FLG_182",
+		"description": "",
+	},
+	"FLG_183":
+	{
+		"prefix": "FLG_183",
+		"body": "FLG_183",
+		"description": "",
+	},
+	"FLG_184":
+	{
+		"prefix": "FLG_184",
+		"body": "FLG_184",
+		"description": "",
+	},
+	"FLG_185":
+	{
+		"prefix": "FLG_185",
+		"body": "FLG_185",
+		"description": "",
+	},
+	"FLG_186":
+	{
+		"prefix": "FLG_186",
+		"body": "FLG_186",
+		"description": "",
+	},
+	"FLG_187":
+	{
+		"prefix": "FLG_187",
+		"body": "FLG_187",
+		"description": "",
+	},
+	"FLG_188":
+	{
+		"prefix": "FLG_188",
+		"body": "FLG_188",
+		"description": "",
+	},
+	"FLG_189":
+	{
+		"prefix": "FLG_189",
+		"body": "FLG_189",
+		"description": "",
+	},
+	"FLG_190":
+	{
+		"prefix": "FLG_190",
+		"body": "FLG_190",
+		"description": "",
+	},
+	"FLG_191":
+	{
+		"prefix": "FLG_191",
+		"body": "FLG_191",
+		"description": "",
+	},
+	"FLG_192":
+	{
+		"prefix": "FLG_192",
+		"body": "FLG_192",
+		"description": "",
+	},
+	"FLG_193":
+	{
+		"prefix": "FLG_193",
+		"body": "FLG_193",
+		"description": "",
+	},
+	"FLG_194":
+	{
+		"prefix": "FLG_194",
+		"body": "FLG_194",
+		"description": "",
+	},
+	"FLG_195":
+	{
+		"prefix": "FLG_195",
+		"body": "FLG_195",
+		"description": "",
+	},
+	"FLG_196":
+	{
+		"prefix": "FLG_196",
+		"body": "FLG_196",
+		"description": "",
+	},
+	"FLG_197":
+	{
+		"prefix": "FLG_197",
+		"body": "FLG_197",
+		"description": "",
+	},
+	"FLG_198":
+	{
+		"prefix": "FLG_198",
+		"body": "FLG_198",
+		"description": "",
+	},
+	"FLG_199":
+	{
+		"prefix": "FLG_199",
+		"body": "FLG_199",
+		"description": "",
+	},
+	"FLG_200":
+	{
+		"prefix": "FLG_200",
+		"body": "FLG_200",
+		"description": "",
+	},
+	"FLG_201":
+	{
+		"prefix": "FLG_201",
+		"body": "FLG_201",
+		"description": "",
+	},
+	"FLG_202":
+	{
+		"prefix": "FLG_202",
+		"body": "FLG_202",
+		"description": "",
+	},
+	"FLG_203":
+	{
+		"prefix": "FLG_203",
+		"body": "FLG_203",
+		"description": "",
+	},
+	"FLG_204":
+	{
+		"prefix": "FLG_204",
+		"body": "FLG_204",
+		"description": "",
+	},
+	"FLG_205":
+	{
+		"prefix": "FLG_205",
+		"body": "FLG_205",
+		"description": "",
+	},
+	"FLG_206":
+	{
+		"prefix": "FLG_206",
+		"body": "FLG_206",
+		"description": "",
+	},
+	"FLG_207":
+	{
+		"prefix": "FLG_207",
+		"body": "FLG_207",
+		"description": "",
+	},
+	"FLG_208":
+	{
+		"prefix": "FLG_208",
+		"body": "FLG_208",
+		"description": "",
+	},
+	"FLG_209":
+	{
+		"prefix": "FLG_209",
+		"body": "FLG_209",
+		"description": "",
+	},
+	"FLG_210":
+	{
+		"prefix": "FLG_210",
+		"body": "FLG_210",
+		"description": "",
+	},
+	"FLG_211":
+	{
+		"prefix": "FLG_211",
+		"body": "FLG_211",
+		"description": "",
+	},
+	"FLG_212":
+	{
+		"prefix": "FLG_212",
+		"body": "FLG_212",
+		"description": "",
+	},
+	"FLG_213":
+	{
+		"prefix": "FLG_213",
+		"body": "FLG_213",
+		"description": "",
+	},
+	"FLG_214":
+	{
+		"prefix": "FLG_214",
+		"body": "FLG_214",
+		"description": "",
+	},
+	"FLG_215":
+	{
+		"prefix": "FLG_215",
+		"body": "FLG_215",
+		"description": "",
+	},
+	"FLG_216":
+	{
+		"prefix": "FLG_216",
+		"body": "FLG_216",
+		"description": "",
+	},
+	"FLG_217":
+	{
+		"prefix": "FLG_217",
+		"body": "FLG_217",
+		"description": "",
+	},
+	"FLG_218":
+	{
+		"prefix": "FLG_218",
+		"body": "FLG_218",
+		"description": "",
+	},
+	"FLG_219":
+	{
+		"prefix": "FLG_219",
+		"body": "FLG_219",
+		"description": "",
+	},
+	"FLG_220":
+	{
+		"prefix": "FLG_220",
+		"body": "FLG_220",
+		"description": "",
+	},
+	"FLG_221":
+	{
+		"prefix": "FLG_221",
+		"body": "FLG_221",
+		"description": "",
+	},
+	"FLG_222":
+	{
+		"prefix": "FLG_222",
+		"body": "FLG_222",
+		"description": "",
+	},
+	"FLG_223":
+	{
+		"prefix": "FLG_223",
+		"body": "FLG_223",
+		"description": "",
+	},
+	"FLG_224":
+	{
+		"prefix": "FLG_224",
+		"body": "FLG_224",
+		"description": "",
+	},
+	"FLG_225":
+	{
+		"prefix": "FLG_225",
+		"body": "FLG_225",
+		"description": "",
+	},
+	"FLG_226":
+	{
+		"prefix": "FLG_226",
+		"body": "FLG_226",
+		"description": "",
+	},
+	"FLG_227":
+	{
+		"prefix": "FLG_227",
+		"body": "FLG_227",
+		"description": "",
+	},
+	"FLG_228":
+	{
+		"prefix": "FLG_228",
+		"body": "FLG_228",
+		"description": "",
+	},
+	"FLG_229":
+	{
+		"prefix": "FLG_229",
+		"body": "FLG_229",
+		"description": "",
+	},
+	"FLG_230":
+	{
+		"prefix": "FLG_230",
+		"body": "FLG_230",
+		"description": "",
+	},
+	"FLG_231":
+	{
+		"prefix": "FLG_231",
+		"body": "FLG_231",
+		"description": "",
+	},
+	"FLG_232":
+	{
+		"prefix": "FLG_232",
+		"body": "FLG_232",
+		"description": "",
+	},
+	"FLG_233":
+	{
+		"prefix": "FLG_233",
+		"body": "FLG_233",
+		"description": "",
+	},
+	"FLG_234":
+	{
+		"prefix": "FLG_234",
+		"body": "FLG_234",
+		"description": "",
+	},
+	"FLG_235":
+	{
+		"prefix": "FLG_235",
+		"body": "FLG_235",
+		"description": "",
+	},
+	"FLG_236":
+	{
+		"prefix": "FLG_236",
+		"body": "FLG_236",
+		"description": "",
+	},
+	"FLG_237":
+	{
+		"prefix": "FLG_237",
+		"body": "FLG_237",
+		"description": "",
+	},
+	"FLG_238":
+	{
+		"prefix": "FLG_238",
+		"body": "FLG_238",
+		"description": "",
+	},
+	"FLG_239":
+	{
+		"prefix": "FLG_239",
+		"body": "FLG_239",
+		"description": "",
+	},
+	"ローカルフラグ00":
+	{
+		"prefix": "LF_00",
+		"body": "LF_00",
+		"description": "ローカルフラグ00",
+	},
+	"ローカルフラグ01":
+	{
+		"prefix": "LF_01",
+		"body": "LF_01",
+		"description": "ローカルフラグ01",
+	},
+	"ローカルフラグ02":
+	{
+		"prefix": "LF_02",
+		"body": "LF_02",
+		"description": "ローカルフラグ02",
+	},
+	"ローカルフラグ03":
+	{
+		"prefix": "LF_03",
+		"body": "LF_03",
+		"description": "ローカルフラグ03",
+	},
+	"ローカルフラグ04":
+	{
+		"prefix": "LF_04",
+		"body": "LF_04",
+		"description": "ローカルフラグ04",
+	},
+	"ローカルフラグ05":
+	{
+		"prefix": "LF_05",
+		"body": "LF_05",
+		"description": "ローカルフラグ05",
+	},
+	"ローカルフラグ06":
+	{
+		"prefix": "LF_06",
+		"body": "LF_06",
+		"description": "ローカルフラグ06",
+	},
+	"ローカルフラグ07":
+	{
+		"prefix": "LF_07",
+		"body": "LF_07",
+		"description": "ローカルフラグ07",
+	},
+	"ローカルフラグ08":
+	{
+		"prefix": "LF_08",
+		"body": "LF_08",
+		"description": "ローカルフラグ08",
+	},
+	"ローカルフラグ09":
+	{
+		"prefix": "LF_09",
+		"body": "LF_09",
+		"description": "ローカルフラグ09",
+	},
+	"ローカルフラグ10":
+	{
+		"prefix": "LF_10",
+		"body": "LF_10",
+		"description": "ローカルフラグ10",
+	},
+	"ローカルフラグ11":
+	{
+		"prefix": "LF_11",
+		"body": "LF_11",
+		"description": "ローカルフラグ11",
+	},
+	"ローカルフラグ12":
+	{
+		"prefix": "LF_12",
+		"body": "LF_12",
+		"description": "ローカルフラグ12",
+	},
+	"ローカルフラグ13":
+	{
+		"prefix": "LF_13",
+		"body": "LF_13",
+		"description": "ローカルフラグ13",
+	},
+	"ローカルフラグ14":
+	{
+		"prefix": "LF_14",
+		"body": "LF_14",
+		"description": "ローカルフラグ14",
+	},
+	"ローカルフラグ15":
+	{
+		"prefix": "LF_15",
+		"body": "LF_15",
+		"description": "ローカルフラグ15",
+	},
+	"所持金":
+	{
+		"prefix": "MONEY",
+		"body": "MONEY",
+		"description": "所持金",
+	},
+	"戻り値":
+	{
+		"prefix": "RET",
+		"body": "RET",
+		"description": "戻り値",
+	},
+	"装備しているアイテム":
+	{
+		"prefix": "ITEM",
+		"body": "ITEM",
+		"description": "装備しているアイテム",
+	},
+	"合成するアイテム1":
+	{
+		"prefix": "CRAFT1",
+		"body": "CRAFT1",
+		"description": "合成するアイテム1",
+	},
+	"合成するアイテム2":
+	{
+		"prefix": "CRAFT2",
+		"body": "CRAFT2",
+		"description": "合成するアイテム2",
+	},
+	"VAR_005":
+	{
+		"prefix": "VAR_005",
+		"body": "VAR_005",
+		"description": "",
+	},
+	"VAR_006":
+	{
+		"prefix": "VAR_006",
+		"body": "VAR_006",
+		"description": "",
+	},
+	"VAR_007":
+	{
+		"prefix": "VAR_007",
+		"body": "VAR_007",
+		"description": "",
+	},
+	"ローカル計算用変数1":
+	{
+		"prefix": "TEMP1",
+		"body": "TEMP1",
+		"description": "ローカル計算用変数1",
+	},
+	"ローカル計算用変数2":
+	{
+		"prefix": "TEMP2",
+		"body": "TEMP2",
+		"description": "ローカル計算用変数2",
+	},
+	"スマートフォンを調べたときに表示される情報の進捗":
+	{
+		"prefix": "SP_PRG",
+		"body": "SP_PRG",
+		"description": "スマートフォンを調べたときに表示される情報の進捗",
+	},
+	"スマートフォンのライトの色":
+	{
+		"prefix": "LIGHT_COLOR",
+		"body": "LIGHT_COLOR",
+		"description": "スマートフォンのライトの色",
+	},
+	"room413での失敗回数":
+	{
+		"prefix": "S413_FAILED_CNT",
+		"body": "S413_FAILED_CNT",
+		"description": "room413での失敗回数",
+	},
+	"room413でカギが入っている数":
+	{
+		"prefix": "S413_PUT_CNT",
+		"body": "S413_PUT_CNT",
+		"description": "room413でカギが入っている数",
+	},
+	"VAR_014":
+	{
+		"prefix": "VAR_014",
+		"body": "VAR_014",
+		"description": "",
+	},
+	"VAR_015":
+	{
+		"prefix": "VAR_015",
+		"body": "VAR_015",
+		"description": "",
+	},
+	"VAR_016":
+	{
+		"prefix": "VAR_016",
+		"body": "VAR_016",
+		"description": "",
+	},
+	"VAR_017":
+	{
+		"prefix": "VAR_017",
+		"body": "VAR_017",
+		"description": "",
+	},
+	"VAR_018":
+	{
+		"prefix": "VAR_018",
+		"body": "VAR_018",
+		"description": "",
+	},
+	"VAR_019":
+	{
+		"prefix": "VAR_019",
+		"body": "VAR_019",
+		"description": "",
+	},
+	"VAR_020":
+	{
+		"prefix": "VAR_020",
+		"body": "VAR_020",
+		"description": "",
+	},
+	"VAR_021":
+	{
+		"prefix": "VAR_021",
+		"body": "VAR_021",
+		"description": "",
+	},
+	"VAR_022":
+	{
+		"prefix": "VAR_022",
+		"body": "VAR_022",
+		"description": "",
+	},
+	"VAR_023":
+	{
+		"prefix": "VAR_023",
+		"body": "VAR_023",
+		"description": "",
+	},
+	"VAR_024":
+	{
+		"prefix": "VAR_024",
+		"body": "VAR_024",
+		"description": "",
+	},
+	"VAR_025":
+	{
+		"prefix": "VAR_025",
+		"body": "VAR_025",
+		"description": "",
+	},
+	"VAR_026":
+	{
+		"prefix": "VAR_026",
+		"body": "VAR_026",
+		"description": "",
+	},
+	"VAR_027":
+	{
+		"prefix": "VAR_027",
+		"body": "VAR_027",
+		"description": "",
+	},
+	"VAR_028":
+	{
+		"prefix": "VAR_028",
+		"body": "VAR_028",
+		"description": "",
+	},
+	"VAR_029":
+	{
+		"prefix": "VAR_029",
+		"body": "VAR_029",
+		"description": "",
+	},
+	"VAR_030":
+	{
+		"prefix": "VAR_030",
+		"body": "VAR_030",
+		"description": "",
+	},
+	"VAR_031":
+	{
+		"prefix": "VAR_031",
+		"body": "VAR_031",
+		"description": "",
+	},
+	"VAR_032":
+	{
+		"prefix": "VAR_032",
+		"body": "VAR_032",
+		"description": "",
+	},
+	"VAR_033":
+	{
+		"prefix": "VAR_033",
+		"body": "VAR_033",
+		"description": "",
+	},
+	"VAR_034":
+	{
+		"prefix": "VAR_034",
+		"body": "VAR_034",
+		"description": "",
+	},
+	"VAR_035":
+	{
+		"prefix": "VAR_035",
+		"body": "VAR_035",
+		"description": "",
+	},
+	"VAR_037":
+	{
+		"prefix": "VAR_037",
+		"body": "VAR_037",
+		"description": "",
+	},
+	"VAR_038":
+	{
+		"prefix": "VAR_038",
+		"body": "VAR_038",
+		"description": "",
+	},
+	"VAR_039":
+	{
+		"prefix": "VAR_039",
+		"body": "VAR_039",
+		"description": "",
+	},
+	"VAR_040":
+	{
+		"prefix": "VAR_040",
+		"body": "VAR_040",
+		"description": "",
+	},
+	"VAR_041":
+	{
+		"prefix": "VAR_041",
+		"body": "VAR_041",
+		"description": "",
+	},
+	"VAR_042":
+	{
+		"prefix": "VAR_042",
+		"body": "VAR_042",
+		"description": "",
+	},
+	"VAR_043":
+	{
+		"prefix": "VAR_043",
+		"body": "VAR_043",
+		"description": "",
+	},
+	"VAR_044":
+	{
+		"prefix": "VAR_044",
+		"body": "VAR_044",
+		"description": "",
+	},
+	"VAR_045":
+	{
+		"prefix": "VAR_045",
+		"body": "VAR_045",
+		"description": "",
+	},
+	"VAR_046":
+	{
+		"prefix": "VAR_046",
+		"body": "VAR_046",
+		"description": "",
+	},
+	"VAR_047":
+	{
+		"prefix": "VAR_047",
+		"body": "VAR_047",
+		"description": "",
+	},
+	"VAR_048":
+	{
+		"prefix": "VAR_048",
+		"body": "VAR_048",
+		"description": "",
+	},
+	"VAR_049":
+	{
+		"prefix": "VAR_049",
+		"body": "VAR_049",
+		"description": "",
+	},
+	"VAR_050":
+	{
+		"prefix": "VAR_050",
+		"body": "VAR_050",
+		"description": "",
+	},
+	"VAR_051":
+	{
+		"prefix": "VAR_051",
+		"body": "VAR_051",
+		"description": "",
+	},
+	"VAR_052":
+	{
+		"prefix": "VAR_052",
+		"body": "VAR_052",
+		"description": "",
+	},
+	"VAR_053":
+	{
+		"prefix": "VAR_053",
+		"body": "VAR_053",
+		"description": "",
+	},
+	"VAR_054":
+	{
+		"prefix": "VAR_054",
+		"body": "VAR_054",
+		"description": "",
+	},
+	"VAR_055":
+	{
+		"prefix": "VAR_055",
+		"body": "VAR_055",
+		"description": "",
+	},
+	"VAR_056":
+	{
+		"prefix": "VAR_056",
+		"body": "VAR_056",
+		"description": "",
+	},
+	"VAR_057":
+	{
+		"prefix": "VAR_057",
+		"body": "VAR_057",
+		"description": "",
+	},
+	"VAR_058":
+	{
+		"prefix": "VAR_058",
+		"body": "VAR_058",
+		"description": "",
+	},
+	"VAR_059":
+	{
+		"prefix": "VAR_059",
+		"body": "VAR_059",
+		"description": "",
+	},
+	"VAR_060":
+	{
+		"prefix": "VAR_060",
+		"body": "VAR_060",
+		"description": "",
+	},
+	"VAR_061":
+	{
+		"prefix": "VAR_061",
+		"body": "VAR_061",
+		"description": "",
+	},
+	"VAR_062":
+	{
+		"prefix": "VAR_062",
+		"body": "VAR_062",
+		"description": "",
+	},
+	"VAR_063":
+	{
+		"prefix": "VAR_063",
+		"body": "VAR_063",
+		"description": "",
+	},
+	"VAR_064":
+	{
+		"prefix": "VAR_064",
+		"body": "VAR_064",
+		"description": "",
+	},
+	"VAR_065":
+	{
+		"prefix": "VAR_065",
+		"body": "VAR_065",
+		"description": "",
+	},
+	"VAR_066":
+	{
+		"prefix": "VAR_066",
+		"body": "VAR_066",
+		"description": "",
+	},
+	"VAR_067":
+	{
+		"prefix": "VAR_067",
+		"body": "VAR_067",
+		"description": "",
+	},
+	"VAR_068":
+	{
+		"prefix": "VAR_068",
+		"body": "VAR_068",
+		"description": "",
+	},
+	"VAR_069":
+	{
+		"prefix": "VAR_069",
+		"body": "VAR_069",
+		"description": "",
+	},
+	"VAR_070":
+	{
+		"prefix": "VAR_070",
+		"body": "VAR_070",
+		"description": "",
+	},
+	"VAR_071":
+	{
+		"prefix": "VAR_071",
+		"body": "VAR_071",
+		"description": "",
+	},
+	"VAR_072":
+	{
+		"prefix": "VAR_072",
+		"body": "VAR_072",
+		"description": "",
+	},
+	"VAR_073":
+	{
+		"prefix": "VAR_073",
+		"body": "VAR_073",
+		"description": "",
+	},
+	"VAR_074":
+	{
+		"prefix": "VAR_074",
+		"body": "VAR_074",
+		"description": "",
+	},
+	"VAR_075":
+	{
+		"prefix": "VAR_075",
+		"body": "VAR_075",
+		"description": "",
+	},
+	"VAR_076":
+	{
+		"prefix": "VAR_076",
+		"body": "VAR_076",
+		"description": "",
+	},
+	"VAR_077":
+	{
+		"prefix": "VAR_077",
+		"body": "VAR_077",
+		"description": "",
+	},
+	"VAR_078":
+	{
+		"prefix": "VAR_078",
+		"body": "VAR_078",
+		"description": "",
+	},
+	"VAR_079":
+	{
+		"prefix": "VAR_079",
+		"body": "VAR_079",
+		"description": "",
+	},
+	"VAR_080":
+	{
+		"prefix": "VAR_080",
+		"body": "VAR_080",
+		"description": "",
+	},
+	"VAR_081":
+	{
+		"prefix": "VAR_081",
+		"body": "VAR_081",
+		"description": "",
+	},
+	"VAR_082":
+	{
+		"prefix": "VAR_082",
+		"body": "VAR_082",
+		"description": "",
+	},
+	"VAR_083":
+	{
+		"prefix": "VAR_083",
+		"body": "VAR_083",
+		"description": "",
+	},
+	"VAR_084":
+	{
+		"prefix": "VAR_084",
+		"body": "VAR_084",
+		"description": "",
+	},
+	"VAR_085":
+	{
+		"prefix": "VAR_085",
+		"body": "VAR_085",
+		"description": "",
+	},
+	"VAR_086":
+	{
+		"prefix": "VAR_086",
+		"body": "VAR_086",
+		"description": "",
+	},
+	"VAR_087":
+	{
+		"prefix": "VAR_087",
+		"body": "VAR_087",
+		"description": "",
+	},
+	"VAR_088":
+	{
+		"prefix": "VAR_088",
+		"body": "VAR_088",
+		"description": "",
+	},
+	"VAR_089":
+	{
+		"prefix": "VAR_089",
+		"body": "VAR_089",
+		"description": "",
+	},
+	"2値化時の上位カラー（デフォルトは白）":
+	{
+		"prefix": "ADV_BG_THRETHOLD_COLOR",
+		"body": "ADV_BG_THRETHOLD_COLOR",
+		"description": "2値化時の上位カラー（デフォルトは白）",
+	},
+	"2値化の割合（0〜100）":
+	{
+		"prefix": "ADV_BG_THRETHOLD_RATE",
+		"body": "ADV_BG_THRETHOLD_RATE",
+		"description": "2値化の割合（0〜100）",
+	},
+	"2値化判定の値 (0〜100)":
+	{
+		"prefix": "ADV_BG_THRETHOLD_VAL",
+		"body": "ADV_BG_THRETHOLD_VAL",
+		"description": "2値化判定の値 (0〜100)",
+	},
+	"背景カラー（デフォルトは白）":
+	{
+		"prefix": "ADV_BG_BLEND_COLOR",
+		"body": "ADV_BG_BLEND_COLOR",
+		"description": "背景カラー（デフォルトは白）",
+	},
+	"背景カラー（次の色）":
+	{
+		"prefix": "ADV_BG_BLEND_COLOR_NEXT",
+		"body": "ADV_BG_BLEND_COLOR_NEXT",
+		"description": "背景カラー（次の色）",
+	},
+	"背景カラー（次の色への変化率）":
+	{
+		"prefix": "ADV_BG_BLEND_COLOR_RATE",
+		"body": "ADV_BG_BLEND_COLOR_RATE",
+		"description": "背景カラー（次の色への変化率）",
+	},
+	"シーンローカル変数00":
+	{
+		"prefix": "LVAR_00",
+		"body": "LVAR_00",
+		"description": "シーンローカル変数00",
+	},
+	"シーンローカル変数01":
+	{
+		"prefix": "LVAR_01",
+		"body": "LVAR_01",
+		"description": "シーンローカル変数01",
+	},
+	"シーンローカル変数02":
+	{
+		"prefix": "LVAR_02",
+		"body": "LVAR_02",
+		"description": "シーンローカル変数02",
+	},
+	"シーンローカル変数03":
+	{
+		"prefix": "LVAR_03",
+		"body": "LVAR_03",
+		"description": "シーンローカル変数03",
+	},
+	"無効なアイテム":
+	{
+		"prefix": "ITEM_DUMMY",
+		"body": "ITEM_DUMMY",
+		"description": "無効なアイテム",
+	},
+	"スマートフォン":
+	{
+		"prefix": "ITEM_SMART_PHONE",
+		"body": "ITEM_SMART_PHONE",
+		"description": "スマートフォン",
+	},
+	"黒板消し":
+	{
+		"prefix": "ITEM_BLACK_BOARD_ERASER",
+		"body": "ITEM_BLACK_BOARD_ERASER",
+		"description": "黒板消し",
+	},
+	"破れたメモ":
+	{
+		"prefix": "ITEM_BOU_MEMO",
+		"body": "ITEM_BOU_MEMO",
+		"description": "破れたメモ",
+	},
+	"お母さんの写真":
+	{
+		"prefix": "ITEM_PASS_HOLDER",
+		"body": "ITEM_PASS_HOLDER",
+		"description": "お母さんの写真",
+	},
+	"開花の季節のメモ":
+	{
+		"prefix": "ITEM_BOOKLET",
+		"body": "ITEM_BOOKLET",
+		"description": "開花の季節のメモ",
+	},
+	"青い絵の具":
+	{
+		"prefix": "ITEM_COLOR_BLUE",
+		"body": "ITEM_COLOR_BLUE",
+		"description": "青い絵の具",
+	},
+	"赤い絵の具":
+	{
+		"prefix": "ITEM_COLOR_RED",
+		"body": "ITEM_COLOR_RED",
+		"description": "赤い絵の具",
+	},
+	"緑の絵の具":
+	{
+		"prefix": "ITEM_COLOR_GREEN",
+		"body": "ITEM_COLOR_GREEN",
+		"description": "緑の絵の具",
+	},
+	"黄色の絵の具":
+	{
+		"prefix": "ITEM_COLOR_YELLOW",
+		"body": "ITEM_COLOR_YELLOW",
+		"description": "黄色の絵の具",
+	},
+	"紫の絵の具":
+	{
+		"prefix": "ITEM_COLOR_PURPLE",
+		"body": "ITEM_COLOR_PURPLE",
+		"description": "紫の絵の具",
+	},
+	"藍色の絵の具":
+	{
+		"prefix": "ITEM_COLOR_INDIGO",
+		"body": "ITEM_COLOR_INDIGO",
+		"description": "藍色の絵の具",
+	},
+	"橙の絵の具":
+	{
+		"prefix": "ITEM_COLOR_ORANGE",
+		"body": "ITEM_COLOR_ORANGE",
+		"description": "橙の絵の具",
+	},
+	"花を植える季節のメモ":
+	{
+		"prefix": "ITEM_FLOWER_MEMO",
+		"body": "ITEM_FLOWER_MEMO",
+		"description": "花を植える季節のメモ",
+	},
+	"色セロハン":
+	{
+		"prefix": "ITEM_CELLOPHANE",
+		"body": "ITEM_CELLOPHANE",
+		"description": "色セロハン",
+	},
+	"スマートフォン（色セロハン）":
+	{
+		"prefix": "ITEM_PHONE_CELLOPHANE",
+		"body": "ITEM_PHONE_CELLOPHANE",
+		"description": "スマートフォン（色セロハン）",
+	},
+	"赤いドクロ":
+	{
+		"prefix": "ITEM_SKULL_RED",
+		"body": "ITEM_SKULL_RED",
+		"description": "赤いドクロ",
+	},
+	"緑のドクロ":
+	{
+		"prefix": "ITEM_SKULL_GREEN",
+		"body": "ITEM_SKULL_GREEN",
+		"description": "緑のドクロ",
+	},
+	"紺のドクロ":
+	{
+		"prefix": "ITEM_SKULL_NAVY",
+		"body": "ITEM_SKULL_NAVY",
+		"description": "紺のドクロ",
+	},
+	"青色のメモ":
+	{
+		"prefix": "ITEM_BLUE_MEMO",
+		"body": "ITEM_BLUE_MEMO",
+		"description": "青色のメモ",
+	},
+	"「スラー」と書かれたカギ":
+	{
+		"prefix": "ITEM_KEY_D",
+		"body": "ITEM_KEY_D",
+		"description": "「スラー」と書かれたカギ",
+	},
+	"「おり」と書かれたカギ":
+	{
+		"prefix": "ITEM_KEY_B",
+		"body": "ITEM_KEY_B",
+		"description": "「おり」と書かれたカギ",
+	},
+	"「黒」と書かれたカギ":
+	{
+		"prefix": "ITEM_KEY_C",
+		"body": "ITEM_KEY_C",
+		"description": "「黒」と書かれたカギ",
+	},
+	"「四季」と書かれたカギ":
+	{
+		"prefix": "ITEM_KEY_G",
+		"body": "ITEM_KEY_G",
+		"description": "「四季」と書かれたカギ",
+	},
+	"音符が書かれたメモ":
+	{
+		"prefix": "ITEM_MUSIC_MEMO",
+		"body": "ITEM_MUSIC_MEMO",
+		"description": "音符が書かれたメモ",
+	},
+	"テスト部屋":
+	{
+		"prefix": "eScene.S910_Start",
+		"body": "eScene.S910_Start",
+		"description": "テスト部屋",
+	},
+	"eScene.S920_Start":
+	{
+		"prefix": "eScene.S920_Start",
+		"body": "eScene.S920_Start",
+		"description": "",
+	},
+	"教室〜自分の席":
+	{
+		"prefix": "eScene.S101_Event",
+		"body": "eScene.S101_Event",
+		"description": "教室〜自分の席",
+	},
+	"教室〜自分のバッグ":
+	{
+		"prefix": "eScene.S102_Event",
+		"body": "eScene.S102_Event",
+		"description": "教室〜自分のバッグ",
+	},
+	"教室〜出口":
+	{
+		"prefix": "eScene.S103_Event",
+		"body": "eScene.S103_Event",
+		"description": "教室〜出口",
+	},
+	"教室":
+	{
+		"prefix": "eScene.S104_Entrance",
+		"body": "eScene.S104_Entrance",
+		"description": "教室",
+	},
+	"教室〜黒板":
+	{
+		"prefix": "eScene.S105_BlackBoard",
+		"body": "eScene.S105_BlackBoard",
+		"description": "教室〜黒板",
+	},
+	"教室〜自分の席":
+	{
+		"prefix": "eScene.S106_MyDesk",
+		"body": "eScene.S106_MyDesk",
+		"description": "教室〜自分の席",
+	},
+	"教室〜窓":
+	{
+		"prefix": "eScene.S107_Window",
+		"body": "eScene.S107_Window",
+		"description": "教室〜窓",
+	},
+	"教室〜出口":
+	{
+		"prefix": "eScene.S108_Door",
+		"body": "eScene.S108_Door",
+		"description": "教室〜出口",
+	},
+	"教室〜時間割":
+	{
+		"prefix": "eScene.S109_Timetable",
+		"body": "eScene.S109_Timetable",
+		"description": "教室〜時間割",
+	},
+	"eScene.S150_Event":
+	{
+		"prefix": "eScene.S150_Event",
+		"body": "eScene.S150_Event",
+		"description": "",
+	},
+	"美術室":
+	{
+		"prefix": "eScene.S201_ArtRoom",
+		"body": "eScene.S201_ArtRoom",
+		"description": "美術室",
+	},
+	"美術室〜花の絵":
+	{
+		"prefix": "eScene.S202_ArtFlower",
+		"body": "eScene.S202_ArtFlower",
+		"description": "美術室〜花の絵",
+	},
+	"美術室〜石像":
+	{
+		"prefix": "eScene.S203_ArtPlaster",
+		"body": "eScene.S203_ArtPlaster",
+		"description": "美術室〜石像",
+	},
+	"美術室〜椅子":
+	{
+		"prefix": "eScene.S204_ArtChair",
+		"body": "eScene.S204_ArtChair",
+		"description": "美術室〜椅子",
+	},
+	"美術室〜出口（前）":
+	{
+		"prefix": "eScene.S205_Door",
+		"body": "eScene.S205_Door",
+		"description": "美術室〜出口（前）",
+	},
+	"美術室〜窓":
+	{
+		"prefix": "eScene.S206_Window",
+		"body": "eScene.S206_Window",
+		"description": "美術室〜窓",
+	},
+	"美術室〜ロッカー":
+	{
+		"prefix": "eScene.S207_Locker",
+		"body": "eScene.S207_Locker",
+		"description": "美術室〜ロッカー",
+	},
+	"美術室〜出口（後ろ）":
+	{
+		"prefix": "eScene.S208_Door2",
+		"body": "eScene.S208_Door2",
+		"description": "美術室〜出口（後ろ）",
+	},
+	"美術室〜マガジンラック":
+	{
+		"prefix": "eScene.S209_Rack",
+		"body": "eScene.S209_Rack",
+		"description": "美術室〜マガジンラック",
+	},
+	"eScene.S250_Event":
+	{
+		"prefix": "eScene.S250_Event",
+		"body": "eScene.S250_Event",
+		"description": "",
+	},
+	"女子トイレ":
+	{
+		"prefix": "eScene.S301_Toilet",
+		"body": "eScene.S301_Toilet",
+		"description": "女子トイレ",
+	},
+	"女子トイレ〜出口":
+	{
+		"prefix": "eScene.S302_ToiletExit",
+		"body": "eScene.S302_ToiletExit",
+		"description": "女子トイレ〜出口",
+	},
+	"女子トイレ〜左手前の個室":
+	{
+		"prefix": "eScene.S303_ToiletLeftFront",
+		"body": "eScene.S303_ToiletLeftFront",
+		"description": "女子トイレ〜左手前の個室",
+	},
+	"女子トイレ〜洗面台":
+	{
+		"prefix": "eScene.S304_ToiletSink",
+		"body": "eScene.S304_ToiletSink",
+		"description": "女子トイレ〜洗面台",
+	},
+	"女子トイレ〜中央":
+	{
+		"prefix": "eScene.S305_ToiletCenter",
+		"body": "eScene.S305_ToiletCenter",
+		"description": "女子トイレ〜中央",
+	},
+	"女子トイレ〜左中央の個室":
+	{
+		"prefix": "eScene.S306_ToiletLeftCenter",
+		"body": "eScene.S306_ToiletLeftCenter",
+		"description": "女子トイレ〜左中央の個室",
+	},
+	"女子トイレ〜奥の個室入り口":
+	{
+		"prefix": "eScene.S307_ToiletLeftBack",
+		"body": "eScene.S307_ToiletLeftBack",
+		"description": "女子トイレ〜奥の個室入り口",
+	},
+	"女子トイレ〜右側の個室":
+	{
+		"prefix": "eScene.S308_ToiletRight",
+		"body": "eScene.S308_ToiletRight",
+		"description": "女子トイレ〜右側の個室",
+	},
+	"女子トイレ〜左手前の個室２":
+	{
+		"prefix": "eScene.S309_ToiletLeftFront2",
+		"body": "eScene.S309_ToiletLeftFront2",
+		"description": "女子トイレ〜左手前の個室２",
+	},
+	"eScene.S350_ToiletEvent":
+	{
+		"prefix": "eScene.S350_ToiletEvent",
+		"body": "eScene.S350_ToiletEvent",
+		"description": "",
+	},
+	"音楽室":
+	{
+		"prefix": "eScene.S401_MusicRoom",
+		"body": "eScene.S401_MusicRoom",
+		"description": "音楽室",
+	},
+	"音楽室〜出口":
+	{
+		"prefix": "eScene.S402_MusicExit",
+		"body": "eScene.S402_MusicExit",
+		"description": "音楽室〜出口",
+	},
+	"音楽室〜ピアノの前":
+	{
+		"prefix": "eScene.S403_MusicPiano",
+		"body": "eScene.S403_MusicPiano",
+		"description": "音楽室〜ピアノの前",
+	},
+	"音楽室〜机":
+	{
+		"prefix": "eScene.S404_MusicDesk",
+		"body": "eScene.S404_MusicDesk",
+		"description": "音楽室〜机",
+	},
+	"音楽室〜中央":
+	{
+		"prefix": "eScene.S405_MusicCenter",
+		"body": "eScene.S405_MusicCenter",
+		"description": "音楽室〜中央",
+	},
+	"音楽室〜後ろの掲示板":
+	{
+		"prefix": "eScene.S406_MusicBackBoard",
+		"body": "eScene.S406_MusicBackBoard",
+		"description": "音楽室〜後ろの掲示板",
+	},
+	"音楽室〜ピアノ":
+	{
+		"prefix": "eScene.S407_MusicPiano2",
+		"body": "eScene.S407_MusicPiano2",
+		"description": "音楽室〜ピアノ",
+	},
+	"音楽室〜ロッカー":
+	{
+		"prefix": "eScene.S408_MusicLocker",
+		"body": "eScene.S408_MusicLocker",
+		"description": "音楽室〜ロッカー",
+	},
+	"音楽室〜窓側":
+	{
+		"prefix": "eScene.S409_MusicWindow",
+		"body": "eScene.S409_MusicWindow",
+		"description": "音楽室〜窓側",
+	},
+	"音楽室〜金庫":
+	{
+		"prefix": "eScene.S410_MusicSafe",
+		"body": "eScene.S410_MusicSafe",
+		"description": "音楽室〜金庫",
+	},
+	"音楽室〜黒板":
+	{
+		"prefix": "eScene.S411_MusicBlackBoard",
+		"body": "eScene.S411_MusicBlackBoard",
+		"description": "音楽室〜黒板",
+	},
+	"音楽室〜机":
+	{
+		"prefix": "eScene.S412_MusicDesk",
+		"body": "eScene.S412_MusicDesk",
+		"description": "音楽室〜机",
+	},
+	"音楽室〜出口の左側の机":
+	{
+		"prefix": "eScene.S413_MusicExitDesk",
+		"body": "eScene.S413_MusicExitDesk",
+		"description": "音楽室〜出口の左側の机",
+	},
+	"eScene.S450_MusicEvent":
+	{
+		"prefix": "eScene.S450_MusicEvent",
+		"body": "eScene.S450_MusicEvent",
+		"description": "",
+	},
+	"図書室":
+	{
+		"prefix": "eScene.S501_Library",
+		"body": "eScene.S501_Library",
+		"description": "図書室",
+	},
+	"図書室":
+	{
+		"prefix": "eScene.S502_Library2",
+		"body": "eScene.S502_Library2",
+		"description": "図書室",
+	},
+	"eScene.S550_LibraryEvent":
+	{
+		"prefix": "eScene.S550_LibraryEvent",
+		"body": "eScene.S550_LibraryEvent",
+		"description": "",
+	},
+	"旧校舎":
+	{
+		"prefix": "eScene.S601_OldSchool",
+		"body": "eScene.S601_OldSchool",
+		"description": "旧校舎",
+	},
+	"eScene.S650_OldSchoolEvent":
+	{
+		"prefix": "eScene.S650_OldSchoolEvent",
+		"body": "eScene.S650_OldSchoolEvent",
+		"description": "",
+	},
+	"eScene.S701_RoofGarden":
+	{
+		"prefix": "eScene.S701_RoofGarden",
+		"body": "eScene.S701_RoofGarden",
+		"description": "",
+	},
+}
+

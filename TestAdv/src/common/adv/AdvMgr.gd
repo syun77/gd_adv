@@ -107,9 +107,9 @@ func _MSG(args:PoolStringArray) -> int:
 		type = int(args[0])
 	if type == eCmdMesType.NOTICE:
 		# TODO: 通知メッセージ
-		return Adv.eRet.YIELD
+		return AdvConst.eRet.YIELD
 	
-	var ret = Adv.eRet.CONTINUE
+	var ret = AdvConst.eRet.CONTINUE
 	var texts = args[1]
 	_msg.add(texts)
 	match type:
@@ -118,6 +118,6 @@ func _MSG(args:PoolStringArray) -> int:
 			pass
 		eCmdMesType.PF:
 			_next_state = eState.KEY_WAIT
-			ret = Adv.eRet.YIELD
+			ret = AdvConst.eRet.YIELD
 	
 	return ret

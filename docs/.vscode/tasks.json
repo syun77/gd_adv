@@ -1,0 +1,27 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "adv",
+            "type": "shell",
+            "command": "python3 $HOME/Desktop/gms2_escape002/Escape002/docs/scripts/conv.py adv ${file}",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "adv_all",
+            "type": "shell",
+            "command": "python3 $HOME/Desktop/gms2_escape002/Escape002/docs/scripts/conv.py adv",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
