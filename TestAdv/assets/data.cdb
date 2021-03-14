@@ -1,0 +1,4301 @@
+{
+	"sheets": [
+		{
+			"name": "scenes",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id"
+				},
+				{
+					"typeStr": "1",
+					"name": "name",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "value"
+				},
+				{
+					"typeStr": "8",
+					"name": "objs",
+					"display": null
+				},
+				{
+					"typeStr": "8",
+					"name": "moves"
+				},
+				{
+					"typeStr": "8",
+					"name": "events"
+				}
+			],
+			"lines": [
+				{
+					"id": "S910_Start",
+					"name": "テスト部屋",
+					"value": 910,
+					"objs": [],
+					"moves": [],
+					"events": []
+				},
+				{
+					"id": "S920_Start",
+					"name": "",
+					"value": 920,
+					"objs": [],
+					"moves": [],
+					"events": []
+				},
+				{
+					"id": "S101_Event",
+					"name": "教室〜自分の席",
+					"value": 101,
+					"objs": [
+						{
+							"id": 1,
+							"click": "click",
+							"hidden": true
+						}
+					],
+					"moves": [],
+					"events": []
+				},
+				{
+					"id": "S102_Event",
+					"name": "教室〜自分のバッグ",
+					"value": 102,
+					"objs": [
+						{
+							"id": 1,
+							"click": "click1",
+							"hidden": true,
+							"off": "GAIN_SMART_PHONE"
+						},
+						{
+							"id": 2,
+							"click": "click2",
+							"hidden": true,
+							"off": "GAIN_SMART_PHONE"
+						},
+						{
+							"id": 3,
+							"click": "click3",
+							"on": "GAIN_SMART_PHONE",
+							"hidden": true,
+							"off": "S102_CALL_TAXI"
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "goto_door",
+							"on": "S102_CALL_TAXI"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S103_Event",
+					"name": "教室〜出口",
+					"value": 103,
+					"objs": [
+						{
+							"id": 1,
+							"click": "dont_light_on",
+							"off": "LIGHT_ON_ESC",
+							"hidden": true
+						},
+						{
+							"id": 2,
+							"click": "cant_open_door",
+							"on": "LIGHT_ON_ESC",
+							"hidden": true
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"on": "LF_01",
+							"jump": "S104_Entrance"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S104_Entrance",
+					"name": "教室",
+					"value": 104,
+					"objs": [
+						{
+							"id": 1,
+							"click": "blackboard",
+							"hidden": true
+						},
+						{
+							"id": 2,
+							"click": "clock",
+							"hidden": true
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S106_MyDesk"
+						},
+						{
+							"id": 1,
+							"click": "",
+							"jump": "S107_Window"
+						},
+						{
+							"id": 2,
+							"click": "",
+							"jump": "S109_Timetable"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S105_BlackBoard",
+					"name": "教室〜黒板",
+					"value": 105,
+					"objs": [
+						{
+							"id": 1,
+							"click": "eraser",
+							"off": "GAIN_BLACK_BOARD_ERASER"
+						},
+						{
+							"id": 2,
+							"click": "sticker",
+							"off": "LF_13"
+						},
+						{
+							"id": 3,
+							"click": "a1",
+							"off": "LF_00"
+						},
+						{
+							"id": 4,
+							"click": "a2",
+							"off": "LF_01"
+						},
+						{
+							"id": 5,
+							"click": "ka1",
+							"off": "LF_02"
+						},
+						{
+							"id": 6,
+							"click": "ka2",
+							"off": "LF_03"
+						},
+						{
+							"id": 7,
+							"click": "ya1",
+							"off": "LF_04"
+						},
+						{
+							"id": 8,
+							"click": "ya2",
+							"off": "LF_05"
+						},
+						{
+							"id": 9,
+							"click": "bi",
+							"off": "LF_06"
+						},
+						{
+							"id": 10,
+							"click": "ou",
+							"off": "LF_07"
+						},
+						{
+							"id": 11,
+							"click": "yu",
+							"off": "LF_08"
+						},
+						{
+							"id": 12,
+							"click": "chalk_box",
+							"hidden": true
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "move_exit"
+						}
+					],
+					"events": [
+						{
+							"type": 0,
+							"click": "correct",
+							"on": "LF_15",
+							"off": "LF_13"
+						},
+						{
+							"type": 0,
+							"click": "incorrect",
+							"on": "LF_14",
+							"off": "LF_13"
+						}
+					]
+				},
+				{
+					"id": "S106_MyDesk",
+					"name": "教室〜自分の席",
+					"value": 106,
+					"objs": [
+						{
+							"id": 1,
+							"click": "desk",
+							"hidden": true
+						}
+					],
+					"moves": [
+						{
+							"id": 1,
+							"click": "",
+							"jump": "S104_Entrance"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S107_Window",
+					"name": "教室〜窓",
+					"value": 107,
+					"objs": [
+						{
+							"id": 1,
+							"click": "locked_window",
+							"hidden": true,
+							"off": "LF_00"
+						},
+						{
+							"id": 2,
+							"click": "sticker",
+							"on": "LF_00"
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S104_Entrance"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S108_Door",
+					"name": "教室〜出口",
+					"value": 108,
+					"objs": [
+						{
+							"id": 1,
+							"click": "locked_door",
+							"hidden": true
+						},
+						{
+							"id": 2,
+							"click": "input",
+							"on": "LF_00"
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S109_Timetable"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S109_Timetable",
+					"name": "教室〜時間割",
+					"value": 109,
+					"objs": [
+						{
+							"id": 1,
+							"click": "timetable",
+							"on": "S107_CHECK_WINDOW"
+						},
+						{
+							"id": 2,
+							"click": "input",
+							"on": "S107_CHECK_WINDOW",
+							"off": "S109_COMPLETED"
+						},
+						{
+							"id": 3,
+							"click": "hint",
+							"on": "S107_CHECK_WINDOW",
+							"off": "S109_COMPLETED"
+						},
+						{
+							"id": 4,
+							"click": "input2",
+							"on": "S109_COMPLETED"
+						},
+						{
+							"id": 5,
+							"click": "sticker",
+							"on": "S109_COMPLETED"
+						}
+					],
+					"moves": [
+						{
+							"id": 1,
+							"click": "",
+							"jump": "S104_Entrance"
+						},
+						{
+							"id": 2,
+							"click": "",
+							"jump": "S108_Door"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S150_Event",
+					"name": "",
+					"value": 150,
+					"objs": [],
+					"moves": [],
+					"events": []
+				},
+				{
+					"id": "S201_ArtRoom",
+					"name": "美術室",
+					"value": 201,
+					"objs": [
+						{
+							"id": 1,
+							"click": "plaster"
+						},
+						{
+							"id": 2,
+							"click": "booklet"
+						},
+						{
+							"id": 3,
+							"click": "ayame",
+							"hidden": true
+						},
+						{
+							"id": 4,
+							"click": "color_red",
+							"off": "GAIN_COLOR_RED"
+						},
+						{
+							"id": 5,
+							"click": "color_purple",
+							"off": "GAIN_COLOR_PURPLE"
+						}
+					],
+					"moves": [
+						{
+							"id": 1,
+							"click": "",
+							"jump": "S206_Window"
+						},
+						{
+							"id": 2,
+							"click": "",
+							"jump": "S208_Door2"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S202_ArtFlower",
+					"name": "美術室〜花の絵",
+					"value": 202,
+					"objs": [
+						{
+							"id": 1,
+							"click": "ayame",
+							"hidden": true
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S201_ArtRoom"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S203_ArtPlaster",
+					"name": "美術室〜石像",
+					"value": 203,
+					"objs": [
+						{
+							"id": 1,
+							"click": "blood",
+							"on": "S209_UNLOCK"
+						},
+						{
+							"id": 2,
+							"click": "plaster",
+							"off": "S209_UNLOCK"
+						},
+						{
+							"id": 3,
+							"click": "color_indigo",
+							"off": "GAIN_COLOR_INDIGO"
+						},
+						{
+							"id": 4,
+							"click": "",
+							"off": "S209_UNLOCK",
+							"on": "S206_UNLOCK"
+						},
+						{
+							"id": 5,
+							"click": "",
+							"on": "S209_UNLOCK"
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S201_ArtRoom"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S204_ArtChair",
+					"name": "美術室〜椅子",
+					"value": 204,
+					"objs": [
+						{
+							"id": 1,
+							"click": "newspaper",
+							"off": "LF_00"
+						},
+						{
+							"id": 2,
+							"click": "color_yellow",
+							"on": "LF_00",
+							"off": "GAIN_COLOR_YELLOW"
+						},
+						{
+							"id": 3,
+							"click": "newspaper2",
+							"on": "LF_00"
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S201_ArtRoom"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S205_Door",
+					"name": "美術室〜出口（前）",
+					"value": 205,
+					"objs": [
+						{
+							"id": 1,
+							"click": "door",
+							"hidden": true
+						},
+						{
+							"id": 2,
+							"click": "rack"
+						}
+					],
+					"moves": [
+						{
+							"id": 2,
+							"click": "",
+							"jump": "S208_Door2"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S206_Window",
+					"name": "美術室〜窓",
+					"value": 206,
+					"objs": [
+						{
+							"id": 1,
+							"click": "",
+							"off": "S207_LOCKER_UNLOCK"
+						},
+						{
+							"id": 2,
+							"click": "",
+							"on": "S207_LOCKER_UNLOCK",
+							"off": "S207_LOCKER_OPEN"
+						},
+						{
+							"id": 3,
+							"click": "",
+							"on": "S207_LOCKER_OPEN"
+						},
+						{
+							"id": 4,
+							"click": "move_locker",
+							"hidden": true
+						},
+						{
+							"id": 5,
+							"click": "shadow",
+							"off": "LF_00"
+						},
+						{
+							"id": 6,
+							"click": "window",
+							"on": "LF_00",
+							"hidden": true,
+							"off": "LF_02"
+						},
+						{
+							"id": 7,
+							"click": "color_orange",
+							"off": "GAIN_COLOR_ORANGE",
+							"on": "LF_00"
+						},
+						{
+							"id": 8,
+							"click": "sticker",
+							"on": "LF_02",
+							"off": "LF_03"
+						},
+						{
+							"id": 9,
+							"click": "sticker2",
+							"on": "LF_03",
+							"off": "LF_04"
+						},
+						{
+							"id": 10,
+							"click": "input",
+							"on": "LF_03",
+							"off": "LF_04"
+						},
+						{
+							"id": 11,
+							"click": "completed",
+							"on": "LF_04",
+							"hidden": true,
+							"off": "FLG_209"
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S201_ArtRoom"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S207_Locker",
+					"name": "美術室〜ロッカー",
+					"value": 207,
+					"objs": [
+						{
+							"id": 1,
+							"click": "locker1",
+							"off": "S207_LOCKER_UNLOCK"
+						},
+						{
+							"id": 2,
+							"click": "locker2",
+							"on": "S207_LOCKER_UNLOCK",
+							"off": "S207_LOCKER_OPEN"
+						},
+						{
+							"id": 3,
+							"click": "shirt"
+						},
+						{
+							"id": 4,
+							"click": "bucket"
+						},
+						{
+							"id": 5,
+							"click": "mop",
+							"on": "S207_LOCKER_OPEN"
+						},
+						{
+							"id": 6,
+							"click": "keisan"
+						},
+						{
+							"id": 7,
+							"click": "_1000",
+							"off": "LF_00"
+						},
+						{
+							"id": 8,
+							"click": "_4",
+							"off": "LF_00"
+						},
+						{
+							"id": 9,
+							"click": "_10",
+							"off": "LF_00"
+						},
+						{
+							"id": 10,
+							"click": "_ru"
+						},
+						{
+							"id": 11,
+							"click": "_1",
+							"off": "LF_00"
+						},
+						{
+							"id": 12,
+							"click": "kan_1000",
+							"on": "LF_00"
+						},
+						{
+							"id": 13,
+							"click": "kan_4",
+							"on": "LF_00"
+						},
+						{
+							"id": 14,
+							"click": "kan_10",
+							"on": "LF_00"
+						},
+						{
+							"id": 15,
+							"click": "kan_1",
+							"on": "LF_00"
+						},
+						{
+							"id": 16,
+							"click": "input",
+							"off": "S207_LOCKER_UNLOCK"
+						},
+						{
+							"id": 17,
+							"click": "locker3",
+							"on": "S207_LOCKER_OPEN"
+						},
+						{
+							"id": 18,
+							"click": "booklet",
+							"on": "S207_LOCKER_OPEN",
+							"off": "GAIN_BOOKLET"
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S206_Window"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S208_Door2",
+					"name": "美術室〜出口（後ろ）",
+					"value": 208,
+					"objs": [
+						{
+							"id": 1,
+							"click": "move_door2",
+							"hidden": true
+						},
+						{
+							"id": 2,
+							"click": "door",
+							"hidden": true
+						},
+						{
+							"id": 3,
+							"click": "color_green",
+							"on": "LF_00",
+							"off": "GAIN_COLOR_GREEN"
+						},
+						{
+							"id": 4,
+							"click": "hand1",
+							"hidden": true,
+							"off": "LF_00"
+						},
+						{
+							"id": 5,
+							"click": "hand2",
+							"on": "LF_00"
+						}
+					],
+					"moves": [
+						{
+							"id": 1,
+							"click": "",
+							"jump": "S201_ArtRoom"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S209_Rack",
+					"name": "美術室〜マガジンラック",
+					"value": 209,
+					"objs": [
+						{
+							"id": 1,
+							"click": "rack",
+							"off": "LF_05"
+						},
+						{
+							"id": 2,
+							"click": "box_close",
+							"off": "S209_UNLOCK"
+						},
+						{
+							"id": 3,
+							"click": "box_open",
+							"on": "S209_UNLOCK"
+						},
+						{
+							"id": 4,
+							"click": "input",
+							"off": "S209_UNLOCK"
+						},
+						{
+							"id": 5,
+							"click": "plant",
+							"hidden": true
+						},
+						{
+							"id": 6,
+							"click": "switch",
+							"hidden": true
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S205_Door"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S250_Event",
+					"name": "",
+					"value": 250,
+					"objs": [],
+					"moves": [],
+					"events": []
+				},
+				{
+					"id": "S301_Toilet",
+					"name": "女子トイレ",
+					"value": 301,
+					"objs": [
+						{
+							"id": 1,
+							"click": "left_front",
+							"hidden": true
+						},
+						{
+							"id": 2,
+							"click": "sink",
+							"hidden": true
+						},
+						{
+							"id": 3,
+							"click": "center",
+							"hidden": true
+						},
+						{
+							"id": 4,
+							"click": "left_front2",
+							"hidden": true
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S302_ToiletExit"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S302_ToiletExit",
+					"name": "女子トイレ〜出口",
+					"value": 302,
+					"objs": [
+						{
+							"id": 1,
+							"click": "door",
+							"hidden": true
+						},
+						{
+							"id": 2,
+							"click": "blue_memo",
+							"off": "GAIN_BLUE_MEMO"
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S301_Toilet"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S303_ToiletLeftFront",
+					"name": "女子トイレ〜左手前の個室",
+					"value": 303,
+					"objs": [
+						{
+							"id": 1,
+							"click": "sticker1"
+						},
+						{
+							"id": 2,
+							"click": "sticker2"
+						},
+						{
+							"id": 3,
+							"click": "sticker3"
+						},
+						{
+							"id": 4,
+							"click": "sticker4"
+						},
+						{
+							"id": 5,
+							"click": "input",
+							"off": "LF_01"
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S301_Toilet"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S304_ToiletSink",
+					"name": "女子トイレ〜洗面台",
+					"value": 304,
+					"objs": [
+						{
+							"id": 1,
+							"click": "glass",
+							"off": "LF_00",
+							"hidden": true
+						},
+						{
+							"id": 2,
+							"click": "",
+							"on": "LF_00"
+						},
+						{
+							"id": 3,
+							"click": "sticker",
+							"on": "LF_00"
+						},
+						{
+							"id": 4,
+							"click": "input",
+							"on": "LF_00",
+							"off": "LF_02"
+						}
+					],
+					"moves": [
+						{
+							"id": 1,
+							"click": "",
+							"jump": "S301_Toilet"
+						},
+						{
+							"id": 2,
+							"click": "",
+							"jump": "S302_ToiletExit"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S305_ToiletCenter",
+					"name": "女子トイレ〜中央",
+					"value": 305,
+					"objs": [
+						{
+							"id": 1,
+							"click": "left_center",
+							"hidden": true
+						},
+						{
+							"id": 2,
+							"click": "move_back",
+							"hidden": true
+						},
+						{
+							"id": 3,
+							"click": "move_right",
+							"hidden": true
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S301_Toilet"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S306_ToiletLeftCenter",
+					"name": "女子トイレ〜左中央の個室",
+					"value": 306,
+					"objs": [
+						{
+							"id": 1,
+							"click": "cellophane",
+							"off": "GAIN_CELLOPHANE"
+						},
+						{
+							"id": 2,
+							"click": "sticker1"
+						},
+						{
+							"id": 3,
+							"click": "sticker2"
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S305_ToiletCenter"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S307_ToiletLeftBack",
+					"name": "女子トイレ〜奥の個室入り口",
+					"value": 307,
+					"objs": [
+						{
+							"id": 1,
+							"click": "window",
+							"hidden": true
+						},
+						{
+							"id": 2,
+							"click": "door",
+							"hidden": true
+						},
+						{
+							"id": 3,
+							"click": "poster",
+							"off": "LF_01"
+						},
+						{
+							"id": 4,
+							"click": "",
+							"on": "LF_01",
+							"off": "LF_02"
+						},
+						{
+							"id": 5,
+							"click": "",
+							"on": "LF_01",
+							"off": "LF_03"
+						},
+						{
+							"id": 6,
+							"click": "",
+							"on": "LF_01",
+							"off": "LF_04"
+						},
+						{
+							"id": 7,
+							"click": "hole",
+							"off": "LF_05",
+							"hidden": true,
+							"on": "LF_01"
+						},
+						{
+							"id": 8,
+							"click": "skull_red",
+							"on": "LF_02"
+						},
+						{
+							"id": 9,
+							"click": "skull_green",
+							"on": "LF_03"
+						},
+						{
+							"id": 10,
+							"click": "skull_blue",
+							"on": "LF_04"
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S305_ToiletCenter"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S308_ToiletRight",
+					"name": "女子トイレ〜右側の個室",
+					"value": 308,
+					"objs": [
+						{
+							"id": 1,
+							"click": "sticker1"
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S305_ToiletCenter"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S309_ToiletLeftFront2",
+					"name": "女子トイレ〜左手前の個室２",
+					"value": 309,
+					"objs": [
+						{
+							"id": 1,
+							"click": "gear",
+							"off": "LF_02"
+						},
+						{
+							"id": 2,
+							"click": "gear_left",
+							"on": "LF_00",
+							"off": "LF_01"
+						},
+						{
+							"id": 3,
+							"click": "gear_right",
+							"on": "LF_00",
+							"off": "LF_01"
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S301_Toilet"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S350_ToiletEvent",
+					"name": "",
+					"value": 350,
+					"objs": [],
+					"moves": [],
+					"events": []
+				},
+				{
+					"id": "S401_MusicRoom",
+					"name": "音楽室",
+					"value": 401,
+					"objs": [
+						{
+							"id": 1,
+							"click": "piano",
+							"hidden": true
+						},
+						{
+							"id": 2,
+							"click": "black_board"
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S402_MusicExit"
+						},
+						{
+							"id": 1,
+							"click": "",
+							"jump": "S412_MusicDesk"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S402_MusicExit",
+					"name": "音楽室〜出口",
+					"value": 402,
+					"objs": [
+						{
+							"id": 1,
+							"click": "door",
+							"hidden": true
+						},
+						{
+							"id": 2,
+							"click": "desk",
+							"hidden": true
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S401_MusicRoom"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S403_MusicPiano",
+					"name": "音楽室〜ピアノの前",
+					"value": 403,
+					"objs": [
+						{
+							"id": 1,
+							"click": "piano",
+							"hidden": true
+						},
+						{
+							"id": 2,
+							"click": "memo",
+							"off": "GAIN_MUSIC_MEMO"
+						}
+					],
+					"moves": [
+						{
+							"id": 1,
+							"click": "",
+							"jump": "S401_MusicRoom"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S404_MusicDesk",
+					"name": "音楽室〜机",
+					"value": 404,
+					"objs": [],
+					"moves": [],
+					"events": []
+				},
+				{
+					"id": "S405_MusicCenter",
+					"name": "音楽室〜中央",
+					"value": 405,
+					"objs": [],
+					"moves": [],
+					"events": []
+				},
+				{
+					"id": "S406_MusicBackBoard",
+					"name": "音楽室〜後ろの掲示板",
+					"value": 406,
+					"objs": [
+						{
+							"id": 1,
+							"click": "pic00",
+							"off": "LF_00"
+						},
+						{
+							"id": 2,
+							"click": "pic01",
+							"on": "LF_00",
+							"off": "LF_01"
+						},
+						{
+							"id": 3,
+							"click": "pic02",
+							"on": "LF_01"
+						},
+						{
+							"id": 4,
+							"click": "key",
+							"on": "LF_00",
+							"off": "GAIN_KEY_B"
+						},
+						{
+							"id": 5,
+							"click": "nothing",
+							"hidden": true
+						},
+						{
+							"id": 6,
+							"click": "nothing",
+							"hidden": true
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S401_MusicRoom"
+						},
+						{
+							"id": 1,
+							"click": "",
+							"jump": "S408_MusicLocker"
+						},
+						{
+							"id": 2,
+							"click": "",
+							"jump": "S409_MusicWindow"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S407_MusicPiano2",
+					"name": "音楽室〜ピアノ",
+					"value": 407,
+					"objs": [
+						{
+							"id": 1,
+							"click": "key_cantplay",
+							"hidden": true
+						},
+						{
+							"id": 2,
+							"click": "key_c",
+							"hidden": true
+						},
+						{
+							"id": 3,
+							"click": "key_d",
+							"hidden": true
+						},
+						{
+							"id": 4,
+							"click": "key_g",
+							"hidden": true
+						},
+						{
+							"id": 5,
+							"click": "key_b",
+							"hidden": true
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "back"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S408_MusicLocker",
+					"name": "音楽室〜ロッカー",
+					"value": 408,
+					"objs": [
+						{
+							"id": 1,
+							"click": "locker1",
+							"off": "LF_00"
+						},
+						{
+							"id": 2,
+							"click": "",
+							"on": "LF_00"
+						},
+						{
+							"id": 3,
+							"click": "input",
+							"off": "LF_01"
+						},
+						{
+							"id": 4,
+							"click": "locker2",
+							"on": "LF_00",
+							"hidden": true
+						},
+						{
+							"id": 5,
+							"click": "bucket",
+							"on": "LF_00",
+							"off": "GAIN_KEY_D",
+							"hidden": true
+						},
+						{
+							"id": 6,
+							"click": "door",
+							"hidden": true
+						},
+						{
+							"id": 7,
+							"click": "nothing",
+							"hidden": true
+						}
+					],
+					"moves": [
+						{
+							"id": 2,
+							"click": "",
+							"jump": "S406_MusicBackBoard"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S409_MusicWindow",
+					"name": "音楽室〜窓側",
+					"value": 409,
+					"objs": [
+						{
+							"id": 1,
+							"click": "safe",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 2,
+							"click": "safe",
+							"on": "SAFE_OPEN"
+						},
+						{
+							"id": 3,
+							"click": "window",
+							"hidden": true
+						},
+						{
+							"id": 4,
+							"click": "locker",
+							"hidden": true
+						}
+					],
+					"moves": [
+						{
+							"id": 1,
+							"click": "",
+							"jump": "S406_MusicBackBoard"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S410_MusicSafe",
+					"name": "音楽室〜金庫",
+					"value": 410,
+					"objs": [
+						{
+							"id": 1,
+							"click": "",
+							"on": "SAFE_OPEN"
+						},
+						{
+							"id": 2,
+							"click": "dial1",
+							"on": "SAFE_DIAL_1_1",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 3,
+							"click": "dial1",
+							"on": "SAFE_DIAL_1_2",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 4,
+							"click": "dial1",
+							"on": "SAFE_DIAL_1_3",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 5,
+							"click": "dial1",
+							"on": "SAFE_DIAL_1_4",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 6,
+							"click": "dial1",
+							"on": "SAFE_DIAL_1_5",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 7,
+							"click": "dial1",
+							"on": "SAFE_DIAL_1_6",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 8,
+							"click": "dial1",
+							"on": "SAFE_DIAL_1_7",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 9,
+							"click": "dial1",
+							"on": "SAFE_DIAL_1_8",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 10,
+							"click": "dial2",
+							"on": "SAFE_DIAL_2_1",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 11,
+							"click": "dial2",
+							"on": "SAFE_DIAL_2_2",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 12,
+							"click": "dial2",
+							"on": "SAFE_DIAL_2_3",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 13,
+							"click": "dial2",
+							"on": "SAFE_DIAL_2_4",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 14,
+							"click": "dial2",
+							"on": "SAFE_DIAL_2_5",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 15,
+							"click": "dial2",
+							"on": "SAFE_DIAL_2_6",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 16,
+							"click": "dial2",
+							"on": "SAFE_DIAL_2_7",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 17,
+							"click": "dial2",
+							"on": "SAFE_DIAL_2_8",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 18,
+							"click": "dial3",
+							"on": "SAFE_DIAL_3_1",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 19,
+							"click": "dial3",
+							"on": "SAFE_DIAL_3_2",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 20,
+							"click": "dial3",
+							"on": "SAFE_DIAL_3_3",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 21,
+							"click": "dial3",
+							"on": "SAFE_DIAL_3_4",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 22,
+							"click": "dial3",
+							"on": "SAFE_DIAL_3_5",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 23,
+							"click": "dial3",
+							"on": "SAFE_DIAL_3_6",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 24,
+							"click": "dial3",
+							"on": "SAFE_DIAL_3_7",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 25,
+							"click": "dial3",
+							"on": "SAFE_DIAL_3_8",
+							"off": "SAFE_OPEN"
+						},
+						{
+							"id": 26,
+							"click": "opened",
+							"on": "SAFE_OPEN",
+							"hidden": true
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S409_MusicWindow"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S411_MusicBlackBoard",
+					"name": "音楽室〜黒板",
+					"value": 411,
+					"objs": [
+						{
+							"id": 1,
+							"click": ""
+						},
+						{
+							"id": 2,
+							"click": "sticker01"
+						},
+						{
+							"id": 3,
+							"click": "sticker02"
+						},
+						{
+							"id": 4,
+							"click": "sticker03"
+						},
+						{
+							"id": 5,
+							"click": "sticker04"
+						},
+						{
+							"id": 6,
+							"click": "sticker05"
+						},
+						{
+							"id": 7,
+							"click": "sticker06"
+						},
+						{
+							"id": 8,
+							"click": "sticker07"
+						},
+						{
+							"id": 9,
+							"click": "sticker08"
+						},
+						{
+							"id": 10,
+							"click": "sticker09"
+						},
+						{
+							"id": 11,
+							"click": "sticker10"
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S401_MusicRoom"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S412_MusicDesk",
+					"name": "音楽室〜机",
+					"value": 412,
+					"objs": [
+						{
+							"id": 1,
+							"click": "bag_closed",
+							"off": "LF_02"
+						},
+						{
+							"id": 2,
+							"click": "input",
+							"off": "LF_02"
+						},
+						{
+							"id": 3,
+							"click": "bag_opened",
+							"on": "LF_02"
+						},
+						{
+							"id": 4,
+							"click": "bag_init",
+							"hidden": true,
+							"off": "LF_01"
+						}
+					],
+					"moves": [
+						{
+							"id": 1,
+							"click": "",
+							"jump": "S406_MusicBackBoard"
+						},
+						{
+							"id": 2,
+							"click": "",
+							"jump": "S401_MusicRoom"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S413_MusicExitDesk",
+					"name": "音楽室〜出口の左側の机",
+					"value": 413,
+					"objs": [
+						{
+							"id": 1,
+							"click": "sticker"
+						},
+						{
+							"id": 2,
+							"click": "under",
+							"off": "LF_04"
+						},
+						{
+							"id": 3,
+							"click": "",
+							"on": "LF_04"
+						},
+						{
+							"id": 4,
+							"click": "center",
+							"off": "LF_03"
+						},
+						{
+							"id": 5,
+							"click": "",
+							"on": "LF_03"
+						},
+						{
+							"id": 6,
+							"click": "right",
+							"off": "LF_02"
+						},
+						{
+							"id": 7,
+							"click": "",
+							"on": "LF_02"
+						},
+						{
+							"id": 8,
+							"click": "left",
+							"off": "LF_01"
+						},
+						{
+							"id": 9,
+							"click": "",
+							"on": "LF_01"
+						}
+					],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S402_MusicExit"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S450_MusicEvent",
+					"name": "",
+					"value": 450,
+					"objs": [],
+					"moves": [],
+					"events": []
+				},
+				{
+					"id": "S501_Library",
+					"name": "図書室",
+					"value": 501,
+					"objs": [],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S601_OldSchool"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S502_Library2",
+					"name": "図書室",
+					"value": 502,
+					"objs": [],
+					"moves": [],
+					"events": []
+				},
+				{
+					"id": "S550_LibraryEvent",
+					"name": "",
+					"value": 550,
+					"objs": [],
+					"moves": [],
+					"events": []
+				},
+				{
+					"id": "S601_OldSchool",
+					"name": "旧校舎",
+					"value": 601,
+					"objs": [],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S701_RoofGarden"
+						}
+					],
+					"events": []
+				},
+				{
+					"id": "S650_OldSchoolEvent",
+					"name": "",
+					"value": 650,
+					"objs": [],
+					"moves": [],
+					"events": []
+				},
+				{
+					"id": "S701_RoofGarden",
+					"name": "",
+					"value": 701,
+					"objs": [],
+					"moves": [
+						{
+							"id": 0,
+							"click": "test"
+						}
+					],
+					"events": []
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "bits",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id"
+				},
+				{
+					"typeStr": "3",
+					"name": "value"
+				},
+				{
+					"typeStr": "1",
+					"name": "comment",
+					"opt": true,
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"id": "DEBUG_MODE",
+					"value": 0,
+					"comment": "デバッグモード有効フラグ"
+				},
+				{
+					"id": "BGM_OFF",
+					"value": 1,
+					"comment": "BGMの再生を無効にする"
+				},
+				{
+					"id": "TRIAL",
+					"value": 2,
+					"comment": "体験版フラグ"
+				},
+				{
+					"id": "FLG_003",
+					"value": 3
+				},
+				{
+					"id": "FLG_004",
+					"value": 4
+				},
+				{
+					"id": "FLG_005",
+					"value": 5
+				},
+				{
+					"id": "FLG_006",
+					"value": 6
+				},
+				{
+					"id": "FLG_007",
+					"value": 7
+				},
+				{
+					"id": "PLACE_DISABLE",
+					"value": 8,
+					"comment": "場所表示無効フラグ"
+				},
+				{
+					"id": "LIGHT_ON",
+					"value": 9,
+					"comment": "ライト点灯フラグ(イベント背景)"
+				},
+				{
+					"id": "LIGHT_ON_ESC",
+					"value": 10,
+					"comment": "ライト点灯フラグ(探索)"
+				},
+				{
+					"id": "GAIN_SMART_PHONE",
+					"value": 11,
+					"comment": "スマートフォン入手フラグ"
+				},
+				{
+					"id": "GAIN_BLACK_BOARD_ERASER",
+					"value": 12,
+					"comment": "黒板消し入手フラグ"
+				},
+				{
+					"id": "GAIN_BOU_MEMO",
+					"value": 13,
+					"comment": "「美・応・有」と書かれていたメモの入手フラグ"
+				},
+				{
+					"id": "S102_CALL_TAXI",
+					"value": 14,
+					"comment": "タクシーに電話しようとした"
+				},
+				{
+					"id": "S107_CHECK_WINDOW",
+					"value": 15,
+					"comment": "窓を調べた"
+				},
+				{
+					"id": "S109_COMPLETED",
+					"value": 16,
+					"comment": "時間割表の謎を解いた"
+				},
+				{
+					"id": "FLG_017",
+					"value": 17
+				},
+				{
+					"id": "FLG_018",
+					"value": 18
+				},
+				{
+					"id": "FLG_019",
+					"value": 19
+				},
+				{
+					"id": "GAIN_PASS_HOLDER",
+					"value": 20,
+					"comment": "お母さんの写真入手フラグ"
+				},
+				{
+					"id": "GAIN_BOOKLET",
+					"value": 21,
+					"comment": "花の開花時期のメモ入手フラグ"
+				},
+				{
+					"id": "GAIN_FLOWER_MEMO",
+					"value": 22,
+					"comment": "花を植えるメモ入手フラグ"
+				},
+				{
+					"id": "FLG_023",
+					"value": 23
+				},
+				{
+					"id": "FLG_024",
+					"value": 24
+				},
+				{
+					"id": "S205_COMPLETED",
+					"value": 25,
+					"comment": "出口の暗号を解いた"
+				},
+				{
+					"id": "S207_LOCKER_UNLOCK",
+					"value": 26,
+					"comment": "ロッカーのカギを解除"
+				},
+				{
+					"id": "S207_LOCKER_OPEN",
+					"value": 27,
+					"comment": "ロッカー開いた"
+				},
+				{
+					"id": "S206_UNLOCK",
+					"value": 28,
+					"comment": "窓の暗号を解いた"
+				},
+				{
+					"id": "S209_UNLOCK",
+					"value": 29,
+					"comment": "宝箱の暗号を解いた"
+				},
+				{
+					"id": "S209_COMPLETED",
+					"value": 30,
+					"comment": "宝箱を調べた"
+				},
+				{
+					"id": "GAIN_COLOR_RED",
+					"value": 31,
+					"comment": "赤の絵の具を入手"
+				},
+				{
+					"id": "GAIN_COLOR_ORANGE",
+					"value": 32,
+					"comment": "橙の絵の具を入手"
+				},
+				{
+					"id": "GAIN_COLOR_YELLOW",
+					"value": 33,
+					"comment": "黄色の絵の具を入手"
+				},
+				{
+					"id": "GAIN_COLOR_GREEN",
+					"value": 34,
+					"comment": "緑の絵の具を入手"
+				},
+				{
+					"id": "GAIN_COLOR_BLUE",
+					"value": 35,
+					"comment": "青い絵の具を入手"
+				},
+				{
+					"id": "GAIN_COLOR_INDIGO",
+					"value": 36,
+					"comment": "藍色の絵の具を入手"
+				},
+				{
+					"id": "GAIN_COLOR_PURPLE",
+					"value": 37,
+					"comment": "紫の絵の具を入手"
+				},
+				{
+					"id": "CHECK_COLOR_RED",
+					"value": 38,
+					"comment": "赤い絵の具を調べた"
+				},
+				{
+					"id": "CHECK_COLOR_ORANGE",
+					"value": 39,
+					"comment": "橙の絵の具を調べた"
+				},
+				{
+					"id": "CHECK_COLOR_YELLOW",
+					"value": 40,
+					"comment": "黄色の絵の具を調べた"
+				},
+				{
+					"id": "CHECK_COLOR_GREEN",
+					"value": 41,
+					"comment": "緑の絵の具を調べた"
+				},
+				{
+					"id": "CHECK_COLOR_BLUE",
+					"value": 42,
+					"comment": "青い絵の具を調べた"
+				},
+				{
+					"id": "CHECK_COLOR_INDIGO",
+					"value": 43,
+					"comment": "藍色の絵の具を調べた"
+				},
+				{
+					"id": "CHECK_COLOR_PURPLE",
+					"value": 44,
+					"comment": "紫の絵の具を調べた"
+				},
+				{
+					"id": "FLG_045",
+					"value": 45
+				},
+				{
+					"id": "FLG_046",
+					"value": 46
+				},
+				{
+					"id": "FLG_047",
+					"value": 47
+				},
+				{
+					"id": "FLG_048",
+					"value": 48
+				},
+				{
+					"id": "FLG_049",
+					"value": 49
+				},
+				{
+					"id": "GAIN_CELLOPHANE",
+					"value": 50,
+					"comment": "色セロハンを入手"
+				},
+				{
+					"id": "GAIN_PHONE_CELLOPHANE",
+					"value": 51,
+					"comment": "スマホに色セロハンをかぶせた"
+				},
+				{
+					"id": "PHONE_CELLOPHANE_ENABLE",
+					"value": 52,
+					"comment": "スマホに色セロハンをかぶせたのが有効かどうか"
+				},
+				{
+					"id": "GAIN_SKULL_RED",
+					"value": 53,
+					"comment": "赤いドクロを入手"
+				},
+				{
+					"id": "GAIN_SKULL_GREEN",
+					"value": 54,
+					"comment": "緑のドクロを入手"
+				},
+				{
+					"id": "GAIN_SKULL_NAVY",
+					"value": 55,
+					"comment": "紺のドクロを入手"
+				},
+				{
+					"id": "GAIN_BLUE_MEMO",
+					"value": 56,
+					"comment": "青色のメモを入手"
+				},
+				{
+					"id": "BLUE_MEMO_READ",
+					"value": 57,
+					"comment": "青いライトが当たった状態でメモを読んだ"
+				},
+				{
+					"id": "FLG_058",
+					"value": 58
+				},
+				{
+					"id": "FLG_059",
+					"value": 59
+				},
+				{
+					"id": "SAFE_OPEN",
+					"value": 60,
+					"comment": "金庫のカギを開けた"
+				},
+				{
+					"id": "SAFE_DIAL_1_1",
+					"value": 61
+				},
+				{
+					"id": "SAFE_DIAL_1_2",
+					"value": 62
+				},
+				{
+					"id": "SAFE_DIAL_1_3",
+					"value": 63
+				},
+				{
+					"id": "SAFE_DIAL_1_4",
+					"value": 64
+				},
+				{
+					"id": "SAFE_DIAL_1_5",
+					"value": 65
+				},
+				{
+					"id": "SAFE_DIAL_1_6",
+					"value": 66
+				},
+				{
+					"id": "SAFE_DIAL_1_7",
+					"value": 67
+				},
+				{
+					"id": "SAFE_DIAL_1_8",
+					"value": 68
+				},
+				{
+					"id": "SAFE_DIAL_2_1",
+					"value": 69
+				},
+				{
+					"id": "SAFE_DIAL_2_2",
+					"value": 70
+				},
+				{
+					"id": "SAFE_DIAL_2_3",
+					"value": 71
+				},
+				{
+					"id": "SAFE_DIAL_2_4",
+					"value": 72
+				},
+				{
+					"id": "SAFE_DIAL_2_5",
+					"value": 73
+				},
+				{
+					"id": "SAFE_DIAL_2_6",
+					"value": 74
+				},
+				{
+					"id": "SAFE_DIAL_2_7",
+					"value": 75
+				},
+				{
+					"id": "SAFE_DIAL_2_8",
+					"value": 76
+				},
+				{
+					"id": "SAFE_DIAL_3_1",
+					"value": 77
+				},
+				{
+					"id": "SAFE_DIAL_3_2",
+					"value": 78
+				},
+				{
+					"id": "SAFE_DIAL_3_3",
+					"value": 79
+				},
+				{
+					"id": "SAFE_DIAL_3_4",
+					"value": 80
+				},
+				{
+					"id": "SAFE_DIAL_3_5",
+					"value": 81
+				},
+				{
+					"id": "SAFE_DIAL_3_6",
+					"value": 82
+				},
+				{
+					"id": "SAFE_DIAL_3_7",
+					"value": 83
+				},
+				{
+					"id": "SAFE_DIAL_3_8",
+					"value": 84
+				},
+				{
+					"id": "FLG_085",
+					"value": 85
+				},
+				{
+					"id": "FLG_086",
+					"value": 86
+				},
+				{
+					"id": "FLG_087",
+					"value": 87
+				},
+				{
+					"id": "FLG_088",
+					"value": 88
+				},
+				{
+					"id": "FLG_089",
+					"value": 89
+				},
+				{
+					"id": "GAIN_KEY_C",
+					"value": 90,
+					"comment": "「黒」と書かれたカギを入手"
+				},
+				{
+					"id": "GAIN_KEY_D",
+					"value": 91,
+					"comment": "「スラー」と書かれたカギを入手"
+				},
+				{
+					"id": "GAIN_KEY_G",
+					"value": 92,
+					"comment": "「四季」と書かれたカギを入手"
+				},
+				{
+					"id": "GAIN_KEY_B",
+					"value": 93,
+					"comment": "「おり」と書かれたカギを入手"
+				},
+				{
+					"id": "GAIN_MUSIC_MEMO",
+					"value": 94,
+					"comment": "音符が書かれたメモを入手"
+				},
+				{
+					"id": "S411_SAW_BLACK_BOARD",
+					"value": 95,
+					"comment": "黒板を見た"
+				},
+				{
+					"id": "S406_SAW_BEETHOVEN",
+					"value": 96,
+					"comment": "ベートーヴェンの目が動くのを確認した"
+				},
+				{
+					"id": "FLG_097",
+					"value": 97
+				},
+				{
+					"id": "FLG_098",
+					"value": 98
+				},
+				{
+					"id": "FLG_099",
+					"value": 99
+				},
+				{
+					"id": "FLG_100",
+					"value": 100
+				},
+				{
+					"id": "FLG_101",
+					"value": 101
+				},
+				{
+					"id": "FLG_102",
+					"value": 102
+				},
+				{
+					"id": "FLG_103",
+					"value": 103
+				},
+				{
+					"id": "FLG_104",
+					"value": 104
+				},
+				{
+					"id": "FLG_105",
+					"value": 105
+				},
+				{
+					"id": "FLG_106",
+					"value": 106
+				},
+				{
+					"id": "FLG_107",
+					"value": 107
+				},
+				{
+					"id": "FLG_108",
+					"value": 108
+				},
+				{
+					"id": "FLG_109",
+					"value": 109
+				},
+				{
+					"id": "FLG_110",
+					"value": 110
+				},
+				{
+					"id": "FLG_111",
+					"value": 111
+				},
+				{
+					"id": "FLG_112",
+					"value": 112
+				},
+				{
+					"id": "FLG_113",
+					"value": 113
+				},
+				{
+					"id": "FLG_114",
+					"value": 114
+				},
+				{
+					"id": "FLG_115",
+					"value": 115
+				},
+				{
+					"id": "FLG_116",
+					"value": 116
+				},
+				{
+					"id": "FLG_117",
+					"value": 117
+				},
+				{
+					"id": "FLG_118",
+					"value": 118
+				},
+				{
+					"id": "FLG_119",
+					"value": 119
+				},
+				{
+					"id": "FLG_120",
+					"value": 120
+				},
+				{
+					"id": "FLG_121",
+					"value": 121
+				},
+				{
+					"id": "FLG_122",
+					"value": 122
+				},
+				{
+					"id": "FLG_123",
+					"value": 123
+				},
+				{
+					"id": "FLG_124",
+					"value": 124
+				},
+				{
+					"id": "FLG_125",
+					"value": 125
+				},
+				{
+					"id": "FLG_126",
+					"value": 126
+				},
+				{
+					"id": "FLG_127",
+					"value": 127
+				},
+				{
+					"id": "FLG_128",
+					"value": 128
+				},
+				{
+					"id": "FLG_129",
+					"value": 129
+				},
+				{
+					"id": "FLG_130",
+					"value": 130
+				},
+				{
+					"id": "FLG_131",
+					"value": 131
+				},
+				{
+					"id": "FLG_132",
+					"value": 132
+				},
+				{
+					"id": "FLG_133",
+					"value": 133
+				},
+				{
+					"id": "FLG_134",
+					"value": 134
+				},
+				{
+					"id": "FLG_135",
+					"value": 135
+				},
+				{
+					"id": "FLG_136",
+					"value": 136
+				},
+				{
+					"id": "FLG_137",
+					"value": 137
+				},
+				{
+					"id": "FLG_138",
+					"value": 138
+				},
+				{
+					"id": "FLG_139",
+					"value": 139
+				},
+				{
+					"id": "FLG_140",
+					"value": 140
+				},
+				{
+					"id": "FLG_141",
+					"value": 141
+				},
+				{
+					"id": "FLG_142",
+					"value": 142
+				},
+				{
+					"id": "FLG_143",
+					"value": 143
+				},
+				{
+					"id": "FLG_144",
+					"value": 144
+				},
+				{
+					"id": "FLG_145",
+					"value": 145
+				},
+				{
+					"id": "FLG_146",
+					"value": 146
+				},
+				{
+					"id": "FLG_147",
+					"value": 147
+				},
+				{
+					"id": "FLG_148",
+					"value": 148
+				},
+				{
+					"id": "FLG_149",
+					"value": 149
+				},
+				{
+					"id": "FLG_150",
+					"value": 150
+				},
+				{
+					"id": "FLG_151",
+					"value": 151
+				},
+				{
+					"id": "FLG_152",
+					"value": 152
+				},
+				{
+					"id": "FLG_153",
+					"value": 153
+				},
+				{
+					"id": "FLG_154",
+					"value": 154
+				},
+				{
+					"id": "FLG_155",
+					"value": 155
+				},
+				{
+					"id": "FLG_156",
+					"value": 156
+				},
+				{
+					"id": "FLG_157",
+					"value": 157
+				},
+				{
+					"id": "FLG_158",
+					"value": 158
+				},
+				{
+					"id": "FLG_159",
+					"value": 159
+				},
+				{
+					"id": "FLG_160",
+					"value": 160
+				},
+				{
+					"id": "FLG_161",
+					"value": 161
+				},
+				{
+					"id": "FLG_162",
+					"value": 162
+				},
+				{
+					"id": "FLG_163",
+					"value": 163
+				},
+				{
+					"id": "FLG_164",
+					"value": 164
+				},
+				{
+					"id": "FLG_165",
+					"value": 165
+				},
+				{
+					"id": "FLG_166",
+					"value": 166
+				},
+				{
+					"id": "FLG_167",
+					"value": 167
+				},
+				{
+					"id": "FLG_168",
+					"value": 168
+				},
+				{
+					"id": "FLG_169",
+					"value": 169
+				},
+				{
+					"id": "FLG_170",
+					"value": 170
+				},
+				{
+					"id": "FLG_171",
+					"value": 171
+				},
+				{
+					"id": "FLG_172",
+					"value": 172
+				},
+				{
+					"id": "FLG_173",
+					"value": 173
+				},
+				{
+					"id": "FLG_174",
+					"value": 174
+				},
+				{
+					"id": "FLG_175",
+					"value": 175
+				},
+				{
+					"id": "FLG_176",
+					"value": 176
+				},
+				{
+					"id": "FLG_177",
+					"value": 177
+				},
+				{
+					"id": "FLG_178",
+					"value": 178
+				},
+				{
+					"id": "FLG_179",
+					"value": 179
+				},
+				{
+					"id": "FLG_180",
+					"value": 180
+				},
+				{
+					"id": "FLG_181",
+					"value": 181
+				},
+				{
+					"id": "FLG_182",
+					"value": 182
+				},
+				{
+					"id": "FLG_183",
+					"value": 183
+				},
+				{
+					"id": "FLG_184",
+					"value": 184
+				},
+				{
+					"id": "FLG_185",
+					"value": 185
+				},
+				{
+					"id": "FLG_186",
+					"value": 186
+				},
+				{
+					"id": "FLG_187",
+					"value": 187
+				},
+				{
+					"id": "FLG_188",
+					"value": 188
+				},
+				{
+					"id": "FLG_189",
+					"value": 189
+				},
+				{
+					"id": "FLG_190",
+					"value": 190
+				},
+				{
+					"id": "FLG_191",
+					"value": 191
+				},
+				{
+					"id": "FLG_192",
+					"value": 192
+				},
+				{
+					"id": "FLG_193",
+					"value": 193
+				},
+				{
+					"id": "FLG_194",
+					"value": 194
+				},
+				{
+					"id": "FLG_195",
+					"value": 195
+				},
+				{
+					"id": "FLG_196",
+					"value": 196
+				},
+				{
+					"id": "FLG_197",
+					"value": 197
+				},
+				{
+					"id": "FLG_198",
+					"value": 198
+				},
+				{
+					"id": "FLG_199",
+					"value": 199
+				},
+				{
+					"id": "FLG_200",
+					"value": 200
+				},
+				{
+					"id": "FLG_201",
+					"value": 201
+				},
+				{
+					"id": "FLG_202",
+					"value": 202
+				},
+				{
+					"id": "FLG_203",
+					"value": 203
+				},
+				{
+					"id": "FLG_204",
+					"value": 204
+				},
+				{
+					"id": "FLG_205",
+					"value": 205
+				},
+				{
+					"id": "FLG_206",
+					"value": 206
+				},
+				{
+					"id": "FLG_207",
+					"value": 207
+				},
+				{
+					"id": "FLG_208",
+					"value": 208
+				},
+				{
+					"id": "FLG_209",
+					"value": 209
+				},
+				{
+					"id": "FLG_210",
+					"value": 210
+				},
+				{
+					"id": "FLG_211",
+					"value": 211
+				},
+				{
+					"id": "FLG_212",
+					"value": 212
+				},
+				{
+					"id": "FLG_213",
+					"value": 213
+				},
+				{
+					"id": "FLG_214",
+					"value": 214
+				},
+				{
+					"id": "FLG_215",
+					"value": 215
+				},
+				{
+					"id": "FLG_216",
+					"value": 216
+				},
+				{
+					"id": "FLG_217",
+					"value": 217
+				},
+				{
+					"id": "FLG_218",
+					"value": 218
+				},
+				{
+					"id": "FLG_219",
+					"value": 219
+				},
+				{
+					"id": "FLG_220",
+					"value": 220
+				},
+				{
+					"id": "FLG_221",
+					"value": 221
+				},
+				{
+					"id": "FLG_222",
+					"value": 222
+				},
+				{
+					"id": "FLG_223",
+					"value": 223
+				},
+				{
+					"id": "FLG_224",
+					"value": 224
+				},
+				{
+					"id": "FLG_225",
+					"value": 225
+				},
+				{
+					"id": "FLG_226",
+					"value": 226
+				},
+				{
+					"id": "FLG_227",
+					"value": 227
+				},
+				{
+					"id": "FLG_228",
+					"value": 228
+				},
+				{
+					"id": "FLG_229",
+					"value": 229
+				},
+				{
+					"id": "FLG_230",
+					"value": 230
+				},
+				{
+					"id": "FLG_231",
+					"value": 231
+				},
+				{
+					"id": "FLG_232",
+					"value": 232
+				},
+				{
+					"id": "FLG_233",
+					"value": 233
+				},
+				{
+					"id": "FLG_234",
+					"value": 234
+				},
+				{
+					"id": "FLG_235",
+					"value": 235
+				},
+				{
+					"id": "FLG_236",
+					"value": 236
+				},
+				{
+					"id": "FLG_237",
+					"value": 237
+				},
+				{
+					"id": "FLG_238",
+					"value": 238
+				},
+				{
+					"id": "FLG_239",
+					"value": 239
+				},
+				{
+					"id": "LF_00",
+					"value": 240,
+					"comment": "ローカルフラグ00"
+				},
+				{
+					"id": "LF_01",
+					"value": 241,
+					"comment": "ローカルフラグ01"
+				},
+				{
+					"id": "LF_02",
+					"value": 242,
+					"comment": "ローカルフラグ02"
+				},
+				{
+					"id": "LF_03",
+					"value": 243,
+					"comment": "ローカルフラグ03"
+				},
+				{
+					"id": "LF_04",
+					"value": 244,
+					"comment": "ローカルフラグ04"
+				},
+				{
+					"id": "LF_05",
+					"value": 245,
+					"comment": "ローカルフラグ05"
+				},
+				{
+					"id": "LF_06",
+					"value": 246,
+					"comment": "ローカルフラグ06"
+				},
+				{
+					"id": "LF_07",
+					"value": 247,
+					"comment": "ローカルフラグ07"
+				},
+				{
+					"id": "LF_08",
+					"value": 248,
+					"comment": "ローカルフラグ08"
+				},
+				{
+					"id": "LF_09",
+					"value": 249,
+					"comment": "ローカルフラグ09"
+				},
+				{
+					"id": "LF_10",
+					"value": 250,
+					"comment": "ローカルフラグ10"
+				},
+				{
+					"id": "LF_11",
+					"value": 251,
+					"comment": "ローカルフラグ11"
+				},
+				{
+					"id": "LF_12",
+					"value": 252,
+					"comment": "ローカルフラグ12"
+				},
+				{
+					"id": "LF_13",
+					"value": 253,
+					"comment": "ローカルフラグ13"
+				},
+				{
+					"id": "LF_14",
+					"value": 254,
+					"comment": "ローカルフラグ14"
+				},
+				{
+					"id": "LF_15",
+					"value": 255,
+					"comment": "ローカルフラグ15"
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "vars",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "value"
+				},
+				{
+					"typeStr": "1",
+					"name": "comment",
+					"opt": true,
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"id": "MONEY",
+					"value": 0,
+					"comment": "所持金"
+				},
+				{
+					"id": "RET",
+					"value": 1,
+					"comment": "戻り値"
+				},
+				{
+					"id": "ITEM",
+					"value": 2,
+					"comment": "装備しているアイテム"
+				},
+				{
+					"id": "CRAFT1",
+					"value": 3,
+					"comment": "合成するアイテム1"
+				},
+				{
+					"id": "CRAFT2",
+					"value": 4,
+					"comment": "合成するアイテム2"
+				},
+				{
+					"id": "VAR_005",
+					"value": 5
+				},
+				{
+					"id": "VAR_006",
+					"value": 6
+				},
+				{
+					"id": "VAR_007",
+					"value": 7
+				},
+				{
+					"id": "TEMP1",
+					"value": 8,
+					"comment": "ローカル計算用変数1"
+				},
+				{
+					"id": "TEMP2",
+					"value": 9,
+					"comment": "ローカル計算用変数2"
+				},
+				{
+					"id": "SP_PRG",
+					"value": 10,
+					"comment": "スマートフォンを調べたときに表示される情報の進捗"
+				},
+				{
+					"id": "LIGHT_COLOR",
+					"value": 11,
+					"comment": "スマートフォンのライトの色"
+				},
+				{
+					"id": "S413_FAILED_CNT",
+					"value": 12,
+					"comment": "room413での失敗回数"
+				},
+				{
+					"id": "S413_PUT_CNT",
+					"value": 13,
+					"comment": "room413でカギが入っている数"
+				},
+				{
+					"id": "VAR_014",
+					"value": 14
+				},
+				{
+					"id": "VAR_015",
+					"value": 15
+				},
+				{
+					"id": "VAR_016",
+					"value": 16
+				},
+				{
+					"id": "VAR_017",
+					"value": 17
+				},
+				{
+					"id": "VAR_018",
+					"value": 18
+				},
+				{
+					"id": "VAR_019",
+					"value": 19
+				},
+				{
+					"id": "VAR_020",
+					"value": 20
+				},
+				{
+					"id": "VAR_021",
+					"value": 21
+				},
+				{
+					"id": "VAR_022",
+					"value": 22
+				},
+				{
+					"id": "VAR_023",
+					"value": 23
+				},
+				{
+					"id": "VAR_024",
+					"value": 24
+				},
+				{
+					"id": "VAR_025",
+					"value": 25
+				},
+				{
+					"id": "VAR_026",
+					"value": 26
+				},
+				{
+					"id": "VAR_027",
+					"value": 27
+				},
+				{
+					"id": "VAR_028",
+					"value": 28
+				},
+				{
+					"id": "VAR_029",
+					"value": 29
+				},
+				{
+					"id": "VAR_030",
+					"value": 30
+				},
+				{
+					"id": "VAR_031",
+					"value": 31
+				},
+				{
+					"id": "VAR_032",
+					"value": 32
+				},
+				{
+					"id": "VAR_033",
+					"value": 33
+				},
+				{
+					"id": "VAR_034",
+					"value": 34
+				},
+				{
+					"id": "VAR_035",
+					"value": 35
+				},
+				{
+					"id": "VAR_037",
+					"value": 37
+				},
+				{
+					"id": "VAR_038",
+					"value": 38
+				},
+				{
+					"id": "VAR_039",
+					"value": 39
+				},
+				{
+					"id": "VAR_040",
+					"value": 40
+				},
+				{
+					"id": "VAR_041",
+					"value": 41
+				},
+				{
+					"id": "VAR_042",
+					"value": 42
+				},
+				{
+					"id": "VAR_043",
+					"value": 43
+				},
+				{
+					"id": "VAR_044",
+					"value": 44
+				},
+				{
+					"id": "VAR_045",
+					"value": 45
+				},
+				{
+					"id": "VAR_046",
+					"value": 46
+				},
+				{
+					"id": "VAR_047",
+					"value": 47
+				},
+				{
+					"id": "VAR_048",
+					"value": 48
+				},
+				{
+					"id": "VAR_049",
+					"value": 49
+				},
+				{
+					"id": "VAR_050",
+					"value": 50
+				},
+				{
+					"id": "VAR_051",
+					"value": 51
+				},
+				{
+					"id": "VAR_052",
+					"value": 52
+				},
+				{
+					"id": "VAR_053",
+					"value": 53
+				},
+				{
+					"id": "VAR_054",
+					"value": 54
+				},
+				{
+					"id": "VAR_055",
+					"value": 55
+				},
+				{
+					"id": "VAR_056",
+					"value": 56
+				},
+				{
+					"id": "VAR_057",
+					"value": 57
+				},
+				{
+					"id": "VAR_058",
+					"value": 58
+				},
+				{
+					"id": "VAR_059",
+					"value": 59
+				},
+				{
+					"id": "VAR_060",
+					"value": 60
+				},
+				{
+					"id": "VAR_061",
+					"value": 61
+				},
+				{
+					"id": "VAR_062",
+					"value": 62
+				},
+				{
+					"id": "VAR_063",
+					"value": 63
+				},
+				{
+					"id": "VAR_064",
+					"value": 64
+				},
+				{
+					"id": "VAR_065",
+					"value": 65
+				},
+				{
+					"id": "VAR_066",
+					"value": 66
+				},
+				{
+					"id": "VAR_067",
+					"value": 67
+				},
+				{
+					"id": "VAR_068",
+					"value": 68
+				},
+				{
+					"id": "VAR_069",
+					"value": 69
+				},
+				{
+					"id": "VAR_070",
+					"value": 70
+				},
+				{
+					"id": "VAR_071",
+					"value": 71
+				},
+				{
+					"id": "VAR_072",
+					"value": 72
+				},
+				{
+					"id": "VAR_073",
+					"value": 73
+				},
+				{
+					"id": "VAR_074",
+					"value": 74
+				},
+				{
+					"id": "VAR_075",
+					"value": 75
+				},
+				{
+					"id": "VAR_076",
+					"value": 76
+				},
+				{
+					"id": "VAR_077",
+					"value": 77
+				},
+				{
+					"id": "VAR_078",
+					"value": 78
+				},
+				{
+					"id": "VAR_079",
+					"value": 79
+				},
+				{
+					"id": "VAR_080",
+					"value": 80
+				},
+				{
+					"id": "VAR_081",
+					"value": 81
+				},
+				{
+					"id": "VAR_082",
+					"value": 82
+				},
+				{
+					"id": "VAR_083",
+					"value": 83
+				},
+				{
+					"id": "VAR_084",
+					"value": 84
+				},
+				{
+					"id": "VAR_085",
+					"value": 85
+				},
+				{
+					"id": "VAR_086",
+					"value": 86
+				},
+				{
+					"id": "VAR_087",
+					"value": 87
+				},
+				{
+					"id": "VAR_088",
+					"value": 88
+				},
+				{
+					"id": "VAR_089",
+					"value": 89
+				},
+				{
+					"id": "ADV_BG_THRETHOLD_COLOR",
+					"value": 90,
+					"comment": "2値化時の上位カラー（デフォルトは白）"
+				},
+				{
+					"id": "ADV_BG_THRETHOLD_RATE",
+					"value": 91,
+					"comment": "2値化の割合（0〜100）"
+				},
+				{
+					"id": "ADV_BG_THRETHOLD_VAL",
+					"value": 92,
+					"comment": "2値化判定の値 (0〜100)"
+				},
+				{
+					"id": "ADV_BG_BLEND_COLOR",
+					"value": 93,
+					"comment": "背景カラー（デフォルトは白）"
+				},
+				{
+					"id": "ADV_BG_BLEND_COLOR_NEXT",
+					"value": 94,
+					"comment": "背景カラー（次の色）"
+				},
+				{
+					"id": "ADV_BG_BLEND_COLOR_RATE",
+					"value": 95,
+					"comment": "背景カラー（次の色への変化率）"
+				},
+				{
+					"id": "LVAR_00",
+					"value": 96,
+					"comment": "シーンローカル変数00"
+				},
+				{
+					"id": "LVAR_01",
+					"value": 97,
+					"comment": "シーンローカル変数01"
+				},
+				{
+					"id": "LVAR_02",
+					"value": 98,
+					"comment": "シーンローカル変数02"
+				},
+				{
+					"id": "LVAR_03",
+					"value": 99,
+					"comment": "シーンローカル変数03"
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "items",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "name",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "value"
+				},
+				{
+					"typeStr": "6:bits",
+					"name": "flag",
+					"opt": true
+				},
+				{
+					"typeStr": "8",
+					"name": "materials",
+					"opt": true,
+					"display": null
+				},
+				{
+					"typeStr": "6:bits",
+					"name": "craft_flag",
+					"opt": true,
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "detail"
+				}
+			],
+			"lines": [
+				{
+					"id": "ITEM_DUMMY",
+					"name": "無効なアイテム",
+					"value": 0,
+					"detail": ""
+				},
+				{
+					"id": "ITEM_SMART_PHONE",
+					"name": "スマートフォン",
+					"value": 1,
+					"flag": "GAIN_SMART_PHONE",
+					"detail": "私のスマートフォンだ"
+				},
+				{
+					"id": "ITEM_BLACK_BOARD_ERASER",
+					"name": "黒板消し",
+					"value": 2,
+					"detail": "黒板の文字を消せる黒板消しだ",
+					"flag": "GAIN_BLACK_BOARD_ERASER"
+				},
+				{
+					"id": "ITEM_BOU_MEMO",
+					"name": "破れたメモ",
+					"value": 3,
+					"detail": "「美・応・有」と書かれているメモだ",
+					"flag": "GAIN_BOU_MEMO"
+				},
+				{
+					"id": "ITEM_PASS_HOLDER",
+					"name": "お母さんの写真",
+					"value": 4,
+					"detail": "お母さんの写真が入ったパスケースだ",
+					"flag": "GAIN_PASS_HOLDER"
+				},
+				{
+					"id": "ITEM_BOOKLET",
+					"name": "開花の季節のメモ",
+					"value": 5,
+					"detail": "花の開花の季節をまとめたメモだ",
+					"flag": "GAIN_BOOKLET"
+				},
+				{
+					"id": "ITEM_COLOR_BLUE",
+					"name": "青い絵の具",
+					"value": 6,
+					"detail": "<color.aqua>青い絵の具<color>だ。裏には「え」と書いてある",
+					"flag": "GAIN_COLOR_BLUE"
+				},
+				{
+					"id": "ITEM_COLOR_RED",
+					"name": "赤い絵の具",
+					"value": 7,
+					"detail": "<color.red>赤い絵の具<color>だ。裏には「あ」と書いてある",
+					"flag": "GAIN_COLOR_RED"
+				},
+				{
+					"id": "ITEM_COLOR_GREEN",
+					"name": "緑の絵の具",
+					"value": 8,
+					"detail": "<color.lime>緑の絵の具<color>だ。裏には「吠」と書いてある",
+					"flag": "GAIN_COLOR_GREEN"
+				},
+				{
+					"id": "ITEM_COLOR_YELLOW",
+					"name": "黄色の絵の具",
+					"value": 9,
+					"detail": "<color.yellow>黄色の絵の具<color>だ。裏には「に」と書いてある",
+					"flag": "GAIN_COLOR_YELLOW"
+				},
+				{
+					"id": "ITEM_COLOR_PURPLE",
+					"name": "紫の絵の具",
+					"value": 10,
+					"detail": "<color.purple>紫の絵の具<color>だ。裏には「花」と書いてある",
+					"flag": "GAIN_COLOR_PURPLE"
+				},
+				{
+					"id": "ITEM_COLOR_INDIGO",
+					"name": "藍色の絵の具",
+					"value": 11,
+					"detail": "<color.blue>藍色の絵の具<color>だ。裏には「る」と書いてある",
+					"flag": "GAIN_COLOR_INDIGO"
+				},
+				{
+					"id": "ITEM_COLOR_ORANGE",
+					"name": "橙の絵の具",
+					"value": 12,
+					"detail": "<color.orange>橙の絵の具<color>だ。裏には「さ」と書いてある",
+					"flag": "GAIN_COLOR_ORANGE"
+				},
+				{
+					"id": "ITEM_FLOWER_MEMO",
+					"name": "花を植える季節のメモ",
+					"value": 13,
+					"detail": "花を植える季節について書かれたメモ",
+					"flag": "GAIN_FLOWER_MEMO"
+				},
+				{
+					"id": "ITEM_CELLOPHANE",
+					"name": "色セロハン",
+					"value": 14,
+					"detail": "透明なセロハンだ",
+					"flag": "GAIN_CELLOPHANE"
+				},
+				{
+					"id": "ITEM_PHONE_CELLOPHANE",
+					"name": "スマートフォン（色セロハン）",
+					"value": 15,
+					"detail": "色セロハンをかぶせたスマートフォンだ",
+					"flag": "GAIN_PHONE_CELLOPHANE",
+					"materials": [
+						{
+							"material": "ITEM_SMART_PHONE"
+						},
+						{
+							"material": "ITEM_CELLOPHANE"
+						}
+					]
+				},
+				{
+					"id": "ITEM_SKULL_RED",
+					"name": "赤いドクロ",
+					"value": 16,
+					"detail": "赤いドクロだ",
+					"flag": "GAIN_SKULL_RED"
+				},
+				{
+					"id": "ITEM_SKULL_GREEN",
+					"name": "緑のドクロ",
+					"value": 17,
+					"detail": "緑のドクロだ",
+					"flag": "GAIN_SKULL_GREEN"
+				},
+				{
+					"id": "ITEM_SKULL_NAVY",
+					"name": "紺のドクロ",
+					"value": 18,
+					"detail": "紺色のドクロだ",
+					"flag": "GAIN_SKULL_NAVY"
+				},
+				{
+					"id": "ITEM_BLUE_MEMO",
+					"name": "青色のメモ",
+					"value": 19,
+					"detail": "青色のメモだ",
+					"flag": "GAIN_BLUE_MEMO"
+				},
+				{
+					"id": "ITEM_KEY_D",
+					"name": "「スラー」と書かれたカギ",
+					"value": 20,
+					"detail": "「スラー」と書かれたカギだ",
+					"flag": "GAIN_KEY_D"
+				},
+				{
+					"id": "ITEM_KEY_B",
+					"name": "「おり」と書かれたカギ",
+					"value": 21,
+					"detail": "「おり」と書かれたカギだ",
+					"flag": "GAIN_KEY_B"
+				},
+				{
+					"id": "ITEM_KEY_C",
+					"name": "「黒」と書かれたカギ",
+					"value": 22,
+					"detail": "「黒」と書かれたカギだ",
+					"flag": "GAIN_KEY_C"
+				},
+				{
+					"id": "ITEM_KEY_G",
+					"name": "「四季」と書かれたカギ",
+					"value": 23,
+					"detail": "「四季」と書かれたカギだ",
+					"flag": "GAIN_KEY_G"
+				},
+				{
+					"id": "ITEM_MUSIC_MEMO",
+					"name": "音符が書かれたメモ",
+					"value": 24,
+					"detail": "音符が書かれたメモだ",
+					"flag": "GAIN_MUSIC_MEMO"
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "macros",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "value",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "comment",
+					"opt": true,
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"id": "TESTMENU_DEFAULT_CURSOR",
+					"value": "eTestCursor.Escape",
+					"comment": "objTestカーソル初期位置 (Title/Game/Adv/Spine/Escape)"
+				},
+				{
+					"id": "TESTMENU_DEFAULT_GAME",
+					"value": "0",
+					"comment": "テストメニューのデフォルトバトルの番号"
+				},
+				{
+					"id": "TESTMENU_DEFAULT_ADV",
+					"value": "0",
+					"comment": "テストメニューのデフォルトADV番号"
+				},
+				{
+					"id": "TESTMENU_DEFAULT_SPINE",
+					"value": "0",
+					"comment": "テストメニューのデフォルトSpine番号"
+				},
+				{
+					"id": "PRODUCT_MODE",
+					"value": "eProductMode.Debug",
+					"comment": "製品モード (Debug/Release/Trial/Submission)"
+				},
+				{
+					"id": "CDB_PATH",
+					"value": "\"data/data.cdb\"",
+					"comment": "CastleDBが存在するパス"
+				},
+				{
+					"id": "ADV_PATH",
+					"value": "\"data/adv/adv\"",
+					"comment": "ADVスクリプトのパス"
+				},
+				{
+					"id": "ADV_BG_PATH",
+					"value": "\"data/bg/bg\"",
+					"comment": "ADV背景のパス"
+				},
+				{
+					"id": "ADV_CH_PATH",
+					"value": "\"data/ch/ch\"",
+					"comment": "ADVキャラのパス"
+				},
+				{
+					"id": "ADV_ITEM_PATH",
+					"value": "\"data/item/item\"",
+					"comment": "ADVアイテムのパス"
+				},
+				{
+					"id": "ADV_FACE_PATH",
+					"value": "\"data/face/face\"",
+					"comment": "ADVの顔ウィンドウのパス"
+				},
+				{
+					"id": "HERO_NAME",
+					"value": "\"望\"",
+					"comment": "主人公の初期名"
+				},
+				{
+					"id": "HERO_NAME_FULL",
+					"value": "\"佐倉 望\"",
+					"comment": "主人公のフルネーム (変更不可)"
+				},
+				{
+					"id": "GIRL_NAME",
+					"value": "\"あやめ\"",
+					"comment": "ヒロインの名前"
+				},
+				{
+					"id": "GIRL_NAME_FULL",
+					"value": "\"葉月 あやめ\"",
+					"comment": "ヒロインのフルネーム"
+				},
+				{
+					"id": "TAG_HERO",
+					"value": "\"$hero\"",
+					"comment": "主人公のタグ名"
+				},
+				{
+					"id": "TAG_GIRL",
+					"value": "\"$girl\"",
+					"comment": "ヒロインのタグ名"
+				},
+				{
+					"id": "ITEM_GET_MESSAGE",
+					"value": "\" を手に入れた\"",
+					"comment": "アイテム獲得メッセージ"
+				},
+				{
+					"id": "TAG_ADS",
+					"value": "\"$ads\"",
+					"comment": "広告タグ名"
+				},
+				{
+					"id": "ADS_TEXT",
+					"value": "\" (※広告が表示されます)\"",
+					"comment": "広告テキスト"
+				},
+				{
+					"id": "LAYER_BACKGROUND",
+					"value": "\"Background\"",
+					"comment": "背景レイヤー"
+				},
+				{
+					"id": "LAYER_INSTANCE",
+					"value": "\"Instances\"",
+					"comment": "インスタンスレイヤー"
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "consts",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "value"
+				},
+				{
+					"typeStr": "1",
+					"name": "comment",
+					"opt": true,
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"id": "WHITE",
+					"value": 16777215,
+					"comment": "色定数 (白)"
+				},
+				{
+					"id": "BLACK",
+					"value": 0,
+					"comment": "色定数 (黒)"
+				},
+				{
+					"id": "RED",
+					"value": 255,
+					"comment": "色定数 (赤)"
+				},
+				{
+					"id": "EF_NONE",
+					"value": 0,
+					"comment": "エフェクト (なし)"
+				},
+				{
+					"id": "EF_SLIDE",
+					"value": 1,
+					"comment": "エフェクト (スライド)"
+				},
+				{
+					"id": "EF_ALPHA",
+					"value": 2,
+					"comment": "エフェクト (アルファ)"
+				},
+				{
+					"id": "EF_POPUP",
+					"value": 3,
+					"comment": "エフェクト (ポップアップ)"
+				},
+				{
+					"id": "MSG_TALK",
+					"value": 0,
+					"comment": "会話テキストモード (会話)"
+				},
+				{
+					"id": "MSG_FUKIDASHI",
+					"value": 1,
+					"comment": "会話テキストモード (吹き出し)"
+				},
+				{
+					"id": "MSG_NOVEL",
+					"value": 2,
+					"comment": "会話テキストモード (全画面)"
+				},
+				{
+					"id": "SP_PRG_NONE",
+					"value": 0,
+					"comment": "スマートフォン進捗・何もしない"
+				},
+				{
+					"id": "SP_PRG_CALL_TAXI",
+					"value": 1,
+					"comment": "スマートフォン進捗・タクシーに電話をかける"
+				},
+				{
+					"id": "SP_PRG_LIGHT",
+					"value": 2,
+					"comment": "スマートフォン進捗・ライトを付ける"
+				},
+				{
+					"id": "C_WHITE",
+					"value": 0
+				},
+				{
+					"id": "C_RED",
+					"value": 1
+				},
+				{
+					"id": "C_GREEN",
+					"value": 2
+				},
+				{
+					"id": "C_BLUE",
+					"value": 3
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "sysbits",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id"
+				},
+				{
+					"typeStr": "3",
+					"name": "value"
+				},
+				{
+					"typeStr": "1",
+					"name": "comment",
+					"opt": true
+				}
+			],
+			"lines": [
+				{
+					"id": "SYSBIT_000",
+					"value": 0
+				},
+				{
+					"id": "COMPLETED_CH1",
+					"value": 1,
+					"comment": "最初の部屋をクリア"
+				},
+				{
+					"id": "COMPLETED_CH2",
+					"value": 2,
+					"comment": "2つめの部屋をクリア"
+				},
+				{
+					"id": "COMPLETED_CH3",
+					"value": 3,
+					"comment": "3つめの部屋をクリア"
+				},
+				{
+					"id": "COMPLETED_CH4",
+					"value": 4,
+					"comment": "4つめの部屋をクリア"
+				},
+				{
+					"id": "COMPLETED_CH5",
+					"value": 5,
+					"comment": "5つめの部屋をクリア"
+				},
+				{
+					"id": "COMPLETED_LAST",
+					"value": 6,
+					"comment": "最後の部屋をクリア"
+				},
+				{
+					"id": "EXTRA_START",
+					"value": 7,
+					"comment": "追加シナリオ解放"
+				},
+				{
+					"id": "EXTRA_QUESTION",
+					"value": 8,
+					"comment": "追加シナリオ問題編開始"
+				},
+				{
+					"id": "SYSBIT_009",
+					"value": 9
+				},
+				{
+					"id": "SYSBIT_010",
+					"value": 10
+				},
+				{
+					"id": "SYSBIT_011",
+					"value": 11
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "scenes@objs",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "3",
+					"name": "id"
+				},
+				{
+					"typeStr": "1",
+					"name": "click",
+					"display": null
+				},
+				{
+					"typeStr": "6:bits",
+					"name": "on",
+					"opt": true
+				},
+				{
+					"typeStr": "6:bits",
+					"name": "off",
+					"opt": true,
+					"display": null
+				},
+				{
+					"typeStr": "2",
+					"name": "hidden",
+					"opt": true
+				}
+			]
+		},
+		{
+			"name": "scenes@moves",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "5:down,left,right,up",
+					"name": "id"
+				},
+				{
+					"typeStr": "6:scenes",
+					"name": "jump",
+					"opt": true
+				},
+				{
+					"typeStr": "1",
+					"name": "click",
+					"display": null
+				},
+				{
+					"typeStr": "6:bits",
+					"name": "on",
+					"opt": true
+				},
+				{
+					"typeStr": "6:bits",
+					"name": "off",
+					"opt": true,
+					"display": null
+				}
+			]
+		},
+		{
+			"name": "items@materials",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "6:items",
+					"name": "material",
+					"display": null
+				}
+			]
+		},
+		{
+			"name": "kanas",
+			"columns": [
+				{
+					"typeStr": "3",
+					"name": "id"
+				},
+				{
+					"typeStr": "1",
+					"name": "answer",
+					"display": null
+				},
+				{
+					"typeStr": "2",
+					"name": "auto_check",
+					"opt": true
+				},
+				{
+					"typeStr": "6:vars",
+					"name": "ret",
+					"opt": true
+				},
+				{
+					"typeStr": "8",
+					"name": "choices",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"answer": "Ａ５０",
+					"id": 1,
+					"choices": [
+						{
+							"moji": "ＤＥＦＡＢＣ"
+						},
+						{
+							"moji": "０１２３４５"
+						},
+						{
+							"moji": "０１２３４５"
+						}
+					],
+					"ret": "LVAR_00",
+					"auto_check": true
+				},
+				{
+					"id": 2,
+					"answer": "あそぼう",
+					"choices": [
+						{
+							"moji": "あいうえお"
+						},
+						{
+							"moji": "さしすせそ"
+						},
+						{
+							"moji": "ばびぶべぼ"
+						},
+						{
+							"moji": "あいうえお"
+						}
+					],
+					"ret": "LVAR_00",
+					"auto_check": true
+				},
+				{
+					"id": 3,
+					"answer": "ノロイ",
+					"choices": [
+						{
+							"moji": "タチツテトナニヌネノ"
+						},
+						{
+							"moji": "カキクケコラリルレロ"
+						},
+						{
+							"moji": "アイウエオマミムメモ"
+						}
+					],
+					"auto_check": false,
+					"ret": "LVAR_00"
+				},
+				{
+					"id": 4,
+					"answer": "あさがお",
+					"choices": [
+						{
+							"moji": "あいうえおかきくけこ"
+						},
+						{
+							"moji": "さしすせそたちつてと"
+						},
+						{
+							"moji": "がぎぐげごだぢづでど"
+						},
+						{
+							"moji": "あいうえおまみむめも"
+						}
+					],
+					"ret": "LVAR_00",
+					"auto_check": true
+				},
+				{
+					"id": 5,
+					"answer": "アイリス",
+					"choices": [
+						{
+							"moji": "アイウエオマミムメモ"
+						},
+						{
+							"moji": "アイウエオカキクケコ"
+						},
+						{
+							"moji": "サシスセソラリルレロ"
+						},
+						{
+							"moji": "サシスセソワヲン"
+						}
+					],
+					"auto_check": false,
+					"ret": "LVAR_00"
+				},
+				{
+					"id": 6,
+					"answer": "ナカマ",
+					"choices": [
+						{
+							"moji": "ナニヌネノハヒフヘホ"
+						},
+						{
+							"moji": "カキクケコナニヌネノ"
+						},
+						{
+							"moji": "カキクケコマミムメモ"
+						}
+					],
+					"ret": "LVAR_00",
+					"auto_check": true
+				},
+				{
+					"id": 7,
+					"answer": "ヒトリ",
+					"choices": [
+						{
+							"moji": "タチツテトハヒフヘホ"
+						},
+						{
+							"moji": "アイウエオタチツテト"
+						},
+						{
+							"moji": "カキクケコラリルレロ"
+						}
+					],
+					"ret": "LVAR_00",
+					"auto_check": true
+				},
+				{
+					"id": 8,
+					"answer": "じばくれい",
+					"choices": [
+						{
+							"moji": "さしすせそざじずぜぞ"
+						},
+						{
+							"moji": "わをんばびぶべぼ"
+						},
+						{
+							"moji": "かきくけこざじずぜぞ"
+						},
+						{
+							"moji": "らりるれろゃゅょ"
+						},
+						{
+							"moji": "あいうえお"
+						}
+					],
+					"auto_check": true,
+					"ret": "LVAR_00"
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "kanas@choices",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "1",
+					"name": "moji",
+					"display": null
+				}
+			]
+		},
+		{
+			"name": "panels",
+			"columns": [
+				{
+					"typeStr": "3",
+					"name": "id",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "answer",
+					"display": null
+				},
+				{
+					"typeStr": "8",
+					"name": "choices",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"id": 1,
+					"answer": "カタナ",
+					"choices": [
+						{
+							"letter": "ナ"
+						},
+						{
+							"letter": "タ"
+						},
+						{
+							"letter": "カ"
+						}
+					]
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "panels@choices",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "1",
+					"name": "letter",
+					"display": null
+				},
+				{
+					"typeStr": "6:bits",
+					"name": "on",
+					"opt": true
+				},
+				{
+					"typeStr": "6:bits",
+					"name": "off",
+					"opt": true,
+					"display": null
+				}
+			]
+		},
+		{
+			"name": "scenes@events",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "5:BackToExecute,CloseItemMenu",
+					"name": "type"
+				},
+				{
+					"typeStr": "1",
+					"name": "click",
+					"display": null
+				},
+				{
+					"typeStr": "6:bits",
+					"name": "on",
+					"opt": true
+				},
+				{
+					"typeStr": "6:bits",
+					"name": "off",
+					"opt": true,
+					"display": null
+				}
+			]
+		}
+	],
+	"customTypes": [],
+	"compress": false
+}

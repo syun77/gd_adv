@@ -12,7 +12,7 @@ ROOT = os.path.abspath(os.path.dirname(__file__))
 os.chdir(ROOT)
 
 # 出力データのルート
-DATA_ROOT = os.path.abspath(ROOT + "/../../datafiles/data/") + "/"
+DATA_ROOT = os.path.abspath(ROOT + "/../../TestAdv/assets/") + "/"
 
 # macOS環境でのコンバートかどうか
 FOR_MAC_ENABLE = (platform.system() == 'Darwin') # macOS環境かどうか
@@ -21,12 +21,6 @@ FOR_MAC_ENABLE = (platform.system() == 'Darwin') # macOS環境かどうか
 PATH_SRC_CDB = DATA_ROOT + "data.cdb"
 
 if FOR_MAC_ENABLE:
-	# GM:S2がデバッグ実行するときの Included Files フォルダの場所
-	DIR_YOYO_RUNNER = os.environ["HOME"] + "/Library/Application Support/com.yoyogames.macyoyorunner/game/assets/data/"
-	# ・ADVフォルダ
-	DIR_ADV = DIR_YOYO_RUNNER + "adv/"
-	DIR_DST_CDB = DIR_YOYO_RUNNER + ""
-	
 	PYTHON_APP = "python3"
 else:
 	PYTHON_APP = "python"
@@ -71,18 +65,6 @@ def execute(root, inputDir, inputFile="None"):
 	cmd = PYTHON_APP + " ../_conv.py %s %s %s %s %s %s"%(
 		tool, funcDef, defines, inputDir, target, outDir)
 	os.system(cmd)
-	
-	if FOR_MAC_ENABLE:
-		# MacOSX環境用.
-		# デバッグ実行環境に直接 *.csv をコピーする (ホットリロード対応)
-		if os.path.exists(DIR_ADV):
-			# フォルダが存在するのでいったん削除
-			shutil.rmtree(DIR_ADV)
-		shutil.copytree(outDir, DIR_ADV)
-		
-		# data.cdb もコピーする
-		shutil.copy(PATH_SRC_CDB, DIR_DST_CDB)
-
 
 def main(inputDir, inputFile):
 	# ルートディレクトリ取得

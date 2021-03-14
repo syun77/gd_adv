@@ -476,7 +476,7 @@ scenes:
   S413_MusicExitDesk: 413 # 音楽室〜出口の左側の机
   S450_MusicEvent: 450
   S501_Library: 501 # 図書室
-  S501_Library2: 502 # 図書室
+  S502_Library2: 502 # 図書室
   S550_LibraryEvent: 550
   S601_OldSchool: 601 # 旧校舎
   S650_OldSchoolEvent: 650

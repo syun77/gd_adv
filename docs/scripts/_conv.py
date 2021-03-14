@@ -47,8 +47,8 @@ def main(tool, fFuncDef, fDefines, inputDir, inputFile, outDir):
 	for adv in advList:
 		adv = adv.replace("\\", "/") # Win環境は区切り文字が￥なので置き換える
 		fInput = adv
-		PREFIX = "adv" # 数値始まりのファイルは GM:S で読み込めないのでプレフィクスをつける.
-		fOut   = outDir + PREFIX + os.path.basename(adv).replace(".adv", ".csv")
+		PREFIX = "adv" # プレフィクスをつける.
+		fOut   = outDir + PREFIX + os.path.basename(adv).replace(".adv", ".txt") # .csv は Godotだと相性が悪いので .txt にする
 
 		cmd = PYTHON_APP + " %s %s %s %s %s"%(
 			tool, fFuncDef, fDefines, fInput, fOut)
