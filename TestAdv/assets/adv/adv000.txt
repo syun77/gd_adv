@@ -1,10 +1,31 @@
+INT,2
+SET,0,1
+INT,3
+SET,1,2
+VAR,1
+VAR,2
+MUL
+SET,0,3
+BOOL,1
+SET,16,1
+BIT,1
+IF,00000015
+MSG,0,%1 は true
+GOTO,00000015
 MSG,1,まくらのそうし ―さうし 【枕草子】
+CALL,00000023,hoge
 MSG,0,随筆。三巻。清少納言作。
 MSG,1,一〇世紀末から一一世紀初頭の成立
+CALL,00000026,piyo
 MSG,0,一条天皇の中宮（のち皇后）定子に
 MSG,1,出仕した作者の宮廷生活の回想・見聞
-MSG,0,また自然・人生などに関する随想などを
-MSG,1,約三百の章段に綴ったもの
-MSG,0,感覚鋭く，文章軽快で源氏物語とともに
-MSG,1,王朝女流文学の双璧とされる
-MSG,1,清少納言枕草子。清少納言記
+CALL,00000029,momo
+FUNC_START,hoge
+MSG,1,ほげです
+FUNC_END,hoge
+FUNC_START,piyo
+MSG,1,ぴよです
+FUNC_END,piyo
+FUNC_START,momo
+MSG,1,ももです
+FUNC_END,momo

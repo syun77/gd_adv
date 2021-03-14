@@ -10,8 +10,6 @@ const ASSIGN_MUL = 0x03
 const ASSIGN_DIV = 0x04
 const ASSING_BIT = 0x10
 
-var _bits = []
-var _vars = []
 var _int_stack        = []
 var _call_stack       = []
 var _pc:int           = 0
@@ -22,14 +20,12 @@ var _script_data      = []
 var _start_funcname   := "" # 開始関数名
 var _funcname         := "" # 現在実行中の関数名
 var _is_end           := false
-var _parent           = null;
+var _parent           = null
+var _func_tbl         = {}
 
 # 初期化
 func _init(parent) -> void:
-	for i in range(256):
-		_bits.append(false)
-	for i in range(128):
-		_vars.append(0)
+	AdvUtil.init()
 	_parent = parent
 
 # スクリプトファイルを読み込む
@@ -41,11 +37,20 @@ func open(path:String) -> bool:
 	# すべて読み込む
 	var text = file.get_as_text()
 	
+	var addr = -1
 	for line in text.split("\n"):
+		addr += 1
 		var data = line.split(",")
 		if data.size() <= 0:
 			continue
 		_script_data.append(data)
+		
+		# 関数名と開始アドレスを保持しておく
+		var cmd = data[0]
+		if cmd == "FUNC_START":
+			var name = data[1]
+			_func_tbl[name] = addr
+		
 	_max_pc = _script_data.size()
 	
 	print(_script_data)
@@ -116,15 +121,197 @@ func _loop() -> int:
 		
 	return Adv.eRet.CONTINUE
 
+func _push_stack(v) -> void:
+	_int_stack.push_back(v)
+func _pop_stack():
+	return _int_stack.pop_back()
+func _push_callstack(v) -> void:
+	_call_stack.push_back(v)
+func _pop_callstack():
+	return _call_stack.pop_back()
+func _get_callstack_size():
+	return _call_stack.size()
+
 # コマンド解析
 func _parse_command(cmd:String, args:PoolStringArray) -> int:
-	match cmd:
-		_:
-			# 親で実装したコマンドを呼び出す
-			var method = "_" + cmd
-			if _parent.has_method(method):
-				return _parent.call(method, args)
-			else:
-				print("Error: 未実装のコマンド %s"%cmd, args)
-				return Adv.eRet.CONTINUE
+	var method = "_" + cmd
+	if has_method(method):
+		# システム関数
+		call(method, args)
+	else:
+		# 親で実装したコマンドを呼び出す
+		if _parent.has_method(method):
+			return _parent.call(method, args)
+		else:
+			OS.alert("Error: 未実装のコマンド %s"%cmd)
+	return Adv.eRet.CONTINUE
+
+func _BOOL(args) -> void:
+	var p0 = int(args[0]) != 0
+	_push_stack(p0)
+func _INT(args) -> void:
+	var p0 = int(args[0])
+	_push_stack(p0)
+func _SET(args) -> void:
+	var op  = int(args[0])
+	var idx = int(args[1])
+	var val = _pop_stack()
+	if op == ASSING_BIT:
+		# フラグ
+		AdvUtil.bit_set(idx, val)
+		return
 	
+	# 変数
+	var result = AdvUtil.var_get(idx)
+	
+	match op:
+		ASSIGN_NON:
+			result = val
+		ASSIGN_ADD:
+			result += val
+		ASSIGN_SUB:
+			result -= val
+		ASSIGN_MUL:
+			result *= val
+		ASSIGN_DIV:
+			result /= val
+	
+	AdvUtil.var_set(idx, result)
+
+func _ADD(args) -> void:
+	var right = _pop_stack()
+	var left  = _pop_stack()
+	_push_stack(left + right)
+	
+func _SUB(args) -> void:
+	var right = _pop_stack()
+	var left  = _pop_stack()
+	_push_stack(left - right)
+
+func _MUL(args) -> void:
+	var right = _pop_stack()
+	var left  = _pop_stack()
+	_push_stack(left * right)
+	
+func _DIV(args) -> void:
+	var right = _pop_stack()
+	var left  = _pop_stack()
+	_push_stack(left / right)
+
+func _BIT(args) -> void:
+	var idx = int(args[0])
+	var bit = AdvUtil.bit_chk(idx)
+	_push_stack(bit)	
+	
+func _VAR(args) -> void:
+	var idx = int(args[0])
+	var val = AdvUtil.var_get(idx)
+	_push_stack(val)
+
+# '=='
+func _EQ(args) -> void:
+	var right = _pop_stack()
+	var left  = _pop_stack()
+	_push_stack(right == left)
+
+# '!='
+func _NE(args) -> void:
+	var right = _pop_stack()
+	var left  = _pop_stack()
+	_push_stack(right != left)
+
+# '<'	
+func _LE(args) -> void:
+	var right = _pop_stack()
+	var left  = _pop_stack()
+	_push_stack(right < left)
+
+# '<='	
+func _LESS(args) -> void:
+	var right = _pop_stack()
+	var left  = _pop_stack()
+	_push_stack(right <= left)
+
+# '>'	
+func _GE(args) -> void:
+	var right = _pop_stack()
+	var left  = _pop_stack()
+	_push_stack(right > left)
+
+# '>='	
+func _GREATER(args) -> void:
+	var right = _pop_stack()
+	var left  = _pop_stack()
+	_push_stack(right >= left)
+
+# '&&'
+func _AND(args) -> void:
+	var right = _pop_stack()
+	var left  = _pop_stack()
+	_push_stack(right && left)
+
+# '||'
+func _OR(args) -> void:
+	var right = _pop_stack()
+	var left  = _pop_stack()
+	_push_stack(right || left)
+
+# '!'
+func _NOT(args) -> void:
+	var right = _pop_stack()
+	_push_stack(!right)
+
+func _IF(args) -> void:
+	var val = _pop_stack()
+	if !val:
+		# 演算結果が偽なのでアドレスジャンプする
+		var addr = int(args[0])
+		_jump(addr)
+func _ELIF(args) -> void:
+	_IF(args)
+	
+func _GOTO(args) -> void:
+	var addr = int(args[0])
+	_jump(addr)
+
+func _WHITE(args) -> void:
+	pass # 特に何もしない
+	"""
+	var val = _pop_stack()
+	if !val:
+		# 演算結果が偽なのでアドレスジャンプする
+		var addr = int(args[0])
+		_jump(addr)
+	"""
+
+func _CALL(args) -> void:
+	var next = _pc # RETURN 後に +1 する
+	_push_callstack(next)
+	var addr = int(args[0])
+	_pc = addr # アドレスジャンプ
+	
+func _FUNC_START(args) -> void:
+	pass # 何もしない	
+	
+func _RETURN(args) -> void:
+	if _get_callstack_size() > 0:
+		# 呼び出し位置に戻る
+		_pc = _pop_callstack()
+	else:
+		# 強制終了する
+		_pc = _max_pc
+		
+func _FUNC_END(args) -> void:
+	_RETURN(args)
+	
+func _END(args) -> void:
+	# 強制終了
+	_pc = _max_pc
+	
+func _LABEL(args) -> void:
+	# 特に何もしない
+	var label = args[0]
+
+func _jump(addr:int) -> void:
+	# アドレスは -1 した値
+	_pc = addr - 1
