@@ -7,11 +7,13 @@
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Bg" type="ColorRect" parent="."]
-margin_right = 40.0
+[node name="Button" type="Button" parent="."]
+margin_right = 1024.0
 margin_bottom = 40.0
-rect_scale = Vector2( 12.92, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -19,6 +21,7 @@ __meta__ = {
 [node name="Text" type="RichTextLabel" parent="."]
 margin_right = 500.0
 margin_bottom = 40.0
+mouse_filter = 2
 custom_fonts/normal_font = ExtResource( 1 )
 bbcode_enabled = true
 bbcode_text = "選択肢テキスト"
@@ -27,5 +30,4 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="mouse_entered" from="Bg" to="." method="_on_Bg_mouse_entered"]
-[connection signal="mouse_exited" from="Bg" to="." method="_on_Bg_mouse_exited"]
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]

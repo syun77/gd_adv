@@ -1,23 +1,22 @@
 extends Control
 
-onready var text := $Text
-onready var bg   := $Bg
-var selected     := false
+onready var _text := $Text
+onready var _bg   := $Bg
+var selected      := false
 
 func _ready() -> void:
 	# 中央揃えにする
-	text.push_align(RichTextLabel.ALIGN_CENTER)
+	_text.push_align(RichTextLabel.ALIGN_CENTER)
 
 func _process(delta: float) -> void:
-	if selected:
-		bg.color = Color.red
-	else:
-		bg.color = Color.navyblue
+	pass
 
+func start(pos:Vector2, txt:String):
+	rect_position = pos
+	_text.text = txt
 
-func _on_Bg_mouse_entered() -> void:
+func destroy():
+	queue_free()
+
+func _on_Button_button_down() -> void:
 	selected = true
-
-
-func _on_Bg_mouse_exited() -> void:
-	selected = false

@@ -40,9 +40,24 @@ class SelectInfo:
 	var is_exclude = false # 除外するかどうか
 	var addr       = 0     # 選択を選んだときのジャンプアドレス
 	var button     = null  # 選択ボタン
-	func _init(idx:int) -> void:
+	func _init(idx:int, txt) -> void:
 		index = idx
-	
+		texts = txt
+	func is_selected() -> bool:
+		return button.selected
+	func create_button(parent:Node2D, sel_count:int) -> void:
+		clear()
+		var d = 64
+		var ofs_y = d * sel_count / 2
+		var py = 240 - ofs_y + (d * index) 
+		var pos = Vector2(64, py)
+		button = AdvSelectText.instance()
+		parent.add_child(button)
+		button.start(pos, texts)
+	func clear() -> void:
+		if button:
+			button.destroy()
+			button = null
 
 var _script:AdvScript = null
 var _timer:float      = 0
@@ -101,6 +116,9 @@ func _update_key_wait(delta:float):
 		else:
 			if _sel_list.size() > 0:
 				# 選択肢に進む
+				# 選択肢生成
+				for sel in _sel_list:
+					sel.create_button(self, _sel_list.size())
 				_next_state = eState.SEL_WAIT
 			else:
 				# 次のテキストに進む
@@ -161,7 +179,7 @@ func _SEL_ANS(args:PoolStringArray) -> int:
 	var cnt = min(int(args[0]), AdvConst.MAX_SEL_ITEM)
 	for i in range(cnt):
 		var texts = args[1 + i]
-		var info = SelectInfo.new(i)
+		var info = SelectInfo.new(i, texts)
 		_sel_list.append(info)
 	
 	_sel_index = 0 # カーソル初期化
