@@ -5,11 +5,11 @@
 extends Node
 class_name Adv
 # マクロ
-const TESTMENU_DEFAULT_CURSOR = eTestCursor.Escape # objTestカーソル初期位置 (Title/Game/Adv/Spine/Escape)
+const TESTMENU_DEFAULT_CURSOR = 0 # objTestカーソル初期位置 (Title/Game/Adv/Spine/Escape)
 const TESTMENU_DEFAULT_GAME = 0 # テストメニューのデフォルトバトルの番号
 const TESTMENU_DEFAULT_ADV = 0 # テストメニューのデフォルトADV番号
 const TESTMENU_DEFAULT_SPINE = 0 # テストメニューのデフォルトSpine番号
-const PRODUCT_MODE = eProductMode.Debug # 製品モード (Debug/Release/Trial/Submission)
+const PRODUCT_MODE = 0 # 製品モード (Debug/Release/Trial/Submission)
 const CDB_PATH = "data/data.cdb" # CastleDBが存在するパス
 const ADV_PATH = "data/adv/adv" # ADVスクリプトのパス
 const ADV_BG_PATH = "data/bg/bg" # ADV背景のパス
