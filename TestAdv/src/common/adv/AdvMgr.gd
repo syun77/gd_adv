@@ -9,6 +9,9 @@ const AdvScript = preload("res://src/common/adv/AdvScript.gd")
 # テキスト管理
 const AdvTextMgr = preload("res://src/common/adv/AdvTextMgr.gd")
 
+# 選択肢テキスト
+const AdvSelectText = preload("res://src/common/adv/AdvSelectText.tscn")
+
 # 状態
 enum eState {
 	INIT,
@@ -30,12 +33,25 @@ enum eCmdMesType {
 	NOTICE = 9, # 通知
 }
 
+# 選択肢情報
+class SelectInfo:
+	var index      = 0     # 選択肢番号
+	var texts      = null  # テキスト
+	var is_exclude = false # 除外するかどうか
+	var addr       = 0     # 選択を選んだときのジャンプアドレス
+	var button     = null  # 選択ボタン
+	func _init(idx:int) -> void:
+		index = idx
+	
+
 var _script:AdvScript = null
 var _timer:float      = 0
 var _text_timer:float = 0
 var _state            = eState.INIT
 var _next_state       = eState.INIT
 var _msg              := AdvTextMgr.new()
+var _sel_index        = 0 # 選択肢のカーソル
+var _sel_list         = [] # 選択肢のテキスト
 
 onready var _talk_text = $TalkText
 onready var _cursor    = $Cursor
@@ -54,6 +70,8 @@ func _process(delta: float) -> void:
 			_update_exec()
 		eState.KEY_WAIT:
 			_update_key_wait(delta)
+		eState.SEL_WAIT:
+			_update_sel_wait(delta)
 	
 	
 	if _state != _next_state:
@@ -81,11 +99,15 @@ func _update_key_wait(delta:float):
 			# テキストをすべて表示
 			_text_timer = text_length
 		else:
-			# 次のテキストに進む
-			_cursor.hide()
-			_msg.clear()
-			_text_timer = 0
-			_next_state = eState.EXEC
+			if _sel_list.size() > 0:
+				# 選択肢に進む
+				_next_state = eState.SEL_WAIT
+			else:
+				# 次のテキストに進む
+				_cursor.hide()
+				_msg.clear()
+				_text_timer = 0
+				_next_state = eState.EXEC
 			return
 	
 	# 会話テキスト表示
@@ -98,6 +120,9 @@ func _update_key_wait(delta:float):
 		_cursor.show()
 		_cursor.rect_position.y = 500 + 8 * abs(sin(_timer * 4))
 
+# 更新・選択肢
+func _update_sel_wait(delta:float):
+	pass
 
 # メッセージ解析
 func _MSG(args:PoolStringArray) -> int:
@@ -121,3 +146,50 @@ func _MSG(args:PoolStringArray) -> int:
 			ret = AdvConst.eRet.YIELD
 	
 	return ret
+
+# 選択肢のメッセージテキスト
+func _SEL(args:PoolStringArray) -> int:
+	# テキストの行数
+	var cnt = int(args[0])
+	for i in range(cnt):
+		var texts = args[1 + i]
+		_msg.add(texts)
+	_sel_list.clear()
+	return AdvConst.eRet.CONTINUE
+
+func _SEL_ANS(args:PoolStringArray) -> int:
+	var cnt = min(int(args[0]), AdvConst.MAX_SEL_ITEM)
+	for i in range(cnt):
+		var texts = args[1 + i]
+		var info = SelectInfo.new(i)
+		_sel_list.append(info)
+	
+	_sel_index = 0 # カーソル初期化
+	return AdvConst.eRet.CONTINUE
+
+func _SEL_ANS2(args:PoolStringArray) -> int:
+	var idx = int(args[0])
+	var ret = _script.pop_stack()
+	if !ret:
+		 # 表示条件を満たさなかったので除外する
+		_sel_list[idx].is_exclude = true
+	return AdvConst.eRet.CONTINUE
+
+func _SEL_GOTO(args:PoolStringArray) -> int:
+	var idx = 0
+	for info in _sel_list:
+		# ジャンプアドレスを設定
+		info.addr = int(args[idx])
+		idx += 1
+	
+	var list = []
+	for info in _sel_list:
+		if info.is_exclude == false:
+			# 選択対象
+			list.append(info)
+	_sel_list = list	
+	
+	# テキスト表示→選択肢へ
+	_next_state = eState.KEY_WAIT
+	return AdvConst.eRet.YIELD
+		

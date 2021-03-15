@@ -121,9 +121,9 @@ func _loop() -> int:
 		
 	return AdvConst.eRet.CONTINUE
 
-func _push_stack(v) -> void:
+func push_stack(v) -> void:
 	_int_stack.push_back(v)
-func _pop_stack():
+func pop_stack():
 	return _int_stack.pop_back()
 func _push_callstack(v) -> void:
 	_call_stack.push_back(v)
@@ -148,14 +148,14 @@ func _parse_command(cmd:String, args:PoolStringArray) -> int:
 
 func _BOOL(args) -> void:
 	var p0 = int(args[0]) != 0
-	_push_stack(p0)
+	push_stack(p0)
 func _INT(args) -> void:
 	var p0 = int(args[0])
-	_push_stack(p0)
+	push_stack(p0)
 func _SET(args) -> void:
 	var op  = int(args[0])
 	var idx = int(args[1])
-	var val = _pop_stack()
+	var val = pop_stack()
 	if op == ASSING_BIT:
 		# フラグ
 		AdvUtil.bit_set(idx, val)
@@ -179,90 +179,90 @@ func _SET(args) -> void:
 	AdvUtil.var_set(idx, result)
 
 func _ADD(args) -> void:
-	var right = _pop_stack()
-	var left  = _pop_stack()
-	_push_stack(left + right)
+	var right = pop_stack()
+	var left  = pop_stack()
+	push_stack(left + right)
 	
 func _SUB(args) -> void:
-	var right = _pop_stack()
-	var left  = _pop_stack()
-	_push_stack(left - right)
+	var right = pop_stack()
+	var left  = pop_stack()
+	push_stack(left - right)
 
 func _MUL(args) -> void:
-	var right = _pop_stack()
-	var left  = _pop_stack()
-	_push_stack(left * right)
+	var right = pop_stack()
+	var left  = pop_stack()
+	push_stack(left * right)
 	
 func _DIV(args) -> void:
-	var right = _pop_stack()
-	var left  = _pop_stack()
-	_push_stack(left / right)
+	var right = pop_stack()
+	var left  = pop_stack()
+	push_stack(left / right)
 
 func _BIT(args) -> void:
 	var idx = int(args[0])
 	var bit = AdvUtil.bit_chk(idx)
-	_push_stack(bit)	
+	push_stack(bit)	
 	
 func _VAR(args) -> void:
 	var idx = int(args[0])
 	var val = AdvUtil.var_get(idx)
-	_push_stack(val)
+	push_stack(val)
 
 # '=='
 func _EQ(args) -> void:
-	var right = _pop_stack()
-	var left  = _pop_stack()
-	_push_stack(right == left)
+	var right = pop_stack()
+	var left  = pop_stack()
+	push_stack(right == left)
 
 # '!='
 func _NE(args) -> void:
-	var right = _pop_stack()
-	var left  = _pop_stack()
-	_push_stack(right != left)
+	var right = pop_stack()
+	var left  = pop_stack()
+	push_stack(right != left)
 
 # '<'	
 func _LE(args) -> void:
-	var right = _pop_stack()
-	var left  = _pop_stack()
-	_push_stack(right < left)
+	var right = pop_stack()
+	var left  = pop_stack()
+	push_stack(right < left)
 
 # '<='	
 func _LESS(args) -> void:
-	var right = _pop_stack()
-	var left  = _pop_stack()
-	_push_stack(right <= left)
+	var right = pop_stack()
+	var left  = pop_stack()
+	push_stack(right <= left)
 
 # '>'	
 func _GE(args) -> void:
-	var right = _pop_stack()
-	var left  = _pop_stack()
-	_push_stack(right > left)
+	var right = pop_stack()
+	var left  = pop_stack()
+	push_stack(right > left)
 
 # '>='	
 func _GREATER(args) -> void:
-	var right = _pop_stack()
-	var left  = _pop_stack()
-	_push_stack(right >= left)
+	var right = pop_stack()
+	var left  = pop_stack()
+	push_stack(right >= left)
 
 # '&&'
 func _AND(args) -> void:
-	var right = _pop_stack()
-	var left  = _pop_stack()
-	_push_stack(right && left)
+	var right = pop_stack()
+	var left  = pop_stack()
+	push_stack(right && left)
 
 # '||'
 func _OR(args) -> void:
-	var right = _pop_stack()
-	var left  = _pop_stack()
-	_push_stack(right || left)
+	var right = pop_stack()
+	var left  = pop_stack()
+	push_stack(right || left)
 
 # '!'
 func _NOT(args) -> void:
-	var right = _pop_stack()
-	_push_stack(!right)
+	var right = pop_stack()
+	push_stack(!right)
 
 func _IF(args) -> void:
-	var val = _pop_stack()
+	var val = pop_stack()
 	if !val:
 		# 演算結果が偽なのでアドレスジャンプする
 		var addr = int(args[0])
