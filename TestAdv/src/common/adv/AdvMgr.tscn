@@ -1,40 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://src/common/adv/AdvText.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/common/adv/AdvMgr.gd" type="Script" id=2]
 
 [node name="AdvMgr" type="Node2D"]
 script = ExtResource( 2 )
-
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 64.0
-margin_top = 400.0
-margin_right = 964.0
-margin_bottom = 560.0
-color = Color( 0.333333, 0.333333, 0.333333, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TalkText" type="RichTextLabel" parent="."]
-margin_left = 128.0
-margin_top = 420.0
-margin_right = 920.0
-margin_bottom = 540.0
-custom_fonts/normal_font = ExtResource( 1 )
-bbcode_enabled = true
-text = "テキスト表示
-２行目のテキスト
-３行目のテキスト"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Cursor" type="ColorRect" parent="."]
-margin_left = 840.0
-margin_top = 500.0
-margin_right = 864.0
-margin_bottom = 524.0
-__meta__ = {
-"_edit_use_anchors_": false
-}

@@ -46,12 +46,10 @@ onready var _cursor    = $Cursor
 
 var _timer:float      = 0
 var _text_timer:float = 0
-var _sel_index        = 0 # 選択肢のカーソル
 var _sel_list         = [] # 選択肢のテキスト
 
 
 func _ready() -> void:
-	_talk_text.text = ""
 	_talk_text.hide()
 	_cursor.hide()
 
@@ -130,12 +128,11 @@ func update_talk(delta:float, texts:String) -> String:
 	
 	return "NONE"
 
-func update_select(delta:float, script:AdvScript):
+func update_select(delta:float, script:AdvScript) -> String:
 	var idx = 0
 	var sel_info:SelectInfo = null
 	for sel in _sel_list:
 		if sel.is_selected():
-			_sel_index = idx
 			sel_info = sel
 			break
 		idx += 1

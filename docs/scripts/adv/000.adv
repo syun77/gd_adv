@@ -1,8 +1,10 @@
 def loop {
 	while(true) {
 		select("選択肢テスト")
-		{"テキスト表示"
-			call text
+		{"[color=yellow]テキスト[/color]色変え"
+			call color_text
+		}
+		{"背景描画"
 		}
 		{"終了"
 			break
@@ -12,6 +14,8 @@ def loop {
 	"おしまい/"
 }
 
-def text {
-	"つまり、これは[color=red]密室殺人[/color]……ということだ/"
+def color_text {
+	"redは[color=red]赤色[/color]。aquaは[color=aqua]水色[/color]"
+	"limeは[color=lime]明るい緑色[/color]。grayは[color=gray]灰色[/color]"
+	"silverは[color=silver]銀色[/color]。yellowは[color=yellow]黄色[/color]。fuchsiaは[color=fuchsia]赤紫色[/color]/"
 }
