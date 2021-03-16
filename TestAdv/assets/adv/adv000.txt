@@ -13,6 +13,6 @@ GOTO,00000002
 MSG,1,おしまい
 FUNC_END,loop
 FUNC_START,text
-MSG,1,つまり、これは密室殺人……ということだ
+MSG,1,つまり、これは[color=red]密室殺人[/color]……ということだ
 FUNC_END,text
 END

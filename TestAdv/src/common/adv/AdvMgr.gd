@@ -1,7 +1,7 @@
 extends Node2D
 
 # テキスト速度
-const TEXT_SPEED := 50.0
+const TEXT_SPEED := 40.0
 
 # スクリプト管理
 const AdvScript = preload("res://src/common/adv/AdvScript.gd")
@@ -50,7 +50,7 @@ class SelectInfo:
 		var d = 64
 		var ofs_y = d * sel_count / 2
 		var py = 240 - ofs_y + (d * index) 
-		var pos = Vector2(64, py)
+		var pos = Vector2(0, py)
 		button = AdvSelectText.instance()
 		parent.add_child(button)
 		button.start(pos, texts)
@@ -74,6 +74,7 @@ onready var _cursor    = $Cursor
 func _ready() -> void:
 	_script = AdvScript.new(self)
 	_talk_text.hide()
+	_talk_text.visible_characters = 0
 	_cursor.hide()
 
 func _process(delta: float) -> void:
@@ -106,13 +107,21 @@ func _update_exec():
 
 # 更新・キー待ち
 func _update_key_wait(delta:float):
-	var text = _msg.get_text()
-	var text_length = text.length()
+	var texts = _msg.get_text()
+	_talk_text.bbcode_text = texts
+	# すべて表示したかどうか
+	var regex = RegEx.new()
+	regex.compile("\\[[^\\]]+\\]")
+	var text2 = regex.sub(texts, "", true)
+	var total_text = text2.length()
+	
+	var is_disp_all = (_talk_text.visible_characters >= total_text)
 	if Input.is_action_just_pressed("ui_accept"):
 		# テキスト送り
-		if _text_timer < text_length:
+		if is_disp_all == false:
 			# テキストをすべて表示
-			_text_timer = text_length
+			_talk_text.visible_characters = total_text
+			_text_timer = _talk_text.visible_characters
 		else:
 			if _sel_list.size() > 0:
 				# 選択肢に進む
@@ -131,11 +140,11 @@ func _update_key_wait(delta:float):
 	
 	# 会話テキスト表示
 	_talk_text.show()
-	_text_timer = min(text_length, _text_timer + delta * TEXT_SPEED)
-	_talk_text.text = text.left(int(_text_timer))
+	_text_timer = _text_timer + delta * TEXT_SPEED
+	_talk_text.visible_characters = min(total_text, _text_timer)
 	
-	if _text_timer >= text_length:
-		# カーソル表示
+	if is_disp_all:
+		# すべてのテキストを表示したのでカーソル表示
 		_cursor.show()
 		_cursor.rect_position.y = 500 + 8 * abs(sin(_timer * 4))
 
@@ -229,5 +238,6 @@ func _SEL_GOTO(args:PoolStringArray) -> int:
 	
 	# テキスト表示→選択肢へ
 	_next_state = eState.KEY_WAIT
+	_talk_text.visible_characters = 0
 	return AdvConst.eRet.YIELD
 		

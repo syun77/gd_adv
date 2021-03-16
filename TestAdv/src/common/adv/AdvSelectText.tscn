@@ -4,8 +4,6 @@
 [ext_resource path="res://src/common/adv/AdvSelectText.gd" type="Script" id=2]
 
 [node name="AdvSelectText" type="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -19,12 +17,12 @@ __meta__ = {
 }
 
 [node name="Text" type="RichTextLabel" parent="."]
-margin_right = 500.0
+margin_right = 1024.0
 margin_bottom = 40.0
 mouse_filter = 2
 custom_fonts/normal_font = ExtResource( 1 )
 bbcode_enabled = true
-bbcode_text = "選択肢テキスト"
+bbcode_text = "[center]選択肢テキスト[/center]"
 text = "選択肢テキスト"
 scroll_active = false
 __meta__ = {
