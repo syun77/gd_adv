@@ -12,9 +12,6 @@ const SEL_HEIGHT   := 64  # ボタンの高さ
 # スクリプト管理
 const AdvScript = preload("res://src/common/adv/AdvScript.gd")
 
-# テキスト管理
-const AdvTextMgr = preload("res://src/common/adv/AdvTextMgr.gd")
-
 # 選択肢テキスト
 const AdvSelectText = preload("res://src/common/adv/AdvSelectText.tscn")
 
@@ -54,6 +51,7 @@ var _sel_list         = [] # 選択肢のテキスト
 
 
 func _ready() -> void:
+	_talk_text.text = ""
 	_talk_text.hide()
 	_cursor.hide()
 
@@ -92,8 +90,7 @@ func start():
 	_talk_text.visible_characters = 0
 	_cursor.hide()
 
-func update_talk(delta:float, msg:AdvTextMgr) -> String:
-	var texts = msg.get_text()
+func update_talk(delta:float, texts:String) -> String:
 	_talk_text.bbcode_text = texts
 	# テキストの長さを求める
 	var total_text = _calc_bbtext_length(texts)
@@ -117,7 +114,6 @@ func update_talk(delta:float, msg:AdvTextMgr) -> String:
 			else:
 				# 次のテキストに進む
 				_cursor.hide()
-				msg.clear()
 				_text_timer = 0
 				return "EXEC"
 	
@@ -134,7 +130,7 @@ func update_talk(delta:float, msg:AdvTextMgr) -> String:
 	
 	return "NONE"
 
-func update_select(delta:float, script:AdvScript, msg:AdvTextMgr):
+func update_select(delta:float, script:AdvScript):
 	var idx = 0
 	var sel_info:SelectInfo = null
 	for sel in _sel_list:
@@ -152,7 +148,6 @@ func update_select(delta:float, script:AdvScript, msg:AdvTextMgr):
 		for sel in _sel_list:
 			sel.clear()
 		_sel_list.clear()
-		msg.clear()
 		_text_timer = 0
 		return "EXEC"
 	

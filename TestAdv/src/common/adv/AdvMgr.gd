@@ -70,20 +70,22 @@ func _update_exec():
 
 # 更新・キー待ち
 func _update_key_wait(delta:float):
-	var ret = _talk_text.update_talk(delta, _msg)
+	var ret = _talk_text.update_talk(delta, _msg.get_text())
 	match ret:
 		"SEL_WAIT":
 			_next_state = eState.SEL_WAIT
 		"EXEC":
+			_msg.clear()
 			_next_state = eState.EXEC
 		_:
 			pass # 続行
 
 # 更新・選択肢
 func _update_sel_wait(delta:float):
-	var ret = _talk_text.update_select(delta, _script, _msg)
+	var ret = _talk_text.update_select(delta, _script)
 	match ret:
 		"EXEC":
+			_msg.clear()
 			_next_state = eState.EXEC
 		_:
 			pass # 続行
