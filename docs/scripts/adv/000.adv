@@ -1,10 +1,17 @@
-select("選択肢テスト")
-{"おはようございます"
-	"Good morning!/"
+def loop {
+	while(true) {
+		select("選択肢テスト")
+		{"テキスト表示"
+			call text
+		}
+		{"終了"
+			break
+		}
+	}
+	
+	"おしまい/"
 }
-{"こんにちは"
-	"Hello!/"
-}
-{"こんばんは"
-	"Good evening!/"
+
+def text {
+	"つまり、これは密室殺人……ということだ/"
 }

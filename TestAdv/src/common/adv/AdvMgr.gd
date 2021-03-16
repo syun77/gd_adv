@@ -117,6 +117,7 @@ func _update_key_wait(delta:float):
 			if _sel_list.size() > 0:
 				# 選択肢に進む
 				# 選択肢生成
+				_cursor.hide()
 				for sel in _sel_list:
 					sel.create_button(self, _sel_list.size())
 				_next_state = eState.SEL_WAIT
@@ -140,7 +141,26 @@ func _update_key_wait(delta:float):
 
 # 更新・選択肢
 func _update_sel_wait(delta:float):
-	pass
+	var idx = 0
+	var sel_info:SelectInfo = null
+	for sel in _sel_list:
+		if sel.is_selected():
+			_sel_index = idx
+			sel_info = sel
+			break
+		idx += 1
+		
+	if sel_info:
+		# 選択肢を選んだ
+		# アドレスジャンプ
+		_script._pc = sel_info.addr - 1
+		# 選択肢を破棄する
+		for sel in _sel_list:
+			sel.clear()
+		_sel_list.clear()
+		_msg.clear()
+		_text_timer = 0
+		_next_state = eState.EXEC
 
 # メッセージ解析
 func _MSG(args:PoolStringArray) -> int:

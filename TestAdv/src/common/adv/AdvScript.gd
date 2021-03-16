@@ -274,15 +274,8 @@ func _GOTO(args) -> void:
 	var addr = int(args[0])
 	_jump(addr)
 
-func _WHITE(args) -> void:
-	pass # 特に何もしない
-	"""
-	var val = _pop_stack()
-	if !val:
-		# 演算結果が偽なのでアドレスジャンプする
-		var addr = int(args[0])
-		_jump(addr)
-	"""
+func _WHILE(args) -> void:
+	pass # 特に何もしない (後続するIF文で処理される)
 
 func _CALL(args) -> void:
 	var next = _pc # RETURN 後に +1 する
