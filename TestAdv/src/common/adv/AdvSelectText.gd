@@ -18,5 +18,5 @@ func start(pos:Vector2, txt:String):
 func destroy():
 	queue_free()
 
-func _on_Button_button_down() -> void:
+func _on_Button_pressed() -> void:
 	selected = true
