@@ -29,18 +29,114 @@ enum eCmdMesType {
 	NOTICE = 9, # 通知
 }
 
+enum eBgState {
+	HIDE,
+	TO_SHOW,
+	SHOW,
+	TO_HIDE,
+}
+
+class AdvBg:
+	var bg:TextureRect = null
+	var time := 0.0
+	var state = eBgState.HIDE
+	func _init(bg_rect:TextureRect):
+		bg = bg_rect
+	func load_texture(id:int):
+		bg.texture = load("res://assets/bg/bg%03d.jpg"%id)
+	func dispose_texture():
+		bg.texture = null
+		state = eBgState.HIDE
+	
+	func is_appear() -> bool:
+		if state in [eBgState.TO_SHOW, eBgState.SHOW]:
+			return true # 表示中
+		return false
+	
+	func update(delta:float):
+		match state:
+			eBgState.HIDE:
+				bg.texture = null
+			eBgState.TO_SHOW:
+				time = min(0.5, time + delta)
+				var rate = time / 0.5
+				bg.modulate = Color(1, 1, 1, rate)
+				if time >= 0.5:
+					time = 0
+					state = eBgState.SHOW
+			eBgState.SHOW:
+				bg.modulate = Color.white
+			eBgState.TO_HIDE:
+				time = min(0.5, time + delta)
+				var rate = time / 0.5
+				bg.modulate = Color(1, 1, 1, 1 - rate)
+				if time >= 0.5:
+					time = 0
+					state = eBgState.HIDE
+	func appear():
+		if state in [eBgState.HIDE, eBgState.TO_HIDE]:
+			state = eBgState.TO_SHOW
+			time  = 0
+	func disappear():
+		if state in [eBgState.SHOW, eBgState.TO_SHOW]:
+			state = eBgState.TO_HIDE
+			time  = 0
+
+class AdvBgMgr:
+	var _bg_list = []
+	func _init(bg_rect):
+		var bg1 = AdvBg.new(bg_rect[0])
+		_bg_list.append(bg1)
+		var bg2 = AdvBg.new(bg_rect[1])
+		_bg_list.append(bg2)
+	
+	func _copy_to_bellow(bg:AdvBg) -> void:
+		var bellow:AdvBg = _bg_list[0]
+		bellow.bg.texture = bg.bg.texture
+		bg.dispose_texture()
+		bellow.state = eBgState.SHOW
+	
+	func draw_bg(id:int, eft:int) -> void:
+		var bg:AdvBg = _bg_list[1] # 演出用BG
+		if bg.is_appear():
+			# 表示中の場合はすぐにコピーする
+			_copy_to_bellow(bg)
+		bg.load_texture(id)
+		bg.appear()
+		
+	func erase_bg(eft:int) -> void:
+		var bg:AdvBg = _bg_list[1] # 演出用BG
+		if bg.is_appear():
+			# 表示中の場合はすぐにコピーする
+			_copy_to_bellow(bg)
+		var bellow = _bg_list[0]
+		bellow.disappear() # 消滅演出開始
+		
+	func update(delta:float) -> void:
+		var bg = _bg_list[1] # 演出用BG
+		bg.update(delta)
+		if bg.state == eBgState.SHOW:
+			_copy_to_bellow(bg)
+		var bellow = _bg_list[0]
+		bellow.update(delta)
+
 var _script:AdvScript      = null
 var _talk_text:AdvTalkText = null
-var _bg               = null
 var _msg              := AdvTextMgr.new()
 var _state            = eState.INIT
 var _next_state       = eState.INIT
+var _bg_mgr:AdvBgMgr  = null
+
+# レイヤー
+onready var _layer_bg   = $LayerBg
+onready var _layer_talk = $LayerTalk
 
 func _ready() -> void:
 	_script = AdvScript.new(self)
 	_talk_text = AdvTalkTextScene.instance()
-	add_child(_talk_text)
+	_layer_talk.add_child(_talk_text)
 	_talk_text.hide()
+	_bg_mgr = AdvBgMgr.new([$LayerBg/BellowBg, $LayerBg/AboveBg])
 
 func _process(delta: float) -> void:
 	match _state:
@@ -53,6 +149,9 @@ func _process(delta: float) -> void:
 		eState.SEL_WAIT:
 			_update_sel_wait(delta)
 	
+	var idx = 0
+	
+	_bg_mgr.update(delta)
 	
 	if _state != _next_state:
 		_state = _next_state
@@ -95,17 +194,13 @@ func _update_sel_wait(delta:float):
 func _DRB(args:PoolStringArray) -> int:
 	var id  = _script.pop_stack()
 	var eft = _script.pop_stack()
-	var spr := Sprite.new()
-	spr.texture = load("res://assets/bg/bg%03d.jpg"%id)
-	add_child(spr)
-	_bg = spr
+	_bg_mgr.draw_bg(id, eft)
 	return AdvConst.eRet.CONTINUE
 	
 # 背景を消去
 func _ERB(args:PoolStringArray) -> int:
 	var eft = _script.pop_stack()
-	if _bg:
-		_bg.queue_free()
+	_bg_mgr.erase_bg(eft)
 	return AdvConst.eRet.CONTINUE
 
 # メッセージ解析

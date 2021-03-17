@@ -26,7 +26,7 @@ def color_text {
 def draw_bg {
 	DRB(1)
 	"背景１を表示/"
-	DRB(1)
+	DRB(2)
 	"背景２を表示/"
 	ERB()
 	"背景を消去/"

@@ -4,3 +4,22 @@
 
 [node name="AdvMgr" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="LayerBg" type="CanvasLayer" parent="."]
+
+[node name="BellowBg" type="TextureRect" parent="LayerBg"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AboveBg" type="TextureRect" parent="LayerBg"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LayerTalk" type="CanvasLayer" parent="."]
+layer = 5
