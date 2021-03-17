@@ -5,6 +5,7 @@ def loop {
 			call color_text
 		}
 		{"背景描画"
+			call draw_bg
 		}
 		{"終了"
 			break
@@ -14,8 +15,19 @@ def loop {
 	"おしまい/"
 }
 
+// テキスト色変えテスト
 def color_text {
 	"redは[color=red]赤色[/color]。aquaは[color=aqua]水色[/color]"
 	"limeは[color=lime]明るい緑色[/color]。grayは[color=gray]灰色[/color]"
 	"silverは[color=silver]銀色[/color]。yellowは[color=yellow]黄色[/color]。fuchsiaは[color=fuchsia]赤紫色[/color]/"
+}
+
+// 背景描画テスト
+def draw_bg {
+	DRB(1)
+	"背景１を表示/"
+	DRB(1)
+	"背景２を表示/"
+	ERB()
+	"背景を消去/"
 }

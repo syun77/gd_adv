@@ -31,6 +31,7 @@ enum eCmdMesType {
 
 var _script:AdvScript      = null
 var _talk_text:AdvTalkText = null
+var _bg               = null
 var _msg              := AdvTextMgr.new()
 var _state            = eState.INIT
 var _next_state       = eState.INIT
@@ -89,6 +90,23 @@ func _update_sel_wait(delta:float):
 			_next_state = eState.EXEC
 		_:
 			pass # 続行
+
+# 背景を表示
+func _DRB(args:PoolStringArray) -> int:
+	var id  = _script.pop_stack()
+	var eft = _script.pop_stack()
+	var spr := Sprite.new()
+	spr.texture = load("res://assets/bg/bg%03d.jpg"%id)
+	add_child(spr)
+	_bg = spr
+	return AdvConst.eRet.CONTINUE
+	
+# 背景を消去
+func _ERB(args:PoolStringArray) -> int:
+	var eft = _script.pop_stack()
+	if _bg:
+		_bg.queue_free()
+	return AdvConst.eRet.CONTINUE
 
 # メッセージ解析
 func _MSG(args:PoolStringArray) -> int:
