@@ -19,7 +19,8 @@ enum eState {
 	OBJ_WAIT,
 	FADE_WAIT,
 	YIELD,
-	YIELD2,	
+	YIELD2,
+	END,
 }
 
 # メッセージの種類
@@ -59,9 +60,13 @@ func _process(delta: float) -> void:
 			_update_key_wait(delta)
 		eState.SEL_WAIT:
 			_update_sel_wait(delta)
-	
-	var idx = 0
-	
+		eState.END:
+			# TODO: デバッグ用
+			get_tree().change_scene("res://src/common/adv/AdvMgr.tscn")
+			#queue_free()
+
+
+	# 背景管理更新
 	_bg_mgr.update(delta)
 	
 	if _state != _next_state:
@@ -76,8 +81,8 @@ func _update_init():
 func _update_exec():
 	_script.update()
 	if _script.is_end():
-		# 終了
-		queue_free()
+		# スクリプト終了
+		_next_state = eState.END
 
 # 更新・キー待ち
 func _update_key_wait(delta:float):
