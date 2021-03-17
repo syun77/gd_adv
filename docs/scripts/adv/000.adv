@@ -1,5 +1,6 @@
 def loop {
 	while(true) {
+		DRB(1)
 		select("選択肢テスト")
 		{"[color=yellow]テキスト[/color]色変え"
 			call color_text
@@ -24,10 +25,10 @@ def color_text {
 
 // 背景描画テスト
 def draw_bg {
-	DRB(1, EF_ALPHA)
-	"背景１を表示/"
 	DRB(2)
 	"背景２を表示/"
+	DRB(1, EF_ALPHA)
+	"背景１をフェード表示/"
 	ERB(EF_ALPHA)
-	"背景を消去/"
+	"背景をフェード消去/"
 }
