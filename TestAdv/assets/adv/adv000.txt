@@ -20,7 +20,7 @@ MSG,0,limeは[color=lime]明るい緑色[/color]。grayは[color=gray]灰色[/co
 MSG,1,silverは[color=silver]銀色[/color]。yellowは[color=yellow]黄色[/color]。fuchsiaは[color=fuchsia]赤紫色[/color]
 FUNC_END,color_text
 FUNC_START,draw_bg
-INT,0
+INT,2
 INT,1
 DRB
 MSG,1,背景１を表示
@@ -28,7 +28,7 @@ INT,0
 INT,2
 DRB
 MSG,1,背景２を表示
-INT,0
+INT,2
 ERB
 MSG,1,背景を消去
 FUNC_END,draw_bg

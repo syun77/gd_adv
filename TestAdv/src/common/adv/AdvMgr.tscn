@@ -1,20 +1,22 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://src/common/adv/AdvLayerBg.gd" type="Script" id=1]
 [ext_resource path="res://src/common/adv/AdvMgr.gd" type="Script" id=2]
 
 [node name="AdvMgr" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="LayerBg" type="CanvasLayer" parent="."]
+[node name="AdvLayerBg" type="CanvasLayer" parent="."]
+script = ExtResource( 1 )
 
-[node name="BellowBg" type="TextureRect" parent="LayerBg"]
+[node name="BellowBg" type="TextureRect" parent="AdvLayerBg"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AboveBg" type="TextureRect" parent="LayerBg"]
+[node name="AboveBg" type="TextureRect" parent="AdvLayerBg"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {

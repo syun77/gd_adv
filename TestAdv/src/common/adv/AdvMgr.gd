@@ -5,6 +5,7 @@ const AdvScript = preload("res://src/common/adv/AdvScript.gd")
 # テキスト管理
 const AdvTextMgr = preload("res://src/common/adv/AdvTextMgr.gd")
 
+const AdvLayerBg       = preload("res://src/common/adv/AdvLayerBg.gd")
 const AdvTalkText      = preload("res://src/common/adv/AdvTalkText.gd")
 const AdvTalkTextScene = preload("res://src/common/adv/AdvTalkText.tscn")
 
@@ -29,103 +30,13 @@ enum eCmdMesType {
 	NOTICE = 9, # 通知
 }
 
-enum eBgState {
-	HIDE,
-	TO_SHOW,
-	SHOW,
-	TO_HIDE,
-}
-
-class AdvBg:
-	var bg:TextureRect = null
-	var time := 0.0
-	var state = eBgState.HIDE
-	func _init(bg_rect:TextureRect):
-		bg = bg_rect
-	func load_texture(id:int):
-		bg.texture = load("res://assets/bg/bg%03d.jpg"%id)
-	func dispose_texture():
-		bg.texture = null
-		state = eBgState.HIDE
-	
-	func is_appear() -> bool:
-		if state in [eBgState.TO_SHOW, eBgState.SHOW]:
-			return true # 表示中
-		return false
-	
-	func update(delta:float):
-		match state:
-			eBgState.HIDE:
-				bg.texture = null
-			eBgState.TO_SHOW:
-				time = min(0.5, time + delta)
-				var rate = time / 0.5
-				bg.modulate = Color(1, 1, 1, rate)
-				if time >= 0.5:
-					time = 0
-					state = eBgState.SHOW
-			eBgState.SHOW:
-				bg.modulate = Color.white
-			eBgState.TO_HIDE:
-				time = min(0.5, time + delta)
-				var rate = time / 0.5
-				bg.modulate = Color(1, 1, 1, 1 - rate)
-				if time >= 0.5:
-					time = 0
-					state = eBgState.HIDE
-	func appear():
-		if state in [eBgState.HIDE, eBgState.TO_HIDE]:
-			state = eBgState.TO_SHOW
-			time  = 0
-	func disappear():
-		if state in [eBgState.SHOW, eBgState.TO_SHOW]:
-			state = eBgState.TO_HIDE
-			time  = 0
-
-class AdvBgMgr:
-	var _bg_list = []
-	func _init(bg_rect):
-		var bg1 = AdvBg.new(bg_rect[0])
-		_bg_list.append(bg1)
-		var bg2 = AdvBg.new(bg_rect[1])
-		_bg_list.append(bg2)
-	
-	func _copy_to_bellow(bg:AdvBg) -> void:
-		var bellow:AdvBg = _bg_list[0]
-		bellow.bg.texture = bg.bg.texture
-		bg.dispose_texture()
-		bellow.state = eBgState.SHOW
-	
-	func draw_bg(id:int, eft:int) -> void:
-		var bg:AdvBg = _bg_list[1] # 演出用BG
-		if bg.is_appear():
-			# 表示中の場合はすぐにコピーする
-			_copy_to_bellow(bg)
-		bg.load_texture(id)
-		bg.appear()
-		
-	func erase_bg(eft:int) -> void:
-		var bg:AdvBg = _bg_list[1] # 演出用BG
-		if bg.is_appear():
-			# 表示中の場合はすぐにコピーする
-			_copy_to_bellow(bg)
-		var bellow = _bg_list[0]
-		bellow.disappear() # 消滅演出開始
-		
-	func update(delta:float) -> void:
-		var bg = _bg_list[1] # 演出用BG
-		bg.update(delta)
-		if bg.state == eBgState.SHOW:
-			_copy_to_bellow(bg)
-		var bellow = _bg_list[0]
-		bellow.update(delta)
 
 var _script:AdvScript      = null
 var _talk_text:AdvTalkText = null
+var _bg_mgr:AdvLayerBg     = null
 var _msg              := AdvTextMgr.new()
 var _state            = eState.INIT
 var _next_state       = eState.INIT
-var _bg_mgr:AdvBgMgr  = null
 
 # レイヤー
 onready var _layer_bg   = $LayerBg
@@ -136,7 +47,7 @@ func _ready() -> void:
 	_talk_text = AdvTalkTextScene.instance()
 	_layer_talk.add_child(_talk_text)
 	_talk_text.hide()
-	_bg_mgr = AdvBgMgr.new([$LayerBg/BellowBg, $LayerBg/AboveBg])
+	_bg_mgr = AdvLayerBg.new([$AdvLayerBg/BellowBg, $AdvLayerBg/AboveBg])
 
 func _process(delta: float) -> void:
 	match _state:

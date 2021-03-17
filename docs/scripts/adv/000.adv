@@ -24,10 +24,10 @@ def color_text {
 
 // 背景描画テスト
 def draw_bg {
-	DRB(1)
+	DRB(1, EF_ALPHA)
 	"背景１を表示/"
 	DRB(2)
 	"背景２を表示/"
-	ERB()
+	ERB(EF_ALPHA)
 	"背景を消去/"
 }
