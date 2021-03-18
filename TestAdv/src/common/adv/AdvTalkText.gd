@@ -6,7 +6,7 @@ const TEXT_SPEED := 40.0
 
 # 選択肢
 const SEL_CENTER_Y := 240 # 中心座標
-const SEL_HEIGHT   := 80  # ボタンの高さ
+const SEL_HEIGHT   := 72  # ボタンの高さ
 
 
 # スクリプト管理

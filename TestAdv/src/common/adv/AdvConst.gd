@@ -5,6 +5,13 @@ extends Node
 
 class_name AdvConst
 
+const WINDOW_WIDTH    := 1024
+const WINDOW_HEIGHT   := 600
+const WINDOW_CENTER_X := WINDOW_WIDTH/2
+const WINDOW_CENTER_Y := WINDOW_HEIGHT/2
+
+const CH_SLIDE_OFS_X := 64
+
 const MAX_BIT = 256
 const MAX_VAR = 128
 

@@ -8,6 +8,9 @@ def loop {
 		{"背景描画"
 			call draw_bg
 		}
+		{"キャラクター描画"
+			call draw_ch
+		}
 		{"終了"
 			break
 		}
@@ -31,4 +34,18 @@ def draw_bg {
 	"背景１をフェード表示/"
 	ERB(EF_ALPHA)
 	"背景をフェード消去/"
+}
+
+// キャラクター描画テスト
+def draw_ch {
+	DRC(0, 2)
+	"キャラクターを左に表示/"
+	DRC(2, 1, EF_ALPHA)
+	"キャラクターを右に表示/"
+	DRC(1, 0, EF_SLIDE)
+	"キャラクターを中央に表示/"
+	ERC(0)
+	ERC(1, EF_ALPHA)
+	ERC(2, EF_SLIDE)
+	"キャラクターを消去/"
 }

@@ -53,7 +53,6 @@ func open(path:String) -> bool:
 		
 	_max_pc = _script_data.size()
 	
-	print(_script_data)
 	file.close()
 	
 	# 各種変数を初期化
