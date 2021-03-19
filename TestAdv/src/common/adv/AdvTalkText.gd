@@ -2,7 +2,7 @@ extends Control
 # 会話テキスト管理
 
 # テキスト速度
-const TEXT_SPEED := 40.0
+export(float) var TEXT_SPEED := 40.0
 
 # 選択肢
 const SEL_CENTER_Y := 240 # 中心座標
@@ -76,12 +76,13 @@ func _calc_bbtext_length(var texts):
 	var line = _talk_text.get_line_count() - 1
 	
 	# カーソルを文字の末尾に移動する
-	_cursor.rect_position = _talk_text.rect_position + Vector2(size.x+16, size.y*(line+0.2))
+	_cursor.position = _talk_text.rect_position + Vector2(size.x+24, size.y*(line+0.5))
 	
 	return text2.length()
 
 func _process(delta: float) -> void:
 	_timer += delta
+	#update()
 
 func sel_clear():
 	_sel_list.clear()
@@ -134,6 +135,7 @@ func update_talk(delta:float, texts:String) -> String:
 				# 次のテキストに進む
 				_cursor.hide()
 				_text_timer = 0
+				_talk_text.visible_characters = 0
 				return "EXEC"
 	
 	# 会話テキスト表示
@@ -145,7 +147,7 @@ func update_talk(delta:float, texts:String) -> String:
 	if is_disp_all:
 		# すべてのテキストを表示したのでカーソル表示
 		_cursor.show()
-		_cursor.rect_position.y += 8 * abs(sin(_timer * 4))
+		_cursor.position.y += 8 * abs(sin(_timer * 3))
 	return "NONE"
 
 func update_select(delta:float, script:AdvScript) -> String:
@@ -166,6 +168,7 @@ func update_select(delta:float, script:AdvScript) -> String:
 			sel.clear()
 		_sel_list.clear()
 		_text_timer = 0
+		_talk_text.visible_characters = 0
 		return "EXEC"
 	
 	return "NONE"
@@ -182,3 +185,10 @@ func set_name(name:String) -> void:
 	_name.show()
 func clear_name() -> void:
 	_name.hide()
+	
+func _draw():
+	# デバッグ用描画処理
+	var font = _talk_text.get_font("normal_font")
+	var s = "show" if _cursor.visible else "hide"
+	var c = Color.red if _cursor.visible else Color.white
+	#draw_string(font, Vector2(128, 500), "cursor:%s"%s, c)
