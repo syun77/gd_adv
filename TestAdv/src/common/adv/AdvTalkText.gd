@@ -6,7 +6,7 @@ const TEXT_SPEED := 40.0
 
 # 選択肢
 const SEL_CENTER_Y := 240 # 中心座標
-const SEL_HEIGHT   := 72  # ボタンの高さ
+const SEL_HEIGHT   := 80  # ボタンの高さ
 
 
 # スクリプト管理
@@ -124,7 +124,7 @@ func update_talk(delta:float, texts:String) -> String:
 	if is_disp_all:
 		# すべてのテキストを表示したのでカーソル表示
 		_cursor.show()
-		_cursor.rect_position.y = 500 + 8 * abs(sin(_timer * 4))
+		_cursor.rect_position.y = 640 + 8 * abs(sin(_timer * 4))
 	
 	return "NONE"
 

@@ -5,8 +5,8 @@ extends Node
 
 class_name AdvConst
 
-const WINDOW_WIDTH    := 1024
-const WINDOW_HEIGHT   := 600
+const WINDOW_WIDTH    := 1280
+const WINDOW_HEIGHT   := 720
 const WINDOW_CENTER_X := WINDOW_WIDTH/2
 const WINDOW_CENTER_Y := WINDOW_HEIGHT/2
 
