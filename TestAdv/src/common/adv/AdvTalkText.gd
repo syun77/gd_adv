@@ -44,6 +44,7 @@ class SelectInfo:
 onready var _talk_text = $Text
 onready var _cursor    = $Cursor
 onready var _face      = $Face
+onready var _name      = $Name
 
 var _timer:float      = 0
 var _text_timer:float = 0
@@ -53,6 +54,7 @@ func _ready() -> void:
 	_talk_text.hide()
 	_cursor.hide()
 	_face.hide()
+	_name.hide()
 
 func _calc_bbtext_length(var texts):
 	var regex = RegEx.new()
@@ -157,3 +159,9 @@ func draw_face(id:int) -> void:
 func erase_face() -> void:
 	_face.texture = null
 	_face.hide()
+	
+func set_name(name:String) -> void:
+	_name.text = name
+	_name.show()
+func clear_name() -> void:
+	_name.hide()

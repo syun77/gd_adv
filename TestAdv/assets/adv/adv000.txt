@@ -68,13 +68,13 @@ MSG,1,キャラクターを消去
 FUNC_END,draw_ch
 FUNC_START,draw_face
 FACE,301
-NAME,主人公
+NAME,佐倉 望
 MSG,1,顔ウィンドウ表示テスト１
 FACE,302
-NAME,主人公
+NAME,佐倉 望
 MSG,1,顔ウィンドウ表示テスト２
 FACE,303
-NAME,主人公
+NAME,佐倉 望
 MSG,1,顔ウィンドウ表示テスト３
 CLS
 FUNC_END,draw_face

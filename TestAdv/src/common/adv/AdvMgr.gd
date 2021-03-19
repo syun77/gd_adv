@@ -159,11 +159,13 @@ func _FACE(args:PoolStringArray) -> int:
 	
 # 話者名を表示
 func _NAME(args:PoolStringArray) -> int:
+	_talk_text.set_name(args[0])
 	return AdvConst.eRet.CONTINUE
 	
 # 顔ウィンドウと話者名を消去する
 func _CLS(args:PoolStringArray) -> int:
 	_talk_text.erase_face()
+	_talk_text.clear_name()
 	return AdvConst.eRet.CONTINUE
 
 
