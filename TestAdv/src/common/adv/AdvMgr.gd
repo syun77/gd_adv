@@ -52,8 +52,18 @@ func _ready() -> void:
 	_talk_text.hide()
 	_bg_mgr = AdvLayerBg.new([$AdvLayerBg/BellowBg, $AdvLayerBg/AboveBg])
 	_ch_mgr = AdvLayerCh.new([$AdvLayerCh/LeftCh, $AdvLayerCh/CenterCh, $AdvLayerCh/RightCh])
+	
+	if AdvConst.DEBUG:
+		# TODO: ウィンドウをリサイズ
+		OS.set_window_size(Vector2(480, 320))
 
 func _process(delta: float) -> void:
+	
+	if AdvConst.DEBUG:
+		if Input.is_action_just_pressed("ui_exit"):
+			# ESC終了
+			get_tree().quit()
+	
 	match _state:
 		eState.INIT:
 			_update_init()
@@ -140,6 +150,22 @@ func _ERC(args:PoolStringArray) -> int:
 	_ch_mgr.erase_ch(pos, eft)
 	
 	return AdvConst.eRet.CONTINUE
+	
+# 顔ウィンドウ表示
+func _FACE(args:PoolStringArray) -> int:
+	var id = int(args[0])
+	_talk_text.draw_face(id)
+	return AdvConst.eRet.CONTINUE
+	
+# 話者名を表示
+func _NAME(args:PoolStringArray) -> int:
+	return AdvConst.eRet.CONTINUE
+	
+# 顔ウィンドウと話者名を消去する
+func _CLS(args:PoolStringArray) -> int:
+	_talk_text.erase_face()
+	return AdvConst.eRet.CONTINUE
+
 
 # メッセージ解析
 func _MSG(args:PoolStringArray) -> int:

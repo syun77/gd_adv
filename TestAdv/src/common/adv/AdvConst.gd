@@ -5,6 +5,7 @@ extends Node
 
 class_name AdvConst
 
+const DEBUG           := true # デバッグ有効
 const WINDOW_WIDTH    := 1280
 const WINDOW_HEIGHT   := 720
 const WINDOW_CENTER_X := WINDOW_WIDTH/2

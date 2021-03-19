@@ -43,15 +43,16 @@ class SelectInfo:
 
 onready var _talk_text = $Text
 onready var _cursor    = $Cursor
+onready var _face      = $Face
 
 var _timer:float      = 0
 var _text_timer:float = 0
 var _sel_list         = [] # 選択肢のテキスト
 
-
 func _ready() -> void:
 	_talk_text.hide()
 	_cursor.hide()
+	_face.hide()
 
 func _calc_bbtext_length(var texts):
 	var regex = RegEx.new()
@@ -149,3 +150,10 @@ func update_select(delta:float, script:AdvScript) -> String:
 		return "EXEC"
 	
 	return "NONE"
+
+func draw_face(id:int) -> void:
+	_face.texture = load("res://assets/face/face%03d.png"%id)
+	_face.show()
+func erase_face() -> void:
+	_face.texture = null
+	_face.hide()
