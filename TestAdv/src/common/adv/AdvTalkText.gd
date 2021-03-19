@@ -41,10 +41,10 @@ class SelectInfo:
 			button.destroy()
 			button = null
 
-onready var _talk_text = $Text
-onready var _cursor    = $Cursor
-onready var _face      = $Face
-onready var _name      = $Name
+onready var _talk_text = $Window/Text
+onready var _cursor    = $Window/Cursor
+onready var _face      = $Window/Face
+onready var _name      = $Window/Name
 
 var _timer:float      = 0
 var _text_timer:float = 0
@@ -59,7 +59,25 @@ func _ready() -> void:
 func _calc_bbtext_length(var texts):
 	var regex = RegEx.new()
 	regex.compile("\\[[^\\]]+\\]") # BB Codeを除外した文字列の長さを求める
+	
 	var text2 = regex.sub(texts, "", true)
+	
+	# カーソルを文字の末尾に移動する
+	var font = _talk_text.get_font("normal_font")
+	var size := Vector2()
+	
+	# 文字の幅と高さを求める
+	for text in text2.split("\n"):
+		# 改行を判定しないので分割して最大幅を決める
+		var s = font.get_string_size(text)
+		size.x = max(s.x, size.x)
+		size.y = s.y
+	# 行数を取得
+	var line = _talk_text.get_line_count() - 1
+	
+	# カーソルを文字の末尾に移動する
+	_cursor.rect_position = _talk_text.rect_position + Vector2(size.x+16, size.y*(line+0.2))
+	
 	return text2.length()
 
 func _process(delta: float) -> void:
@@ -95,7 +113,7 @@ func update_talk(delta:float, texts:String) -> String:
 	_talk_text.bbcode_text = texts
 	# テキストの長さを求める
 	var total_text = _calc_bbtext_length(texts)
-
+	
 	# テキストが終端に到達したかどうか	
 	var is_disp_all = (_talk_text.visible_characters >= total_text)
 	if Input.is_action_just_pressed("ui_accept"):
@@ -127,8 +145,7 @@ func update_talk(delta:float, texts:String) -> String:
 	if is_disp_all:
 		# すべてのテキストを表示したのでカーソル表示
 		_cursor.show()
-		_cursor.rect_position.y = 640 + 8 * abs(sin(_timer * 4))
-	
+		_cursor.rect_position.y += 8 * abs(sin(_timer * 4))
 	return "NONE"
 
 func update_select(delta:float, script:AdvScript) -> String:

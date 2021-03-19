@@ -41,17 +41,17 @@ MSG,1,背景をフェード消去
 FUNC_END,draw_bg
 FUNC_START,draw_ch
 INT,0
-INT,2
+INT,201
 INT,0
 DRC
 MSG,1,キャラクターを左に表示
 INT,2
-INT,1
+INT,101
 INT,2
 DRC
 MSG,1,キャラクターを右に表示
 INT,1
-INT,0
+INT,1
 INT,1
 DRC
 MSG,1,キャラクターを中央に表示
@@ -67,14 +67,14 @@ ERC
 MSG,1,キャラクターを消去
 FUNC_END,draw_ch
 FUNC_START,draw_face
-FACE,301
-NAME,佐倉 望
+FACE,1
+NAME,如月 あゆみ
 MSG,1,顔ウィンドウ表示テスト１
-FACE,302
-NAME,佐倉 望
+FACE,2
+NAME,如月 あゆみ
 MSG,1,顔ウィンドウ表示テスト２
-FACE,303
-NAME,佐倉 望
+FACE,3
+NAME,如月 あゆみ
 MSG,1,顔ウィンドウ表示テスト３
 CLS
 FUNC_END,draw_face

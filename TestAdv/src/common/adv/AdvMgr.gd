@@ -55,7 +55,8 @@ func _ready() -> void:
 	
 	if AdvConst.DEBUG:
 		# TODO: ウィンドウをリサイズ
-		OS.set_window_size(Vector2(480, 320))
+		OS.set_window_size(Vector2(853, 480))
+		#OS.set_window_size(Vector2(480, 270))
 
 func _process(delta: float) -> void:
 	
