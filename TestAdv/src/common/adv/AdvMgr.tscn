@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/common/adv/AdvLayerBg.gd" type="Script" id=1]
 [ext_resource path="res://src/common/adv/AdvMgr.gd" type="Script" id=2]
+[ext_resource path="res://src/common/adv/AdvLayerCh.gd" type="Script" id=3]
 
 [node name="AdvMgr" type="Node2D"]
 script = ExtResource( 2 )
@@ -25,6 +26,7 @@ __meta__ = {
 
 [node name="AdvLayerCh" type="CanvasLayer" parent="."]
 layer = 2
+script = ExtResource( 3 )
 
 [node name="LeftCh" type="TextureRect" parent="AdvLayerCh"]
 margin_right = 360.0

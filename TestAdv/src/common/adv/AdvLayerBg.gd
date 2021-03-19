@@ -85,22 +85,28 @@ class AdvBg:
 
 # ----------------------------------
 # メンバ変数
+# ----------------------------------
 var _bg_list = []
 
 # ----------------------------------
 # メンバ関数
+# ----------------------------------
+
+# 初期化
 func _init(bg_rect):
 	var bg1 = AdvBg.new(bg_rect[0])
 	_bg_list.append(bg1)
 	var bg2 = AdvBg.new(bg_rect[1])
 	_bg_list.append(bg2)
 
+# 背面にコピーする
 func _copy_to_bellow(bg:AdvBg) -> void:
 	var bellow:AdvBg = _bg_list[0]
 	bellow.bg.texture = bg.bg.texture
 	bg.dispose_texture()
 	bellow._state = eBgState.SHOW
 
+# 背景を描画する
 func draw_bg(id:int, eft:int) -> void:
 	var bg:AdvBg = _bg_list[1] # 演出用BG
 	if bg.is_appear():
@@ -108,7 +114,8 @@ func draw_bg(id:int, eft:int) -> void:
 		_copy_to_bellow(bg)
 	bg.load_texture(id)
 	bg.appear(eft)
-	
+
+# 背景を消去する
 func erase_bg(eft:int) -> void:
 	var bg:AdvBg = _bg_list[1] # 演出用BG
 	if bg.is_appear():
@@ -116,7 +123,8 @@ func erase_bg(eft:int) -> void:
 		_copy_to_bellow(bg)
 	var bellow = _bg_list[0]
 	bellow.disappear(eft) # 消滅演出開始
-	
+
+# 更新
 func update(delta:float) -> void:
 	var bg = _bg_list[1] # 演出用BG
 	bg.update(delta)
