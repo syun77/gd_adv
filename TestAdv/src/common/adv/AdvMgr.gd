@@ -196,6 +196,8 @@ func _MSG(args:PoolStringArray) -> int:
 			# TODO: 未実装
 			pass
 		eCmdMesType.PF:
+			_talk_text.show()
+			_talk_text.start()
 			_next_state = eState.KEY_WAIT
 			ret = AdvConst.eRet.YIELD
 	

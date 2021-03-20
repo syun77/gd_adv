@@ -69,10 +69,8 @@ func _calc_bbtext_length(var texts):
 	
 	# 文字の幅と高さを求める
 	for text in text2.split("\n"):
-		# 改行を判定しないので分割して最大幅を決める
-		var s = font.get_string_size(text)
-		size.x = max(s.x, size.x)
-		size.y = s.y
+		# 改行を判定しないので分割して最後のテキストの幅を求める
+		size = font.get_string_size(text)
 	# 行数を取得
 	var line = _talk_text.get_line_count() - 1
 	
