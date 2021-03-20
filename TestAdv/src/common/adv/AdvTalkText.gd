@@ -46,9 +46,10 @@ onready var _cursor    = $Window/Cursor
 onready var _face      = $Window/Face
 onready var _name      = $Window/Name
 
-var _timer:float      = 0
-var _text_timer:float = 0
-var _sel_list         = [] # 選択肢のテキスト
+var _cursor_timer:float  = 0 # カーソルタイマー
+var _cursor_timer2:float = 0 # カーソルタイマー２
+var _text_timer:float    = 0 # テキストタイマー
+var _sel_list            = [] # 選択肢のテキスト
 
 func _ready() -> void:
 	_talk_text.hide()
@@ -81,7 +82,10 @@ func _calc_bbtext_length(var texts):
 	return text2.length()
 
 func _process(delta: float) -> void:
-	_timer += delta
+	_cursor_timer += delta
+	_cursor_timer2 += delta
+	if _cursor_timer2 > 3:
+		_cursor_timer2 = 0
 	#update()
 
 func sel_clear():
@@ -147,7 +151,9 @@ func update_talk(delta:float, texts:String) -> String:
 	if is_disp_all:
 		# すべてのテキストを表示したのでカーソル表示
 		_cursor.show()
-		_cursor.position.y += 8 * abs(sin(_timer * 3))
+		_cursor.position.y += 8 * abs(sin(_cursor_timer * 3))
+		if _cursor_timer2 < 1:
+			_cursor.scale.x = abs(sin((0.5 + _cursor_timer2) * PI))
 	return "NONE"
 
 func update_select(delta:float, script:AdvScript) -> String:
