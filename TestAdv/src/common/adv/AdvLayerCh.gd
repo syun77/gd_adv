@@ -61,10 +61,16 @@ class AdvCh:
 	
 	# 表示演出開始
 	func appear(eft:int):
-		if _pos == eChPos.CENTER:
-			# 中央揃えが必要
-			var w = ch.texture.get_width()
-			_xbase = AdvConst.WINDOW_CENTER_X - w/2
+		match _pos:
+			eChPos.CENTER:
+				# 中央揃えが必要
+				var w = ch.texture.get_width()
+				_xbase = AdvConst.WINDOW_CENTER_X - w/2
+			eChPos.RIGHT:
+				# 右揃えが必要
+				var w = ch.texture.get_width()
+				_xbase = AdvConst.WINDOW_WIDTH - w
+			
 		ch.rect_position.x = _xbase
 		
 		_eft = eft
