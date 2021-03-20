@@ -40,6 +40,7 @@ var _ch_mgr:AdvLayerCh     = null
 var _msg              := AdvTextMgr.new()
 var _state            = eState.INIT
 var _next_state       = eState.INIT
+var _wait             = 0
 
 # レイヤー
 onready var _layer_bg   = $LayerBg
@@ -74,6 +75,8 @@ func _process(delta: float) -> void:
 			_update_key_wait(delta)
 		eState.SEL_WAIT:
 			_update_sel_wait(delta)
+		eState.WAIT:
+			_update_wait(delta)
 		eState.END:
 			# TODO: デバッグ用
 			get_tree().change_scene("res://src/common/adv/AdvMgr.tscn")
@@ -122,6 +125,12 @@ func _update_sel_wait(delta:float):
 		_:
 			pass # 続行
 
+# 更新・一時停止
+func _update_wait(delta:float):
+	_wait -= delta
+	if _wait <= 0:
+		_next_state = eState.EXEC	
+
 # 背景を表示
 func _DRB(args:PoolStringArray) -> int:
 	var id  = _script.pop_stack()
@@ -169,7 +178,6 @@ func _CLS(args:PoolStringArray) -> int:
 	_talk_text.clear_name()
 	return AdvConst.eRet.CONTINUE
 
-
 # メッセージ解析
 func _MSG(args:PoolStringArray) -> int:
 	var is_exit = false
@@ -193,6 +201,11 @@ func _MSG(args:PoolStringArray) -> int:
 	
 	return ret
 
+func _WAIT(args:PoolStringArray) -> int:
+	_wait = _script.pop_stack() / 60.0
+	_next_state = eState.WAIT
+	return AdvConst.eRet.YIELD
+	
 # 選択肢のメッセージテキスト
 func _SEL(args:PoolStringArray) -> int:
 	# テキストの行数

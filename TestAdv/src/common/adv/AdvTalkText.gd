@@ -152,6 +152,7 @@ func update_talk(delta:float, texts:String) -> String:
 		# すべてのテキストを表示したのでカーソル表示
 		_cursor.show()
 		_cursor.position.y += 8 * abs(sin(_cursor_timer * 3))
+		_cursor.scale.x = 1
 		if _cursor_timer2 < 1:
 			_cursor.scale.x = abs(sin((0.5 + _cursor_timer2) * PI))
 	return "NONE"
