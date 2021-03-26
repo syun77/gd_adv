@@ -33,10 +33,10 @@ enum eCmdMesType {
 }
 
 
-var _script:AdvScript      = null
-var _talk_text:AdvTalkText = null
-var _bg_mgr:AdvLayerBg     = null
-var _ch_mgr:AdvLayerCh     = null
+var _script:AdvScript        = null
+var _talk_text:AdvTalkText   = null
+var _bg_mgr:AdvLayerBg       = null
+var _ch_mgr:AdvLayerCh       = null
 var _msg              := AdvTextMgr.new()
 var _state            = eState.INIT
 var _next_state       = eState.INIT
@@ -51,8 +51,8 @@ func _ready() -> void:
 	_talk_text = AdvTalkTextScene.instance()
 	_layer_talk.add_child(_talk_text)
 	_talk_text.hide()
-	_bg_mgr = AdvLayerBg.new([$AdvLayerBg/BellowBg, $AdvLayerBg/AboveBg])
-	_ch_mgr = AdvLayerCh.new([$AdvLayerCh/LeftCh, $AdvLayerCh/CenterCh, $AdvLayerCh/RightCh])
+	_bg_mgr  = AdvLayerBg.new([$AdvLayerBg/BellowBg, $AdvLayerBg/AboveBg])
+	_ch_mgr  = AdvLayerCh.new([$AdvLayerCh/LeftCh, $AdvLayerCh/CenterCh, $AdvLayerCh/RightCh])
 	
 	if AdvConst.DEBUG:
 		# TODO: ウィンドウをリサイズ
