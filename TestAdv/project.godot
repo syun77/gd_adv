@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="TestAdv"
-run/main_scene="res://src/common/adv/AdvMgr.tscn"
+run/main_scene="res://src/escape/room/EscapeRoom.tscn"
 config/icon="res://icon.png"
 
 [autoload]

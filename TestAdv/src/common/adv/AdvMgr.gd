@@ -32,7 +32,7 @@ enum eCmdMesType {
 	NOTICE = 9, # 通知
 }
 
-
+# 内部管理変数
 var _script:AdvScript        = null
 var _talk_text:AdvTalkText   = null
 var _bg_mgr:AdvLayerBg       = null
@@ -42,10 +42,18 @@ var _state            = eState.INIT
 var _next_state       = eState.INIT
 var _wait             = 0
 
+# プロパティ
+var _start_funcname          = null
+
 # レイヤー
 onready var _layer_bg   = $LayerBg
 onready var _layer_talk = $LayerTalk
 
+# コンストラクタ
+func init(funcname:String) -> void:
+	_start_funcname = funcname
+
+# 開始処理
 func _ready() -> void:
 	_script = AdvScript.new(self)
 	_talk_text = AdvTalkTextScene.instance()
@@ -59,6 +67,7 @@ func _ready() -> void:
 		OS.set_window_size(Vector2(853, 480))
 		#OS.set_window_size(Vector2(480, 270))
 
+# 更新
 func _process(delta: float) -> void:
 	
 	if AdvConst.DEBUG:
@@ -78,9 +87,9 @@ func _process(delta: float) -> void:
 		eState.WAIT:
 			_update_wait(delta)
 		eState.END:
-			# TODO: デバッグ用
-			get_tree().change_scene("res://src/common/adv/AdvMgr.tscn")
-			#queue_free()
+			# デバッグ用
+			#get_tree().change_scene("res://src/common/adv/AdvMgr.tscn")
+			queue_free()
 
 
 	# 背景管理更新
@@ -94,6 +103,7 @@ func _process(delta: float) -> void:
 # 更新・初期化
 func _update_init():
 	_script.open("res://assets/adv/adv000.txt")
+	_script.jump_funcname(_start_funcname)
 	_next_state = eState.EXEC
 
 # 更新・実行

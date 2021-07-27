@@ -62,6 +62,14 @@ func open(path:String) -> bool:
 	
 	return true
 
+# 指定の関数名にジャンプする
+func jump_funcname(funcname:String) -> bool:
+	if funcname in _func_tbl:
+		# ジャンプできた
+		_pc = _func_tbl[funcname]
+		return true
+	return false # 見つからなかった
+
 # 終了したかどうか
 func is_end() -> bool:
 	return _is_end
