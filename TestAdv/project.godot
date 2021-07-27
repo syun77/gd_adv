@@ -33,6 +33,7 @@ config/icon="res://icon.png"
 [autoload]
 
 AdvUtil="*res://src/common/adv/AdvUtil.gd"
+CastleDB="*res://src/common/adv/CastleDB.tscn"
 
 [display]
 

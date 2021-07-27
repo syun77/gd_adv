@@ -1,8 +1,8 @@
-def obj001 {
-	"obj001をクリックしました/"
+def click1 {
+	"絵の具をクリックしました/"
 }
-def obj002 {
-	"obj002をクリックしました/"
+def click2 {
+	"新聞をクリックしました/"
 }
 
 def loop {

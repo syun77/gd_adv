@@ -37,6 +37,11 @@ func _process(delta: float) -> void:
 
 # 更新 > 初期化
 func _update_init(delta:float) -> void:
+	var room_id = 102
+	var scene = CastleDB.search_from_value("scenes", room_id)
+	for obj in _clickable_layer.get_children():
+		CastleDB.scene_to_set_obj(scene, obj)
+		
 	_state = eState.MAIN
 
 # 更新 > メイン
@@ -60,13 +65,13 @@ func _update_main(delta:float) -> void:
 		var y2 = y1 + hit_rect.size.y
 		
 		if x1 <= mx and mx <= x2 and y1 <= my and my <= y2:
-			#_clickable_layer.remove_child(spr)
-			var start_funcname = spr.name
-			_script = AdvMgr.instance()
-			_script.init(start_funcname)
-			add_child(_script)
-			_state = eState.SCRIPT
-			return
+			if spr.has_meta("click"):
+				var start_funcname = spr.get_meta("click")
+				_script = AdvMgr.instance()
+				_script.init(start_funcname)
+				add_child(_script)
+				_state = eState.SCRIPT
+				return
 		
 	update()
 

@@ -1,9 +1,9 @@
-FUNC_START,obj001
-MSG,1,obj001をクリックしました
-FUNC_END,obj001
-FUNC_START,obj002
-MSG,1,obj002をクリックしました
-FUNC_END,obj002
+FUNC_START,click1
+MSG,1,絵の具をクリックしました
+FUNC_END,click1
+FUNC_START,click2
+MSG,1,新聞をクリックしました
+FUNC_END,click2
 FUNC_START,loop
 WHILE,00000026
 BOOL,1
