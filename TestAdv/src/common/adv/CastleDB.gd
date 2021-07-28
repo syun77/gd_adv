@@ -117,9 +117,11 @@ func scene_to_set_obj(scene, obj:Node2D) -> void:
 	if obj_info == null:
 		print("%sに未設定のオブジェクトID: %s"%[scene.id, obj.name])
 
+	obj.set_meta("enable", false)
 	if "click" in obj_info:
 		# クリック可能
 		obj.set_meta("click", obj_info["click"])
+		obj.set_meta("enable", true)
 
 	if "on" in obj_info:
 		# ONフラグの指定あり
@@ -130,3 +132,17 @@ func scene_to_set_obj(scene, obj:Node2D) -> void:
 	if "state" in obj_info:
 		# STATEの指定あり
 		obj.set_meta("state", obj_info["state"])
+	
+	# 隠しオブジェクトかどうか	
+	obj.set_meta("hidden", false)
+	if "hidden" in obj_info:
+		obj.set_meta("hidden", obj_info["hidden"])
+	if obj.get_meta("hidden"):
+		obj.visible = false # 非表示にする.
+
+func bit_to_value(bit_id:String):
+	var tbl = get_sheet("bits")
+	if bit_id in tbl:
+		return int(tbl[bit_id]["value"])
+	else:
+		return -1

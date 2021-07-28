@@ -239,41 +239,41 @@
 		"body": "LIGHT_ON_ESC",
 		"description": "ライト点灯フラグ(探索)",
 	},
-	"スマートフォン入手フラグ":
+	"FLG_011":
 	{
-		"prefix": "GAIN_SMART_PHONE",
-		"body": "GAIN_SMART_PHONE",
-		"description": "スマートフォン入手フラグ",
+		"prefix": "FLG_011",
+		"body": "FLG_011",
+		"description": "",
 	},
-	"黒板消し入手フラグ":
+	"FLG_012":
 	{
-		"prefix": "GAIN_BLACK_BOARD_ERASER",
-		"body": "GAIN_BLACK_BOARD_ERASER",
-		"description": "黒板消し入手フラグ",
+		"prefix": "FLG_012",
+		"body": "FLG_012",
+		"description": "",
 	},
-	"「美・応・有」と書かれていたメモの入手フラグ":
+	"FLG_013":
 	{
-		"prefix": "GAIN_BOU_MEMO",
-		"body": "GAIN_BOU_MEMO",
-		"description": "「美・応・有」と書かれていたメモの入手フラグ",
+		"prefix": "FLG_013",
+		"body": "FLG_013",
+		"description": "",
 	},
-	"タクシーに電話しようとした":
+	"FLG_014":
 	{
-		"prefix": "S102_CALL_TAXI",
-		"body": "S102_CALL_TAXI",
-		"description": "タクシーに電話しようとした",
+		"prefix": "FLG_014",
+		"body": "FLG_014",
+		"description": "",
 	},
-	"窓を調べた":
+	"FLG_015":
 	{
-		"prefix": "S107_CHECK_WINDOW",
-		"body": "S107_CHECK_WINDOW",
-		"description": "窓を調べた",
+		"prefix": "FLG_015",
+		"body": "FLG_015",
+		"description": "",
 	},
-	"時間割表の謎を解いた":
+	"FLG_016":
 	{
-		"prefix": "S109_COMPLETED",
-		"body": "S109_COMPLETED",
-		"description": "時間割表の謎を解いた",
+		"prefix": "FLG_016",
+		"body": "FLG_016",
+		"description": "",
 	},
 	"FLG_017":
 	{
@@ -293,23 +293,23 @@
 		"body": "FLG_019",
 		"description": "",
 	},
-	"お母さんの写真入手フラグ":
+	"FLG_020":
 	{
-		"prefix": "GAIN_PASS_HOLDER",
-		"body": "GAIN_PASS_HOLDER",
-		"description": "お母さんの写真入手フラグ",
+		"prefix": "FLG_020",
+		"body": "FLG_020",
+		"description": "",
 	},
-	"花の開花時期のメモ入手フラグ":
+	"FLG_021":
 	{
-		"prefix": "GAIN_BOOKLET",
-		"body": "GAIN_BOOKLET",
-		"description": "花の開花時期のメモ入手フラグ",
+		"prefix": "FLG_021",
+		"body": "FLG_021",
+		"description": "",
 	},
-	"花を植えるメモ入手フラグ":
+	"FLG_022":
 	{
-		"prefix": "GAIN_FLOWER_MEMO",
-		"body": "GAIN_FLOWER_MEMO",
-		"description": "花を植えるメモ入手フラグ",
+		"prefix": "FLG_022",
+		"body": "FLG_022",
+		"description": "",
 	},
 	"FLG_023":
 	{
@@ -323,125 +323,125 @@
 		"body": "FLG_024",
 		"description": "",
 	},
-	"出口の暗号を解いた":
+	"FLG_025":
 	{
-		"prefix": "S205_COMPLETED",
-		"body": "S205_COMPLETED",
-		"description": "出口の暗号を解いた",
+		"prefix": "FLG_025",
+		"body": "FLG_025",
+		"description": "",
 	},
-	"ロッカーのカギを解除":
+	"FLG_026":
 	{
-		"prefix": "S207_LOCKER_UNLOCK",
-		"body": "S207_LOCKER_UNLOCK",
-		"description": "ロッカーのカギを解除",
+		"prefix": "FLG_026",
+		"body": "FLG_026",
+		"description": "",
 	},
-	"ロッカー開いた":
+	"FLG_027":
 	{
-		"prefix": "S207_LOCKER_OPEN",
-		"body": "S207_LOCKER_OPEN",
-		"description": "ロッカー開いた",
+		"prefix": "FLG_027",
+		"body": "FLG_027",
+		"description": "",
 	},
-	"窓の暗号を解いた":
+	"FLG_028":
 	{
-		"prefix": "S206_UNLOCK",
-		"body": "S206_UNLOCK",
-		"description": "窓の暗号を解いた",
+		"prefix": "FLG_028",
+		"body": "FLG_028",
+		"description": "",
 	},
-	"宝箱の暗号を解いた":
+	"FLG_029":
 	{
-		"prefix": "S209_UNLOCK",
-		"body": "S209_UNLOCK",
-		"description": "宝箱の暗号を解いた",
+		"prefix": "FLG_029",
+		"body": "FLG_029",
+		"description": "",
 	},
-	"宝箱を調べた":
+	"FLG_030":
 	{
-		"prefix": "S209_COMPLETED",
-		"body": "S209_COMPLETED",
-		"description": "宝箱を調べた",
+		"prefix": "FLG_030",
+		"body": "FLG_030",
+		"description": "",
 	},
-	"赤の絵の具を入手":
+	"FLG_031":
 	{
-		"prefix": "GAIN_COLOR_RED",
-		"body": "GAIN_COLOR_RED",
-		"description": "赤の絵の具を入手",
+		"prefix": "FLG_031",
+		"body": "FLG_031",
+		"description": "",
 	},
-	"橙の絵の具を入手":
+	"FLG_032":
 	{
-		"prefix": "GAIN_COLOR_ORANGE",
-		"body": "GAIN_COLOR_ORANGE",
-		"description": "橙の絵の具を入手",
+		"prefix": "FLG_032",
+		"body": "FLG_032",
+		"description": "",
 	},
-	"黄色の絵の具を入手":
+	"FLG_033":
 	{
-		"prefix": "GAIN_COLOR_YELLOW",
-		"body": "GAIN_COLOR_YELLOW",
-		"description": "黄色の絵の具を入手",
+		"prefix": "FLG_033",
+		"body": "FLG_033",
+		"description": "",
 	},
-	"緑の絵の具を入手":
+	"FLG_034":
 	{
-		"prefix": "GAIN_COLOR_GREEN",
-		"body": "GAIN_COLOR_GREEN",
-		"description": "緑の絵の具を入手",
+		"prefix": "FLG_034",
+		"body": "FLG_034",
+		"description": "",
 	},
-	"青い絵の具を入手":
+	"FLG_035":
 	{
-		"prefix": "GAIN_COLOR_BLUE",
-		"body": "GAIN_COLOR_BLUE",
-		"description": "青い絵の具を入手",
+		"prefix": "FLG_035",
+		"body": "FLG_035",
+		"description": "",
 	},
-	"藍色の絵の具を入手":
+	"FLG_036":
 	{
-		"prefix": "GAIN_COLOR_INDIGO",
-		"body": "GAIN_COLOR_INDIGO",
-		"description": "藍色の絵の具を入手",
+		"prefix": "FLG_036",
+		"body": "FLG_036",
+		"description": "",
 	},
-	"紫の絵の具を入手":
+	"FLG_037":
 	{
-		"prefix": "GAIN_COLOR_PURPLE",
-		"body": "GAIN_COLOR_PURPLE",
-		"description": "紫の絵の具を入手",
+		"prefix": "FLG_037",
+		"body": "FLG_037",
+		"description": "",
 	},
-	"赤い絵の具を調べた":
+	"FLG_038":
 	{
-		"prefix": "CHECK_COLOR_RED",
-		"body": "CHECK_COLOR_RED",
-		"description": "赤い絵の具を調べた",
+		"prefix": "FLG_038",
+		"body": "FLG_038",
+		"description": "",
 	},
-	"橙の絵の具を調べた":
+	"FLG_039":
 	{
-		"prefix": "CHECK_COLOR_ORANGE",
-		"body": "CHECK_COLOR_ORANGE",
-		"description": "橙の絵の具を調べた",
+		"prefix": "FLG_039",
+		"body": "FLG_039",
+		"description": "",
 	},
-	"黄色の絵の具を調べた":
+	"FLG_040":
 	{
-		"prefix": "CHECK_COLOR_YELLOW",
-		"body": "CHECK_COLOR_YELLOW",
-		"description": "黄色の絵の具を調べた",
+		"prefix": "FLG_040",
+		"body": "FLG_040",
+		"description": "",
 	},
-	"緑の絵の具を調べた":
+	"FLG_041":
 	{
-		"prefix": "CHECK_COLOR_GREEN",
-		"body": "CHECK_COLOR_GREEN",
-		"description": "緑の絵の具を調べた",
+		"prefix": "FLG_041",
+		"body": "FLG_041",
+		"description": "",
 	},
-	"青い絵の具を調べた":
+	"FLG_042":
 	{
-		"prefix": "CHECK_COLOR_BLUE",
-		"body": "CHECK_COLOR_BLUE",
-		"description": "青い絵の具を調べた",
+		"prefix": "FLG_042",
+		"body": "FLG_042",
+		"description": "",
 	},
-	"藍色の絵の具を調べた":
+	"FLG_043":
 	{
-		"prefix": "CHECK_COLOR_INDIGO",
-		"body": "CHECK_COLOR_INDIGO",
-		"description": "藍色の絵の具を調べた",
+		"prefix": "FLG_043",
+		"body": "FLG_043",
+		"description": "",
 	},
-	"紫の絵の具を調べた":
+	"FLG_044":
 	{
-		"prefix": "CHECK_COLOR_PURPLE",
-		"body": "CHECK_COLOR_PURPLE",
-		"description": "紫の絵の具を調べた",
+		"prefix": "FLG_044",
+		"body": "FLG_044",
+		"description": "",
 	},
 	"FLG_045":
 	{
@@ -473,53 +473,53 @@
 		"body": "FLG_049",
 		"description": "",
 	},
-	"色セロハンを入手":
+	"FLG_050":
 	{
-		"prefix": "GAIN_CELLOPHANE",
-		"body": "GAIN_CELLOPHANE",
-		"description": "色セロハンを入手",
+		"prefix": "FLG_050",
+		"body": "FLG_050",
+		"description": "",
 	},
-	"スマホに色セロハンをかぶせた":
+	"FLG_051":
 	{
-		"prefix": "GAIN_PHONE_CELLOPHANE",
-		"body": "GAIN_PHONE_CELLOPHANE",
-		"description": "スマホに色セロハンをかぶせた",
+		"prefix": "FLG_051",
+		"body": "FLG_051",
+		"description": "",
 	},
-	"スマホに色セロハンをかぶせたのが有効かどうか":
+	"FLG_052":
 	{
-		"prefix": "PHONE_CELLOPHANE_ENABLE",
-		"body": "PHONE_CELLOPHANE_ENABLE",
-		"description": "スマホに色セロハンをかぶせたのが有効かどうか",
+		"prefix": "FLG_052",
+		"body": "FLG_052",
+		"description": "",
 	},
-	"赤いドクロを入手":
+	"FLG_053":
 	{
-		"prefix": "GAIN_SKULL_RED",
-		"body": "GAIN_SKULL_RED",
-		"description": "赤いドクロを入手",
+		"prefix": "FLG_053",
+		"body": "FLG_053",
+		"description": "",
 	},
-	"緑のドクロを入手":
+	"FLG_054":
 	{
-		"prefix": "GAIN_SKULL_GREEN",
-		"body": "GAIN_SKULL_GREEN",
-		"description": "緑のドクロを入手",
+		"prefix": "FLG_054",
+		"body": "FLG_054",
+		"description": "",
 	},
-	"紺のドクロを入手":
+	"FLG_055":
 	{
-		"prefix": "GAIN_SKULL_NAVY",
-		"body": "GAIN_SKULL_NAVY",
-		"description": "紺のドクロを入手",
+		"prefix": "FLG_055",
+		"body": "FLG_055",
+		"description": "",
 	},
-	"青色のメモを入手":
+	"FLG_056":
 	{
-		"prefix": "GAIN_BLUE_MEMO",
-		"body": "GAIN_BLUE_MEMO",
-		"description": "青色のメモを入手",
+		"prefix": "FLG_056",
+		"body": "FLG_056",
+		"description": "",
 	},
-	"青いライトが当たった状態でメモを読んだ":
+	"FLG_057":
 	{
-		"prefix": "BLUE_MEMO_READ",
-		"body": "BLUE_MEMO_READ",
-		"description": "青いライトが当たった状態でメモを読んだ",
+		"prefix": "FLG_057",
+		"body": "FLG_057",
+		"description": "",
 	},
 	"FLG_058":
 	{
@@ -533,154 +533,154 @@
 		"body": "FLG_059",
 		"description": "",
 	},
-	"金庫のカギを開けた":
+	"FLG_060":
 	{
-		"prefix": "SAFE_OPEN",
-		"body": "SAFE_OPEN",
-		"description": "金庫のカギを開けた",
-	},
-	"SAFE_DIAL_1_1":
-	{
-		"prefix": "SAFE_DIAL_1_1",
-		"body": "SAFE_DIAL_1_1",
+		"prefix": "FLG_060",
+		"body": "FLG_060",
 		"description": "",
 	},
-	"SAFE_DIAL_1_2":
+	"FLG_061":
 	{
-		"prefix": "SAFE_DIAL_1_2",
-		"body": "SAFE_DIAL_1_2",
+		"prefix": "FLG_061",
+		"body": "FLG_061",
 		"description": "",
 	},
-	"SAFE_DIAL_1_3":
+	"FLG_062":
 	{
-		"prefix": "SAFE_DIAL_1_3",
-		"body": "SAFE_DIAL_1_3",
+		"prefix": "FLG_062",
+		"body": "FLG_062",
 		"description": "",
 	},
-	"SAFE_DIAL_1_4":
+	"FLG_063":
 	{
-		"prefix": "SAFE_DIAL_1_4",
-		"body": "SAFE_DIAL_1_4",
+		"prefix": "FLG_063",
+		"body": "FLG_063",
 		"description": "",
 	},
-	"SAFE_DIAL_1_5":
+	"FLG_064":
 	{
-		"prefix": "SAFE_DIAL_1_5",
-		"body": "SAFE_DIAL_1_5",
+		"prefix": "FLG_064",
+		"body": "FLG_064",
 		"description": "",
 	},
-	"SAFE_DIAL_1_6":
+	"FLG_065":
 	{
-		"prefix": "SAFE_DIAL_1_6",
-		"body": "SAFE_DIAL_1_6",
+		"prefix": "FLG_065",
+		"body": "FLG_065",
 		"description": "",
 	},
-	"SAFE_DIAL_1_7":
+	"FLG_066":
 	{
-		"prefix": "SAFE_DIAL_1_7",
-		"body": "SAFE_DIAL_1_7",
+		"prefix": "FLG_066",
+		"body": "FLG_066",
 		"description": "",
 	},
-	"SAFE_DIAL_1_8":
+	"FLG_067":
 	{
-		"prefix": "SAFE_DIAL_1_8",
-		"body": "SAFE_DIAL_1_8",
+		"prefix": "FLG_067",
+		"body": "FLG_067",
 		"description": "",
 	},
-	"SAFE_DIAL_2_1":
+	"FLG_068":
 	{
-		"prefix": "SAFE_DIAL_2_1",
-		"body": "SAFE_DIAL_2_1",
+		"prefix": "FLG_068",
+		"body": "FLG_068",
 		"description": "",
 	},
-	"SAFE_DIAL_2_2":
+	"FLG_069":
 	{
-		"prefix": "SAFE_DIAL_2_2",
-		"body": "SAFE_DIAL_2_2",
+		"prefix": "FLG_069",
+		"body": "FLG_069",
 		"description": "",
 	},
-	"SAFE_DIAL_2_3":
+	"FLG_070":
 	{
-		"prefix": "SAFE_DIAL_2_3",
-		"body": "SAFE_DIAL_2_3",
+		"prefix": "FLG_070",
+		"body": "FLG_070",
 		"description": "",
 	},
-	"SAFE_DIAL_2_4":
+	"FLG_071":
 	{
-		"prefix": "SAFE_DIAL_2_4",
-		"body": "SAFE_DIAL_2_4",
+		"prefix": "FLG_071",
+		"body": "FLG_071",
 		"description": "",
 	},
-	"SAFE_DIAL_2_5":
+	"FLG_072":
 	{
-		"prefix": "SAFE_DIAL_2_5",
-		"body": "SAFE_DIAL_2_5",
+		"prefix": "FLG_072",
+		"body": "FLG_072",
 		"description": "",
 	},
-	"SAFE_DIAL_2_6":
+	"FLG_073":
 	{
-		"prefix": "SAFE_DIAL_2_6",
-		"body": "SAFE_DIAL_2_6",
+		"prefix": "FLG_073",
+		"body": "FLG_073",
 		"description": "",
 	},
-	"SAFE_DIAL_2_7":
+	"FLG_074":
 	{
-		"prefix": "SAFE_DIAL_2_7",
-		"body": "SAFE_DIAL_2_7",
+		"prefix": "FLG_074",
+		"body": "FLG_074",
 		"description": "",
 	},
-	"SAFE_DIAL_2_8":
+	"FLG_075":
 	{
-		"prefix": "SAFE_DIAL_2_8",
-		"body": "SAFE_DIAL_2_8",
+		"prefix": "FLG_075",
+		"body": "FLG_075",
 		"description": "",
 	},
-	"SAFE_DIAL_3_1":
+	"FLG_076":
 	{
-		"prefix": "SAFE_DIAL_3_1",
-		"body": "SAFE_DIAL_3_1",
+		"prefix": "FLG_076",
+		"body": "FLG_076",
 		"description": "",
 	},
-	"SAFE_DIAL_3_2":
+	"FLG_077":
 	{
-		"prefix": "SAFE_DIAL_3_2",
-		"body": "SAFE_DIAL_3_2",
+		"prefix": "FLG_077",
+		"body": "FLG_077",
 		"description": "",
 	},
-	"SAFE_DIAL_3_3":
+	"FLG_078":
 	{
-		"prefix": "SAFE_DIAL_3_3",
-		"body": "SAFE_DIAL_3_3",
+		"prefix": "FLG_078",
+		"body": "FLG_078",
 		"description": "",
 	},
-	"SAFE_DIAL_3_4":
+	"FLG_079":
 	{
-		"prefix": "SAFE_DIAL_3_4",
-		"body": "SAFE_DIAL_3_4",
+		"prefix": "FLG_079",
+		"body": "FLG_079",
 		"description": "",
 	},
-	"SAFE_DIAL_3_5":
+	"FLG_080":
 	{
-		"prefix": "SAFE_DIAL_3_5",
-		"body": "SAFE_DIAL_3_5",
+		"prefix": "FLG_080",
+		"body": "FLG_080",
 		"description": "",
 	},
-	"SAFE_DIAL_3_6":
+	"FLG_081":
 	{
-		"prefix": "SAFE_DIAL_3_6",
-		"body": "SAFE_DIAL_3_6",
+		"prefix": "FLG_081",
+		"body": "FLG_081",
 		"description": "",
 	},
-	"SAFE_DIAL_3_7":
+	"FLG_082":
 	{
-		"prefix": "SAFE_DIAL_3_7",
-		"body": "SAFE_DIAL_3_7",
+		"prefix": "FLG_082",
+		"body": "FLG_082",
 		"description": "",
 	},
-	"SAFE_DIAL_3_8":
+	"FLG_083":
 	{
-		"prefix": "SAFE_DIAL_3_8",
-		"body": "SAFE_DIAL_3_8",
+		"prefix": "FLG_083",
+		"body": "FLG_083",
+		"description": "",
+	},
+	"FLG_084":
+	{
+		"prefix": "FLG_084",
+		"body": "FLG_084",
 		"description": "",
 	},
 	"FLG_085":
@@ -713,47 +713,47 @@
 		"body": "FLG_089",
 		"description": "",
 	},
-	"「黒」と書かれたカギを入手":
+	"FLG_090":
 	{
-		"prefix": "GAIN_KEY_C",
-		"body": "GAIN_KEY_C",
-		"description": "「黒」と書かれたカギを入手",
+		"prefix": "FLG_090",
+		"body": "FLG_090",
+		"description": "",
 	},
-	"「スラー」と書かれたカギを入手":
+	"FLG_091":
 	{
-		"prefix": "GAIN_KEY_D",
-		"body": "GAIN_KEY_D",
-		"description": "「スラー」と書かれたカギを入手",
+		"prefix": "FLG_091",
+		"body": "FLG_091",
+		"description": "",
 	},
-	"「四季」と書かれたカギを入手":
+	"FLG_092":
 	{
-		"prefix": "GAIN_KEY_G",
-		"body": "GAIN_KEY_G",
-		"description": "「四季」と書かれたカギを入手",
+		"prefix": "FLG_092",
+		"body": "FLG_092",
+		"description": "",
 	},
-	"「おり」と書かれたカギを入手":
+	"FLG_093":
 	{
-		"prefix": "GAIN_KEY_B",
-		"body": "GAIN_KEY_B",
-		"description": "「おり」と書かれたカギを入手",
+		"prefix": "FLG_093",
+		"body": "FLG_093",
+		"description": "",
 	},
-	"音符が書かれたメモを入手":
+	"FLG_094":
 	{
-		"prefix": "GAIN_MUSIC_MEMO",
-		"body": "GAIN_MUSIC_MEMO",
-		"description": "音符が書かれたメモを入手",
+		"prefix": "FLG_094",
+		"body": "FLG_094",
+		"description": "",
 	},
-	"黒板を見た":
+	"FLG_095":
 	{
-		"prefix": "S411_SAW_BLACK_BOARD",
-		"body": "S411_SAW_BLACK_BOARD",
-		"description": "黒板を見た",
+		"prefix": "FLG_095",
+		"body": "FLG_095",
+		"description": "",
 	},
-	"ベートーヴェンの目が動くのを確認した":
+	"FLG_096":
 	{
-		"prefix": "S406_SAW_BEETHOVEN",
-		"body": "S406_SAW_BEETHOVEN",
-		"description": "ベートーヴェンの目が動くのを確認した",
+		"prefix": "FLG_096",
+		"body": "FLG_096",
+		"description": "",
 	},
 	"FLG_097":
 	{
@@ -773,16 +773,16 @@
 		"body": "FLG_099",
 		"description": "",
 	},
-	"FLG_100":
+	"S501_READ_MEMO":
 	{
-		"prefix": "FLG_100",
-		"body": "FLG_100",
+		"prefix": "S501_READ_MEMO",
+		"body": "S501_READ_MEMO",
 		"description": "",
 	},
-	"FLG_101":
+	"S514_CHECK_BOOK_UPPER":
 	{
-		"prefix": "FLG_101",
-		"body": "FLG_101",
+		"prefix": "S514_CHECK_BOOK_UPPER",
+		"body": "S514_CHECK_BOOK_UPPER",
 		"description": "",
 	},
 	"FLG_102":
@@ -1799,29 +1799,29 @@
 		"body": "VAR_014",
 		"description": "",
 	},
-	"VAR_015":
+	"room506でのボタン1の状態":
 	{
-		"prefix": "VAR_015",
-		"body": "VAR_015",
-		"description": "",
+		"prefix": "S506_BUTTON1",
+		"body": "S506_BUTTON1",
+		"description": "room506でのボタン1の状態",
 	},
-	"VAR_016":
+	"room506でのボタン2の状態":
 	{
-		"prefix": "VAR_016",
-		"body": "VAR_016",
-		"description": "",
+		"prefix": "S506_BUTTON2",
+		"body": "S506_BUTTON2",
+		"description": "room506でのボタン2の状態",
 	},
-	"VAR_017":
+	"room506でのボタン3の状態":
 	{
-		"prefix": "VAR_017",
-		"body": "VAR_017",
-		"description": "",
+		"prefix": "S506_BUTTON3",
+		"body": "S506_BUTTON3",
+		"description": "room506でのボタン3の状態",
 	},
-	"VAR_018":
+	"room506でのボタン4の状態":
 	{
-		"prefix": "VAR_018",
-		"body": "VAR_018",
-		"description": "",
+		"prefix": "S506_BUTTON4",
+		"body": "S506_BUTTON4",
+		"description": "room506でのボタン4の状態",
 	},
 	"VAR_019":
 	{
@@ -1829,17 +1829,17 @@
 		"body": "VAR_019",
 		"description": "",
 	},
-	"VAR_020":
+	"room504にある椅子を使った状態(0:未使用 / 1:使用中 / 2:使用した)":
 	{
-		"prefix": "VAR_020",
-		"body": "VAR_020",
-		"description": "",
+		"prefix": "S504_USE_CHAIR",
+		"body": "S504_USE_CHAIR",
+		"description": "room504にある椅子を使った状態(0:未使用 / 1:使用中 / 2:使用した)",
 	},
-	"VAR_021":
+	"room509にある踏み台を使った状態(0:未使用 / 1:使用中 / 2:使用した)":
 	{
-		"prefix": "VAR_021",
-		"body": "VAR_021",
-		"description": "",
+		"prefix": "S509_USE_STEP",
+		"body": "S509_USE_STEP",
+		"description": "room509にある踏み台を使った状態(0:未使用 / 1:使用中 / 2:使用した)",
 	},
 	"VAR_022":
 	{
@@ -2453,17 +2453,53 @@
 		"body": "ITEM_MUSIC_MEMO",
 		"description": "音符が書かれたメモ",
 	},
-	"テスト部屋":
+	"DOGと書かれたメモ":
 	{
-		"prefix": "eScene.S910_Start",
-		"body": "eScene.S910_Start",
-		"description": "テスト部屋",
+		"prefix": "ITEM_DOG_MEMO",
+		"body": "ITEM_DOG_MEMO",
+		"description": "DOGと書かれたメモ",
 	},
-	"eScene.S920_Start":
+	"「さ」のパネル":
 	{
-		"prefix": "eScene.S920_Start",
-		"body": "eScene.S920_Start",
-		"description": "",
+		"prefix": "ITEM_PANEL_SA",
+		"body": "ITEM_PANEL_SA",
+		"description": "「さ」のパネル",
+	},
+	"「ぶ」のパネル":
+	{
+		"prefix": "ITEM_PANEL_BU",
+		"body": "ITEM_PANEL_BU",
+		"description": "「ぶ」のパネル",
+	},
+	"「え」のパネル":
+	{
+		"prefix": "ITEM_PANEL_E",
+		"body": "ITEM_PANEL_E",
+		"description": "「え」のパネル",
+	},
+	"「げ」のパネル":
+	{
+		"prefix": "ITEM_PANEL_GE",
+		"body": "ITEM_PANEL_GE",
+		"description": "「げ」のパネル",
+	},
+	"「い」のパネル":
+	{
+		"prefix": "ITEM_PANEL_I",
+		"body": "ITEM_PANEL_I",
+		"description": "「い」のパネル",
+	},
+	"「ん」のパネル":
+	{
+		"prefix": "ITEM_PANEL_N",
+		"body": "ITEM_PANEL_N",
+		"description": "「ん」のパネル",
+	},
+	"「く」のパネル":
+	{
+		"prefix": "ITEM_PANEL_KU",
+		"body": "ITEM_PANEL_KU",
+		"description": "「く」のパネル",
 	},
 	"教室〜自分の席":
 	{
@@ -2476,294 +2512,6 @@
 		"prefix": "eScene.S102_Event",
 		"body": "eScene.S102_Event",
 		"description": "教室〜自分のバッグ",
-	},
-	"教室〜出口":
-	{
-		"prefix": "eScene.S103_Event",
-		"body": "eScene.S103_Event",
-		"description": "教室〜出口",
-	},
-	"教室":
-	{
-		"prefix": "eScene.S104_Entrance",
-		"body": "eScene.S104_Entrance",
-		"description": "教室",
-	},
-	"教室〜黒板":
-	{
-		"prefix": "eScene.S105_BlackBoard",
-		"body": "eScene.S105_BlackBoard",
-		"description": "教室〜黒板",
-	},
-	"教室〜自分の席":
-	{
-		"prefix": "eScene.S106_MyDesk",
-		"body": "eScene.S106_MyDesk",
-		"description": "教室〜自分の席",
-	},
-	"教室〜窓":
-	{
-		"prefix": "eScene.S107_Window",
-		"body": "eScene.S107_Window",
-		"description": "教室〜窓",
-	},
-	"教室〜出口":
-	{
-		"prefix": "eScene.S108_Door",
-		"body": "eScene.S108_Door",
-		"description": "教室〜出口",
-	},
-	"教室〜時間割":
-	{
-		"prefix": "eScene.S109_Timetable",
-		"body": "eScene.S109_Timetable",
-		"description": "教室〜時間割",
-	},
-	"eScene.S150_Event":
-	{
-		"prefix": "eScene.S150_Event",
-		"body": "eScene.S150_Event",
-		"description": "",
-	},
-	"美術室":
-	{
-		"prefix": "eScene.S201_ArtRoom",
-		"body": "eScene.S201_ArtRoom",
-		"description": "美術室",
-	},
-	"美術室〜花の絵":
-	{
-		"prefix": "eScene.S202_ArtFlower",
-		"body": "eScene.S202_ArtFlower",
-		"description": "美術室〜花の絵",
-	},
-	"美術室〜石像":
-	{
-		"prefix": "eScene.S203_ArtPlaster",
-		"body": "eScene.S203_ArtPlaster",
-		"description": "美術室〜石像",
-	},
-	"美術室〜椅子":
-	{
-		"prefix": "eScene.S204_ArtChair",
-		"body": "eScene.S204_ArtChair",
-		"description": "美術室〜椅子",
-	},
-	"美術室〜出口（前）":
-	{
-		"prefix": "eScene.S205_Door",
-		"body": "eScene.S205_Door",
-		"description": "美術室〜出口（前）",
-	},
-	"美術室〜窓":
-	{
-		"prefix": "eScene.S206_Window",
-		"body": "eScene.S206_Window",
-		"description": "美術室〜窓",
-	},
-	"美術室〜ロッカー":
-	{
-		"prefix": "eScene.S207_Locker",
-		"body": "eScene.S207_Locker",
-		"description": "美術室〜ロッカー",
-	},
-	"美術室〜出口（後ろ）":
-	{
-		"prefix": "eScene.S208_Door2",
-		"body": "eScene.S208_Door2",
-		"description": "美術室〜出口（後ろ）",
-	},
-	"美術室〜マガジンラック":
-	{
-		"prefix": "eScene.S209_Rack",
-		"body": "eScene.S209_Rack",
-		"description": "美術室〜マガジンラック",
-	},
-	"eScene.S250_Event":
-	{
-		"prefix": "eScene.S250_Event",
-		"body": "eScene.S250_Event",
-		"description": "",
-	},
-	"女子トイレ":
-	{
-		"prefix": "eScene.S301_Toilet",
-		"body": "eScene.S301_Toilet",
-		"description": "女子トイレ",
-	},
-	"女子トイレ〜出口":
-	{
-		"prefix": "eScene.S302_ToiletExit",
-		"body": "eScene.S302_ToiletExit",
-		"description": "女子トイレ〜出口",
-	},
-	"女子トイレ〜左手前の個室":
-	{
-		"prefix": "eScene.S303_ToiletLeftFront",
-		"body": "eScene.S303_ToiletLeftFront",
-		"description": "女子トイレ〜左手前の個室",
-	},
-	"女子トイレ〜洗面台":
-	{
-		"prefix": "eScene.S304_ToiletSink",
-		"body": "eScene.S304_ToiletSink",
-		"description": "女子トイレ〜洗面台",
-	},
-	"女子トイレ〜中央":
-	{
-		"prefix": "eScene.S305_ToiletCenter",
-		"body": "eScene.S305_ToiletCenter",
-		"description": "女子トイレ〜中央",
-	},
-	"女子トイレ〜左中央の個室":
-	{
-		"prefix": "eScene.S306_ToiletLeftCenter",
-		"body": "eScene.S306_ToiletLeftCenter",
-		"description": "女子トイレ〜左中央の個室",
-	},
-	"女子トイレ〜奥の個室入り口":
-	{
-		"prefix": "eScene.S307_ToiletLeftBack",
-		"body": "eScene.S307_ToiletLeftBack",
-		"description": "女子トイレ〜奥の個室入り口",
-	},
-	"女子トイレ〜右側の個室":
-	{
-		"prefix": "eScene.S308_ToiletRight",
-		"body": "eScene.S308_ToiletRight",
-		"description": "女子トイレ〜右側の個室",
-	},
-	"女子トイレ〜左手前の個室２":
-	{
-		"prefix": "eScene.S309_ToiletLeftFront2",
-		"body": "eScene.S309_ToiletLeftFront2",
-		"description": "女子トイレ〜左手前の個室２",
-	},
-	"eScene.S350_ToiletEvent":
-	{
-		"prefix": "eScene.S350_ToiletEvent",
-		"body": "eScene.S350_ToiletEvent",
-		"description": "",
-	},
-	"音楽室":
-	{
-		"prefix": "eScene.S401_MusicRoom",
-		"body": "eScene.S401_MusicRoom",
-		"description": "音楽室",
-	},
-	"音楽室〜出口":
-	{
-		"prefix": "eScene.S402_MusicExit",
-		"body": "eScene.S402_MusicExit",
-		"description": "音楽室〜出口",
-	},
-	"音楽室〜ピアノの前":
-	{
-		"prefix": "eScene.S403_MusicPiano",
-		"body": "eScene.S403_MusicPiano",
-		"description": "音楽室〜ピアノの前",
-	},
-	"音楽室〜机":
-	{
-		"prefix": "eScene.S404_MusicDesk",
-		"body": "eScene.S404_MusicDesk",
-		"description": "音楽室〜机",
-	},
-	"音楽室〜中央":
-	{
-		"prefix": "eScene.S405_MusicCenter",
-		"body": "eScene.S405_MusicCenter",
-		"description": "音楽室〜中央",
-	},
-	"音楽室〜後ろの掲示板":
-	{
-		"prefix": "eScene.S406_MusicBackBoard",
-		"body": "eScene.S406_MusicBackBoard",
-		"description": "音楽室〜後ろの掲示板",
-	},
-	"音楽室〜ピアノ":
-	{
-		"prefix": "eScene.S407_MusicPiano2",
-		"body": "eScene.S407_MusicPiano2",
-		"description": "音楽室〜ピアノ",
-	},
-	"音楽室〜ロッカー":
-	{
-		"prefix": "eScene.S408_MusicLocker",
-		"body": "eScene.S408_MusicLocker",
-		"description": "音楽室〜ロッカー",
-	},
-	"音楽室〜窓側":
-	{
-		"prefix": "eScene.S409_MusicWindow",
-		"body": "eScene.S409_MusicWindow",
-		"description": "音楽室〜窓側",
-	},
-	"音楽室〜金庫":
-	{
-		"prefix": "eScene.S410_MusicSafe",
-		"body": "eScene.S410_MusicSafe",
-		"description": "音楽室〜金庫",
-	},
-	"音楽室〜黒板":
-	{
-		"prefix": "eScene.S411_MusicBlackBoard",
-		"body": "eScene.S411_MusicBlackBoard",
-		"description": "音楽室〜黒板",
-	},
-	"音楽室〜机":
-	{
-		"prefix": "eScene.S412_MusicDesk",
-		"body": "eScene.S412_MusicDesk",
-		"description": "音楽室〜机",
-	},
-	"音楽室〜出口の左側の机":
-	{
-		"prefix": "eScene.S413_MusicExitDesk",
-		"body": "eScene.S413_MusicExitDesk",
-		"description": "音楽室〜出口の左側の机",
-	},
-	"eScene.S450_MusicEvent":
-	{
-		"prefix": "eScene.S450_MusicEvent",
-		"body": "eScene.S450_MusicEvent",
-		"description": "",
-	},
-	"図書室":
-	{
-		"prefix": "eScene.S501_Library",
-		"body": "eScene.S501_Library",
-		"description": "図書室",
-	},
-	"図書室":
-	{
-		"prefix": "eScene.S502_Library2",
-		"body": "eScene.S502_Library2",
-		"description": "図書室",
-	},
-	"eScene.S550_LibraryEvent":
-	{
-		"prefix": "eScene.S550_LibraryEvent",
-		"body": "eScene.S550_LibraryEvent",
-		"description": "",
-	},
-	"旧校舎":
-	{
-		"prefix": "eScene.S601_OldSchool",
-		"body": "eScene.S601_OldSchool",
-		"description": "旧校舎",
-	},
-	"eScene.S650_OldSchoolEvent":
-	{
-		"prefix": "eScene.S650_OldSchoolEvent",
-		"body": "eScene.S650_OldSchoolEvent",
-		"description": "",
-	},
-	"eScene.S701_RoofGarden":
-	{
-		"prefix": "eScene.S701_RoofGarden",
-		"body": "eScene.S701_RoofGarden",
-		"description": "",
 	},
 }
 

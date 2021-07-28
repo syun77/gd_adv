@@ -51,97 +51,97 @@ bits:
   PLACE_DISABLE: 8 # 場所表示無効フラグ
   LIGHT_ON: 9 # ライト点灯フラグ(イベント背景)
   LIGHT_ON_ESC: 10 # ライト点灯フラグ(探索)
-  GAIN_SMART_PHONE: 11 # スマートフォン入手フラグ
-  GAIN_BLACK_BOARD_ERASER: 12 # 黒板消し入手フラグ
-  GAIN_BOU_MEMO: 13 # 「美・応・有」と書かれていたメモの入手フラグ
-  S102_CALL_TAXI: 14 # タクシーに電話しようとした
-  S107_CHECK_WINDOW: 15 # 窓を調べた
-  S109_COMPLETED: 16 # 時間割表の謎を解いた
+  FLG_011: 11
+  FLG_012: 12
+  FLG_013: 13
+  FLG_014: 14
+  FLG_015: 15
+  FLG_016: 16
   FLG_017: 17
   FLG_018: 18
   FLG_019: 19
-  GAIN_PASS_HOLDER: 20 # お母さんの写真入手フラグ
-  GAIN_BOOKLET: 21 # 花の開花時期のメモ入手フラグ
-  GAIN_FLOWER_MEMO: 22 # 花を植えるメモ入手フラグ
+  FLG_020: 20
+  FLG_021: 21
+  FLG_022: 22
   FLG_023: 23
   FLG_024: 24
-  S205_COMPLETED: 25 # 出口の暗号を解いた
-  S207_LOCKER_UNLOCK: 26 # ロッカーのカギを解除
-  S207_LOCKER_OPEN: 27 # ロッカー開いた
-  S206_UNLOCK: 28 # 窓の暗号を解いた
-  S209_UNLOCK: 29 # 宝箱の暗号を解いた
-  S209_COMPLETED: 30 # 宝箱を調べた
-  GAIN_COLOR_RED: 31 # 赤の絵の具を入手
-  GAIN_COLOR_ORANGE: 32 # 橙の絵の具を入手
-  GAIN_COLOR_YELLOW: 33 # 黄色の絵の具を入手
-  GAIN_COLOR_GREEN: 34 # 緑の絵の具を入手
-  GAIN_COLOR_BLUE: 35 # 青い絵の具を入手
-  GAIN_COLOR_INDIGO: 36 # 藍色の絵の具を入手
-  GAIN_COLOR_PURPLE: 37 # 紫の絵の具を入手
-  CHECK_COLOR_RED: 38 # 赤い絵の具を調べた
-  CHECK_COLOR_ORANGE: 39 # 橙の絵の具を調べた
-  CHECK_COLOR_YELLOW: 40 # 黄色の絵の具を調べた
-  CHECK_COLOR_GREEN: 41 # 緑の絵の具を調べた
-  CHECK_COLOR_BLUE: 42 # 青い絵の具を調べた
-  CHECK_COLOR_INDIGO: 43 # 藍色の絵の具を調べた
-  CHECK_COLOR_PURPLE: 44 # 紫の絵の具を調べた
+  FLG_025: 25
+  FLG_026: 26
+  FLG_027: 27
+  FLG_028: 28
+  FLG_029: 29
+  FLG_030: 30
+  FLG_031: 31
+  FLG_032: 32
+  FLG_033: 33
+  FLG_034: 34
+  FLG_035: 35
+  FLG_036: 36
+  FLG_037: 37
+  FLG_038: 38
+  FLG_039: 39
+  FLG_040: 40
+  FLG_041: 41
+  FLG_042: 42
+  FLG_043: 43
+  FLG_044: 44
   FLG_045: 45
   FLG_046: 46
   FLG_047: 47
   FLG_048: 48
   FLG_049: 49
-  GAIN_CELLOPHANE: 50 # 色セロハンを入手
-  GAIN_PHONE_CELLOPHANE: 51 # スマホに色セロハンをかぶせた
-  PHONE_CELLOPHANE_ENABLE: 52 # スマホに色セロハンをかぶせたのが有効かどうか
-  GAIN_SKULL_RED: 53 # 赤いドクロを入手
-  GAIN_SKULL_GREEN: 54 # 緑のドクロを入手
-  GAIN_SKULL_NAVY: 55 # 紺のドクロを入手
-  GAIN_BLUE_MEMO: 56 # 青色のメモを入手
-  BLUE_MEMO_READ: 57 # 青いライトが当たった状態でメモを読んだ
+  FLG_050: 50
+  FLG_051: 51
+  FLG_052: 52
+  FLG_053: 53
+  FLG_054: 54
+  FLG_055: 55
+  FLG_056: 56
+  FLG_057: 57
   FLG_058: 58
   FLG_059: 59
-  SAFE_OPEN: 60 # 金庫のカギを開けた
-  SAFE_DIAL_1_1: 61
-  SAFE_DIAL_1_2: 62
-  SAFE_DIAL_1_3: 63
-  SAFE_DIAL_1_4: 64
-  SAFE_DIAL_1_5: 65
-  SAFE_DIAL_1_6: 66
-  SAFE_DIAL_1_7: 67
-  SAFE_DIAL_1_8: 68
-  SAFE_DIAL_2_1: 69
-  SAFE_DIAL_2_2: 70
-  SAFE_DIAL_2_3: 71
-  SAFE_DIAL_2_4: 72
-  SAFE_DIAL_2_5: 73
-  SAFE_DIAL_2_6: 74
-  SAFE_DIAL_2_7: 75
-  SAFE_DIAL_2_8: 76
-  SAFE_DIAL_3_1: 77
-  SAFE_DIAL_3_2: 78
-  SAFE_DIAL_3_3: 79
-  SAFE_DIAL_3_4: 80
-  SAFE_DIAL_3_5: 81
-  SAFE_DIAL_3_6: 82
-  SAFE_DIAL_3_7: 83
-  SAFE_DIAL_3_8: 84
+  FLG_060: 60
+  FLG_061: 61
+  FLG_062: 62
+  FLG_063: 63
+  FLG_064: 64
+  FLG_065: 65
+  FLG_066: 66
+  FLG_067: 67
+  FLG_068: 68
+  FLG_069: 69
+  FLG_070: 70
+  FLG_071: 71
+  FLG_072: 72
+  FLG_073: 73
+  FLG_074: 74
+  FLG_075: 75
+  FLG_076: 76
+  FLG_077: 77
+  FLG_078: 78
+  FLG_079: 79
+  FLG_080: 80
+  FLG_081: 81
+  FLG_082: 82
+  FLG_083: 83
+  FLG_084: 84
   FLG_085: 85
   FLG_086: 86
   FLG_087: 87
   FLG_088: 88
   FLG_089: 89
-  GAIN_KEY_C: 90 # 「黒」と書かれたカギを入手
-  GAIN_KEY_D: 91 # 「スラー」と書かれたカギを入手
-  GAIN_KEY_G: 92 # 「四季」と書かれたカギを入手
-  GAIN_KEY_B: 93 # 「おり」と書かれたカギを入手
-  GAIN_MUSIC_MEMO: 94 # 音符が書かれたメモを入手
-  S411_SAW_BLACK_BOARD: 95 # 黒板を見た
-  S406_SAW_BEETHOVEN: 96 # ベートーヴェンの目が動くのを確認した
+  FLG_090: 90
+  FLG_091: 91
+  FLG_092: 92
+  FLG_093: 93
+  FLG_094: 94
+  FLG_095: 95
+  FLG_096: 96
   FLG_097: 97
   FLG_098: 98
   FLG_099: 99
-  FLG_100: 100
-  FLG_101: 101
+  S501_READ_MEMO: 100
+  S514_CHECK_BOOK_UPPER: 101
   FLG_102: 102
   FLG_103: 103
   FLG_104: 104
@@ -314,13 +314,13 @@ vars:
   S413_FAILED_CNT: 12 # room413での失敗回数
   S413_PUT_CNT: 13 # room413でカギが入っている数
   VAR_014: 14
-  VAR_015: 15
-  VAR_016: 16
-  VAR_017: 17
-  VAR_018: 18
+  S506_BUTTON1: 15 # room506でのボタン1の状態
+  S506_BUTTON2: 16 # room506でのボタン2の状態
+  S506_BUTTON3: 17 # room506でのボタン3の状態
+  S506_BUTTON4: 18 # room506でのボタン4の状態
   VAR_019: 19
-  VAR_020: 20
-  VAR_021: 21
+  S504_USE_CHAIR: 20 # room504にある椅子を使った状態(0:未使用 / 1:使用中 / 2:使用した)
+  S509_USE_STEP: 21 # room509にある踏み台を使った状態(0:未使用 / 1:使用中 / 2:使用した)
   VAR_022: 22
   VAR_023: 23
   VAR_024: 24
@@ -426,59 +426,17 @@ items:
   ITEM_KEY_C: 22 # 「黒」と書かれたカギ
   ITEM_KEY_G: 23 # 「四季」と書かれたカギ
   ITEM_MUSIC_MEMO: 24 # 音符が書かれたメモ
+  ITEM_DOG_MEMO: 25 # DOGと書かれたメモ
+  ITEM_PANEL_SA: 26 # 「さ」のパネル
+  ITEM_PANEL_BU: 27 # 「ぶ」のパネル
+  ITEM_PANEL_E: 28 # 「え」のパネル
+  ITEM_PANEL_GE: 29 # 「げ」のパネル
+  ITEM_PANEL_I: 30 # 「い」のパネル
+  ITEM_PANEL_N: 31 # 「ん」のパネル
+  ITEM_PANEL_KU: 32 # 「く」のパネル
 
 # シーン
 scenes:
-  S910_Start: 910 # テスト部屋
-  S920_Start: 920
   S101_Event: 101 # 教室〜自分の席
   S102_Event: 102 # 教室〜自分のバッグ
-  S103_Event: 103 # 教室〜出口
-  S104_Entrance: 104 # 教室
-  S105_BlackBoard: 105 # 教室〜黒板
-  S106_MyDesk: 106 # 教室〜自分の席
-  S107_Window: 107 # 教室〜窓
-  S108_Door: 108 # 教室〜出口
-  S109_Timetable: 109 # 教室〜時間割
-  S150_Event: 150
-  S201_ArtRoom: 201 # 美術室
-  S202_ArtFlower: 202 # 美術室〜花の絵
-  S203_ArtPlaster: 203 # 美術室〜石像
-  S204_ArtChair: 204 # 美術室〜椅子
-  S205_Door: 205 # 美術室〜出口（前）
-  S206_Window: 206 # 美術室〜窓
-  S207_Locker: 207 # 美術室〜ロッカー
-  S208_Door2: 208 # 美術室〜出口（後ろ）
-  S209_Rack: 209 # 美術室〜マガジンラック
-  S250_Event: 250
-  S301_Toilet: 301 # 女子トイレ
-  S302_ToiletExit: 302 # 女子トイレ〜出口
-  S303_ToiletLeftFront: 303 # 女子トイレ〜左手前の個室
-  S304_ToiletSink: 304 # 女子トイレ〜洗面台
-  S305_ToiletCenter: 305 # 女子トイレ〜中央
-  S306_ToiletLeftCenter: 306 # 女子トイレ〜左中央の個室
-  S307_ToiletLeftBack: 307 # 女子トイレ〜奥の個室入り口
-  S308_ToiletRight: 308 # 女子トイレ〜右側の個室
-  S309_ToiletLeftFront2: 309 # 女子トイレ〜左手前の個室２
-  S350_ToiletEvent: 350
-  S401_MusicRoom: 401 # 音楽室
-  S402_MusicExit: 402 # 音楽室〜出口
-  S403_MusicPiano: 403 # 音楽室〜ピアノの前
-  S404_MusicDesk: 404 # 音楽室〜机
-  S405_MusicCenter: 405 # 音楽室〜中央
-  S406_MusicBackBoard: 406 # 音楽室〜後ろの掲示板
-  S407_MusicPiano2: 407 # 音楽室〜ピアノ
-  S408_MusicLocker: 408 # 音楽室〜ロッカー
-  S409_MusicWindow: 409 # 音楽室〜窓側
-  S410_MusicSafe: 410 # 音楽室〜金庫
-  S411_MusicBlackBoard: 411 # 音楽室〜黒板
-  S412_MusicDesk: 412 # 音楽室〜机
-  S413_MusicExitDesk: 413 # 音楽室〜出口の左側の机
-  S450_MusicEvent: 450
-  S501_Library: 501 # 図書室
-  S502_Library2: 502 # 図書室
-  S550_LibraryEvent: 550
-  S601_OldSchool: 601 # 旧校舎
-  S650_OldSchoolEvent: 650
-  S701_RoofGarden: 701
 

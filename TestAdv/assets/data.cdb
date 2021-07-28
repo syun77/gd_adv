@@ -53,12 +53,12 @@
 						{
 							"id": 1,
 							"click": "click1",
-							"off": "FLG_011"
+							"off": "FLG_012"
 						},
 						{
 							"id": 2,
 							"click": "click2",
-							"off": "FLG_011"
+							"on": "FLG_012"
 						},
 						{
 							"id": 3,
@@ -1901,7 +1901,7 @@
 			"lines": [
 				{
 					"id": "TESTMENU_DEFAULT_CURSOR",
-					"value": "eTestCursor.Escape",
+					"value": "0",
 					"comment": "objTestカーソル初期位置 (Title/Game/Adv/Spine/Escape)"
 				},
 				{
@@ -1921,7 +1921,7 @@
 				},
 				{
 					"id": "PRODUCT_MODE",
-					"value": "eProductMode.Debug",
+					"value": "0",
 					"comment": "製品モード (Debug/Release/Trial/Submission)"
 				},
 				{
