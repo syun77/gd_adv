@@ -7,7 +7,10 @@ extends Node2D
 const AdvMgr = preload("res://src/common/adv/AdvMgr.tscn")
 # 通知テキスト
 const AdvNoticeText = preload("res://src/common/adv/AdvNoticeText.tscn")
+# 移動カーソルオブジェクト
+const AdvMoveCursor = preload("res://src/common/adv/AdvMoveCursor.tscn")
 
+# 状態
 enum eState {
 	INIT,
 	MAIN,
@@ -19,8 +22,10 @@ onready var _font:BitmapFont = Control.new().get_font("font")
 
 # クリックできるオブジェクトのレイヤー
 var _clickable_layer:CanvasLayer
+var _moves = []
 var _state = eState.INIT
 var _script = null
+var _script_timer = 0
 
 # 開始処理
 func _ready() -> void:
@@ -57,16 +62,31 @@ func _process(delta: float) -> void:
 			obj.visible = _obj_visibled(obj)
 
 # 更新 > 初期化
-func _update_init(delta:float) -> void:
+func _update_init(_delta:float) -> void:
 	var room_id = 102
 	var scene = CastleDB.search_from_value("scenes", room_id)
 	for obj in _clickable_layer.get_children():
 		CastleDB.scene_to_set_obj(scene, obj)
+	for move in scene["moves"]:
+		var dir   = move["id"]
+		var pos   = _dir_to_pos(dir)
+		var jump  = move.get("jump", "")
+		var on    = move.get("on", "")
+		var off   = move.get("off", "")
+		var click = move.get("click", "")
+		var obj   = AdvMoveCursor.instance()
+		obj.init(pos, dir, jump, click, on, off)
+		_moves.append(obj)
+		add_child(obj)
 		
 	_state = eState.MAIN
 
 # 更新 > メイン
 func _update_main(delta:float) -> void:
+	
+	# 移動カーソル更新
+	for move in _moves:
+		move.update_manual(delta)
 	
 	var children = _clickable_layer.get_children()
 
@@ -91,17 +111,26 @@ func _update_main(delta:float) -> void:
 		
 		if x1 <= mx and mx <= x2 and y1 <= my and my <= y2:
 			if _obj_clickable(spr):
+				# スクリプト実行
 				var start_funcname = spr.get_meta("click")
 				_script = AdvMgr.instance()
 				_script.init(start_funcname)
 				add_child(_script)
 				_state = eState.SCRIPT
+				_script_timer = 0
 				return
 		
 	update()
 
 # 更新 > スクリプト実行中
 func _update_script(delta:float) -> void:
+	_script_timer += delta
+	for move in _moves:
+		if _script_timer < 0.1:
+			move.update_manual(delta)
+		else:
+			move.visible = false # 一定時間で非表示にする
+	
 	if is_instance_valid(_script) == false:
 		# スクリプト終了
 		_state = eState.MAIN
@@ -116,12 +145,10 @@ func _obj_visibled(obj:Node2D) -> bool:
 	var is_off = false
 	if obj.has_meta("on"):
 		# ONフラグ
-		var bit = CastleDB.bit_to_value(obj.get_meta("on"))
-		is_on = AdvUtil.bit_chk(bit)
+		is_on = CastleDB.bit_chk(obj.get_meta("on"))
 	if obj.has_meta("off"):
 		# OFFフラグ
-		var bit = CastleDB.bit_to_value(obj.get_meta("off"))
-		is_off = AdvUtil.bit_chk(bit)
+		is_off = CastleDB.bit_chk(obj.get_meta("off"))
 	
 	if is_off:
 		# 非表示
@@ -174,6 +201,25 @@ func _spr_to_hitrect(spr:Sprite) -> Rect2:
 		pos.y -= rect.size.y/2
 	rect.position = pos
 	return rect
+	
+func _dir_to_pos(dir:int) -> Vector2:
+	var x_left   = 64
+	var x_right  = 1280 - 64
+	var x_center = 1280/2
+	var y_top    = 64
+	var y_bottom = 640
+	var y_center = 320
+	match dir:
+		AdvUtilObj.eDir.LEFT:
+			return Vector2(x_left, y_center)
+		AdvUtilObj.eDir.UP:
+			return Vector2(x_center, y_top)
+		AdvUtilObj.eDir.RIGHT:
+			return Vector2(x_right, y_center)
+		AdvUtilObj.eDir.DOWN:
+			return Vector2(x_center, y_bottom)
+		_:
+			return Vector2(x_center, y_center)
 
 # デバッグ用描画.
 func _draw() -> void:

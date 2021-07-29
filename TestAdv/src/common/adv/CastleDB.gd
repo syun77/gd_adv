@@ -140,9 +140,15 @@ func scene_to_set_obj(scene, obj:Node2D) -> void:
 	if obj.get_meta("hidden"):
 		obj.visible = false # 非表示にする.
 
-func bit_to_value(bit_id:String):
+func bit_to_value(bit_id:String) -> int:
 	var tbl = get_sheet("bits")
 	if bit_id in tbl:
 		return int(tbl[bit_id]["value"])
 	else:
 		return -1
+
+func bit_chk(bit_id:String) -> bool:
+	var v = bit_to_value(bit_id)
+	if v < 0:
+		return false
+	return AdvUtil.bit_chk(v)

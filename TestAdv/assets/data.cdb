@@ -72,6 +72,18 @@
 							"id": 0,
 							"click": "goto_door",
 							"on": "FLG_014"
+						},
+						{
+							"id": 1,
+							"click": ""
+						},
+						{
+							"id": 2,
+							"click": ""
+						},
+						{
+							"id": 3,
+							"click": ""
 						}
 					],
 					"events": []
