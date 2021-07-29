@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/common/adv/AdvText.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/common/adv/AdvNoticeText.gd" type="Script" id=2]
+
+[node name="AdvNoticeText" type="Control"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg" type="ColorRect" parent="."]
+margin_top = 520.0
+margin_right = 1280.0
+margin_bottom = 600.0
+rect_pivot_offset = Vector2( 640, 40 )
+color = Color( 0.486275, 0.486275, 0.486275, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="."]
+margin_top = 536.0
+margin_right = 1280.0
+margin_bottom = 584.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]通知テキストテスト[/center]"
+text = "通知テキストテスト"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
