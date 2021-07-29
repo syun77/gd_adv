@@ -19,8 +19,7 @@ var _state = eState.HIDE
 var _timer:float = 0
 
 func _ready() -> void:
-	#end() # 非表示にしておく
-	start("やっほい")
+	end() # 非表示にしておく
 
 # 表示開始
 func start(text:String) -> void:
@@ -60,17 +59,16 @@ func _process(delta: float) -> void:
 				_timer = CHANGE_TIME
 		eState.TO_HIDE:
 			if _timer <= 0:
-				#end()
-				start("ほげ")
+				end()
 			else:
 				rate = _timer / CHANGE_TIME
 				scale_y = ease(rate, 4.8)
 	
 	if rate > 0:
 		_bg.color = Color.webgray
-		_bg.color.a = rate
+		_bg.color.a = 0.5 * rate
 		_bg.rect_scale.y = scale_y
 		if add_rate:
-			_bg.color = _bg.color.linear_interpolate(Color.white, add_rate)
+			_bg.color = _bg.color.linear_interpolate(Color.silver, add_rate)
 		_text.modulate.a = rate
 	

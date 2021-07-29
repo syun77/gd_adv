@@ -195,7 +195,10 @@ func _MSG(args:PoolStringArray) -> int:
 	if args[0] != "":
 		type = int(args[0])
 	if type == eCmdMesType.NOTICE:
-		# TODO: 通知メッセージ
+		# 通知メッセージ
+		var notice = $"../AdvNoticeText"
+		if notice:
+			notice.start(args[1])
 		return AdvConst.eRet.YIELD
 	
 	var ret = AdvConst.eRet.CONTINUE

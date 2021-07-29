@@ -1,7 +1,12 @@
 extends Node2D
+################################################
+# 脱出シーン管理
+################################################
 
 # Adv管理シーン
 const AdvMgr = preload("res://src/common/adv/AdvMgr.tscn")
+# 通知テキスト
+const AdvNoticeText = preload("res://src/common/adv/AdvNoticeText.tscn")
 
 enum eState {
 	INIT,
@@ -22,6 +27,10 @@ func _ready() -> void:
 	
 	# TODO: ひとまずここでフラグを初期化
 	AdvUtil.init()
+	
+	# 通知テキストをぶら下げる
+	var notice = AdvNoticeText.instance()
+	add_child(notice)
 	
 	_clickable_layer = $"../../RoomLayer/ClickableLayer"
 	for obj in _clickable_layer.get_children():
