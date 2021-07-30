@@ -45,8 +45,7 @@
 					"moves": [
 						{
 							"id": 0,
-							"click": "",
-							"jump": "S102_Event"
+							"click": "move"
 						}
 					],
 					"events": []

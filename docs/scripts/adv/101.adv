@@ -8,5 +8,6 @@ def click2 {
 }
 
 def move {
-	":移動する予定"
+	"移動します/"
+	JUMP_SCENE(eScene.S102_Event)
 }

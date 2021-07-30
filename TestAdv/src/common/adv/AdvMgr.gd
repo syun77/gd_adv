@@ -104,8 +104,18 @@ func _process(delta: float) -> void:
 
 # 更新・初期化
 func _update_init():
-	_script.open(_script_path)
-	_script.jump_funcname(_start_funcname)
+	if _script.open(_script_path) == false:
+		print("スクリプトを開けません: %s"%_script_path)
+		# スクリプト終了
+		_next_state = eState.END
+		return
+		
+	if _script.jump_funcname(_start_funcname) == false:
+		print("指定の関数が存在しません: %s"%_start_funcname)
+		# スクリプト終了
+		_next_state = eState.END
+		return
+		
 	_next_state = eState.EXEC
 
 # 更新・実行
@@ -144,20 +154,20 @@ func _update_wait(delta:float):
 		_next_state = eState.EXEC	
 
 # 背景を表示
-func _DRB(args:PoolStringArray) -> int:
+func _DRB(_args:PoolStringArray) -> int:
 	var id  = _script.pop_stack()
 	var eft = _script.pop_stack()
 	_bg_mgr.draw_bg(id, eft)
 	return AdvConst.eRet.CONTINUE
 	
 # 背景を消去
-func _ERB(args:PoolStringArray) -> int:
+func _ERB(_args:PoolStringArray) -> int:
 	var eft = _script.pop_stack()
 	_bg_mgr.erase_bg(eft)
 	return AdvConst.eRet.CONTINUE
 
 # キャラクターを表示
-func _DRC(args:PoolStringArray) -> int:
+func _DRC(_args:PoolStringArray) -> int:
 	var pos = _script.pop_stack()
 	var id  = _script.pop_stack()
 	var eft = _script.pop_stack()
@@ -166,7 +176,7 @@ func _DRC(args:PoolStringArray) -> int:
 	return AdvConst.eRet.CONTINUE
 
 # キャラクターを消去
-func _ERC(args:PoolStringArray) -> int:
+func _ERC(_args:PoolStringArray) -> int:
 	var pos = _script.pop_stack()
 	var eft = _script.pop_stack()
 	_ch_mgr.erase_ch(pos, eft)
@@ -185,7 +195,7 @@ func _NAME(args:PoolStringArray) -> int:
 	return AdvConst.eRet.CONTINUE
 	
 # 顔ウィンドウと話者名を消去する
-func _CLS(args:PoolStringArray) -> int:
+func _CLS(_args:PoolStringArray) -> int:
 	_talk_text.erase_face()
 	_talk_text.clear_name()
 	return AdvConst.eRet.CONTINUE
@@ -218,7 +228,7 @@ func _MSG(args:PoolStringArray) -> int:
 	
 	return ret
 
-func _WAIT(args:PoolStringArray) -> int:
+func _WAIT(_args:PoolStringArray) -> int:
 	_wait = _script.pop_stack() / 60.0
 	_next_state = eState.WAIT
 	return AdvConst.eRet.YIELD
@@ -257,4 +267,15 @@ func _SEL_GOTO(args:PoolStringArray) -> int:
 	_talk_text.show()
 	_talk_text.start()
 	return AdvConst.eRet.YIELD
-		
+
+func _JUMP_SCENE(_args:PoolStringArray) -> int:
+	# シーンジャンプ
+	var idx = _script.pop_stack()
+	var name = ""
+	var data = CastleDB.search_from_value("scenes", idx)
+	if data:
+		name = data["id"]
+	print("[JUMP_SCENE] %s(%d)"%[name, idx])
+	Global.next_room = idx
+	return AdvConst.eRet.EXIT # 強制終了
+

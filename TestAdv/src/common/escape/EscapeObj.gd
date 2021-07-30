@@ -183,7 +183,11 @@ func _update_script(delta:float) -> void:
 	
 	if is_instance_valid(_script) == false:
 		# スクリプト終了
-		_state = eState.MAIN
+		if Global.can_change_room():
+			# ルーム移動
+			_state = eState.NEXT_ROOM
+		else:
+			_state = eState.MAIN
 
 # 更新 > 次のルームに移動する
 func _update_next_room(_delta:float) -> void:
