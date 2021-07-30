@@ -15,6 +15,7 @@ enum eState {
 	INIT,
 	MAIN,
 	SCRIPT,
+	NEXT_ROOM,
 }
 
 # デバッグ用フォント
@@ -55,6 +56,8 @@ func _process(delta: float) -> void:
 			_update_main(delta)
 		eState.SCRIPT:
 			_update_script(delta)
+		eState.NEXT_ROOM:
+			_update_next_room(delta)
 			
 	if _state >= eState.MAIN:
 		# オブジェクトの表示状態を更新する
@@ -63,7 +66,7 @@ func _process(delta: float) -> void:
 
 # 更新 > 初期化
 func _update_init(_delta:float) -> void:
-	var room_id = 102
+	var room_id = Global.now_room
 	var scene = CastleDB.search_from_value("scenes", room_id)
 	for obj in _clickable_layer.get_children():
 		CastleDB.scene_to_set_obj(scene, obj)
@@ -129,6 +132,7 @@ func _check_clickable_obj(mx:float, my:float) -> bool:
 	# 何も実行していない
 	return false
 
+# スクリプト開始
 func _start_script(func_name:String) -> void:
 	_script = AdvMgr.instance()
 	var script_path = Global.get_script_path()
@@ -152,6 +156,12 @@ func _check_movable_obj(mx:float, my:float) -> bool:
 		
 		if x1 <= mx and mx <= x2 and y1 <= my and my <= y2:
 			var jump:String = move.get_jump()
+			if jump != "":
+				# ルーム移動
+				Global.set_next_room(jump)
+				_state = eState.NEXT_ROOM
+				return true
+				
 			var click:String = move.get_click()
 			if click != "":
 				# スクリプト実行
@@ -174,6 +184,10 @@ func _update_script(delta:float) -> void:
 	if is_instance_valid(_script) == false:
 		# スクリプト終了
 		_state = eState.MAIN
+
+# 更新 > 次のルームに移動する
+func _update_next_room(_delta:float) -> void:
+	Global.change_room()
 
 # オブジェクトを更新
 func _obj_visibled(obj:Node2D) -> bool:

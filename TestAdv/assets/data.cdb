@@ -42,7 +42,13 @@
 							"hidden": true
 						}
 					],
-					"moves": [],
+					"moves": [
+						{
+							"id": 0,
+							"click": "",
+							"jump": "S102_Event"
+						}
+					],
 					"events": []
 				},
 				{
@@ -70,7 +76,8 @@
 					"moves": [
 						{
 							"id": 3,
-							"click": "move"
+							"click": "move",
+							"jump": "S101_Event"
 						}
 					],
 					"events": []

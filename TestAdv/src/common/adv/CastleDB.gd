@@ -116,6 +116,7 @@ func scene_to_set_obj(scene, obj:Node2D) -> void:
 			break
 	if obj_info == null:
 		print("%sに未設定のオブジェクトID: %s"%[scene.id, obj.name])
+		return
 
 	obj.set_meta("enable", false)
 	if "click" in obj_info:

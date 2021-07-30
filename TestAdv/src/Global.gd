@@ -21,7 +21,8 @@ func get_script_path() -> String:
 	
 # シーン名で次のシーンを設定する
 func set_next_room(name:String) -> void:
-	var v = CastleDB.search("scenes", name)
+	var data = CastleDB.search("scenes", name)
+	var v = data["value"]
 	if v < 0:
 		print("無効なルーム名: %s"%name)
 		return
@@ -29,7 +30,7 @@ func set_next_room(name:String) -> void:
 
 func change_room() -> void:
 	var res_name = "res://src/escape/room/%3d/EscapeRoom.tscn"%next_room
-	next_room = now_room
+	now_room = next_room
 	print("ルーム移動: %s"%res_name)
 	get_tree().change_scene(res_name)
 
