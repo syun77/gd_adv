@@ -33,13 +33,14 @@ _global_script_class_icons={
 [application]
 
 config/name="TestAdv"
-run/main_scene="res://src/escape/room/EscapeRoom.tscn"
+run/main_scene="res://src/Boot.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 AdvUtil="*res://src/common/adv/AdvUtil.gd"
 CastleDB="*res://src/common/adv/CastleDB.tscn"
+Global="*res://src/Global.gd"
 
 [display]
 
