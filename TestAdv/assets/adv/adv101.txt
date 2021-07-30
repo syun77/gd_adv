@@ -8,4 +8,7 @@ BOOL,0
 SET,16,12
 MSG,9,新聞をクリックしました
 FUNC_END,click2
+FUNC_START,move
+MSG,9,移動する予定
+FUNC_END,move
 END

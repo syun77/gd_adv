@@ -43,6 +43,7 @@ var _next_state       = eState.INIT
 var _wait             = 0
 
 # プロパティ
+var _script_path             = null
 var _start_funcname          = null
 
 # レイヤー
@@ -50,7 +51,8 @@ onready var _layer_bg   = $LayerBg
 onready var _layer_talk = $LayerTalk
 
 # コンストラクタ
-func init(funcname:String) -> void:
+func init(script_path, funcname:String) -> void:
+	_script_path    = script_path
 	_start_funcname = funcname
 
 # 開始処理
@@ -102,7 +104,7 @@ func _process(delta: float) -> void:
 
 # 更新・初期化
 func _update_init():
-	_script.open("res://assets/adv/adv000.txt")
+	_script.open(_script_path)
 	_script.jump_funcname(_start_funcname)
 	_next_state = eState.EXEC
 

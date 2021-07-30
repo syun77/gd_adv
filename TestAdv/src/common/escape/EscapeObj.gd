@@ -83,26 +83,36 @@ func _update_init(_delta:float) -> void:
 
 # 更新 > メイン
 func _update_main(delta:float) -> void:
+
+	# デバッグ表示
+	update()
 	
 	# 移動カーソル更新
 	for move in _moves:
 		move.update_manual(delta)
 	
-	var children = _clickable_layer.get_children()
-
 	# クリックしたかどうか	
 	var clicked = Input.is_action_just_pressed("ui_click")
+	if clicked == false:
+		return # クリック判定不要
 	# マウスカーソルの位置を取得
 	var mx = get_global_mouse_position().x
 	var my = get_global_mouse_position().y
 	
+	# シーン移動オブジェクトのクリック判定
+	if _check_movable_obj(mx, my):
+		return
+	
+	# 配置オブジェクトのクリックをチェックする
+	if _check_clickable_obj(mx, my):
+		return
+
+func _check_clickable_obj(mx:float, my:float) -> bool:
 	# 前面から処理したいので逆順でループを回す
+	var children = _clickable_layer.get_children()
 	for i in range(children.size()-1, -1, -1):
-		if clicked == false:
-			continue
-		
 		var spr:Sprite = children[i]
-		# クリックしたので当たり判定チェック
+		# 当たり判定チェック
 		var hit_rect:Rect2 = _spr_to_hitrect(spr)
 		var x1 = hit_rect.position.x
 		var y1 = hit_rect.position.y
@@ -113,14 +123,44 @@ func _update_main(delta:float) -> void:
 			if _obj_clickable(spr):
 				# スクリプト実行
 				var start_funcname = spr.get_meta("click")
-				_script = AdvMgr.instance()
-				_script.init(start_funcname)
-				add_child(_script)
-				_state = eState.SCRIPT
-				_script_timer = 0
-				return
+				_start_script(start_funcname)
+				return true
+
+	# 何も実行していない
+	return false
+
+func _start_script(func_name:String) -> void:
+	_script = AdvMgr.instance()
+	var script_path = Global.get_script_path()
+	_script.init(script_path, func_name)
+	add_child(_script)
+	_state = eState.SCRIPT
+	_script_timer = 0
+
+func _check_movable_obj(mx:float, my:float) -> bool:
+	for move in _moves:
+		if move.visible == false:
+			continue # 非表示なのでチェック不要
 		
-	update()
+		# 当たり判定チェック
+		var spr:Sprite = move
+		var hit_rect:Rect2 = _spr_to_hitrect(spr)
+		var x1 = hit_rect.position.x
+		var y1 = hit_rect.position.y
+		var x2 = x1 + hit_rect.size.x
+		var y2 = y1 + hit_rect.size.y
+		
+		if x1 <= mx and mx <= x2 and y1 <= my and my <= y2:
+			var jump:String = move.get_jump()
+			var click:String = move.get_click()
+			if click != "":
+				# スクリプト実行
+				_start_script(click)
+				return true
+
+	# 何も実行していない
+	return false
+		
 
 # 更新 > スクリプト実行中
 func _update_script(delta:float) -> void:

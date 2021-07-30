@@ -21,6 +21,8 @@ var _off_bit:String = ""
 # 初期化
 func init(pos:Vector2, dir:int, jump:String, click:String, on_bit:String, off_bit:String) -> void:
 	_start_position = pos
+	_jump = jump
+	_click = click
 	_dir = dir
 	_on_bit = on_bit
 	_off_bit = off_bit

@@ -6,3 +6,7 @@ def click2 {
 	%FLG_012 = false
 	":新聞をクリックしました"
 }
+
+def move {
+	":移動する予定"
+}

@@ -11,6 +11,22 @@ func init() -> void:
 	now_room = 101
 	next_room = now_room
 
+# ルーム変更可能かどうか
+func can_change_room() -> bool:
+	return now_room != next_room
+
+# スクリプトのパスを取得する
+func get_script_path() -> String:
+	return "res://assets/adv/adv%03d.txt"%now_room
+	
+# シーン名で次のシーンを設定する
+func set_next_room(name:String) -> void:
+	var v = CastleDB.search("scenes", name)
+	if v < 0:
+		print("無効なルーム名: %s"%name)
+		return
+	next_room = v
+
 func change_room() -> void:
 	var res_name = "res://src/escape/room/%3d/EscapeRoom.tscn"%next_room
 	next_room = now_room
