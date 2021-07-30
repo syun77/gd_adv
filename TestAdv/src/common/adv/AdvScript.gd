@@ -25,7 +25,6 @@ var _func_tbl         = {}
 
 # 初期化
 func _init(parent) -> void:
-	AdvUtil.init()
 	_parent = parent
 
 # スクリプトファイルを読み込む
@@ -165,11 +164,11 @@ func _SET(args) -> void:
 	var val = pop_stack()
 	if op == ASSING_BIT:
 		# フラグ
-		AdvUtil.bit_set(idx, val)
+		Global.bit_set(idx, val)
 		return
 	
 	# 変数
-	var result = AdvUtil.var_get(idx)
+	var result = Global.var_get(idx)
 	
 	match op:
 		ASSIGN_NON:
@@ -183,88 +182,88 @@ func _SET(args) -> void:
 		ASSIGN_DIV:
 			result /= val
 	
-	AdvUtil.var_set(idx, result)
+	Global.var_set(idx, result)
 
-func _ADD(args) -> void:
+func _ADD(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
 	push_stack(left + right)
 	
-func _SUB(args) -> void:
+func _SUB(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
 	push_stack(left - right)
 
-func _MUL(args) -> void:
+func _MUL(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
 	push_stack(left * right)
 	
-func _DIV(args) -> void:
+func _DIV(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
 	push_stack(left / right)
 
 func _BIT(args) -> void:
 	var idx = int(args[0])
-	var bit = AdvUtil.bit_chk(idx)
+	var bit = Global.bit_chk(idx)
 	push_stack(bit)	
 	
 func _VAR(args) -> void:
 	var idx = int(args[0])
-	var val = AdvUtil.var_get(idx)
+	var val = Global.var_get(idx)
 	push_stack(val)
 
 # '=='
-func _EQ(args) -> void:
+func _EQ(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
 	push_stack(right == left)
 
 # '!='
-func _NE(args) -> void:
+func _NE(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
 	push_stack(right != left)
 
 # '<'	
-func _LE(args) -> void:
+func _LE(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
 	push_stack(right < left)
 
 # '<='	
-func _LESS(args) -> void:
+func _LESS(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
 	push_stack(right <= left)
 
 # '>'	
-func _GE(args) -> void:
+func _GE(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
 	push_stack(right > left)
 
 # '>='	
-func _GREATER(args) -> void:
+func _GREATER(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
 	push_stack(right >= left)
 
 # '&&'
-func _AND(args) -> void:
+func _AND(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
 	push_stack(right && left)
 
 # '||'
-func _OR(args) -> void:
+func _OR(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
 	push_stack(right || left)
 
 # '!'
-func _NOT(args) -> void:
+func _NOT(_args) -> void:
 	var right = pop_stack()
 	push_stack(!right)
 
@@ -281,7 +280,7 @@ func _GOTO(args) -> void:
 	var addr = int(args[0])
 	_jump(addr)
 
-func _WHILE(args) -> void:
+func _WHILE(_args) -> void:
 	pass # 特に何もしない (後続するIF文で処理される)
 
 func _CALL(args) -> void:
@@ -290,10 +289,10 @@ func _CALL(args) -> void:
 	var addr = int(args[0])
 	_pc = addr # アドレスジャンプ
 	
-func _FUNC_START(args) -> void:
+func _FUNC_START(_args) -> void:
 	pass # 何もしない	
 	
-func _RETURN(args) -> void:
+func _RETURN(_args) -> void:
 	if _get_callstack_size() > 0:
 		# 呼び出し位置に戻る
 		_pc = _pop_callstack()
@@ -304,13 +303,14 @@ func _RETURN(args) -> void:
 func _FUNC_END(args) -> void:
 	_RETURN(args)
 	
-func _END(args) -> void:
+func _END(_args) -> void:
 	# 強制終了
 	_pc = _max_pc
 	
-func _LABEL(args) -> void:
+func _LABEL(_args) -> void:
 	# 特に何もしない
-	var label = args[0]
+	#var label = args[0]
+	pass
 
 func _jump(addr:int) -> void:
 	# アドレスは -1 した値

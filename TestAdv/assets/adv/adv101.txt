@@ -1,3 +1,6 @@
+FUNC_START,init
+MSG,0,ルーム開始イベント
+FUNC_END,init
 FUNC_START,click1
 BOOL,1
 SET,16,12

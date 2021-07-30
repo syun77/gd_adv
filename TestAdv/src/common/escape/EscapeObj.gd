@@ -31,9 +31,6 @@ var _script_timer = 0
 # 開始処理
 func _ready() -> void:
 	
-	# TODO: ひとまずここでフラグを初期化
-	AdvUtil.init()
-	
 	# 通知テキストをぶら下げる
 	var notice = AdvNoticeText.instance()
 	add_child(notice)
@@ -230,11 +227,11 @@ func _obj_clickable(obj:Node2D) -> bool:
 	if obj.has_meta("on"):
 		# ONフラグ
 		var bit = CastleDB.bit_to_value(obj.get_meta("on"))
-		is_on = AdvUtil.bit_chk(bit)
+		is_on = Global.bit_chk(bit)
 	if obj.has_meta("off"):
 		# OFFフラグ
 		var bit = CastleDB.bit_to_value(obj.get_meta("off"))
-		is_off = AdvUtil.bit_chk(bit)
+		is_off = Global.bit_chk(bit)
 	
 	if is_off:
 		# クリックできない

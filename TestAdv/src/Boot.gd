@@ -5,6 +5,7 @@ extends Node2D
 ###################################
 
 func _ready() -> void:
+	# ゲームデータを初期化
 	Global.init()
 	Global.change_room()
 
