@@ -61,6 +61,10 @@ func _process(delta: float) -> void:
 		# オブジェクトの表示状態を更新する
 		for obj in _clickable_layer.get_children():
 			obj.visible = _obj_visibled(obj)
+	
+	# デバッグ用更新
+	if AdvConst.DEBUG:
+		_debug_update()
 
 # 更新 > 初期化
 func _update_init(_delta:float) -> void:
@@ -300,3 +304,10 @@ func _draw() -> void:
 		if obj.has_meta("off"):
 			text2 += "off:%s "%obj.get_meta("off")
 		draw_string(_font, rect.position, text2)
+
+func _debug_update() -> void:
+	if Input.is_action_just_pressed("ui_debug_save"):
+		Global.save_data()
+	if Input.is_action_just_pressed("ui_debug_load"):
+		Global.load_data()
+		Global.change_room()
