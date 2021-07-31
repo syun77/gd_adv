@@ -27,14 +27,15 @@ var _moves = []
 var _state = eState.INIT
 var _script = null
 var _script_timer = 0
+var _notice = null
 var _is_init_event = false
 
 # 開始処理
 func _ready() -> void:
 	
 	# 通知テキストをぶら下げる
-	var notice = AdvNoticeText.instance()
-	add_child(notice)
+	_notice = AdvNoticeText.instance()
+	add_child(_notice)
 	
 	_clickable_layer = $"../../RoomLayer/ClickableLayer"
 	for obj in _clickable_layer.get_children():
@@ -144,6 +145,10 @@ func _start_script(func_name:String) -> void:
 	var script_path = Global.get_script_path()
 	_script.init(script_path, func_name)
 	add_child(_script)
+
+	# 通知テキストを非表示にしておく	
+	_notice.end()
+	
 	_state = eState.SCRIPT
 	_script_timer = 0
 
