@@ -1775,23 +1775,23 @@
 		"body": "SP_PRG",
 		"description": "スマートフォンを調べたときに表示される情報の進捗",
 	},
-	"スマートフォンのライトの色":
+	"LIGHT_COLOR":
 	{
 		"prefix": "LIGHT_COLOR",
 		"body": "LIGHT_COLOR",
-		"description": "スマートフォンのライトの色",
+		"description": "",
 	},
-	"room413での失敗回数":
+	"VAR_012":
 	{
-		"prefix": "S413_FAILED_CNT",
-		"body": "S413_FAILED_CNT",
-		"description": "room413での失敗回数",
+		"prefix": "VAR_012",
+		"body": "VAR_012",
+		"description": "",
 	},
-	"room413でカギが入っている数":
+	"VAR_013":
 	{
-		"prefix": "S413_PUT_CNT",
-		"body": "S413_PUT_CNT",
-		"description": "room413でカギが入っている数",
+		"prefix": "VAR_013",
+		"body": "VAR_013",
+		"description": "",
 	},
 	"VAR_014":
 	{
@@ -1799,29 +1799,29 @@
 		"body": "VAR_014",
 		"description": "",
 	},
-	"room506でのボタン1の状態":
+	"VAR_015":
 	{
-		"prefix": "S506_BUTTON1",
-		"body": "S506_BUTTON1",
-		"description": "room506でのボタン1の状態",
+		"prefix": "VAR_015",
+		"body": "VAR_015",
+		"description": "",
 	},
-	"room506でのボタン2の状態":
+	"VAR_016":
 	{
-		"prefix": "S506_BUTTON2",
-		"body": "S506_BUTTON2",
-		"description": "room506でのボタン2の状態",
+		"prefix": "VAR_016",
+		"body": "VAR_016",
+		"description": "",
 	},
-	"room506でのボタン3の状態":
+	"VAR_017":
 	{
-		"prefix": "S506_BUTTON3",
-		"body": "S506_BUTTON3",
-		"description": "room506でのボタン3の状態",
+		"prefix": "VAR_017",
+		"body": "VAR_017",
+		"description": "",
 	},
-	"room506でのボタン4の状態":
+	"VAR_018":
 	{
-		"prefix": "S506_BUTTON4",
-		"body": "S506_BUTTON4",
-		"description": "room506でのボタン4の状態",
+		"prefix": "VAR_018",
+		"body": "VAR_018",
+		"description": "",
 	},
 	"VAR_019":
 	{
@@ -1829,17 +1829,17 @@
 		"body": "VAR_019",
 		"description": "",
 	},
-	"room504にある椅子を使った状態(0:未使用 / 1:使用中 / 2:使用した)":
+	"VAR_020":
 	{
-		"prefix": "S504_USE_CHAIR",
-		"body": "S504_USE_CHAIR",
-		"description": "room504にある椅子を使った状態(0:未使用 / 1:使用中 / 2:使用した)",
+		"prefix": "VAR_020",
+		"body": "VAR_020",
+		"description": "",
 	},
-	"room509にある踏み台を使った状態(0:未使用 / 1:使用中 / 2:使用した)":
+	"VAR_021":
 	{
-		"prefix": "S509_USE_STEP",
-		"body": "S509_USE_STEP",
-		"description": "room509にある踏み台を使った状態(0:未使用 / 1:使用中 / 2:使用した)",
+		"prefix": "VAR_021",
+		"body": "VAR_021",
+		"description": "",
 	},
 	"VAR_022":
 	{
@@ -1923,6 +1923,12 @@
 	{
 		"prefix": "VAR_035",
 		"body": "VAR_035",
+		"description": "",
+	},
+	"VAR_036":
+	{
+		"prefix": "VAR_036",
+		"body": "VAR_036",
 		"description": "",
 	},
 	"VAR_037":
@@ -2243,41 +2249,185 @@
 		"body": "VAR_089",
 		"description": "",
 	},
-	"2値化時の上位カラー（デフォルトは白）":
+	"VAR_090":
 	{
-		"prefix": "ADV_BG_THRETHOLD_COLOR",
-		"body": "ADV_BG_THRETHOLD_COLOR",
-		"description": "2値化時の上位カラー（デフォルトは白）",
+		"prefix": "VAR_090",
+		"body": "VAR_090",
+		"description": "",
 	},
-	"2値化の割合（0〜100）":
+	"VAR_091":
 	{
-		"prefix": "ADV_BG_THRETHOLD_RATE",
-		"body": "ADV_BG_THRETHOLD_RATE",
-		"description": "2値化の割合（0〜100）",
+		"prefix": "VAR_091",
+		"body": "VAR_091",
+		"description": "",
 	},
-	"2値化判定の値 (0〜100)":
+	"VAR_092":
 	{
-		"prefix": "ADV_BG_THRETHOLD_VAL",
-		"body": "ADV_BG_THRETHOLD_VAL",
-		"description": "2値化判定の値 (0〜100)",
+		"prefix": "VAR_092",
+		"body": "VAR_092",
+		"description": "",
 	},
-	"背景カラー（デフォルトは白）":
+	"VAR_093":
 	{
-		"prefix": "ADV_BG_BLEND_COLOR",
-		"body": "ADV_BG_BLEND_COLOR",
-		"description": "背景カラー（デフォルトは白）",
+		"prefix": "VAR_093",
+		"body": "VAR_093",
+		"description": "",
 	},
-	"背景カラー（次の色）":
+	"VAR_094":
 	{
-		"prefix": "ADV_BG_BLEND_COLOR_NEXT",
-		"body": "ADV_BG_BLEND_COLOR_NEXT",
-		"description": "背景カラー（次の色）",
+		"prefix": "VAR_094",
+		"body": "VAR_094",
+		"description": "",
 	},
-	"背景カラー（次の色への変化率）":
+	"VAR_095":
 	{
-		"prefix": "ADV_BG_BLEND_COLOR_RATE",
-		"body": "ADV_BG_BLEND_COLOR_RATE",
-		"description": "背景カラー（次の色への変化率）",
+		"prefix": "VAR_095",
+		"body": "VAR_095",
+		"description": "",
+	},
+	"VAR_096":
+	{
+		"prefix": "VAR_096",
+		"body": "VAR_096",
+		"description": "",
+	},
+	"VAR_097":
+	{
+		"prefix": "VAR_097",
+		"body": "VAR_097",
+		"description": "",
+	},
+	"VAR_098":
+	{
+		"prefix": "VAR_098",
+		"body": "VAR_098",
+		"description": "",
+	},
+	"VAR_099":
+	{
+		"prefix": "VAR_099",
+		"body": "VAR_099",
+		"description": "",
+	},
+	"VAR_100":
+	{
+		"prefix": "VAR_100",
+		"body": "VAR_100",
+		"description": "",
+	},
+	"VAR_101":
+	{
+		"prefix": "VAR_101",
+		"body": "VAR_101",
+		"description": "",
+	},
+	"VAR_102":
+	{
+		"prefix": "VAR_102",
+		"body": "VAR_102",
+		"description": "",
+	},
+	"VAR_103":
+	{
+		"prefix": "VAR_103",
+		"body": "VAR_103",
+		"description": "",
+	},
+	"VAR_104":
+	{
+		"prefix": "VAR_104",
+		"body": "VAR_104",
+		"description": "",
+	},
+	"VAR_105":
+	{
+		"prefix": "VAR_105",
+		"body": "VAR_105",
+		"description": "",
+	},
+	"VAR_106":
+	{
+		"prefix": "VAR_106",
+		"body": "VAR_106",
+		"description": "",
+	},
+	"VAR_107":
+	{
+		"prefix": "VAR_107",
+		"body": "VAR_107",
+		"description": "",
+	},
+	"VAR_108":
+	{
+		"prefix": "VAR_108",
+		"body": "VAR_108",
+		"description": "",
+	},
+	"VAR_109":
+	{
+		"prefix": "VAR_109",
+		"body": "VAR_109",
+		"description": "",
+	},
+	"VAR_110":
+	{
+		"prefix": "VAR_110",
+		"body": "VAR_110",
+		"description": "",
+	},
+	"VAR_111":
+	{
+		"prefix": "VAR_111",
+		"body": "VAR_111",
+		"description": "",
+	},
+	"VAR_112":
+	{
+		"prefix": "VAR_112",
+		"body": "VAR_112",
+		"description": "",
+	},
+	"VAR_113":
+	{
+		"prefix": "VAR_113",
+		"body": "VAR_113",
+		"description": "",
+	},
+	"VAR_114":
+	{
+		"prefix": "VAR_114",
+		"body": "VAR_114",
+		"description": "",
+	},
+	"VAR_115":
+	{
+		"prefix": "VAR_115",
+		"body": "VAR_115",
+		"description": "",
+	},
+	"VAR_116":
+	{
+		"prefix": "VAR_116",
+		"body": "VAR_116",
+		"description": "",
+	},
+	"VAR_117":
+	{
+		"prefix": "VAR_117",
+		"body": "VAR_117",
+		"description": "",
+	},
+	"VAR_118":
+	{
+		"prefix": "VAR_118",
+		"body": "VAR_118",
+		"description": "",
+	},
+	"VAR_119":
+	{
+		"prefix": "VAR_119",
+		"body": "VAR_119",
+		"description": "",
 	},
 	"シーンローカル変数00":
 	{
@@ -2302,6 +2452,30 @@
 		"prefix": "LVAR_03",
 		"body": "LVAR_03",
 		"description": "シーンローカル変数03",
+	},
+	"シーンローカル変数04":
+	{
+		"prefix": "LVAR_04",
+		"body": "LVAR_04",
+		"description": "シーンローカル変数04",
+	},
+	"シーンローカル変数05":
+	{
+		"prefix": "LVAR_05",
+		"body": "LVAR_05",
+		"description": "シーンローカル変数05",
+	},
+	"シーンローカル変数06":
+	{
+		"prefix": "LVAR_06",
+		"body": "LVAR_06",
+		"description": "シーンローカル変数06",
+	},
+	"シーンローカル変数07":
+	{
+		"prefix": "LVAR_07",
+		"body": "LVAR_07",
+		"description": "シーンローカル変数07",
 	},
 	"無効なアイテム":
 	{

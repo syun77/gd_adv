@@ -6,13 +6,20 @@ extends CanvasLayer
 const SAVE_FILE = "user://savedata.txt"
 const ROOM_PATH = "res://src/escape/room/%3d/EscapeRoom.tscn"
 
+const LF_BEGIN = 240 # ローカルフラグ開始番号
+const LF_END   = 255 # ローカルフラグ終了番号
+const LVAR_BEGIN = 120 # ローカル変数開始番号
+const LVAR_END   = 127 # ローカル変数終了番号
+
 # 現在のルーム番号
 var now_room:int = 0 setget _set_now_room, _get_now_room
-# 次男ルーム番号
+# 次のルーム番号
 var next_room:int = 0 setget _set_next_room, _get_next_room
 
-var _bits = []
-var _vars = []
+var _bits = [] # フラグ
+var _vars = [] # 変数
+var _local_bits = {} # ローカルフラグ(LF_##)
+var _local_vars = {} # ローカル変数(LVAR_##)
 
 # フラグと変数を初期化する
 func init_bits_and_vars():
@@ -20,16 +27,34 @@ func init_bits_and_vars():
 		_bits.append(false)
 	for _i in range(AdvConst.MAX_VAR):
 		_vars.append(0)
+	
+	_local_bits.clear()
+	_local_vars.clear()
 
+# ------------------------------
+# フラグ
+# ------------------------------
 func bit_on(idx:int) -> void:
+	if LF_BEGIN <= idx and idx <= LF_END:
+		# ローカルフラグ
+		lf_on(idx-LF_BEGIN)
+		return
 	bit_set(idx, true)
 	
 func bit_off(idx:int) -> void:
+	if LF_BEGIN <= idx and idx <= LF_END:
+		# ローカルフラグ
+		lf_off(idx-LF_BEGIN)
+		return
 	bit_set(idx, false)
 
 func bit_set(idx:int, b:bool) -> void:
 	if idx < 0 or AdvConst.MAX_BIT <= idx:
 		print("Error: 不正なフラグ番号 %d"%idx)
+		return
+	if LF_BEGIN <= idx and idx <= LF_END:
+		# ローカルフラグ
+		lf_set(idx-LF_BEGIN, b)
 		return
 	_bits[idx] = b
 
@@ -37,20 +62,63 @@ func bit_chk(idx:int) -> bool:
 	if idx < 0 or AdvConst.MAX_BIT <= idx:
 		print("Error: 不正なフラグ番号 %d"%idx)
 		return false
+	if LF_BEGIN <= idx and idx <= LF_END:
+		# ローカルフラグ
+		return lf_chk(idx-LF_BEGIN)
 	return _bits[idx]
 
+# ------------------------------
+# 変数
+# ------------------------------
 func var_set(idx:int, val) -> void:
 	if idx < 0 or AdvConst.MAX_BIT <= idx:
 		print("Error: 不正な変数番号 %d"%idx)
 		return
+	if LVAR_BEGIN <= idx and idx <= LVAR_END:
+		# ローカル変数
+		lvar_set(idx-LVAR_BEGIN, val)
+		return
+	
 	_vars[idx] = val
 	
 func var_get(idx:int):
 	if idx < 0 or AdvConst.MAX_BIT <= idx:
 		print("Error: 不正な変数番号 %d"%idx)
 		return 0
+	if LVAR_BEGIN <= idx and idx <= LVAR_END:
+		# ローカル変数
+		return lvar_get(idx-LVAR_BEGIN)
+
 	return _vars[idx]
+
+# ------------------------------
+# ローカルフラグ
+# ------------------------------
+func lf_on(idx:int) -> void:
+	lf_set(idx, true)
+func lf_off(idx:int) -> void:
+	lf_set(idx, false)
+func lf_set(idx:int, b:bool) -> void:
+	var name = _make_lf_name(idx)
+	_local_bits[name] = b
+func lf_chk(idx:int) -> bool:
+	var name = _make_lf_name(idx)
+	return _local_bits.get(name, false)
 	
+func _make_lf_name(idx:int) -> String:
+	return "S%03d_LF%02d"%[now_room, idx]
+# ------------------------------
+# ローカル変数
+# ------------------------------
+func lvar_set(idx:int, v) -> void:
+	var name = _make_lvar_name(idx)
+	_local_vars[name] = v
+func lvar_get(idx:int):
+	var name = _make_lvar_name(idx)
+	return _local_vars.get(name, 0)	
+
+func _make_lvar_name(idx:int) -> String:
+	return "S%03d_LVAR%02d"%[now_room, idx]
 
 # 初期化
 func init() -> void:
@@ -90,15 +158,19 @@ func load_data() -> void:
 
 func _get_save():
 	var data = {
+		"now_room" : now_room,
 		"bits" : _bits,
 		"vars" : _vars,
-		"now_room" : now_room,
+		"lf" : _local_bits,
+		"lvar" : _local_vars,
 	}
 	return data
 func _copy_load(data):
+	next_room = data["now_room"]
 	_bits = data["bits"]
 	_vars = data["vars"]
-	next_room = data["now_room"]
+	_local_bits = data["lf"]
+	_local_vars = data["lvar"]	
 	
 
 # ルーム変更可能かどうか

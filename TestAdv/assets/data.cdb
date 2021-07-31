@@ -38,8 +38,12 @@
 					"objs": [
 						{
 							"id": 1,
-							"click": "click",
-							"hidden": true
+							"click": "click1",
+							"off": "LF_00"
+						},
+						{
+							"id": 2,
+							"click": "click2"
 						}
 					],
 					"moves": [

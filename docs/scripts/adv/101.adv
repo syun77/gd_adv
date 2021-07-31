@@ -4,10 +4,12 @@ def init {
 
 def click1 {
 	%FLG_012 = true
+	%LF_00 = true
 	":絵の具をクリックしました"
 }
 def click2 {
 	%FLG_012 = false
+	$LVAR_02 = 123
 	":新聞をクリックしました"
 }
 

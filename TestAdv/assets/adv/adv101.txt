@@ -4,11 +4,15 @@ FUNC_END,init
 FUNC_START,click1
 BOOL,1
 SET,16,12
+BOOL,1
+SET,16,240
 MSG,9,絵の具をクリックしました
 FUNC_END,click1
 FUNC_START,click2
 BOOL,0
 SET,16,12
+INT,123
+SET,0,122
 MSG,9,新聞をクリックしました
 FUNC_END,click2
 FUNC_START,move
