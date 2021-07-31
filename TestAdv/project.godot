@@ -41,6 +41,7 @@ config/icon="res://icon.png"
 AdvUtil="*res://src/common/adv/AdvUtil.gd"
 CastleDB="*res://src/common/adv/CastleDB.tscn"
 Global="*res://src/Global.gd"
+SpriteUtil="*res://src/common/util/SpriteUtil.gd"
 
 [display]
 

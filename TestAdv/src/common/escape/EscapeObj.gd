@@ -123,7 +123,7 @@ func _check_clickable_obj(mx:float, my:float) -> bool:
 	for i in range(children.size()-1, -1, -1):
 		var spr:Sprite = children[i]
 		# 当たり判定チェック
-		var hit_rect:Rect2 = _spr_to_hitrect(spr)
+		var hit_rect:Rect2 = SpriteUtil.get_hitrect(spr)
 		var x1 = hit_rect.position.x
 		var y1 = hit_rect.position.y
 		var x2 = x1 + hit_rect.size.x
@@ -159,7 +159,7 @@ func _check_movable_obj(mx:float, my:float) -> bool:
 		
 		# 当たり判定チェック
 		var spr:Sprite = move
-		var hit_rect:Rect2 = _spr_to_hitrect(spr)
+		var hit_rect:Rect2 = SpriteUtil.get_hitrect(spr)
 		var x1 = hit_rect.position.x
 		var y1 = hit_rect.position.y
 		var x2 = x1 + hit_rect.size.x
@@ -262,18 +262,6 @@ func _obj_clickable(obj:Node2D) -> bool:
 
 	# クリックできる	
 	return true
-
-# 当たり判定の矩形を取得する	
-func _spr_to_hitrect(spr:Sprite) -> Rect2:
-	var pos:Vector2 = spr.position
-	var rect:Rect2 = spr.get_rect()
-	rect.size.x *= spr.scale.x
-	rect.size.y *= spr.scale.y
-	if spr.centered:
-		pos.x -= rect.size.x/2
-		pos.y -= rect.size.y/2
-	rect.position = pos
-	return rect
 	
 func _dir_to_pos(dir:int) -> Vector2:
 	var x_left   = 64
@@ -298,7 +286,7 @@ func _dir_to_pos(dir:int) -> Vector2:
 func _draw() -> void:
 	for obj in _clickable_layer.get_children():
 		var spr:Sprite = obj
-		var rect:Rect2 = _spr_to_hitrect(spr)
+		var rect:Rect2 = SpriteUtil.get_hitrect(spr)
 		draw_rect(rect, Color.red, false)
 		var text = "%s: (%d,%d) (%d,%d)"%[obj.name, rect.position.x, rect.position.y, rect.size.x, rect.size.y]
 		draw_string(_font, rect.position, text)
