@@ -2,7 +2,8 @@ extends Control
 ###########################
 # 通知テキスト (自動で消えるテキスト)
 ###########################
-const CHANGE_TIME = 0.5
+const APPEAR_TIME = 1.0
+const HIDE_TIME = 0.5
 const DISPLAY_TIME = 3.0
 
 enum eState {
@@ -24,7 +25,7 @@ func _ready() -> void:
 # 表示開始
 func start(text:String) -> void:
 	_text.bbcode_text = "[center]" + text + "[/center]"
-	_timer = CHANGE_TIME
+	_timer = APPEAR_TIME
 	_bg.visible = true
 	_text.visible = true
 	_bg.color.a = 1.0
@@ -51,24 +52,24 @@ func _process(delta: float) -> void:
 				_timer = DISPLAY_TIME
 			else:
 				rate = 1
-				add_rate = _timer / CHANGE_TIME
+				add_rate = _timer / APPEAR_TIME
 		eState.SHOW:
 			rate = 1
 			if _timer <= 0:
 				_state = eState.TO_HIDE
-				_timer = CHANGE_TIME
+				_timer = HIDE_TIME
 		eState.TO_HIDE:
 			if _timer <= 0:
 				end()
 			else:
-				rate = _timer / CHANGE_TIME
+				rate = _timer / HIDE_TIME
 				scale_y = ease(rate, 4.8)
 	
 	if rate > 0:
-		_bg.color = Color.webgray
+		_bg.color = Color.black
 		_bg.color.a = 0.5 * rate
 		_bg.rect_scale.y = scale_y
 		if add_rate:
-			_bg.color = _bg.color.linear_interpolate(Color.silver, add_rate)
+			_bg.color = _bg.color.linear_interpolate(Color.webgray, add_rate)
 		_text.modulate.a = rate
 	

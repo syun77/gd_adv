@@ -27,6 +27,7 @@ var _moves = []
 var _state = eState.INIT
 var _script = null
 var _script_timer = 0
+var _is_init_event = false
 
 # 開始処理
 func _ready() -> void:
@@ -38,7 +39,7 @@ func _ready() -> void:
 	_clickable_layer = $"../../RoomLayer/ClickableLayer"
 	for obj in _clickable_layer.get_children():
 		obj.visible = false # いったんすべて非表示にしておく
-		
+	
 	if AdvConst.DEBUG:
 		# TODO: ウィンドウをリサイズ
 		OS.set_window_size(Vector2(853, 480))
@@ -55,7 +56,7 @@ func _process(delta: float) -> void:
 			_update_script(delta)
 		eState.NEXT_ROOM:
 			_update_next_room(delta)
-			
+	
 	if _state >= eState.MAIN:
 		# オブジェクトの表示状態を更新する
 		for obj in _clickable_layer.get_children():
@@ -76,10 +77,14 @@ func _update_init(_delta:float) -> void:
 		var click = move.get("click", "")
 		var obj   = AdvMoveCursor.instance()
 		obj.init(pos, dir, jump, click, on, off)
+		obj.update_manual(_delta)
+		obj.visible = false
 		_moves.append(obj)
 		add_child(obj)
 		
-	_state = eState.MAIN
+	# ルーム開始イベントを開始
+	_start_script("init")
+	_is_init_event = true
 
 # 更新 > メイン
 func _update_main(delta:float) -> void:
@@ -172,13 +177,17 @@ func _check_movable_obj(mx:float, my:float) -> bool:
 # 更新 > スクリプト実行中
 func _update_script(delta:float) -> void:
 	_script_timer += delta
+	
 	for move in _moves:
 		if _script_timer < 0.1:
 			move.update_manual(delta)
 		else:
 			move.visible = false # 一定時間で非表示にする
+		if _is_init_event:
+			move.visible = false # ルーム開始イベント中は常に非表示
 	
 	if is_instance_valid(_script) == false:
+		_is_init_event = false
 		# スクリプト終了
 		if Global.can_change_room():
 			# ルーム移動
