@@ -1228,56 +1228,47 @@
 				},
 				{
 					"id": "LIGHT_COLOR",
-					"value": 11,
-					"comment": "スマートフォンのライトの色"
+					"value": 11
 				},
 				{
-					"id": "S413_FAILED_CNT",
-					"value": 12,
-					"comment": "room413での失敗回数"
+					"id": "VAR_012",
+					"value": 12
 				},
 				{
-					"id": "S413_PUT_CNT",
-					"value": 13,
-					"comment": "room413でカギが入っている数"
+					"id": "VAR_013",
+					"value": 13
 				},
 				{
 					"id": "VAR_014",
 					"value": 14
 				},
 				{
-					"id": "S506_BUTTON1",
-					"value": 15,
-					"comment": "room506でのボタン1の状態"
+					"id": "VAR_015",
+					"value": 15
 				},
 				{
-					"id": "S506_BUTTON2",
-					"value": 16,
-					"comment": "room506でのボタン2の状態"
+					"id": "VAR_016",
+					"value": 16
 				},
 				{
-					"id": "S506_BUTTON3",
-					"value": 17,
-					"comment": "room506でのボタン3の状態"
+					"id": "VAR_017",
+					"value": 17
 				},
 				{
-					"id": "S506_BUTTON4",
-					"value": 18,
-					"comment": "room506でのボタン4の状態"
+					"id": "VAR_018",
+					"value": 18
 				},
 				{
 					"id": "VAR_019",
 					"value": 19
 				},
 				{
-					"id": "S504_USE_CHAIR",
-					"value": 20,
-					"comment": "room504にある椅子を使った状態(0:未使用 / 1:使用中 / 2:使用した)"
+					"id": "VAR_020",
+					"value": 20
 				},
 				{
-					"id": "S509_USE_STEP",
-					"value": 21,
-					"comment": "room509にある踏み台を使った状態(0:未使用 / 1:使用中 / 2:使用した)"
+					"id": "VAR_021",
+					"value": 21
 				},
 				{
 					"id": "VAR_022",
@@ -1334,6 +1325,10 @@
 				{
 					"id": "VAR_035",
 					"value": 35
+				},
+				{
+					"id": "VAR_036",
+					"value": 36
 				},
 				{
 					"id": "VAR_037",
@@ -1548,54 +1543,164 @@
 					"value": 89
 				},
 				{
-					"id": "ADV_BG_THRETHOLD_COLOR",
-					"value": 90,
-					"comment": "2値化時の上位カラー（デフォルトは白）"
+					"id": "VAR_090",
+					"value": 90
 				},
 				{
-					"id": "ADV_BG_THRETHOLD_RATE",
-					"value": 91,
-					"comment": "2値化の割合（0〜100）"
+					"id": "VAR_091",
+					"value": 91
 				},
 				{
-					"id": "ADV_BG_THRETHOLD_VAL",
-					"value": 92,
-					"comment": "2値化判定の値 (0〜100)"
+					"id": "VAR_092",
+					"value": 92
 				},
 				{
-					"id": "ADV_BG_BLEND_COLOR",
-					"value": 93,
-					"comment": "背景カラー（デフォルトは白）"
+					"id": "VAR_093",
+					"value": 93
 				},
 				{
-					"id": "ADV_BG_BLEND_COLOR_NEXT",
-					"value": 94,
-					"comment": "背景カラー（次の色）"
+					"id": "VAR_094",
+					"value": 94
 				},
 				{
-					"id": "ADV_BG_BLEND_COLOR_RATE",
-					"value": 95,
-					"comment": "背景カラー（次の色への変化率）"
+					"id": "VAR_095",
+					"value": 95
+				},
+				{
+					"id": "VAR_096",
+					"value": 96
+				},
+				{
+					"id": "VAR_097",
+					"value": 97
+				},
+				{
+					"id": "VAR_098",
+					"value": 98
+				},
+				{
+					"id": "VAR_099",
+					"value": 99
+				},
+				{
+					"id": "VAR_100",
+					"value": 100
+				},
+				{
+					"id": "VAR_101",
+					"value": 101
+				},
+				{
+					"id": "VAR_102",
+					"value": 102
+				},
+				{
+					"id": "VAR_103",
+					"value": 103
+				},
+				{
+					"id": "VAR_104",
+					"value": 104
+				},
+				{
+					"id": "VAR_105",
+					"value": 105
+				},
+				{
+					"id": "VAR_106",
+					"value": 106
+				},
+				{
+					"id": "VAR_107",
+					"value": 107
+				},
+				{
+					"id": "VAR_108",
+					"value": 108
+				},
+				{
+					"id": "VAR_109",
+					"value": 109
+				},
+				{
+					"id": "VAR_110",
+					"value": 110
+				},
+				{
+					"id": "VAR_111",
+					"value": 111
+				},
+				{
+					"id": "VAR_112",
+					"value": 112
+				},
+				{
+					"id": "VAR_113",
+					"value": 113
+				},
+				{
+					"id": "VAR_114",
+					"value": 114
+				},
+				{
+					"id": "VAR_115",
+					"value": 115
+				},
+				{
+					"id": "VAR_116",
+					"value": 116
+				},
+				{
+					"id": "VAR_117",
+					"value": 117
+				},
+				{
+					"id": "VAR_118",
+					"value": 118
+				},
+				{
+					"id": "VAR_119",
+					"value": 119
 				},
 				{
 					"id": "LVAR_00",
-					"value": 96,
+					"value": 120,
 					"comment": "シーンローカル変数00"
 				},
 				{
 					"id": "LVAR_01",
-					"value": 97,
+					"value": 121,
 					"comment": "シーンローカル変数01"
 				},
 				{
 					"id": "LVAR_02",
-					"value": 98,
+					"value": 122,
 					"comment": "シーンローカル変数02"
 				},
 				{
 					"id": "LVAR_03",
-					"value": 99,
+					"value": 123,
 					"comment": "シーンローカル変数03"
+				},
+				{
+					"id": "LVAR_04",
+					"value": 124,
+					"comment": "シーンローカル変数04"
+				},
+				{
+					"id": "LVAR_05",
+					"value": 125,
+					"comment": "シーンローカル変数05"
+				},
+				{
+					"id": "LVAR_06",
+					"value": 126,
+					"comment": "シーンローカル変数06"
+				},
+				{
+					"id": "LVAR_07",
+					"value": 127,
+					"comment": "シーンローカル変数07"
 				}
 			],
 			"separators": [],
@@ -2334,7 +2439,7 @@
 							"moji": "０１２３４５"
 						}
 					],
-					"ret": "LVAR_00",
+					"ret": "VAR_096",
 					"auto_check": true
 				},
 				{
@@ -2354,7 +2459,7 @@
 							"moji": "あいうえお"
 						}
 					],
-					"ret": "LVAR_00",
+					"ret": "VAR_096",
 					"auto_check": true
 				},
 				{
@@ -2372,7 +2477,7 @@
 						}
 					],
 					"auto_check": false,
-					"ret": "LVAR_00"
+					"ret": "VAR_096"
 				},
 				{
 					"id": 4,
@@ -2391,7 +2496,7 @@
 							"moji": "あいうえおまみむめも"
 						}
 					],
-					"ret": "LVAR_00",
+					"ret": "VAR_096",
 					"auto_check": true
 				},
 				{
@@ -2412,7 +2517,7 @@
 						}
 					],
 					"auto_check": false,
-					"ret": "LVAR_00"
+					"ret": "VAR_096"
 				},
 				{
 					"id": 6,
@@ -2428,7 +2533,7 @@
 							"moji": "カキクケコマミムメモ"
 						}
 					],
-					"ret": "LVAR_00",
+					"ret": "VAR_096",
 					"auto_check": true
 				},
 				{
@@ -2445,7 +2550,7 @@
 							"moji": "カキクケコラリルレロ"
 						}
 					],
-					"ret": "LVAR_00",
+					"ret": "VAR_096",
 					"auto_check": true
 				},
 				{
@@ -2469,7 +2574,7 @@
 						}
 					],
 					"auto_check": true,
-					"ret": "LVAR_00"
+					"ret": "VAR_096"
 				},
 				{
 					"id": 9,
@@ -2486,7 +2591,7 @@
 						}
 					],
 					"auto_check": true,
-					"ret": "LVAR_00"
+					"ret": "VAR_096"
 				}
 			],
 			"separators": [],
