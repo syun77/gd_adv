@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "AdvUtilObj",
 "language": "GDScript",
 "path": "res://src/common/adv/AdvUtil.gd"
+}, {
+"base": "Node",
+"class": "Easing",
+"language": "GDScript",
+"path": "res://src/common/math/Ease.gd"
 } ]
 _global_script_class_icons={
 "Adv": "",
 "AdvConst": "",
-"AdvUtilObj": ""
+"AdvUtilObj": "",
+"Easing": ""
 }
 
 [application]
@@ -42,6 +48,7 @@ AdvUtil="*res://src/common/adv/AdvUtil.gd"
 CastleDB="*res://src/common/adv/CastleDB.tscn"
 Global="*res://src/Global.gd"
 SpriteUtil="*res://src/common/util/SpriteUtil.gd"
+Ease="*res://src/common/math/Ease.gd"
 
 [display]
 

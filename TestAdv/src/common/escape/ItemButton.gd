@@ -1,5 +1,9 @@
 extends Sprite
 
+const HIT_RADIUS = 64 # クリック判定の半径
+const PATH_ITEM = "res://assets/adv/item/item%03d.png"
+const TIMER_CLICK = 1.0
+
 enum eState {
 	INIT,
 	IDLE,
@@ -15,12 +19,17 @@ enum eClick {
 	RELEASED,
 }
 
+var item:int = 0 setget _set_item, _get_item
+
 var _state = eState.INIT
+var _timer_click = 0
 var _start := Vector2()
 var _drag_start := Vector2()
+var _sprite:Sprite = null
+var _item_id:int = 0
 
 func _ready() -> void:
-	pass
+	_sprite = $Item
 
 func _process(delta: float) -> void:
 	match _state:
@@ -35,14 +44,24 @@ func _process(delta: float) -> void:
 		eState.RETURN:
 			_update_return(delta)
 	
+	# クリック演出
+	_timer_click = max(0, _timer_click-delta)
+	scale = Vector2(1, 1)
+	if _timer_click > 0:
+		var v = 0.5 + 0.5 * Ease.elastic_out(1.0 - _timer_click/TIMER_CLICK)
+		scale *= v
+	
+	
 func _updata_init(delta:float) -> void:
 	_start = position
 	_state = eState.IDLE
 
 func _update_idle(delta:float) -> void:
 	if _is_click(eClick.JUST_PRESSED):
+		# クリック開始
 		_drag_start = get_global_mouse_position()
 		_state = eState.CLICK
+		_timer_click = TIMER_CLICK
 
 func _update_click(delta:float) -> void:
 	if _is_click(eClick.RELEASED):
@@ -82,12 +101,17 @@ func _is_click(state:int) -> bool:
 	if check == false:
 		return false
 	var rect = SpriteUtil.get_hitrect(self)
-	var mx = get_global_mouse_position().x
-	var my = get_global_mouse_position().y
-	var x1 = rect.position.x
-	var y1 = rect.position.y
-	var x2 = x1 + rect.size.x
-	var y2 = y1 + rect.size.y
-	if x1 <= mx and mx <= x2 and y1 <= my and my <= y2:
+	var mouse_pos = get_global_mouse_position()
+	var d = position - mouse_pos
+	if d.length() < HIT_RADIUS:	
 		return true
 	return false
+
+func _set_item(item_id:int) -> void:
+	var path = PATH_ITEM%item_id
+	var f:File = File.new()
+	if f.file_exists(path):
+		_sprite.texture = load(path)
+		_item_id = item_id
+func _get_item() -> int:
+	return _item_id
