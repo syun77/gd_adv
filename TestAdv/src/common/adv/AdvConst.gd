@@ -15,8 +15,9 @@ const MAX_LOG = 50 # ログの最大数
 
 const CH_SLIDE_OFS_X := 64 # キャラクタースライド移動量
 
-const MAX_BIT = 256 # フラグの最大数
-const MAX_VAR = 128 # 変数の最大数
+const MAX_BIT  = 256 # フラグの最大数
+const MAX_VAR  = 128 # 変数の最大数
+const MAX_ITEM = 128 # アイテムの最大数
 
 const MAX_SEL_ITEM = 8 # 選択肢の最大数
 

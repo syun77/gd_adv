@@ -20,10 +20,10 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = 569.885
-margin_top = 399.992
-margin_right = 659.885
-margin_bottom = 443.992
+margin_left = 570.71
+margin_top = 399.167
+margin_right = 699.71
+margin_bottom = 459.167
 custom_styles/hover = ExtResource( 2 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )

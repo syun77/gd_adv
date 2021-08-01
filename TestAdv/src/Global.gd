@@ -6,10 +6,10 @@ extends CanvasLayer
 const SAVE_FILE = "user://savedata.txt"
 const ROOM_PATH = "res://src/escape/room/%3d/EscapeRoom.tscn"
 
-const LF_BEGIN = 240 # ローカルフラグ開始番号
-const LF_END   = 255 # ローカルフラグ終了番号
-const LVAR_BEGIN = 120 # ローカル変数開始番号
-const LVAR_END   = 127 # ローカル変数終了番号
+const LF_BEGIN = Adv.eBit.LF_00 # ローカルフラグ開始番号
+const LF_END   = Adv.eBit.LF_15 # ローカルフラグ終了番号
+const LVAR_BEGIN = Adv.eVar.LVAR_00 # ローカル変数開始番号
+const LVAR_END   = Adv.eVar.LVAR_07 # ローカル変数終了番号
 
 # 現在のルーム番号
 var now_room:int = 0 setget _set_now_room, _get_now_room
@@ -18,8 +18,14 @@ var next_room:int = 0 setget _set_next_room, _get_next_room
 
 var _bits = [] # フラグ
 var _vars = [] # 変数
+var _items = [] # アイテム
 var _local_bits = {} # ローカルフラグ(LF_##)
 var _local_vars = {} # ローカル変数(LVAR_##)
+
+# アイテムの初期化
+func init_items():
+	for _i in range(AdvConst.MAX_ITEM):
+		_items.append(AdvUtilObj.eItemState.None)
 
 # フラグと変数を初期化する
 func init_bits_and_vars():
@@ -30,6 +36,14 @@ func init_bits_and_vars():
 	
 	_local_bits.clear()
 	_local_vars.clear()
+
+# ------------------------------
+# アイテム
+# ------------------------------
+func item_get(idx:int):
+	return _items[idx]
+func item_set(idx:int, state:int) -> void:
+	_items[idx] = state
 
 # ------------------------------
 # フラグ
@@ -124,6 +138,8 @@ func _make_lvar_name(idx:int) -> String:
 func init() -> void:
 	# フラグと変数の初期化
 	init_bits_and_vars()
+	# アイテムの初期化
+	init_items()
 	
 	# 開始ルーム番号を設定しておく
 	now_room = 101
@@ -159,6 +175,7 @@ func load_data() -> void:
 func _get_save():
 	var data = {
 		"now_room" : now_room,
+		"items" : _items,
 		"bits" : _bits,
 		"vars" : _vars,
 		"lf" : _local_bits,
@@ -167,6 +184,7 @@ func _get_save():
 	return data
 func _copy_load(data):
 	next_room = data["now_room"]
+	_items = data["items"]
 	_bits = data["bits"]
 	_vars = data["vars"]
 	_local_bits = data["lf"]
