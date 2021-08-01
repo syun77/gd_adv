@@ -5,7 +5,6 @@
 [ext_resource path="res://src/common/escape/ItemButton.gd" type="Script" id=3]
 
 [node name="ItemButton" type="Sprite"]
-position = Vector2( 433.562, 339.401 )
 texture = ExtResource( 2 )
 script = ExtResource( 3 )
 

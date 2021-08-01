@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/common/escape/ItemMenu.gd" type="Script" id=1]
+[ext_resource path="res://assets/common/button_normal.tres" type="StyleBox" id=2]
+[ext_resource path="res://assets/common/button_press.tres" type="StyleBox" id=3]
+[ext_resource path="res://assets/common/ui_dynamicfont.tres" type="DynamicFont" id=4]
+
+[node name="ItemMenu" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg" type="ColorRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 0.313726 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 569.885
+margin_top = 399.992
+margin_right = 659.885
+margin_bottom = 443.992
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+custom_fonts/font = ExtResource( 4 )
+text = "CLOSE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
