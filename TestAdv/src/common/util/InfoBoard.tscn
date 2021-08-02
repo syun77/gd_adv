@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/common/ui_debug_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/common/util/InfoBoard.gd" type="Script" id=2]
+
+[node name="Control" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Bg" type="ColorRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 32.0
+color = Color( 0, 0, 0, 0.501961 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 1 )
+text = "INFOBOARDテキスト"
+__meta__ = {
+"_edit_use_anchors_": false
+}

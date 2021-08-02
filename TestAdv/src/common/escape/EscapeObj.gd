@@ -266,8 +266,8 @@ func _obj_clickable(obj:Node2D) -> bool:
 	
 func _dir_to_pos(dir:int) -> Vector2:
 	var x_left   = 64
-	var x_right  = 1280 - 64
-	var x_center = 1280/2
+	var x_right  = AdvConst.WINDOW_WIDTH - 64
+	var x_center = AdvConst.WINDOW_CENTER_X
 	var y_top    = 64
 	var y_bottom = 640
 	var y_center = 320

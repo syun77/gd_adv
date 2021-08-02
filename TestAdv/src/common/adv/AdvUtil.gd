@@ -66,7 +66,11 @@ func item_no_have_any() -> bool:
 
 func item_cdb_search(idx:int, key:String):
 	var data = CastleDB.search_from_value("items", idx)
-	return data.get(key, null)
+	var ret = data.get(key, null)
+	if key == "flag":
+		return CastleDB.bit_to_value(ret)
+	else:
+		return ret
 
 # 指定のアイテムを装備しているかどうか
 func item_chk(idx:int) -> bool:

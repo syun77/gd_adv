@@ -25,7 +25,7 @@ var _local_vars = {} # ローカル変数(LVAR_##)
 # アイテムの初期化
 func init_items():
 	for _i in range(AdvConst.MAX_ITEM):
-		_items.append(AdvUtilObj.eItemState.None)
+		_items.append(AdvUtilObj.eItemState.NONE)
 
 # フラグと変数を初期化する
 func init_bits_and_vars():

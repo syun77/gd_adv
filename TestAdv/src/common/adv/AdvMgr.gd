@@ -277,3 +277,19 @@ func _JUMP_SCENE(_args:PoolStringArray) -> int:
 	Global.next_room = idx
 	return AdvConst.eRet.EXIT # 強制終了
 
+# ---------------------------------------
+# アイテム関連
+# ---------------------------------------
+func _ITEM_ADD(_args:PoolStringArray) -> int:
+	# アイテム追加
+	var idx = _script.pop_stack()
+	var flag = AdvUtil.item_cdb_search(idx, "flag")
+	if flag >= 0:
+		Global.bit_on(flag)
+	var name = AdvUtil.item_cdb_search(idx, "name")
+	var text = name + Adv.ITEM_GET_MESSAGE
+	AdvUtil.notice_start(name)
+	
+	AdvUtil.item_add(idx)
+	return AdvConst.eRet.CONTINUE
+

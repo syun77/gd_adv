@@ -212,6 +212,7 @@ func exec(type:int, t:float) -> float:
 	var function = get_function(type)
 	return function.call(t)
 
+# @param v 0.0〜1.0
 func step(type:int, start:float, end:float, v:float) -> float:
 	if start == end:
 		return start # 開始と終了が同じ
@@ -221,58 +222,58 @@ func step(type:int, start:float, end:float, v:float) -> float:
 		# 開始と終了が逆転
 		a = end
 		b = start
-	if v < start:
+	if v <= 0.0:
 		# 開始より小さい
 		return start
-	if v > end:
+	if v >= 1.0:
 		# 終了より大きい
 		return end
 	var d = b - a
-	var t = (v - a) / d # 0.0〜1.0にする
+	var t = v
 	
-	var function = get_function(type)
-	return a + (d * function.call(t))
+	var func_name = get_function(type)
+	return a + (d * call(func_name, t))
 	
 
-func get_function(type:int):
+func get_function(type:int) -> String:
 	var tbl = {
-		eType.LINEAR: self.linear, # 線形
-		eType.QUAD_IN: self.quad_in,   # 二次関数
-		eType.QUAD_OUT: self.quad_out,
-		eType.QUAD_INOUT: self.quad_in_out,
-		eType.CUBE_IN: self.cube_in,   # 三次関数
-		eType.CUBE_OUT: self.cube_out,
-		eType.CUBE_INOUT: self.cube_in_out,
-		eType.QUART_IN: self.quart_in,  # 四次関数
-		eType.QUART_OUT: self.quart_out,
-		eType.QUART_INOUT: self.quart_in_out,
-		eType.QUINT_IN: self.quint_in,  # 五次関数
-		eType.QUINT_OUT: self.quint_out,
-		eType.QUINT_INOUT: self.quint_in_out,
-		eType.SMOOTH_STEP_IN: self.smooth_step_in,   # スムーズ曲線
-		eType.SMOOTH_STEP_OUT: self.smooth_step_out,
-		eType.SMOOTH_STEP_INOUT: self.smooth_step_in_out,
-		eType.SMOOTHER_STEP_IN: self.smoother_step_in, # よりスムーズな曲線
-		eType.SMOOTHER_STEP_OUT: self.smoother_step_out,
-		eType.SMOOTHER_STEP_INOUT: self.smoother_step_in_out,
-		eType.SIN_IN: self.sine_in,    # SIN関数
-		eType.SIN_OUT: self.sine_out,
-		eType.SIN_INOUT: self.sine_in_out,
-		eType.BOUNCE_IN: self.bounce_in, # バウンス
-		eType.BOUNCE_OUT: self.bounce_out,
-		eType.BOUNCE_INOUT: self.bounce_in_out,
-		eType.CIRC_IN: self.circ_in,   # サークル
-		eType.CIRC_OUT: self.circ_out,
-		eType.CIRC_INOUT: self.circ_in_out,
-		eType.EXPO_IN: self.expo_in,   # 指数関数
-		eType.EXPO_OUT: self.expo_out,
-		eType.EXPO_INOUT: self.expo_in_out,
-		eType.BACK_IN: self.back_in,   # バック
-		eType.BACK_OUT: self.back_out,
-		eType.BACK_INOUT: self.back_inout,
-		eType.ELASTIC_IN: self.elastic_in, # 弾力関数
-		eType.ELASTIC_OUT: self.elastic_out,
-		eType.ELASTIC_INOUT: self.elastic_in_out,
+		eType.LINEAR: "linear", # 線形
+		eType.QUAD_IN: "quad_in",   # 二次関数
+		eType.QUAD_OUT: "quad_out",
+		eType.QUAD_INOUT: "quad_in_out",
+		eType.CUBE_IN: "cube_in",   # 三次関数
+		eType.CUBE_OUT: "cube_out",
+		eType.CUBE_INOUT: "cube_in_out",
+		eType.QUART_IN: "quart_in",  # 四次関数
+		eType.QUART_OUT: "quart_out",
+		eType.QUART_INOUT: "quart_in_out",
+		eType.QUINT_IN: "quint_in",  # 五次関数
+		eType.QUINT_OUT: "quint_out",
+		eType.QUINT_INOUT: "quint_in_out",
+		eType.SMOOTH_STEP_IN: "smooth_step_in",   # スムーズ曲線
+		eType.SMOOTH_STEP_OUT: "smooth_step_out",
+		eType.SMOOTH_STEP_INOUT: "smooth_step_in_out",
+		eType.SMOOTHER_STEP_IN: "smoother_step_in", # よりスムーズな曲線
+		eType.SMOOTHER_STEP_OUT: "smoother_step_out",
+		eType.SMOOTHER_STEP_INOUT: "smoother_step_in_out",
+		eType.SIN_IN: "sine_in",    # SIN関数
+		eType.SIN_OUT: "sine_out",
+		eType.SIN_INOUT: "sine_in_out",
+		eType.BOUNCE_IN: "bounce_in", # バウンス
+		eType.BOUNCE_OUT: "bounce_out",
+		eType.BOUNCE_INOUT: "bounce_in_out",
+		eType.CIRC_IN: "circ_in",   # サークル
+		eType.CIRC_OUT: "circ_out",
+		eType.CIRC_INOUT: "circ_in_out",
+		eType.EXPO_IN: "expo_in",   # 指数関数
+		eType.EXPO_OUT: "expo_out",
+		eType.EXPO_INOUT: "expo_in_out",
+		eType.BACK_IN: "back_in",   # バック
+		eType.BACK_OUT: "back_out",
+		eType.BACK_INOUT: "back_inout",
+		eType.ELASTIC_IN: "elastic_in", # 弾力関数
+		eType.ELASTIC_OUT: "elastic_out",
+		eType.ELASTIC_INOUT: "elastic_in_out",
 	}
 	
 	if tbl.has(type):
