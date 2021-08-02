@@ -279,5 +279,5 @@ func get_function(type:int) -> String:
 	if tbl.has(type):
 		return tbl[type]
 	else:
-		print("未定義のイージング関数: %d"%type)
+		Infoboard.error("未定義のイージング関数: %d"%type)
 		return self.linear

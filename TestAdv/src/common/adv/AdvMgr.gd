@@ -105,13 +105,13 @@ func _process(delta: float) -> void:
 # 更新・初期化
 func _update_init():
 	if _script.open(_script_path) == false:
-		print("スクリプトを開けません: %s"%_script_path)
+		Infoboard.error("スクリプトを開けません: %s"%_script_path)
 		# スクリプト終了
 		_next_state = eState.END
 		return
 		
 	if _script.jump_funcname(_start_funcname) == false:
-		print("指定の関数が存在しません: %s"%_start_funcname)
+		Infoboard.warn("指定の関数が存在しません: %s"%_start_funcname)
 		# スクリプト終了
 		_next_state = eState.END
 		return
@@ -273,7 +273,7 @@ func _JUMP_SCENE(_args:PoolStringArray) -> int:
 	var data = CastleDB.search_from_value("scenes", idx)
 	if data:
 		name = data["id"]
-	print("[JUMP_SCENE] %s(%d)"%[name, idx])
+	Infoboard.script("[JUMP_SCENE] %s(%d)"%[name, idx])
 	Global.next_room = idx
 	return AdvConst.eRet.EXIT # 強制終了
 

@@ -138,7 +138,7 @@ func update(delta:float) -> void:
 # キャラ表示
 func draw_ch(pos:int, id:int, eft:int) -> void:
 	if pos < 0 or _ch_list.size() <= pos:
-		print("不正なpos: %d"%pos)
+		Infoboard.error("不正なpos: %d"%pos)
 		return
 	var ch:AdvCh = _ch_list[pos]
 	ch.load_texture(id)
@@ -147,7 +147,7 @@ func draw_ch(pos:int, id:int, eft:int) -> void:
 # キャラを消す
 func erase_ch(pos:int, eft:int) -> void:
 	if pos < 0 or _ch_list.size() <= pos:
-		print("不正なpos: %d"%pos)
+		Infoboard.error("不正なpos: %d"%pos)
 		return
 	var ch:AdvCh = _ch_list[pos]
 	ch.disappear(eft)

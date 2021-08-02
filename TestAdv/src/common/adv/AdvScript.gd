@@ -86,7 +86,7 @@ func update() -> void:
 				_is_end = true
 				break
 			_:
-				print("不正な戻り値: %d"%ret)
+				Infoboard.error("不正な戻り値: %d"%ret)
 				_is_end = true # 強制終了
 
 # ループ処理
@@ -149,7 +149,7 @@ func _parse_command(cmd:String, args:PoolStringArray) -> int:
 		if _parent.has_method(method):
 			return _parent.call(method, args)
 		else:
-			OS.alert("Error: 未実装のコマンド %s"%cmd)
+			Infoboard.error("Error: 未実装のコマンド %s"%cmd)
 	return AdvConst.eRet.CONTINUE
 
 func _BOOL(args) -> void:

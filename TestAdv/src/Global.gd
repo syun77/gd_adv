@@ -64,7 +64,8 @@ func bit_off(idx:int) -> void:
 
 func bit_set(idx:int, b:bool) -> void:
 	if idx < 0 or AdvConst.MAX_BIT <= idx:
-		print("Error: 不正なフラグ番号 %d"%idx)
+		Infoboard.error
+		("Error: 不正なフラグ番号 %d"%idx)
 		return
 	if LF_BEGIN <= idx and idx <= LF_END:
 		# ローカルフラグ
@@ -74,7 +75,7 @@ func bit_set(idx:int, b:bool) -> void:
 
 func bit_chk(idx:int) -> bool:
 	if idx < 0 or AdvConst.MAX_BIT <= idx:
-		print("Error: 不正なフラグ番号 %d"%idx)
+		Infoboard.error("Error: 不正なフラグ番号 %d"%idx)
 		return false
 	if LF_BEGIN <= idx and idx <= LF_END:
 		# ローカルフラグ
@@ -86,7 +87,7 @@ func bit_chk(idx:int) -> bool:
 # ------------------------------
 func var_set(idx:int, val) -> void:
 	if idx < 0 or AdvConst.MAX_BIT <= idx:
-		print("Error: 不正な変数番号 %d"%idx)
+		Infoboard.error("Error: 不正な変数番号 %d"%idx)
 		return
 	if LVAR_BEGIN <= idx and idx <= LVAR_END:
 		# ローカル変数
@@ -97,7 +98,7 @@ func var_set(idx:int, val) -> void:
 	
 func var_get(idx:int):
 	if idx < 0 or AdvConst.MAX_BIT <= idx:
-		print("Error: 不正な変数番号 %d"%idx)
+		Infoboard.error("Error: 不正な変数番号 %d"%idx)
 		return 0
 	if LVAR_BEGIN <= idx and idx <= LVAR_END:
 		# ローカル変数
@@ -204,7 +205,7 @@ func set_next_room(name:String) -> void:
 	var data = CastleDB.search("scenes", name)
 	var v = data["value"]
 	if v < 0:
-		print("無効なルーム名: %s"%name)
+		Infoboard.error("無効なルーム名: %s"%name)
 		return
 	next_room = v
 
@@ -212,7 +213,7 @@ func set_next_room(name:String) -> void:
 func change_room() -> void:
 	var res_name = ROOM_PATH%next_room
 	now_room = next_room
-	print("ルーム移動: %s"%res_name)
+	Infoboard.add("ルーム移動: %s"%res_name)
 	get_tree().change_scene(res_name)
 
 # 現在のルーム番号のsetter

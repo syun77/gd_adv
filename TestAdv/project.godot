@@ -49,6 +49,7 @@ CastleDB="*res://src/common/adv/CastleDB.tscn"
 Global="*res://src/Global.gd"
 SpriteUtil="*res://src/common/util/SpriteUtil.gd"
 Ease="*res://src/common/math/Ease.gd"
+Infoboard="*res://src/common/util/InfoboardMgr.tscn"
 
 [display]
 

@@ -1,9 +1,9 @@
 extends Node2D
 
-const MARGIN_Y = 4
+const MARGIN_Y = 0
 
 const TIMER_INOUT = 0.5
-const TIMER_WAIT  = 3.0
+const TIMER_WAIT  = 5.0
 const MIN_WIDTH = 320 # 最低保証する幅.
 
 enum eState {
@@ -22,12 +22,14 @@ var _count:int = 1 # 同じ文字を表示した回数
 var _text:String = ""
 var _yofs:int = 0
 
-func start(s:String, yofs) -> void:
+func start(s:String, yofs:int, col:Color) -> void:
 	position.y = yofs * get_height()
 	_text = s
 	_label.text = s
 	_state = eState.TO_SHOW
 	_timer = TIMER_INOUT
+	col.a = 0.5
+	_bg.color = col
 
 func count_up() -> void:
 	_count += 1

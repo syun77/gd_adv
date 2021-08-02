@@ -4,7 +4,14 @@ var InfoBoard = preload("res://src/common/util/InfoBoard.tscn")
 
 var _idx:int = 0 # 表示用カウンタ
 
-func add(text:String) -> void:
+func warn(text:String) -> void:
+	add(text, Color.yellow)
+func error(text:String) -> void:
+	add(text, Color.red)
+func script(text:String) -> void:
+	add(text, Color.navyblue)
+
+func add(text:String, color:Color=Color.black) -> void:
 	# すでに表示されている文字かどうか確認する
 	for obj in get_children():
 		if obj.is_same(text):
@@ -14,7 +21,7 @@ func add(text:String) -> void:
 	
 	var obj = InfoBoard.instance()
 	add_child(obj)
-	obj.start(text, _idx)
+	obj.start(text, _idx, color)
 	_idx += 1
 
 func _ready() -> void:
@@ -30,9 +37,10 @@ func _process(delta: float) -> void:
 			break
 	
 	if can_reset:
+		# リセット
 		_idx = 0
 	
-	_update_debug()
+	#_update_debug()
 		
 func _update_debug() -> void:
 	# テスト用

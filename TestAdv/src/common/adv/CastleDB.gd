@@ -74,7 +74,7 @@ func get_sheet(sheet:String):
 	if sheet in _sheets:
 		return _sheets[sheet]
 	else:
-		print("Not found sheetname '%s'"%sheet)
+		Infoboard.error("Not found sheetname '%s'"%sheet)
 		return null
 
 # シートとid指定でデータを取得する
@@ -86,13 +86,13 @@ func search(sheet:String, id:String):
 	if id in tbl:
 		return tbl[id]
 	else:
-		print("Not found id '%s' (on 'sheet:%s')"%[id, sheet])
+		Infoboard.error("Not found id '%s' (on 'sheet:%s')"%[id, sheet])
 		return null
 
 # シートとvalue指定でデータを取得する
 func search_from_value(sheet:String, value:int):
 	if not(sheet in _values):
-		print("Not found sheetname '%s'"%sheet)
+		Infoboard.error("Not found sheetname '%s'"%sheet)
 		return null
 	var tbl = _values[sheet]
 	if tbl == null:
@@ -101,7 +101,7 @@ func search_from_value(sheet:String, value:int):
 	if value in tbl:
 		return tbl[value]
 	else:
-		print("Not found value '%d' (on 'sheet:%s')"%[value, sheet])
+		Infoboard.error("Not found value '%d' (on 'sheet:%s')"%[value, sheet])
 		return null
 
 # クリック可能なオブジェクトに情報を付与する
@@ -110,7 +110,7 @@ func scene_to_set_obj(scene, obj:Node2D) -> void:
 	regex.compile("obj(?<digit>[0-9]+)")
 	var result = regex.search(obj.name)
 	if result == null:
-		print("クリック対象とならないオブジェクト名: %s"%obj.name)
+		Infoboard.error("クリック対象とならないオブジェクト名: %s"%obj.name)
 		return
 		
 	var obj_id = int(result.get_string("digit"))
@@ -120,7 +120,7 @@ func scene_to_set_obj(scene, obj:Node2D) -> void:
 			obj_info = info
 			break
 	if obj_info == null:
-		print("%sに未設定のオブジェクトID: %s"%[scene.id, obj.name])
+		Infoboard.error("%sに未設定のオブジェクトID: %s"%[scene.id, obj.name])
 		return
 
 	obj.set_meta("enable", false)
