@@ -5,13 +5,13 @@ var InfoBoard = preload("res://src/common/util/InfoBoard.tscn")
 var _idx:int = 0 # 表示用カウンタ
 
 func warn(text:String) -> void:
-	add(text, Color.yellow)
+	send(text, Color.yellow)
 func error(text:String) -> void:
-	add(text, Color.red)
+	send(text, Color.red)
 func script(text:String) -> void:
-	add(text, Color.navyblue)
+	send(text, Color.navyblue)
 
-func add(text:String, color:Color=Color.black) -> void:
+func send(text:String, color:Color=Color.black) -> void:
 	# すでに表示されている文字かどうか確認する
 	for obj in get_children():
 		if obj.is_same(text):
@@ -47,4 +47,4 @@ func _update_debug() -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		var tbl = ["hoge", "piyo", "momo"]
 		var text = tbl[_idx%3]
-		add(text)
+		send(text)

@@ -213,7 +213,7 @@ func set_next_room(name:String) -> void:
 func change_room() -> void:
 	var res_name = ROOM_PATH%next_room
 	now_room = next_room
-	Infoboard.add("ルーム移動: %s"%res_name)
+	Infoboard.send("ルーム移動: %s"%res_name)
 	get_tree().change_scene(res_name)
 
 # 現在のルーム番号のsetter

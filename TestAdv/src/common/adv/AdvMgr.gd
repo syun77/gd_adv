@@ -287,6 +287,7 @@ func _ITEM_ADD(_args:PoolStringArray) -> int:
 	if flag >= 0:
 		Global.bit_on(flag)
 	var name = AdvUtil.item_cdb_search(idx, "name")
+	Infoboard.send("[ITEM_ADD] %s(%d)"%[name, idx])
 	var text = name + Adv.ITEM_GET_MESSAGE
 	AdvUtil.notice_start(name)
 	
