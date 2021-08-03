@@ -1757,236 +1757,39 @@
 					"detail": ""
 				},
 				{
-					"id": "ITEM_SMART_PHONE",
-					"name": "スマートフォン",
-					"value": 1,
-					"flag": "FLG_011",
-					"detail": "私のスマートフォンだ"
-				},
-				{
-					"id": "ITEM_BLACK_BOARD_ERASER",
-					"name": "黒板消し",
-					"value": 2,
-					"detail": "黒板の文字を消せる黒板消しだ",
-					"flag": "FLG_012"
-				},
-				{
-					"id": "ITEM_BOU_MEMO",
-					"name": "破れたメモ",
-					"value": 3,
-					"detail": "「美・応・有」と書かれているメモだ",
-					"flag": "FLG_013"
-				},
-				{
-					"id": "ITEM_PASS_HOLDER",
-					"name": "お母さんの写真",
-					"value": 4,
-					"detail": "お母さんの写真が入ったパスケースだ",
-					"flag": "FLG_020"
-				},
-				{
-					"id": "ITEM_BOOKLET",
-					"name": "開花の季節のメモ",
-					"value": 5,
-					"detail": "花の開花の季節をまとめたメモだ",
-					"flag": "FLG_021"
-				},
-				{
-					"id": "ITEM_COLOR_BLUE",
-					"name": "青い絵の具",
-					"value": 6,
-					"detail": "<color.aqua>青い絵の具<color>だ。裏には「え」と書いてある",
-					"flag": "FLG_035"
-				},
-				{
 					"id": "ITEM_COLOR_RED",
 					"name": "赤い絵の具",
-					"value": 7,
+					"value": 1,
 					"detail": "<color.red>赤い絵の具<color>だ。裏には「あ」と書いてある",
-					"flag": "FLG_031"
-				},
-				{
-					"id": "ITEM_COLOR_GREEN",
-					"name": "緑の絵の具",
-					"value": 8,
-					"detail": "<color.lime>緑の絵の具<color>だ。裏には「吠」と書いてある",
-					"flag": "FLG_034"
-				},
-				{
-					"id": "ITEM_COLOR_YELLOW",
-					"name": "黄色の絵の具",
-					"value": 9,
-					"detail": "<color.yellow>黄色の絵の具<color>だ。裏には「に」と書いてある",
-					"flag": "FLG_033"
-				},
-				{
-					"id": "ITEM_COLOR_PURPLE",
-					"name": "紫の絵の具",
-					"value": 10,
-					"detail": "<color.purple>紫の絵の具<color>だ。裏には「花」と書いてある",
-					"flag": "FLG_037"
-				},
-				{
-					"id": "ITEM_COLOR_INDIGO",
-					"name": "藍色の絵の具",
-					"value": 11,
-					"detail": "<color.blue>藍色の絵の具<color>だ。裏には「る」と書いてある",
-					"flag": "FLG_036"
+					"flag": "FLG_011"
 				},
 				{
 					"id": "ITEM_COLOR_ORANGE",
 					"name": "橙の絵の具",
-					"value": 12,
+					"value": 2,
 					"detail": "<color.orange>橙の絵の具<color>だ。裏には「さ」と書いてある",
-					"flag": "FLG_032"
+					"flag": "FLG_012"
 				},
 				{
-					"id": "ITEM_FLOWER_MEMO",
-					"name": "花を植える季節のメモ",
-					"value": 13,
-					"detail": "花を植える季節について書かれたメモ",
-					"flag": "FLG_022"
+					"id": "ITEM_COLOR_GREEN",
+					"name": "緑の絵の具",
+					"value": 3,
+					"detail": "<color.lime>緑の絵の具<color>だ。裏には「吠」と書いてある",
+					"flag": "FLG_013"
 				},
 				{
-					"id": "ITEM_CELLOPHANE",
-					"name": "色セロハン",
-					"value": 14,
-					"detail": "透明なセロハンだ",
-					"flag": "FLG_050"
+					"id": "ITEM_COLOR_INDIGO",
+					"name": "藍色の絵の具",
+					"value": 4,
+					"detail": "<color.blue>藍色の絵の具<color>だ。裏には「る」と書いてある",
+					"flag": "FLG_014"
 				},
 				{
-					"id": "ITEM_PHONE_CELLOPHANE",
-					"name": "スマートフォン（色セロハン）",
-					"value": 15,
-					"detail": "色セロハンをかぶせたスマートフォンだ",
-					"flag": "FLG_051",
-					"materials": [
-						{
-							"material": "ITEM_SMART_PHONE"
-						},
-						{
-							"material": "ITEM_CELLOPHANE"
-						}
-					]
-				},
-				{
-					"id": "ITEM_SKULL_RED",
-					"name": "赤いドクロ",
-					"value": 16,
-					"detail": "赤いドクロだ",
-					"flag": "FLG_053"
-				},
-				{
-					"id": "ITEM_SKULL_GREEN",
-					"name": "緑のドクロ",
-					"value": 17,
-					"detail": "緑のドクロだ",
-					"flag": "FLG_054"
-				},
-				{
-					"id": "ITEM_SKULL_NAVY",
-					"name": "紺のドクロ",
-					"value": 18,
-					"detail": "紺色のドクロだ",
-					"flag": "FLG_055"
-				},
-				{
-					"id": "ITEM_BLUE_MEMO",
-					"name": "青色のメモ",
-					"value": 19,
-					"detail": "青色のメモだ",
-					"flag": "FLG_056"
-				},
-				{
-					"id": "ITEM_KEY_D",
-					"name": "「スラー」と書かれたカギ",
-					"value": 20,
-					"detail": "「スラー」と書かれたカギだ",
-					"flag": "FLG_091"
-				},
-				{
-					"id": "ITEM_KEY_B",
-					"name": "「おり」と書かれたカギ",
-					"value": 21,
-					"detail": "「おり」と書かれたカギだ",
-					"flag": "FLG_083"
-				},
-				{
-					"id": "ITEM_KEY_C",
-					"name": "「黒」と書かれたカギ",
-					"value": 22,
-					"detail": "「黒」と書かれたカギだ",
-					"flag": "FLG_090"
-				},
-				{
-					"id": "ITEM_KEY_G",
-					"name": "「四季」と書かれたカギ",
-					"value": 23,
-					"detail": "「四季」と書かれたカギだ",
-					"flag": "FLG_092"
-				},
-				{
-					"id": "ITEM_MUSIC_MEMO",
-					"name": "音符が書かれたメモ",
-					"value": 24,
-					"detail": "音符が書かれたメモだ",
-					"flag": "FLG_094"
-				},
-				{
-					"id": "ITEM_DOG_MEMO",
-					"name": "DOGと書かれたメモ",
-					"value": 25,
-					"detail": "DOGと書かれたメモだ",
-					"flag": "FLG_105"
-				},
-				{
-					"id": "ITEM_PANEL_SA",
-					"name": "「さ」のパネル",
-					"value": 26,
-					"detail": "「さ」と書かれたパネルだ",
-					"flag": "FLG_112"
-				},
-				{
-					"id": "ITEM_PANEL_BU",
-					"name": "「ぶ」のパネル",
-					"value": 27,
-					"detail": "「ぶ」と書かれたパネルだ",
-					"flag": "FLG_107"
-				},
-				{
-					"id": "ITEM_PANEL_E",
-					"name": "「え」のパネル",
-					"value": 28,
-					"detail": "「え」と書かれたパネルだ",
-					"flag": "FLG_108"
-				},
-				{
-					"id": "ITEM_PANEL_GE",
-					"name": "「げ」のパネル",
-					"value": 29,
-					"detail": "「げ」と書かれたパネルだ",
-					"flag": "FLG_109"
-				},
-				{
-					"id": "ITEM_PANEL_I",
-					"name": "「い」のパネル",
-					"value": 30,
-					"detail": "「い」と書かれたパネルだ",
-					"flag": "FLG_110"
-				},
-				{
-					"id": "ITEM_PANEL_N",
-					"name": "「ん」のパネル",
-					"value": 31,
-					"detail": "「ん」と書かれたパネルだ",
-					"flag": "FLG_111"
-				},
-				{
-					"id": "ITEM_PANEL_KU",
-					"name": "「く」のパネル",
-					"value": 32,
-					"detail": "「く」と書かれたパネルだ",
-					"flag": "FLG_113"
+					"id": "ITEM_COLOR_PURPLE",
+					"name": "紫の絵の具",
+					"value": 5,
+					"detail": "<color.purple>紫の絵の具<color>だ。裏には「花」と書いてある",
+					"flag": "FLG_015"
 				}
 			],
 			"separators": [],

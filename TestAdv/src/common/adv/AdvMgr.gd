@@ -282,15 +282,93 @@ func _JUMP_SCENE(_args:PoolStringArray) -> int:
 # ---------------------------------------
 func _ITEM_ADD(_args:PoolStringArray) -> int:
 	# アイテム追加
-	var idx = _script.pop_stack()
-	var flag = AdvUtil.item_cdb_search(idx, "flag")
+	var item_id = _script.pop_stack()
+	var flag = AdvUtil.item_cdb_search(item_id, "flag")
 	if flag >= 0:
+		# 取得フラグをONにする
 		Global.bit_on(flag)
-	var name = AdvUtil.item_cdb_search(idx, "name")
-	Infoboard.send("[ITEM_ADD] %s(%d)"%[name, idx])
+	var name = AdvUtil.item_cdb_search(item_id, "name")
+	Infoboard.send("[ITEM_ADD] %s(%d)"%[name, item_id])
 	var text = name + Adv.ITEM_GET_MESSAGE
+	# 通知テキストを表示
 	AdvUtil.notice_start(name)
 	
-	AdvUtil.item_add(idx)
+	AdvUtil.item_add(item_id)
 	return AdvConst.eRet.CONTINUE
 
+func _ITEM_ADD2(_args:PoolStringArray) -> int:
+	# アイテム追加
+	var item_id = _script.pop_stack()
+	var flag = AdvUtil.item_cdb_search(item_id, "flag")
+	if flag >= 0:
+		# 取得フラグをONにする
+		Global.bit_on(flag)
+	var name = AdvUtil.item_cdb_search(item_id, "name")
+	Infoboard.send("[ITEM_ADD2] %s(%d)"%[name, item_id])
+	var text = name + Adv.ITEM_GET_MESSAGE
+	
+	# 通知テキストは表示しない
+	
+	AdvUtil.item_add(item_id)
+	return AdvConst.eRet.CONTINUE
+
+func _ITEM_HAS(_args:PoolStringArray) -> int:
+	# アイテムを所持しているかどうか
+	var item_id = _script.pop_stack()
+	var has = AdvUtil.item_has(item_id)
+	var name = AdvUtil.item_cdb_search(item_id, "name")
+	Global.var_set(Adv.eVar.RET, 1 if has else 0)
+	var has_str = "true" if has else "false"
+	Infoboard.send("[ITEM_HAS] %s(%d): %s"%[name, item_id, has_str])
+	return AdvConst.eRet.CONTINUE
+
+func _ITEM_DEL(_args:PoolStringArray) -> int:
+	# アイテムを削除する
+	var item_id = _script.pop_stack()
+	var name = AdvUtil.item_cdb_search(item_id, "name")
+	Infoboard.send("[ITEM_DEL] %s(%d)"%[name, item_id])
+	return AdvConst.eRet.CONTINUE
+
+func _ITEM_DEL_ALL(_args:PoolStringArray) -> int:
+	# アイテムをすべて削除する
+	AdvUtil.item_del_all()
+	Infoboard.send("[ITEM_DEL_ALL]")
+	return AdvConst.eRet.CONTINUE
+
+func _ITEM_CHK(_args:PoolStringArray) -> int:
+	# アイテムを装備しているかどうか
+	var item_id = _script.pop_stack()
+	var ret = AdvUtil.item_check(item_id)
+	Global.var_set(Adv.eVar.RET, 1 if ret else 0)
+	var name = AdvUtil.item_cdb_search(item_id, "name")
+	var chk_str = "true" if ret else "false"
+	Infoboard.send("[ITEM_CHK] %s(%d): %s"%[name, item_id, chk_str])
+	return AdvConst.eRet.CONTINUE
+
+func _ITEM_UNEQUIP(_args:PoolStringArray) -> int:
+	# アイテムの装備を外す
+	AdvUtil.item_unequip()
+	Infoboard.send("[ITEM_UNEQUIP]")
+	return AdvConst.eRet.CONTINUE
+
+func _CRAFT_CHK(_args:PoolStringArray) -> int:
+	# 合成チェック
+	var itemID1 = _script.pop_stack()
+	var itemID2 = _script.pop_stack()
+	var ret = AdvUtil.item_check_craft(itemID1, itemID2)
+	var name1 = AdvUtil.item_cdb_search(itemID1, "name")
+	var name2 = AdvUtil.item_cdb_search(itemID2, "name")
+	Infoboard.send("[CRAFT_CHK] itemID:(%s, %s) -> %s"%[name1, name2, "true" if ret else "false"])
+	Global.var_set(Adv.eVar.RET, 1 if ret else 0);
+	return AdvConst.eRet.CONTINUE
+	
+func _ITEM_DETAIL(_args:PoolStringArray) -> int:
+	# アイテムの詳細情報を表示する
+	var item_id = _script.pop_stack()
+	var detail = AdvUtil.item_cdb_search(item_id, "detail")
+	if detail == "":
+		# 詳細メッセージなし
+		return AdvConst.eRet.CONTINUE
+	
+	AdvUtil.notice_start(detail)
+	return AdvConst.eRet.CONTINUE

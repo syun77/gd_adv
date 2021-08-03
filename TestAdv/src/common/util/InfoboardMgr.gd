@@ -12,6 +12,9 @@ func script(text:String) -> void:
 	send(text, Color.navyblue)
 
 func send(text:String, color:Color=Color.black) -> void:
+	if AdvConst.DEBUG == false:
+		return # デバッグでなければ表示しない
+	
 	# すでに表示されている文字かどうか確認する
 	for obj in get_children():
 		if obj.is_same(text):
