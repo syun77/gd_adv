@@ -113,5 +113,7 @@ func _set_item(item_id:int) -> void:
 	if f.file_exists(path):
 		_sprite.texture = load(path)
 		_item_id = item_id
+	else:
+		Infoboard.error("%sが見つかりません"%path)
 func _get_item() -> int:
 	return _item_id

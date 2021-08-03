@@ -2483,71 +2483,11 @@
 		"body": "ITEM_DUMMY",
 		"description": "無効なアイテム",
 	},
-	"スマートフォン":
-	{
-		"prefix": "ITEM_SMART_PHONE",
-		"body": "ITEM_SMART_PHONE",
-		"description": "スマートフォン",
-	},
-	"黒板消し":
-	{
-		"prefix": "ITEM_BLACK_BOARD_ERASER",
-		"body": "ITEM_BLACK_BOARD_ERASER",
-		"description": "黒板消し",
-	},
-	"破れたメモ":
-	{
-		"prefix": "ITEM_BOU_MEMO",
-		"body": "ITEM_BOU_MEMO",
-		"description": "破れたメモ",
-	},
-	"お母さんの写真":
-	{
-		"prefix": "ITEM_PASS_HOLDER",
-		"body": "ITEM_PASS_HOLDER",
-		"description": "お母さんの写真",
-	},
-	"開花の季節のメモ":
-	{
-		"prefix": "ITEM_BOOKLET",
-		"body": "ITEM_BOOKLET",
-		"description": "開花の季節のメモ",
-	},
-	"青い絵の具":
-	{
-		"prefix": "ITEM_COLOR_BLUE",
-		"body": "ITEM_COLOR_BLUE",
-		"description": "青い絵の具",
-	},
 	"赤い絵の具":
 	{
 		"prefix": "ITEM_COLOR_RED",
 		"body": "ITEM_COLOR_RED",
 		"description": "赤い絵の具",
-	},
-	"緑の絵の具":
-	{
-		"prefix": "ITEM_COLOR_GREEN",
-		"body": "ITEM_COLOR_GREEN",
-		"description": "緑の絵の具",
-	},
-	"黄色の絵の具":
-	{
-		"prefix": "ITEM_COLOR_YELLOW",
-		"body": "ITEM_COLOR_YELLOW",
-		"description": "黄色の絵の具",
-	},
-	"紫の絵の具":
-	{
-		"prefix": "ITEM_COLOR_PURPLE",
-		"body": "ITEM_COLOR_PURPLE",
-		"description": "紫の絵の具",
-	},
-	"藍色の絵の具":
-	{
-		"prefix": "ITEM_COLOR_INDIGO",
-		"body": "ITEM_COLOR_INDIGO",
-		"description": "藍色の絵の具",
 	},
 	"橙の絵の具":
 	{
@@ -2555,125 +2495,23 @@
 		"body": "ITEM_COLOR_ORANGE",
 		"description": "橙の絵の具",
 	},
-	"花を植える季節のメモ":
+	"緑の絵の具":
 	{
-		"prefix": "ITEM_FLOWER_MEMO",
-		"body": "ITEM_FLOWER_MEMO",
-		"description": "花を植える季節のメモ",
+		"prefix": "ITEM_COLOR_GREEN",
+		"body": "ITEM_COLOR_GREEN",
+		"description": "緑の絵の具",
 	},
-	"色セロハン":
+	"藍色の絵の具":
 	{
-		"prefix": "ITEM_CELLOPHANE",
-		"body": "ITEM_CELLOPHANE",
-		"description": "色セロハン",
+		"prefix": "ITEM_COLOR_INDIGO",
+		"body": "ITEM_COLOR_INDIGO",
+		"description": "藍色の絵の具",
 	},
-	"スマートフォン（色セロハン）":
+	"紫の絵の具":
 	{
-		"prefix": "ITEM_PHONE_CELLOPHANE",
-		"body": "ITEM_PHONE_CELLOPHANE",
-		"description": "スマートフォン（色セロハン）",
-	},
-	"赤いドクロ":
-	{
-		"prefix": "ITEM_SKULL_RED",
-		"body": "ITEM_SKULL_RED",
-		"description": "赤いドクロ",
-	},
-	"緑のドクロ":
-	{
-		"prefix": "ITEM_SKULL_GREEN",
-		"body": "ITEM_SKULL_GREEN",
-		"description": "緑のドクロ",
-	},
-	"紺のドクロ":
-	{
-		"prefix": "ITEM_SKULL_NAVY",
-		"body": "ITEM_SKULL_NAVY",
-		"description": "紺のドクロ",
-	},
-	"青色のメモ":
-	{
-		"prefix": "ITEM_BLUE_MEMO",
-		"body": "ITEM_BLUE_MEMO",
-		"description": "青色のメモ",
-	},
-	"「スラー」と書かれたカギ":
-	{
-		"prefix": "ITEM_KEY_D",
-		"body": "ITEM_KEY_D",
-		"description": "「スラー」と書かれたカギ",
-	},
-	"「おり」と書かれたカギ":
-	{
-		"prefix": "ITEM_KEY_B",
-		"body": "ITEM_KEY_B",
-		"description": "「おり」と書かれたカギ",
-	},
-	"「黒」と書かれたカギ":
-	{
-		"prefix": "ITEM_KEY_C",
-		"body": "ITEM_KEY_C",
-		"description": "「黒」と書かれたカギ",
-	},
-	"「四季」と書かれたカギ":
-	{
-		"prefix": "ITEM_KEY_G",
-		"body": "ITEM_KEY_G",
-		"description": "「四季」と書かれたカギ",
-	},
-	"音符が書かれたメモ":
-	{
-		"prefix": "ITEM_MUSIC_MEMO",
-		"body": "ITEM_MUSIC_MEMO",
-		"description": "音符が書かれたメモ",
-	},
-	"DOGと書かれたメモ":
-	{
-		"prefix": "ITEM_DOG_MEMO",
-		"body": "ITEM_DOG_MEMO",
-		"description": "DOGと書かれたメモ",
-	},
-	"「さ」のパネル":
-	{
-		"prefix": "ITEM_PANEL_SA",
-		"body": "ITEM_PANEL_SA",
-		"description": "「さ」のパネル",
-	},
-	"「ぶ」のパネル":
-	{
-		"prefix": "ITEM_PANEL_BU",
-		"body": "ITEM_PANEL_BU",
-		"description": "「ぶ」のパネル",
-	},
-	"「え」のパネル":
-	{
-		"prefix": "ITEM_PANEL_E",
-		"body": "ITEM_PANEL_E",
-		"description": "「え」のパネル",
-	},
-	"「げ」のパネル":
-	{
-		"prefix": "ITEM_PANEL_GE",
-		"body": "ITEM_PANEL_GE",
-		"description": "「げ」のパネル",
-	},
-	"「い」のパネル":
-	{
-		"prefix": "ITEM_PANEL_I",
-		"body": "ITEM_PANEL_I",
-		"description": "「い」のパネル",
-	},
-	"「ん」のパネル":
-	{
-		"prefix": "ITEM_PANEL_N",
-		"body": "ITEM_PANEL_N",
-		"description": "「ん」のパネル",
-	},
-	"「く」のパネル":
-	{
-		"prefix": "ITEM_PANEL_KU",
-		"body": "ITEM_PANEL_KU",
-		"description": "「く」のパネル",
+		"prefix": "ITEM_COLOR_PURPLE",
+		"body": "ITEM_COLOR_PURPLE",
+		"description": "紫の絵の具",
 	},
 	"教室〜自分の席":
 	{

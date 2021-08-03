@@ -460,38 +460,11 @@ enum eVar {
 # アイテム
 enum eItem {
   ITEM_DUMMY = 0, # 無効なアイテム
-  ITEM_SMART_PHONE = 1, # スマートフォン
-  ITEM_BLACK_BOARD_ERASER = 2, # 黒板消し
-  ITEM_BOU_MEMO = 3, # 破れたメモ
-  ITEM_PASS_HOLDER = 4, # お母さんの写真
-  ITEM_BOOKLET = 5, # 開花の季節のメモ
-  ITEM_COLOR_BLUE = 6, # 青い絵の具
-  ITEM_COLOR_RED = 7, # 赤い絵の具
-  ITEM_COLOR_GREEN = 8, # 緑の絵の具
-  ITEM_COLOR_YELLOW = 9, # 黄色の絵の具
-  ITEM_COLOR_PURPLE = 10, # 紫の絵の具
-  ITEM_COLOR_INDIGO = 11, # 藍色の絵の具
-  ITEM_COLOR_ORANGE = 12, # 橙の絵の具
-  ITEM_FLOWER_MEMO = 13, # 花を植える季節のメモ
-  ITEM_CELLOPHANE = 14, # 色セロハン
-  ITEM_PHONE_CELLOPHANE = 15, # スマートフォン（色セロハン）
-  ITEM_SKULL_RED = 16, # 赤いドクロ
-  ITEM_SKULL_GREEN = 17, # 緑のドクロ
-  ITEM_SKULL_NAVY = 18, # 紺のドクロ
-  ITEM_BLUE_MEMO = 19, # 青色のメモ
-  ITEM_KEY_D = 20, # 「スラー」と書かれたカギ
-  ITEM_KEY_B = 21, # 「おり」と書かれたカギ
-  ITEM_KEY_C = 22, # 「黒」と書かれたカギ
-  ITEM_KEY_G = 23, # 「四季」と書かれたカギ
-  ITEM_MUSIC_MEMO = 24, # 音符が書かれたメモ
-  ITEM_DOG_MEMO = 25, # DOGと書かれたメモ
-  ITEM_PANEL_SA = 26, # 「さ」のパネル
-  ITEM_PANEL_BU = 27, # 「ぶ」のパネル
-  ITEM_PANEL_E = 28, # 「え」のパネル
-  ITEM_PANEL_GE = 29, # 「げ」のパネル
-  ITEM_PANEL_I = 30, # 「い」のパネル
-  ITEM_PANEL_N = 31, # 「ん」のパネル
-  ITEM_PANEL_KU = 32, # 「く」のパネル
+  ITEM_COLOR_RED = 1, # 赤い絵の具
+  ITEM_COLOR_ORANGE = 2, # 橙の絵の具
+  ITEM_COLOR_GREEN = 3, # 緑の絵の具
+  ITEM_COLOR_INDIGO = 4, # 藍色の絵の具
+  ITEM_COLOR_PURPLE = 5, # 紫の絵の具
 }
 
 # シーン

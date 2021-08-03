@@ -1,5 +1,11 @@
 extends Control
 
+const MAX_LINE = 4
+const START_X = 320
+const START_Y = 160
+const SIZE_W  = 160
+const SIZE_H  = 160
+
 var ItemButton = preload("res://src/common/escape/ItemButton.tscn")
 
 var _closed = false
@@ -29,8 +35,8 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func _idx_to_position(idx:int) -> Vector2:
-	var px = 320 + 160 * (idx % 4)
-	var py = 64  + 160 * floor(idx / 4)
+	var px = START_X + SIZE_W * (idx % MAX_LINE)
+	var py = START_Y + SIZE_H * floor(idx / MAX_LINE)
 	return Vector2(px, py)
 
 func _update_item_list():
@@ -39,9 +45,9 @@ func _update_item_list():
 	for item_id in range(start, AdvConst.MAX_ITEM):
 		if AdvUtil.item_has(item_id):
 			var btn = ItemButton.instance()
-			btn.item = item_id
 			btn.position = _idx_to_position(idx)
 			add_child(btn)
+			btn.item = item_id # _ready() をしないとSpriteが存在しない
 			idx += 1
 
 func _on_Button_pressed() -> void:
