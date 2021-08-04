@@ -29,9 +29,13 @@ func _init(parent) -> void:
 
 # スクリプトファイルを読み込む
 func open(path:String) -> bool:
-	# TODO: ファイル存在チェック
-	# スクリプトを読み込む
+	# ファイル存在チェック
 	var file = File.new()
+	if file.file_exists(path) == false:
+		# 読み込み失敗
+		return false
+		
+	# スクリプトを読み込む
 	file.open(path, File.READ)
 	# すべて読み込む
 	var text = file.get_as_text()

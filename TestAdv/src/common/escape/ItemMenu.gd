@@ -1,5 +1,9 @@
 extends Control
 
+# =============================================
+# アイテムメニュー
+# =============================================
+
 const MAX_LINE = 4
 const START_X = 320
 const START_Y = 160
@@ -7,7 +11,9 @@ const SIZE_W  = 160
 const SIZE_H  = 160
 
 const ItemButton = preload("res://src/common/escape/ItemButton.tscn")
+const AdvMgr = preload("res://src/common/adv/AdvMgr.tscn")
 
+var _script = null
 var _closed = false
 var _clicked_btn = null # クリックしているボタン
 onready var _item_layer = $ItemLayer
@@ -32,6 +38,10 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if is_instance_valid(_script):
+		# スクリプト実行中
+		return
+	
 	if _closed:
 		# 閉じたら何もしない
 		queue_free()
@@ -54,9 +64,17 @@ func _process(delta: float) -> void:
 	if _clicked_btn.is_return_wait():
 		# リターン待ち
 		# スクリプトを実行する
+		_start_script()
 		
 		_clicked_btn.start_return()
-	
+
+func _start_script() -> void:
+	# アイテム用スクリプトを実行する
+	var path = Global.get_item_script_path()
+	_script = AdvMgr.instance()
+	_script.start(path, "")
+	add_child(_script)
+
 func _get_clicked_idx() -> int:
 	var idx = 0
 	for btn in _item_layer.get_children():

@@ -199,6 +199,10 @@ func can_change_room() -> bool:
 # スクリプトのパスを取得する
 func get_script_path() -> String:
 	return "res://assets/adv/adv%03d.txt"%now_room
+
+# アイテムスクリプトのパスを取得する
+func get_item_script_path() -> String:
+	return "res://assets/adv/advitem.txt"
 	
 # シーン名で次のシーンを設定する
 func set_next_room(name:String) -> void:

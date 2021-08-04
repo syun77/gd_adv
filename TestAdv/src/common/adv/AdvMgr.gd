@@ -43,8 +43,8 @@ var _next_state       = eState.INIT
 var _wait             = 0
 
 # プロパティ
-var _script_path             = null
-var _start_funcname          = null
+var _script_path             = ""
+var _start_funcname          = ""
 
 # レイヤー
 onready var _layer_bg   = $LayerBg
@@ -113,12 +113,13 @@ func _update_init():
 		# スクリプト終了
 		_next_state = eState.END
 		return
-		
-	if _script.jump_funcname(_start_funcname) == false:
-		Infoboard.warn("指定の関数が存在しません: %s"%_start_funcname)
-		# スクリプト終了
-		_next_state = eState.END
-		return
+	
+	if _start_funcname != "":
+		if _script.jump_funcname(_start_funcname) == false:
+			Infoboard.warn("指定の関数が存在しません: %s"%_start_funcname)
+			# スクリプト終了
+			_next_state = eState.END
+			return
 		
 	_next_state = eState.EXEC
 
