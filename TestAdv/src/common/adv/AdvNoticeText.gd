@@ -14,8 +14,8 @@ enum eState {
 	HIDE,     # 非表示
 }
 
-onready var _bg:ColorRect       = $Bg
-onready var _text:RichTextLabel = $Text
+onready var _bg:ColorRect       = $Layer/Bg
+onready var _text:RichTextLabel = $Layer/Text
 var _state = eState.HIDE
 var _timer:float = 0
 

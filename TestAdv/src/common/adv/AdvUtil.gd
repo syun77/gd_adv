@@ -2,7 +2,6 @@
 # ADV共通
 # ===============================
 extends Node
-const AdvNoticeText = preload("res://src/common/adv/AdvNoticeText.tscn")
 
 class_name AdvUtilObj
 
@@ -21,23 +20,6 @@ enum eItemState {
 	HAS,  # 所持している
 	DEL,  # 削除した
 }
-
-var _notice = null # 通知テキスト (AdvNoticeText)
-
-# ----------------------------
-# 通知テキスト関連
-# ----------------------------
-# 設定
-func notice_set(notice) -> void:
-	_notice = notice
-# テキストを表示開始
-func notice_start(text:String) -> void:
-	if is_instance_valid(_notice):
-		_notice.start(text)
-# テキストを非表示にする
-func notice_end() -> void:
-	if is_instance_valid(_notice):
-		_notice.end()
 
 # ----------------------------
 # アイテム関連

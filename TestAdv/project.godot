@@ -50,6 +50,7 @@ Global="*res://src/Global.gd"
 SpriteUtil="*res://src/common/util/SpriteUtil.gd"
 Ease="*res://src/common/math/Ease.gd"
 Infoboard="*res://src/common/util/InfoboardMgr.tscn"
+AdvNoticeText="*res://src/common/adv/AdvNoticeText.tscn"
 
 [display]
 

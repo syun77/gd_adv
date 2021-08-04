@@ -5,8 +5,6 @@ extends Node2D
 
 # Adv管理シーン
 const AdvMgr = preload("res://src/common/adv/AdvMgr.tscn")
-# 通知テキスト
-const AdvNoticeText = preload("res://src/common/adv/AdvNoticeText.tscn")
 # 移動カーソルオブジェクト
 const AdvMoveCursor = preload("res://src/common/adv/AdvMoveCursor.tscn")
 
@@ -31,12 +29,6 @@ var _is_init_event = false
 
 # 開始処理
 func _ready() -> void:
-	
-	# 通知テキストをぶら下げる
-	var notice = AdvNoticeText.instance()
-	add_child(notice)
-	# AdvUtilに登録する
-	AdvUtil.notice_set(notice)
 	
 	_clickable_layer = $"../../RoomLayer/ClickableLayer"
 	for obj in _clickable_layer.get_children():

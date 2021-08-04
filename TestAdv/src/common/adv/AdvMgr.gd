@@ -56,7 +56,7 @@ func start(script_path, funcname:String) -> void:
 	_start_funcname = funcname
 	
 	# 通知テキストを非表示にしておく	
-	AdvUtil.notice_end()
+	AdvNoticeText.end()
 	
 
 # 開始処理
@@ -212,7 +212,7 @@ func _MSG(args:PoolStringArray) -> int:
 		type = int(args[0])
 	if type == eCmdMesType.NOTICE:
 		# 通知メッセージ
-		AdvUtil.notice_start(args[1])
+		AdvNoticeText.start(args[1])
 		return AdvConst.eRet.YIELD
 	
 	var ret = AdvConst.eRet.CONTINUE
@@ -295,7 +295,7 @@ func _ITEM_ADD(_args:PoolStringArray) -> int:
 	Infoboard.send("[ITEM_ADD] %s(%d)"%[name, item_id])
 	var text = name + Adv.ITEM_GET_MESSAGE
 	# 通知テキストを表示
-	AdvUtil.notice_start(name)
+	AdvNoticeText.start(name)
 	
 	AdvUtil.item_add(item_id)
 	return AdvConst.eRet.CONTINUE
@@ -374,5 +374,5 @@ func _ITEM_DETAIL(_args:PoolStringArray) -> int:
 		# 詳細メッセージなし
 		return AdvConst.eRet.CONTINUE
 	
-	AdvUtil.notice_start(detail)
+	AdvNoticeText.start(detail)
 	return AdvConst.eRet.CONTINUE
