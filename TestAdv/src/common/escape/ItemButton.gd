@@ -23,14 +23,19 @@ enum eClick {
 var item:int = 0 setget _set_item, _get_item
 var locked:bool setget _set_locked, _is_locked
 var clicked:bool setget ,_is_clicked
+var blinked:bool setget _set_blink, _is_blinked
 
 var _state = eState.INIT
 var _timer_click = 0
 var _start := Vector2()
 var _drag_start := Vector2()
-var _sprite:Sprite = null
 var _item_id:int = 0
 var _locked:bool = false # クリックできない
+var _timer_animation:float = 0
+var _blinked:bool = false  # 点滅フラグ
+
+onready var _sprite:Sprite = $Item
+onready var _btn_blink:Sprite = $ButtonBlink
 
 func is_return_wait() -> bool:
 	return _state == eState.RETURN_WAIT
@@ -38,10 +43,18 @@ func is_return_wait() -> bool:
 func start_return() -> void:
 	_state = eState.RETURN
 
+func collide(btn:Node2D) -> bool:
+	var d = btn.position - position
+	if d.length() < HIT_RADIUS + HIT_RADIUS:
+		# 他のボタンと衝突
+		return true
+	return false
+
 func _ready() -> void:
-	_sprite = $Item
+	_btn_blink.modulate.a = 0.0
 
 func _process(delta: float) -> void:
+	_timer_animation += delta
 	match _state:
 		eState.INIT:
 			_updata_init(delta)
@@ -59,8 +72,14 @@ func _process(delta: float) -> void:
 	if _state >= eState.CLICK:
 		# クリックすると最前面に移動する
 		z_index = 100
+		_btn_blink.modulate.a = 0.5
 	else:
 		z_index = 0
+		if _blinked:
+			# 点滅する
+			_btn_blink.modulate.a = 0.5 * abs(sin(_timer_animation*4))
+		else:
+			_btn_blink.modulate.a = 0.0
 	
 	# クリック演出
 	_timer_click = max(0, _timer_click-delta)
@@ -68,7 +87,10 @@ func _process(delta: float) -> void:
 	if _timer_click > 0:
 		var v = 0.5 + 0.5 * Ease.elastic_out(1.0 - _timer_click/TIMER_CLICK)
 		scale *= v
-	
+	else:
+		if _state >= eState.CLICK:
+			# 拡縮アニメーション
+			scale *= 1 + 0.02 * sin(_timer_animation * 12)
 	
 func _updata_init(delta:float) -> void:
 	_start = position
@@ -157,3 +179,9 @@ func _is_locked() -> bool:
 # クリックしているかどうか
 func _is_clicked() -> bool:
 	return _state != eState.IDLE
+
+# 点滅フラグ
+func _set_blink(b:bool) -> void:
+	_blinked = b
+func _is_blinked() -> bool:
+	return _blinked

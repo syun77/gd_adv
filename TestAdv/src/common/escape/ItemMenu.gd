@@ -4,18 +4,21 @@ extends Control
 # アイテムメニュー
 # =============================================
 
-const MAX_LINE = 4
+const MAX_LINE = 5
 const START_X = 320
 const START_Y = 160
 const SIZE_W  = 160
 const SIZE_H  = 160
 
+# アイテムボタン
 const ItemButton = preload("res://src/common/escape/ItemButton.tscn")
+# ADV管理
 const AdvMgr = preload("res://src/common/adv/AdvMgr.tscn")
 
 var _script = null
 var _closed = false
 var _clicked_btn = null # クリックしているボタン
+var _overlaped_btn = null # 重なっているボタン
 onready var _item_layer = $ItemLayer
 
 func _ready() -> void:
@@ -52,19 +55,30 @@ func _process(delta: float) -> void:
 		# ロックを解除する
 		for btn in _item_layer.get_children():
 			btn.locked = false
+			btn.blinked = false
 		return
+		
 		
 	# クリックしているボタン以外はロックする
 	var idx = 0
 	for btn in _item_layer.get_children():
 		if idx != clicked_idx:
 			btn.locked = true
+			btn.blinked = false
 		idx += 1
+	
+	_overlaped_btn = _get_nearest_collide_btn(_clicked_btn)
+	if _overlaped_btn:
+		# 衝突していたら点滅
+		_overlaped_btn.blinked = true
 	
 	if _clicked_btn.is_return_wait():
 		# リターン待ち
 		# スクリプトを実行する
-		_start_script(_clicked_btn.item, AdvUtilObj.ITEM_INVALID)
+		var item2 = AdvUtilObj.ITEM_INVALID
+		if _overlaped_btn:
+			item2 = _overlaped_btn.item
+		_start_script(_clicked_btn.item, item2)
 		
 		_clicked_btn.start_return()
 
@@ -77,6 +91,25 @@ func _start_script(item1:int, item2:int) -> void:
 	_script = AdvMgr.instance()
 	_script.start(path, "")
 	add_child(_script)
+
+func _get_nearest_collide_btn(this:Node2D) -> Node2D:
+	var id = this.get_instance_id()
+	var nearest_obj = null
+	var length = 99999.0
+	for btn in _item_layer.get_children():
+		if id == btn.get_instance_id():
+			continue
+		var d = btn.position - this.position
+		if d.length() < length:
+			length = d.length()
+			nearest_obj = btn
+	
+	if nearest_obj:
+		# 衝突している
+		if this.collide(nearest_obj):
+			return nearest_obj
+	
+	return null
 
 func _get_clicked_idx() -> int:
 	var idx = 0
