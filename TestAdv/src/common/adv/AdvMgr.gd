@@ -50,10 +50,14 @@ var _start_funcname          = null
 onready var _layer_bg   = $LayerBg
 onready var _layer_talk = $LayerTalk
 
-# コンストラクタ
-func init(script_path, funcname:String) -> void:
+# 開始
+func start(script_path, funcname:String) -> void:
 	_script_path    = script_path
 	_start_funcname = funcname
+	
+	# 通知テキストを非表示にしておく	
+	AdvUtil.notice_end()
+	
 
 # 開始処理
 func _ready() -> void:

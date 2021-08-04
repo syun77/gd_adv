@@ -32,4 +32,6 @@ text = "CLOSE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ItemLayer" type="CanvasLayer" parent="."]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

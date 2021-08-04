@@ -6,10 +6,11 @@ const START_Y = 160
 const SIZE_W  = 160
 const SIZE_H  = 160
 
-var ItemButton = preload("res://src/common/escape/ItemButton.tscn")
+const ItemButton = preload("res://src/common/escape/ItemButton.tscn")
 
 var _closed = false
-var _items = []
+var _clicked_btn = null # クリックしているボタン
+onready var _item_layer = $ItemLayer
 
 func _ready() -> void:
 	if AdvConst.DEBUG:
@@ -32,7 +33,41 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if _closed:
+		# 閉じたら何もしない
 		queue_free()
+		return
+	
+	var clicked_idx = _get_clicked_idx()
+	if clicked_idx < 0:
+		# ロックを解除する
+		for btn in _item_layer.get_children():
+			btn.locked = false
+		return
+		
+	# クリックしているボタン以外はロックする
+	var idx = 0
+	for btn in _item_layer.get_children():
+		if idx != clicked_idx:
+			btn.locked = true
+		idx += 1
+	
+	if _clicked_btn.is_return_wait():
+		# リターン待ち
+		# スクリプトを実行する
+		
+		_clicked_btn.start_return()
+	
+func _get_clicked_idx() -> int:
+	var idx = 0
+	for btn in _item_layer.get_children():
+		if btn.clicked:
+			_clicked_btn = btn
+			return idx
+		idx += 1
+	
+	# クリックしているボタンはない
+	_clicked_btn = null
+	return -1
 
 func _idx_to_position(idx:int) -> Vector2:
 	var px = START_X + SIZE_W * (idx % MAX_LINE)
@@ -46,7 +81,7 @@ func _update_item_list():
 		if AdvUtil.item_has(item_id):
 			var btn = ItemButton.instance()
 			btn.position = _idx_to_position(idx)
-			add_child(btn)
+			_item_layer.add_child(btn)
 			btn.item = item_id # _ready() をしないとSpriteが存在しない
 			idx += 1
 

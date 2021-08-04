@@ -144,11 +144,9 @@ func _check_clickable_obj(mx:float, my:float) -> bool:
 func _start_script(func_name:String) -> void:
 	_script = AdvMgr.instance()
 	var script_path = Global.get_script_path()
-	_script.init(script_path, func_name)
+	# 開始パラメータを設定
+	_script.start(script_path, func_name)
 	add_child(_script)
-
-	# 通知テキストを非表示にしておく	
-	AdvUtil.notice_end()
 	
 	_state = eState.SCRIPT
 	_script_timer = 0
