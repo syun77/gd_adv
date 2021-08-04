@@ -41,16 +41,13 @@ func _ready() -> void:
 		# アイテムを所持していることにする
 		AdvUtil.item_add(Adv.eItem.ITEM_COLOR_RED)
 		AdvUtil.item_add(Adv.eItem.ITEM_COLOR_ORANGE)
-		AdvUtil.item_add(Adv.eItem.ITEM_COLOR_INDIGO)
-		AdvUtil.item_add(Adv.eItem.ITEM_COLOR_PURPLE)
 		AdvUtil.item_add(Adv.eItem.ITEM_COLOR_GREEN)
+		#AdvUtil.item_add(Adv.eItem.ITEM_COLOR_INDIGO)
+		#AdvUtil.item_add(Adv.eItem.ITEM_COLOR_PURPLE)
 		
 		_update_item_list()
 
 func _process(delta: float) -> void:	
-	
-	Infoboard.send("state:%d"%_state)
-	
 	if _closed:
 		# 閉じたら何もしない
 		queue_free()

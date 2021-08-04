@@ -1782,14 +1782,30 @@
 					"name": "藍色の絵の具",
 					"value": 4,
 					"detail": "<color.blue>藍色の絵の具<color>だ。裏には「る」と書いてある",
-					"flag": "FLG_014"
+					"flag": "FLG_014",
+					"materials": [
+						{
+							"material": "ITEM_COLOR_RED"
+						},
+						{
+							"material": "ITEM_COLOR_ORANGE"
+						}
+					]
 				},
 				{
 					"id": "ITEM_COLOR_PURPLE",
 					"name": "紫の絵の具",
 					"value": 5,
 					"detail": "<color.purple>紫の絵の具<color>だ。裏には「花」と書いてある",
-					"flag": "FLG_015"
+					"flag": "FLG_015",
+					"materials": [
+						{
+							"material": "ITEM_COLOR_GREEN"
+						},
+						{
+							"material": "ITEM_COLOR_INDIGO"
+						}
+					]
 				}
 			],
 			"separators": [],

@@ -364,7 +364,7 @@ func _CRAFT_CHK(_args:PoolStringArray) -> int:
 	var name1 = AdvUtil.item_cdb_search(itemID1, "name")
 	var name2 = AdvUtil.item_cdb_search(itemID2, "name")
 	Infoboard.send("[CRAFT_CHK] itemID:(%s, %s) -> %s"%[name1, name2, "true" if ret else "false"])
-	Global.var_set(Adv.eVar.RET, 1 if ret else 0);
+	Global.var_set(Adv.eVar.RET, ret);
 	return AdvConst.eRet.CONTINUE
 	
 func _ITEM_DETAIL(_args:PoolStringArray) -> int:
