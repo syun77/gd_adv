@@ -39,6 +39,8 @@ onready var _btn_blink:Sprite = $ButtonBlink
 
 func is_return_wait() -> bool:
 	return _state == eState.RETURN_WAIT
+func is_idle() -> bool:
+	return _state == eState.IDLE
 
 func start_return() -> void:
 	_state = eState.RETURN
@@ -178,7 +180,7 @@ func _is_locked() -> bool:
 
 # クリックしているかどうか
 func _is_clicked() -> bool:
-	return _state != eState.IDLE
+	return _state >= eState.CLICK
 
 # 点滅フラグ
 func _set_blink(b:bool) -> void:

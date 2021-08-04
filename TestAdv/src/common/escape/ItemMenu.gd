@@ -10,11 +10,19 @@ const START_Y = 160
 const SIZE_W  = 160
 const SIZE_H  = 160
 
+enum eState {
+	MAIN,       # メイン処理
+	BTN_CLICK,  # アイテムボタンクリック中
+	SCRIPT      # スクリプト実行中
+	BTN_RETURN, # ボタン戻る処理
+}
+
 # アイテムボタン
 const ItemButton = preload("res://src/common/escape/ItemButton.tscn")
 # ADV管理
 const AdvMgr = preload("res://src/common/adv/AdvMgr.tscn")
 
+var _state = eState.MAIN
 var _script = null
 var _closed = false
 var _clicked_btn = null # クリックしているボタン
@@ -39,49 +47,75 @@ func _ready() -> void:
 		
 		_update_item_list()
 
-
-func _process(delta: float) -> void:
-	if is_instance_valid(_script):
-		# スクリプト実行中
-		return
+func _process(delta: float) -> void:	
+	
+	Infoboard.send("state:%d"%_state)
 	
 	if _closed:
 		# 閉じたら何もしない
 		queue_free()
 		return
 	
+	match _state:
+		eState.MAIN:
+			_update_main(delta)
+		eState.BTN_CLICK:
+			_update_btn_click(delta)
+		eState.SCRIPT:
+			_update_script(delta)
+		eState.BTN_RETURN:
+			_update_btn_return(delta)
+
+func _update_main(delta:float) -> void:
 	var clicked_idx = _get_clicked_idx()
-	if clicked_idx < 0:
-		# ロックを解除する
+	if clicked_idx >= 0:
+		# ボタンクリック処理へ
+		# クリックしているボタン以外はロックする
+		var idx = 0
+		for btn in _item_layer.get_children():
+			if idx != clicked_idx:
+				btn.locked = true
+			idx += 1
+		_state = eState.BTN_CLICK
+
+func _update_btn_click(delta:float) -> void:
+	# 衝突判定
+	_overlaped_btn = _get_nearest_collide_btn(_clicked_btn)
+	
+	# 点滅解除
+	for btn in _item_layer.get_children():
+		btn.blinked = false
+	
+	# クリックしているボタン番号を取得する
+	if _clicked_btn.is_return_wait():
+		# ボタンを離したのでロックを解除する
 		for btn in _item_layer.get_children():
 			btn.locked = false
 			btn.blinked = false
-		return
-		
-		
-	# クリックしているボタン以外はロックする
-	var idx = 0
-	for btn in _item_layer.get_children():
-		if idx != clicked_idx:
-			btn.locked = true
-			btn.blinked = false
-		idx += 1
-	
-	_overlaped_btn = _get_nearest_collide_btn(_clicked_btn)
-	if _overlaped_btn:
-		# 衝突していたら点滅
-		_overlaped_btn.blinked = true
-	
-	if _clicked_btn.is_return_wait():
-		# リターン待ち
 		# スクリプトを実行する
 		var item2 = AdvUtilObj.ITEM_INVALID
 		if _overlaped_btn:
 			item2 = _overlaped_btn.item
 		_start_script(_clicked_btn.item, item2)
+		_state = eState.SCRIPT
+		return
+	
+	if _overlaped_btn:
+		# 衝突していたら点滅
+		_overlaped_btn.blinked = true
 		
-		_clicked_btn.start_return()
 
+func _update_script(delta:float) -> void:
+	if is_instance_valid(_script) == false:
+		# スクリプト終了
+		# ボタンを元の位置に戻す
+		_clicked_btn.start_return()
+		_state = eState.BTN_RETURN
+
+func _update_btn_return(delta:float) -> void:
+	if _clicked_btn.is_idle():
+		_state = eState.MAIN
+	
 func _start_script(item1:int, item2:int) -> void:
 	# アイテム用スクリプトを実行する
 	Global.var_set(Adv.eVar.CRAFT1, item1) # 合成アイテム1
