@@ -64,12 +64,15 @@ func _process(delta: float) -> void:
 	if _clicked_btn.is_return_wait():
 		# リターン待ち
 		# スクリプトを実行する
-		_start_script()
+		_start_script(_clicked_btn.item, AdvUtilObj.ITEM_INVALID)
 		
 		_clicked_btn.start_return()
 
-func _start_script() -> void:
+func _start_script(item1:int, item2:int) -> void:
 	# アイテム用スクリプトを実行する
+	Global.var_set(Adv.eVar.CRAFT1, item1) # 合成アイテム1
+	Global.var_set(Adv.eVar.CRAFT2, item2) # 合成アイテム2
+	
 	var path = Global.get_item_script_path()
 	_script = AdvMgr.instance()
 	_script.start(path, "")

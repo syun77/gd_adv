@@ -15,3 +15,5 @@ if($RET) {
 	return
 }
 
+// 詳細情報を表示
+ITEM_DETAIL($CRAFT1)

@@ -1760,7 +1760,7 @@
 					"id": "ITEM_COLOR_RED",
 					"name": "赤い絵の具",
 					"value": 1,
-					"detail": "<color.red>赤い絵の具<color>だ。裏には「あ」と書いてある",
+					"detail": "[color=red]赤い絵の具[/color]だ。裏には「あ」と書いてある",
 					"flag": "FLG_011"
 				},
 				{

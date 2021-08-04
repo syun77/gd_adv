@@ -65,7 +65,7 @@ func item_unequip() -> void:
 # 2つのアイテムをクラフトチェック
 func item_check_craft(itemID1:int, itemID2:int) -> int:
 	var lines = CastleDB.get_sheet("items")
-	for item in lines:
+	for item in lines.values():
 		var craft_flag = item.get("craft_flag", "")
 		if CastleDB.bit_chk(craft_flag) == false:
 			# まだフラグが立っていないのでクラフトできない
