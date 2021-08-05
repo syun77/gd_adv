@@ -66,6 +66,11 @@ func _process(delta: float) -> void:
 		eState.BTN_RETURN:
 			_update_btn_return(delta)
 
+	if _state != eState.SCRIPT:
+		# スクリプト更新中でなければボタンを更新する
+		for btn in _item_layer.get_children():
+			btn.update_manual(delta)
+
 func _update_main(delta:float) -> void:
 	var clicked_idx = _get_clicked_idx()
 	if clicked_idx >= 0:

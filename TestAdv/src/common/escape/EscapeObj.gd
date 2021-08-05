@@ -9,7 +9,8 @@ const AdvMgr = preload("res://src/common/adv/AdvMgr.tscn")
 const AdvMoveCursor = preload("res://src/common/adv/AdvMoveCursor.tscn")
 # アイテムボタン
 const ItemButton = preload("res://src/common/escape/ItemButton.tscn")
-
+# アイテムメニュー
+const ItemMenu = preload("res://src/common/escape/ItemMenu.tscn")
 # 状態
 enum eState {
 	INIT,
@@ -30,6 +31,7 @@ var _script = null
 var _script_timer = 0
 var _is_init_event = false
 var _item_button = null # アイテムボタン
+var _item_menu = null # アイテムメニュー
 
 # 開始処理
 func _ready() -> void:
@@ -40,6 +42,7 @@ func _ready() -> void:
 
 	_item_button = ItemButton.instance()
 	_item_button.position = Vector2(AdvConst.WINDOW_WIDTH-80, 80)
+	_item_button.draggable = false # ドラッグ操作無効.
 	add_child(_item_button)
 	
 	if AdvConst.DEBUG:
@@ -58,6 +61,8 @@ func _process(delta: float) -> void:
 			_update_script(delta)
 		eState.NEXT_ROOM:
 			_update_next_room(delta)
+		eState.ITEM_MENU:
+			_update_item_menu(delta)
 	
 	if _state >= eState.MAIN:
 		# オブジェクトの表示状態を更新する
@@ -97,6 +102,17 @@ func _update_main(delta:float) -> void:
 
 	# デバッグ表示
 	update()
+	
+	# アイテムボタンを優先して処理
+	_item_button.update_manual(delta)
+	if _item_button.clicked:
+		# アイテムメニューを表示
+		_item_menu = ItemMenu.instance()
+		add_child(_item_menu)
+		
+		_item_button.reset()
+		_state = eState.ITEM_MENU
+		return
 	
 	# 移動カーソル更新
 	for move in _moves:
@@ -206,6 +222,12 @@ func _update_script(delta:float) -> void:
 # 更新 > 次のルームに移動する
 func _update_next_room(_delta:float) -> void:
 	Global.change_room()
+
+# 更新 > アイテムメニュー
+func _update_item_menu(_delta:float) -> void:
+	if is_instance_valid(_item_menu) == false:
+		# 閉じたのでメイン処理に戻る
+		_state = eState.MAIN
 
 # オブジェクトを更新
 func _obj_visibled(obj:Node2D) -> bool:

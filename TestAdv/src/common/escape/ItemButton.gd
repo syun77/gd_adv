@@ -24,6 +24,7 @@ var item:int = 0 setget _set_item, _get_item
 var locked:bool setget _set_locked, _is_locked
 var clicked:bool setget ,_is_clicked
 var blinked:bool setget _set_blink, _is_blinked
+var draggable:bool setget _set_draggable
 
 var _state = eState.INIT
 var _timer_click = 0
@@ -33,10 +34,14 @@ var _item_id:int = 0
 var _locked:bool = false # クリックできない
 var _timer_animation:float = 0
 var _blinked:bool = false  # 点滅フラグ
+var _draggable:bool = true # ドラッグ操作可能かどうか
 
 onready var _sprite:Sprite = $Item
 onready var _btn_blink:Sprite = $ButtonBlink
 onready var _label:Label = $Label
+
+func reset() -> void:
+	_state = eState.IDLE
 
 func is_return_wait() -> bool:
 	return _state == eState.RETURN_WAIT
@@ -59,7 +64,7 @@ func collide(btn:Node2D) -> bool:
 func _ready() -> void:
 	_btn_blink.modulate.a = 0.0
 
-func _process(delta: float) -> void:
+func update_manual(delta: float) -> void:
 	_timer_animation += delta
 	match _state:
 		eState.INIT:
@@ -116,6 +121,9 @@ func _update_click(delta:float) -> void:
 	if _is_click(eClick.RELEASED):
 		_state = eState.RETURN_WAIT
 		return
+	
+	if _draggable == false:
+		return # ドラッグ操作無効.
 	
 	var d = (get_global_mouse_position() - _drag_start).length()
 	if d > 32:
@@ -194,3 +202,7 @@ func _set_blink(b:bool) -> void:
 	_blinked = b
 func _is_blinked() -> bool:
 	return _blinked
+
+# ドラッグ可能かどうか
+func _set_draggable(b:bool) -> void:
+	_draggable = b
