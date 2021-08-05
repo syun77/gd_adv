@@ -24,6 +24,7 @@ var _yofs:int = 0
 
 func start(s:String, yofs:int, col:Color) -> void:
 	position.y = yofs * get_height()
+	_yofs = yofs
 	_text = s
 	_label.text = s
 	_state = eState.TO_SHOW

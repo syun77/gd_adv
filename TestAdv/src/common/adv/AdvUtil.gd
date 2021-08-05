@@ -60,7 +60,7 @@ func item_chk(idx:int) -> bool:
 
 # 装備を外す
 func item_unequip() -> void:
-	Global.var_set(Adv.eVar.ITEM, AdvConst.ITEM_INVALID)
+	Global.var_set(Adv.eVar.ITEM, ITEM_INVALID)
 
 # 2つのアイテムをクラフトチェック
 func item_check_craft(itemID1:int, itemID2:int) -> int:

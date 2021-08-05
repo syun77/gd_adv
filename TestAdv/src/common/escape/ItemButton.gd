@@ -36,6 +36,7 @@ var _blinked:bool = false  # 点滅フラグ
 
 onready var _sprite:Sprite = $Item
 onready var _btn_blink:Sprite = $ButtonBlink
+onready var _label:Label = $Label
 
 func is_return_wait() -> bool:
 	return _state == eState.RETURN_WAIT
@@ -44,6 +45,9 @@ func is_idle() -> bool:
 
 func start_return() -> void:
 	_state = eState.RETURN
+func start_return2(pos:Vector2) -> void:
+	_start = pos
+	start_return()	
 
 func collide(btn:Node2D) -> bool:
 	var d = btn.position - position
@@ -74,7 +78,8 @@ func _process(delta: float) -> void:
 	if _state >= eState.CLICK:
 		# クリックすると最前面に移動する
 		z_index = 100
-		_btn_blink.modulate.a = 0.5
+		if _state in [eState.CLICK, eState.DRAG]:
+			_btn_blink.modulate.a = 0.5
 	else:
 		z_index = 0
 		if _blinked:
@@ -90,9 +95,11 @@ func _process(delta: float) -> void:
 		var v = 0.5 + 0.5 * Ease.elastic_out(1.0 - _timer_click/TIMER_CLICK)
 		scale *= v
 	else:
-		if _state >= eState.CLICK:
+		if _state in [eState.CLICK, eState.DRAG]:
 			# 拡縮アニメーション
 			scale *= 1 + 0.02 * sin(_timer_animation * 12)
+	
+	_label.text = "状態:%d"%_state
 	
 func _updata_init(delta:float) -> void:
 	_start = position
@@ -180,7 +187,7 @@ func _is_locked() -> bool:
 
 # クリックしているかどうか
 func _is_clicked() -> bool:
-	return _state >= eState.CLICK
+	return _state == eState.CLICK
 
 # 点滅フラグ
 func _set_blink(b:bool) -> void:

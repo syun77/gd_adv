@@ -47,7 +47,10 @@ func _ready() -> void:
 		
 		_update_item_list()
 
-func _process(delta: float) -> void:	
+func _process(delta: float) -> void:
+	
+	Infoboard.send("state:%d"%_state)
+	
 	if _closed:
 		# 閉じたら何もしない
 		queue_free()
@@ -105,12 +108,16 @@ func _update_btn_click(delta:float) -> void:
 func _update_script(delta:float) -> void:
 	if is_instance_valid(_script) == false:
 		# スクリプト終了
+		# ボタンを更新
+		_update_item_list()
 		# ボタンを元の位置に戻す
 		_clicked_btn.start_return()
 		_state = eState.BTN_RETURN
 
 func _update_btn_return(delta:float) -> void:
-	if _clicked_btn.is_idle():
+	if is_instance_valid(_clicked_btn) == false:
+		_state = eState.MAIN
+	elif _clicked_btn.is_idle():
 		_state = eState.MAIN
 	
 func _start_script(item1:int, item2:int) -> void:
@@ -161,14 +168,38 @@ func _idx_to_position(idx:int) -> Vector2:
 
 func _update_item_list():
 	var start = Adv.eItem.ITEM_DUMMY + 1
-	var idx = 0
+	
+	# 存在しないアイテムを削除する
+	for item_id in range(start, AdvConst.MAX_ITEM):
+		if AdvUtil.item_has(item_id) == false:
+			for btn in _item_layer.get_children():
+				if btn.item == item_id:
+					btn.queue_free()
+	
+	var idx = _item_layer.get_child_count()
 	for item_id in range(start, AdvConst.MAX_ITEM):
 		if AdvUtil.item_has(item_id):
-			var btn = ItemButton.instance()
-			btn.position = _idx_to_position(idx)
-			_item_layer.add_child(btn)
-			btn.item = item_id # _ready() をしないとSpriteが存在しない
-			idx += 1
+			if _exists_item(item_id) == false:
+				# 存在しなければ登録する
+				var btn = ItemButton.instance()
+				btn.position = _idx_to_position(idx)
+				_item_layer.add_child(btn)
+				btn.item = item_id # _ready() をしないとSpriteが存在しない
+				idx += 1
+
+	idx = 0
+	for btn in _item_layer.get_children():
+		if btn.is_queued_for_deletion():
+			continue
+		var pos = _idx_to_position(idx)
+		btn.start_return2(pos)
+		idx += 1
+
+func _exists_item(item_id:int) -> bool:
+	for btn in _item_layer.get_children():
+		if btn.item == item_id:
+			return true
+	return false
 
 func _on_Button_pressed() -> void:
 	_closed = true

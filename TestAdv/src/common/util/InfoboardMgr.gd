@@ -32,16 +32,18 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	var can_reset = true
+	var idx_list = []
 	for obj in get_children():
-		if obj.get_yofs() == 0:
-			# リセットできない
-			can_reset = false
+		idx_list.append(obj.get_yofs())
+
+	var prev = -1
+	idx_list.sort()
+	for idx in idx_list:	
+		if prev+1 != idx:
+			# 空きを見つけたらそこに番号を設定する
+			_idx = prev+1
 			break
-	
-	if can_reset:
-		# リセット
-		_idx = 0
+		prev = idx
 	
 	#_update_debug()
 		

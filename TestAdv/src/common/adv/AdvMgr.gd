@@ -296,7 +296,7 @@ func _ITEM_ADD(_args:PoolStringArray) -> int:
 	Infoboard.send("[ITEM_ADD] %s(%d)"%[name, item_id])
 	var text = name + Adv.ITEM_GET_MESSAGE
 	# 通知テキストを表示
-	AdvNoticeText.start(name)
+	AdvNoticeText.start(text)
 	
 	AdvUtil.item_add(item_id)
 	return AdvConst.eRet.CONTINUE
@@ -330,6 +330,7 @@ func _ITEM_HAS(_args:PoolStringArray) -> int:
 func _ITEM_DEL(_args:PoolStringArray) -> int:
 	# アイテムを削除する
 	var item_id = _script.pop_stack()
+	AdvUtil.item_del(item_id)
 	var name = AdvUtil.item_cdb_search(item_id, "name")
 	Infoboard.send("[ITEM_DEL] %s(%d)"%[name, item_id])
 	return AdvConst.eRet.CONTINUE
