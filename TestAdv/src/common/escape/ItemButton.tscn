@@ -21,6 +21,7 @@ texture = ExtResource( 4 )
 texture = ExtResource( 1 )
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = -19.0591
 margin_top = 77.4658
 margin_right = 20.9409

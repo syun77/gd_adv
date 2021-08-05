@@ -49,7 +49,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	
-	Infoboard.send("state:%d"%_state)
+	#Infoboard.send("state:%d"%_state)
 	
 	if _closed:
 		# 閉じたら何もしない

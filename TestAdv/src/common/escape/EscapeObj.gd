@@ -7,6 +7,8 @@ extends Node2D
 const AdvMgr = preload("res://src/common/adv/AdvMgr.tscn")
 # 移動カーソルオブジェクト
 const AdvMoveCursor = preload("res://src/common/adv/AdvMoveCursor.tscn")
+# アイテムボタン
+const ItemButton = preload("res://src/common/escape/ItemButton.tscn")
 
 # 状態
 enum eState {
@@ -14,6 +16,7 @@ enum eState {
 	MAIN,
 	SCRIPT,
 	NEXT_ROOM,
+	ITEM_MENU,
 }
 
 # デバッグ用フォント
@@ -26,6 +29,7 @@ var _state = eState.INIT
 var _script = null
 var _script_timer = 0
 var _is_init_event = false
+var _item_button = null # アイテムボタン
 
 # 開始処理
 func _ready() -> void:
@@ -33,6 +37,10 @@ func _ready() -> void:
 	_clickable_layer = $"../../RoomLayer/ClickableLayer"
 	for obj in _clickable_layer.get_children():
 		obj.visible = false # いったんすべて非表示にしておく
+
+	_item_button = ItemButton.instance()
+	_item_button.position = Vector2(AdvConst.WINDOW_WIDTH-80, 80)
+	add_child(_item_button)
 	
 	if AdvConst.DEBUG:
 		# TODO: ウィンドウをリサイズ
