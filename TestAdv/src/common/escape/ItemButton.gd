@@ -41,7 +41,12 @@ onready var _btn_blink:Sprite = $ButtonBlink
 onready var _label:Label = $Label
 
 func reset() -> void:
+	show()
 	_state = eState.IDLE
+func hide() -> void:
+	visible = false
+func show() -> void:
+	visible = true
 
 func is_return_wait() -> bool:
 	return _state == eState.RETURN_WAIT

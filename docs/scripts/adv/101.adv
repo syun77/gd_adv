@@ -3,9 +3,7 @@ def init {
 }
 
 def click1 {
-	%FLG_012 = true
-	%LF_00 = true
-	":絵の具をクリックしました"
+	ITEM_ADD(ITEM_COLOR_RED)
 }
 def click2 {
 	%FLG_012 = false

@@ -37,6 +37,7 @@ var _item_menu = null # アイテムメニュー
 func _ready() -> void:
 	
 	_clickable_layer = $"../../RoomLayer/ClickableLayer"
+	_clickable_layer.layer = Global.PRIO_CLICKABLE
 	for obj in _clickable_layer.get_children():
 		obj.visible = false # いったんすべて非表示にしておく
 
@@ -110,7 +111,9 @@ func _update_main(delta:float) -> void:
 		_item_menu = ItemMenu.instance()
 		add_child(_item_menu)
 		
-		_item_button.reset()
+		# アイテムボタンを非表示にする
+		_item_button.hide()
+		
 		_state = eState.ITEM_MENU
 		return
 	
@@ -227,6 +230,8 @@ func _update_next_room(_delta:float) -> void:
 func _update_item_menu(_delta:float) -> void:
 	if is_instance_valid(_item_menu) == false:
 		# 閉じたのでメイン処理に戻る
+		# アイテムボタンをリセットする
+		_item_button.reset()
 		_state = eState.MAIN
 
 # オブジェクトを更新

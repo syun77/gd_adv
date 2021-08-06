@@ -30,18 +30,21 @@ var _overlaped_btn = null # 重なっているボタン
 onready var _item_layer = $ItemLayer
 
 func _ready() -> void:
+	
+	_item_layer.layer = Global.PRIO_ITEM_MENU
+	
 	if AdvConst.DEBUG:
 		# TODO: ウィンドウをリサイズ
 		OS.set_window_size(Vector2(853, 480))
 		#OS.set_window_size(Vector2(480, 270))
 		
 		# グローバル変数を初期化
-		Global.init()
+		#Global.init()
 		
 		# アイテムを所持していることにする
-		AdvUtil.item_add(Adv.eItem.ITEM_COLOR_RED)
-		AdvUtil.item_add(Adv.eItem.ITEM_COLOR_ORANGE)
-		AdvUtil.item_add(Adv.eItem.ITEM_COLOR_GREEN)
+		#AdvUtil.item_add(Adv.eItem.ITEM_COLOR_RED)
+		#AdvUtil.item_add(Adv.eItem.ITEM_COLOR_ORANGE)
+		#AdvUtil.item_add(Adv.eItem.ITEM_COLOR_GREEN)
 		#AdvUtil.item_add(Adv.eItem.ITEM_COLOR_INDIGO)
 		#AdvUtil.item_add(Adv.eItem.ITEM_COLOR_PURPLE)
 		

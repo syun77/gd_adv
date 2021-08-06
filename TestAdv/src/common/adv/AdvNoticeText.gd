@@ -14,12 +14,14 @@ enum eState {
 	HIDE,     # 非表示
 }
 
+onready var _layer:CanvasLayer  = $Layer
 onready var _bg:ColorRect       = $Layer/Bg
 onready var _text:RichTextLabel = $Layer/Text
 var _state = eState.HIDE
 var _timer:float = 0
 
 func _ready() -> void:
+	_layer.layer = Global.PRIO_ADV_NOTICE
 	end() # 非表示にしておく
 
 # 表示開始
