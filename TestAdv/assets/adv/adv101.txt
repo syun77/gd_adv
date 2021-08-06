@@ -6,11 +6,8 @@ INT,1
 ITEM_ADD
 FUNC_END,click1
 FUNC_START,click2
-BOOL,0
-SET,16,12
-INT,123
-SET,0,122
-MSG,9,新聞をクリックしました
+INT,1
+ITEM_DEL
 FUNC_END,click2
 FUNC_START,move
 MSG,1,移動します

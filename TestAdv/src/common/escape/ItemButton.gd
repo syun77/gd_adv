@@ -182,9 +182,16 @@ func _is_click(state:int) -> bool:
 # ------------------------------------
 # アイテム
 func _set_item(item_id:int) -> void:
+	if item_id == AdvUtil.ITEM_INVALID:
+		# 何も装備していない
+		_sprite.visible = false
+		_item_id = item_id
+		return
+	
 	var path = PATH_ITEM%item_id
 	var f:File = File.new()
 	if f.file_exists(path):
+		_sprite.visible = true
 		_sprite.texture = load(path)
 		_item_id = item_id
 	else:

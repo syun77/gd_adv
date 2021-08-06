@@ -1,8 +1,7 @@
 def click1 {
 	%FLG_012 = true
-	":絵の具をクリックしました"
+	ITEM_ADD(ITEM_COLOR_GREEN)
 }
 def click2 {
 	%FLG_012 = false
-	":新聞をクリックしました"
 }

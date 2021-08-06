@@ -38,8 +38,7 @@
 					"objs": [
 						{
 							"id": 1,
-							"click": "click1",
-							"off": "LF_00"
+							"click": "click1"
 						},
 						{
 							"id": 2,

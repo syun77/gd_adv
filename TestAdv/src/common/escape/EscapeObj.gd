@@ -44,6 +44,7 @@ func _ready() -> void:
 	_item_button = ItemButton.instance()
 	_item_button.position = Vector2(AdvConst.WINDOW_WIDTH-80, 80)
 	_item_button.draggable = false # ドラッグ操作無効.
+	_item_button.hide() # 非表示にしておく
 	add_child(_item_button)
 	
 	if AdvConst.DEBUG:
@@ -101,9 +102,13 @@ func _update_init(_delta:float) -> void:
 # 更新 > メイン
 func _update_main(delta:float) -> void:
 
-	# デバッグ表示
-	update()
+	if AdvConst.DEBUG:
+		# デバッグ表示
+		update()
 	
+	# アイテムボタンの更新
+	_update_item_button()
+
 	# アイテムボタンを優先して処理
 	_item_button.update_manual(delta)
 	if _item_button.clicked:
@@ -137,6 +142,17 @@ func _update_main(delta:float) -> void:
 	if _check_clickable_obj(mx, my):
 		return
 
+func _update_item_button() -> void:
+	if AdvUtil.item_no_have_any():
+		# アイテム未所持の場合はボタンを消す
+		_item_button.hide()
+		return
+	
+	# 装備中のアイテムを取得
+	var item_id = Global.var_get(Adv.eVar.ITEM)
+	_item_button.item = item_id
+	_item_button.show()
+	
 func _check_clickable_obj(mx:float, my:float) -> bool:
 	# 前面から処理したいので逆順でループを回す
 	var children = _clickable_layer.get_children()
