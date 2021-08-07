@@ -42,7 +42,7 @@ func _ready() -> void:
 		obj.visible = false # いったんすべて非表示にしておく
 
 	_item_button = ItemButton.instance()
-	_item_button.position = Vector2(AdvConst.WINDOW_WIDTH-80, 80)
+	_item_button.position = AdvConst.ITEM_MENU_BTN_POS
 	_item_button.draggable = false # ドラッグ操作無効.
 	_item_button.hide() # 非表示にしておく
 	add_child(_item_button)
@@ -152,7 +152,7 @@ func _update_item_button() -> void:
 	var item_id = Global.var_get(Adv.eVar.ITEM)
 	_item_button.item = item_id
 	_item_button.show()
-	
+			
 func _check_clickable_obj(mx:float, my:float) -> bool:
 	# 前面から処理したいので逆順でループを回す
 	var children = _clickable_layer.get_children()

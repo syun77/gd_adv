@@ -1,5 +1,7 @@
 def init {
-	"ルーム開始イベント/"
+	ITEM_ADD(ITEM_COLOR_ORANGE)
+	ITEM_ADD(ITEM_COLOR_INDIGO)
+	ITEM_ADD(ITEM_COLOR_PURPLE)
 }
 
 def click1 {

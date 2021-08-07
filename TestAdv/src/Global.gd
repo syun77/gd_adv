@@ -25,6 +25,7 @@ var now_room:int = 0 setget _set_now_room, _get_now_room
 # 次のルーム番号
 var next_room:int = 0 setget _set_next_room, _get_next_room
 
+var _initialized := false
 var _bits = [] # フラグ
 var _vars = [] # 変数
 var _items = [] # アイテム
@@ -154,6 +155,13 @@ func init() -> void:
 	# 開始ルーム番号を設定しておく
 	now_room = 101
 	next_room = now_room
+	
+	# 初期化済み
+	_initialized = true
+
+# 初期化済みかどうか
+func initialized() -> bool:
+	return _initialized
 
 # セーブ処理
 func save_data() -> void:

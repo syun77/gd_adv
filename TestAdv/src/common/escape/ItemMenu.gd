@@ -27,26 +27,32 @@ var _script = null
 var _closed = false
 var _clicked_btn = null # クリックしているボタン
 var _overlaped_btn = null # 重なっているボタン
+var _menu_btn = null # メニューボタン
 onready var _item_layer = $ItemLayer
 
 func _ready() -> void:
 	
 	_item_layer.layer = Global.PRIO_ITEM_MENU
 	
+	_menu_btn = ItemButton.instance()
+	_menu_btn.position = AdvConst.ITEM_MENU_BTN_POS
+	_menu_btn.draggable = false # ドラッグ操作無効
+	add_child(_menu_btn)
+	
 	if AdvConst.DEBUG:
+		if Global.initialized() == false:
+			# グローバル変数を初期化
+			Global.init()
+		
+			# アイテムを所持していることにする
+			AdvUtil.item_add(Adv.eItem.ITEM_COLOR_RED)
+			AdvUtil.item_add(Adv.eItem.ITEM_COLOR_ORANGE)
+			AdvUtil.item_add(Adv.eItem.ITEM_COLOR_GREEN)
+			AdvUtil.item_add(Adv.eItem.ITEM_COLOR_INDIGO)
+			AdvUtil.item_add(Adv.eItem.ITEM_COLOR_PURPLE)
 		# TODO: ウィンドウをリサイズ
 		OS.set_window_size(Vector2(853, 480))
 		#OS.set_window_size(Vector2(480, 270))
-		
-		# グローバル変数を初期化
-		#Global.init()
-		
-		# アイテムを所持していることにする
-		#AdvUtil.item_add(Adv.eItem.ITEM_COLOR_RED)
-		#AdvUtil.item_add(Adv.eItem.ITEM_COLOR_ORANGE)
-		#AdvUtil.item_add(Adv.eItem.ITEM_COLOR_GREEN)
-		#AdvUtil.item_add(Adv.eItem.ITEM_COLOR_INDIGO)
-		#AdvUtil.item_add(Adv.eItem.ITEM_COLOR_PURPLE)
 		
 		_update_item_list()
 
@@ -58,7 +64,7 @@ func _process(delta: float) -> void:
 		# 閉じたら何もしない
 		queue_free()
 		return
-	
+
 	match _state:
 		eState.MAIN:
 			_update_main(delta)
@@ -75,6 +81,16 @@ func _process(delta: float) -> void:
 			btn.update_manual(delta)
 
 func _update_main(delta:float) -> void:
+	# メニューボタンを優先して更新
+	# 装備中のアイテムを取得
+	var item_id = Global.var_get(Adv.eVar.ITEM)
+	_menu_btn.item = item_id
+	_menu_btn.update_manual(delta)
+	if _menu_btn.clicked:
+		# メニューボタンが押されたら閉じる
+		_closed = true
+		return
+	
 	var clicked_idx = _get_clicked_idx()
 	if clicked_idx >= 0:
 		# ボタンクリック処理へ
@@ -120,6 +136,9 @@ func _update_script(delta:float) -> void:
 		_update_item_list()
 		# ボタンを元の位置に戻す
 		_clicked_btn.start_return()
+		# 選んだボタンのアイテムを装備する
+		AdvUtil.item_equip(_clicked_btn.item)
+		
 		_state = eState.BTN_RETURN
 
 func _update_btn_return(delta:float) -> void:

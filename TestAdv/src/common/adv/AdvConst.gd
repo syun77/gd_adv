@@ -11,6 +11,9 @@ const WINDOW_HEIGHT   := 720  # 画面の高さ
 const WINDOW_CENTER_X := WINDOW_WIDTH/2  # 画面の中央(X)
 const WINDOW_CENTER_Y := WINDOW_HEIGHT/2 # 画面の中央(Y)
 
+# アイテムメニューボタンの位置
+const ITEM_MENU_BTN_POS := Vector2(WINDOW_WIDTH - 80, 80)
+
 const MAX_LOG = 50 # ログの最大数
 
 const CH_SLIDE_OFS_X := 64 # キャラクタースライド移動量

@@ -188,12 +188,18 @@ func _set_item(item_id:int) -> void:
 		_item_id = item_id
 		return
 	
+	if _item_id == item_id:
+		# 装備中のアイテム
+		return
+	
 	var path = PATH_ITEM%item_id
 	var f:File = File.new()
 	if f.file_exists(path):
 		_sprite.visible = true
 		_sprite.texture = load(path)
 		_item_id = item_id
+		# クリックの演出のみ行う
+		_timer_click = TIMER_CLICK
 	else:
 		Infoboard.error("%sが見つかりません"%path)
 func _get_item() -> int:
