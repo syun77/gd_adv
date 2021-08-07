@@ -6,7 +6,7 @@ extends Control
 
 const MAX_LINE = 5
 const START_X = 320
-const START_Y = 160
+const START_Y = 192
 const SIZE_W  = 160
 const SIZE_H  = 160
 
@@ -28,9 +28,12 @@ var _closed = false
 var _clicked_btn = null # クリックしているボタン
 var _overlaped_btn = null # 重なっているボタン
 var _menu_btn = null # メニューボタン
+
 onready var _item_layer = $ItemLayer
+onready var _bg = $Bg
 
 func _ready() -> void:
+	_bg.modulate.a = 0
 	
 	_item_layer.layer = Global.PRIO_ITEM_MENU
 	
@@ -50,18 +53,16 @@ func _ready() -> void:
 			AdvUtil.item_add(Adv.eItem.ITEM_COLOR_GREEN)
 			AdvUtil.item_add(Adv.eItem.ITEM_COLOR_INDIGO)
 			AdvUtil.item_add(Adv.eItem.ITEM_COLOR_PURPLE)
-		# TODO: ウィンドウをリサイズ
-		OS.set_window_size(Vector2(853, 480))
-		#OS.set_window_size(Vector2(480, 270))
 		
 		_update_item_list()
 
 func _process(delta: float) -> void:
-	
 	#Infoboard.send("state:%d"%_state)
 	
+	_bg.modulate.a = min(0.9, _bg.modulate.a + (delta*2))
+	
 	if _closed:
-		# 閉じたら何もしない
+		# 閉じたら何もせずに終了
 		queue_free()
 		return
 
@@ -210,6 +211,7 @@ func _update_item_list():
 				# 存在しなければ登録する
 				var btn = ItemButton.instance()
 				btn.position = _idx_to_position(idx)
+				btn.timer_delay = 0.05 * idx
 				_item_layer.add_child(btn)
 				btn.item = item_id # _ready() をしないとSpriteが存在しない
 				idx += 1

@@ -68,11 +68,6 @@ func _ready() -> void:
 	_bg_mgr  = AdvLayerBg.new([$AdvLayerBg/BellowBg, $AdvLayerBg/AboveBg])
 	_ch_mgr  = AdvLayerCh.new([$AdvLayerCh/LeftCh, $AdvLayerCh/CenterCh, $AdvLayerCh/RightCh])
 	
-	if AdvConst.DEBUG:
-		# TODO: ウィンドウをリサイズ
-		OS.set_window_size(Vector2(853, 480))
-		#OS.set_window_size(Vector2(480, 270))
-
 # 更新
 func _process(delta: float) -> void:
 	

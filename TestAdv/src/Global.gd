@@ -158,6 +158,11 @@ func init() -> void:
 	
 	# 初期化済み
 	_initialized = true
+	
+	if AdvConst.DEBUG:
+		# TODO: ウィンドウをリサイズ
+		OS.set_window_size(Vector2(853, 480))
+		#OS.set_window_size(Vector2(480, 270))
 
 # 初期化済みかどうか
 func initialized() -> bool:

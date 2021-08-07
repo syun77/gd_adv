@@ -25,6 +25,7 @@ var locked:bool setget _set_locked, _is_locked
 var clicked:bool setget ,_is_clicked
 var blinked:bool setget _set_blink, _is_blinked
 var draggable:bool setget _set_draggable
+var timer_delay:float setget _set_timer_delay
 
 var _state = eState.INIT
 var _timer_click = 0
@@ -33,6 +34,7 @@ var _drag_start := Vector2()
 var _item_id:int = 0
 var _locked:bool = false # クリックできない
 var _timer_animation:float = 0
+var _timer_delay:float = 0
 var _blinked:bool = false  # 点滅フラグ
 var _draggable:bool = true # ドラッグ操作可能かどうか
 
@@ -70,6 +72,10 @@ func _ready() -> void:
 	_btn_blink.modulate.a = 0.0
 
 func update_manual(delta: float) -> void:
+
+	if _proc_delay(delta):
+		return # ディレイ中	
+	
 	_timer_animation += delta
 	match _state:
 		eState.INIT:
@@ -98,20 +104,17 @@ func update_manual(delta: float) -> void:
 		else:
 			_btn_blink.modulate.a = 0.0
 	
-	# クリック演出
-	_timer_click = max(0, _timer_click-delta)
-	scale = Vector2(1, 1)
-	if _timer_click > 0:
-		var v = 0.5 + 0.5 * Ease.elastic_out(1.0 - _timer_click/TIMER_CLICK)
-		scale *= v
-	else:
-		if _state in [eState.CLICK, eState.DRAG]:
-			# 拡縮アニメーション
-			scale *= 1 + 0.02 * sin(_timer_animation * 12)
+	_proc_click_effect(delta)
 	
 	_label.text = "状態:%d"%_state
 	
 func _updata_init(delta:float) -> void:
+	if _timer_delay > 0:
+		# 遅延タイマーあり
+		_timer_delay -= delta
+		visible = false
+		return
+	visible = true
 	_start = position
 	_state = eState.IDLE
 
@@ -148,6 +151,28 @@ func _update_return(delta:float) -> void:
 		return
 	
 	position += d * 0.3
+
+func _proc_delay(delta:float) -> bool:
+	# クリック演出
+	if _timer_delay > 0:
+		# 遅延タイマーあり
+		_timer_delay -= delta
+		visible = false # 非表示にしておく
+		return true # ディレイ中
+	
+	visible = true
+	return false
+
+func _proc_click_effect(delta:float) -> void:
+	_timer_click = max(0, _timer_click-delta)
+	scale = Vector2(1, 1)
+	if _timer_click > 0:
+		var v = 0.5 + 0.5 * Ease.elastic_out(1.0 - _timer_click/TIMER_CLICK)
+		scale *= v
+	else:
+		if _state in [eState.CLICK, eState.DRAG]:
+			# 拡縮アニメーション
+			scale *= 1 + 0.02 * sin(_timer_animation * 12)
 
 func _is_click(state:int) -> bool:
 	var check = false
@@ -224,3 +249,8 @@ func _is_blinked() -> bool:
 # ドラッグ可能かどうか
 func _set_draggable(b:bool) -> void:
 	_draggable = b
+
+# 出現ディレイタイマーの設定
+func _set_timer_delay(t:float) -> void:
+	_timer_delay = t
+	visible = false # 非表示にしておく

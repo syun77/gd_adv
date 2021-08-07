@@ -46,11 +46,6 @@ func _ready() -> void:
 	_item_button.draggable = false # ドラッグ操作無効.
 	_item_button.hide() # 非表示にしておく
 	add_child(_item_button)
-	
-	if AdvConst.DEBUG:
-		# TODO: ウィンドウをリサイズ
-		OS.set_window_size(Vector2(853, 480))
-		#OS.set_window_size(Vector2(480, 270))
 
 # 更新
 func _process(delta: float) -> void:
