@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/common/ui_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/adv/dial_cursor.png" type="Texture" id=2]
+[ext_resource path="res://assets/adv/dial_cursor_pressed.png" type="Texture" id=3]
+[ext_resource path="res://src/common/escape/EscapeInput.gd" type="Script" id=4]
+
+[node name="EscapeInput" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.78772
+margin_top = -0.78772
+margin_right = -0.78772
+margin_bottom = -0.78772
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpButton" type="TextureButton" parent="."]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_rotation = -90.0
+rect_pivot_offset = Vector2( 48, 48 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+
+[node name="DownButton" type="TextureButton" parent="."]
+margin_top = 192.0
+margin_right = 96.0
+margin_bottom = 288.0
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 48, 48 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg" type="ColorRect" parent="."]
+margin_left = 12.0
+margin_top = 112.0
+margin_right = 84.0
+margin_bottom = 176.0
+color = Color( 0.5265, 0.567667, 0.65, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Bg"]
+margin_left = -12.0
+margin_top = -8.0
+margin_right = 84.0
+margin_bottom = 72.0
+custom_fonts/font = ExtResource( 1 )
+text = "時計"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="UpButton" to="." method="_on_UpButton_pressed"]
+[connection signal="pressed" from="DownButton" to="." method="_on_DownButton_pressed"]
