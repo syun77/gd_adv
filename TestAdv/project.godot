@@ -28,12 +28,24 @@ _global_script_classes=[ {
 "class": "Easing",
 "language": "GDScript",
 "path": "res://src/common/math/Ease.gd"
+}, {
+"base": "Control",
+"class": "EscapeInputMenuObj",
+"language": "GDScript",
+"path": "res://src/common/escape/EscapeInputMenu.gd"
+}, {
+"base": "Control",
+"class": "EscapeInputObj",
+"language": "GDScript",
+"path": "res://src/common/escape/EscapeInput.gd"
 } ]
 _global_script_class_icons={
 "Adv": "",
 "AdvConst": "",
 "AdvUtilObj": "",
-"Easing": ""
+"Easing": "",
+"EscapeInputMenuObj": "",
+"EscapeInputObj": ""
 }
 
 [application]
