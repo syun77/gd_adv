@@ -5,7 +5,14 @@ def init {
 }
 
 def click1 {
-	ITEM_ADD(ITEM_COLOR_RED)
+	NUM_INPUT(1234, eVar.LVAR_00, 4, true)
+	if($RET) {
+		"正解/"
+		ITEM_ADD(ITEM_COLOR_RED)
+	}
+	else {
+		"ハズレ/"
+	}
 }
 def click2 {
 	ITEM_DEL(ITEM_COLOR_RED)

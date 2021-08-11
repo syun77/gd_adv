@@ -53,3 +53,6 @@ __meta__ = {
 
 [node name="LayerTalk" type="CanvasLayer" parent="."]
 layer = 5
+
+[node name="LayerMenu" type="CanvasLayer" parent="."]
+layer = 6

@@ -10,6 +10,9 @@ const AdvLayerCh       = preload("res://src/common/adv/AdvLayerCh.gd")
 const AdvTalkText      = preload("res://src/common/adv/AdvTalkText.gd")
 const AdvTalkTextScene = preload("res://src/common/adv/AdvTalkText.tscn")
 
+# 入力メニュー
+const EscapeInputMenu = preload("res://src/common/escape/EscapeInputMenu.tscn")
+
 # 状態
 enum eState {
 	INIT,
@@ -41,6 +44,7 @@ var _msg              := AdvTextMgr.new()
 var _state            = eState.INIT
 var _next_state       = eState.INIT
 var _wait             = 0
+var _exec_obj:Object = null
 
 # プロパティ
 var _script_path             = ""
@@ -49,6 +53,7 @@ var _start_funcname          = ""
 # レイヤー
 onready var _layer_bg   = $LayerBg
 onready var _layer_talk = $LayerTalk
+onready var _layer_menu = $LayerMenu
 
 # 開始
 func start(script_path, funcname:String) -> void:
@@ -67,6 +72,11 @@ func _ready() -> void:
 	_talk_text.hide()
 	_bg_mgr  = AdvLayerBg.new([$AdvLayerBg/BellowBg, $AdvLayerBg/AboveBg])
 	_ch_mgr  = AdvLayerCh.new([$AdvLayerCh/LeftCh, $AdvLayerCh/CenterCh, $AdvLayerCh/RightCh])
+	
+	$AdvLayerBg.layer = Global.PRIO_ADV_BG
+	$AdvLayerCh.layer = Global.PRIO_ADV_CH
+	_layer_talk.layer = Global.PRIO_ADV_TALK
+	_layer_menu.layer = Global.PRIO_ADV_MENU
 	
 # 更新
 func _process(delta: float) -> void:
@@ -87,6 +97,8 @@ func _process(delta: float) -> void:
 			_update_sel_wait(delta)
 		eState.WAIT:
 			_update_wait(delta)
+		eState.OBJ_WAIT:
+			_update_obj_wait(delta)
 		eState.END:
 			# デバッグ用
 			#get_tree().change_scene("res://src/common/adv/AdvMgr.tscn")
@@ -152,6 +164,12 @@ func _update_wait(delta:float):
 	_wait -= delta
 	if _wait <= 0:
 		_next_state = eState.EXEC	
+
+# 更新・オブジェクトの終了待ち
+func _update_obj_wait(_delta:float):
+	if is_instance_valid(_exec_obj) == false:
+		# スクリプト実行に戻る
+		_next_state = eState.EXEC
 
 # 背景を表示
 func _DRB(_args:PoolStringArray) -> int:
@@ -373,3 +391,15 @@ func _ITEM_DETAIL(_args:PoolStringArray) -> int:
 	
 	AdvNoticeText.start(detail)
 	return AdvConst.eRet.CONTINUE
+	
+func _NUM_INPUT(_args:PoolStringArray) -> int:
+	# 数値入力の表示
+	var answer = _script.pop_stack()
+	var idx = _script.pop_stack()
+	var digit = _script.pop_stack()
+	var autoCheck = (_script.pop_stack() != false)
+	_exec_obj = EscapeInputMenu.instance()
+	_exec_obj.start_num_input(answer, idx, digit, autoCheck)
+	_layer_menu.add_child(_exec_obj)
+	_next_state = eState.OBJ_WAIT
+	return AdvConst.eRet.YIELD

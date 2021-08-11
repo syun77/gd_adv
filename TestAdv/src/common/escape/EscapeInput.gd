@@ -68,7 +68,7 @@ func _process(delta: float) -> void:
 	
 	if _is_blink:
 		# 点滅させる
-		_bg.color = _bg_color.linear_interpolate(Color.gray, abs(sin(_timer*4)))
+		_bg.color = _bg_color.linear_interpolate(Color.white, abs(sin(_timer*PI*1.5)))
 
 func _on_UpButton_pressed() -> void:
 	# 上ボタンを押した

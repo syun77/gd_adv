@@ -45,6 +45,7 @@ func start_num_input(answer:int, var_idx:int, digit:int, auto_check:bool) -> voi
 
 func _ready() -> void:
 	# テストデータ
+	"""
 	start_num_input(
 		9
 		, Adv.eVar.LVAR_00
@@ -54,22 +55,32 @@ func _ready() -> void:
 	if Global.initialized() == false:
 		# 初期化していなかったら初期化してしまう
 		Global.init()
-
+	"""
+	
 	# 戻り値初期化
 	Global.var_set(Adv.eVar.RET, 0)
+	
+	_input_layer.layer = Global.PRIO_ADV_MENU + 1
 
 # 数値の生成
 func _create_num_input() -> void:
 	var tbl = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+	
+	# 変数に保存した入力値
+	var input_val = int(Global.var_get(_var_idx))
 	
 	var px = AdvConst.WINDOW_CENTER_X
 	var py = DIAL_TOP_Y
 	var w = EscapeInputObj.WIDTH
 	px -= ((_digit * w) + (_digit - 1) * DIAL_MARGIN_W) * 0.5
 	for i in range(_digit):
+		var d = _digit - i - 1
+		var mod = int(pow(10, _digit - i))
+		var v = int((input_val % mod) / pow(10, d))
+		
 		var obj = EscapeInput.instance()
 		obj.rect_position = Vector2(px, py)
-		obj.start(tbl, 0)
+		obj.start(tbl, v)
 		_input_layer.add_child(obj)
 		px += w + DIAL_MARGIN_W
 
@@ -121,6 +132,13 @@ func _update_main(delta:float) -> void:
 			Global.var_set(Adv.eVar.RET, 1)
 		_state = eState.END
 		return
+	
+	match _mode:
+		eMode.NUM:
+			# 入力値を保存する
+			Global.var_set(_var_idx, _get_input_num())
+		_:
+			pass
 	
 	if _auto_check:
 		# 自動正解判定
