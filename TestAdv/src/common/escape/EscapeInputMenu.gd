@@ -30,7 +30,9 @@ var _timer:float = 0
 var _digit:int = 0 # 桁数
 var _var_idx:int = 0 # 保存する変数番号
 var _answer_num:int = 0 # 数値の場合の正解
+var _answer_kana:String = "" # 文字の場合の正解
 var _auto_check:bool = false # 自動で正解チェックを行うかどうか
+var _choices:PoolStringArray = [] # 文字入力時の選択文字
 var _closed:bool = false # 閉じるボタンを押したかどうか
 
 onready var _input_layer = $InputLayer
@@ -42,6 +44,17 @@ func start_num_input(answer:int, var_idx:int, digit:int, auto_check:bool) -> voi
 	_var_idx = var_idx
 	_digit = digit
 	_auto_check = auto_check
+
+# 文字入力の開始
+func start_kana_input(kana_id:int) -> void:
+	_mode = eMode.KANA
+	var data = CastleDB.search("kanas", "kana_%03d"%kana_id)
+	_answer_kana = data["answer"]
+	_var_idx = CastleDB.var_to_value(data["ret"])
+	_digit = _answer_kana.length()
+	_auto_check = data["auto_check"]
+	for choice in data["choices"]:
+		_choices.append(choice["moji"])
 
 func _ready() -> void:
 	# テストデータ
@@ -84,12 +97,40 @@ func _create_num_input() -> void:
 		_input_layer.add_child(obj)
 		px += w + DIAL_MARGIN_W
 
+# 文字の生成
+func _create_kana_input() -> void:
+	
+	# 変数に保存した入力値
+	var input_val = int(Global.var_get(_var_idx))
+	
+	var px = AdvConst.WINDOW_CENTER_X
+	var py = DIAL_TOP_Y
+	var w = EscapeInputObj.WIDTH
+	px -= ((_digit * w) + (_digit - 1) * DIAL_MARGIN_W) * 0.5
+	var i = 0
+	for s in _choices:
+		var d = _digit - i - 1
+		var mod = int(pow(10, _digit - i))
+		var v = int((input_val % mod) / pow(10, d))
+		var tbl = []
+		for c in s:
+			tbl.append(c)
+		var obj = EscapeInput.instance()
+		obj.rect_position = Vector2(px, py)
+		obj.start(tbl, v)
+		_input_layer.add_child(obj)
+		px += w + DIAL_MARGIN_W
+		i += 1
+
 # 正解チェック
 func _check_correct() -> bool:
 	match _mode:
 		eMode.NUM:
 			var ret = _get_input_num()
 			return ret == _answer_num
+		eMode.KANA:
+			var ret = _get_input_kana()
+			return ret == _answer_kana
 		_:
 			# 未実装
 			return false
@@ -100,6 +141,12 @@ func _get_input_num() -> int:
 	for obj in _input_layer.get_children():
 		ret += obj.get_idx() * pow(10, d)
 		d -= 1
+	return ret
+
+func _get_input_kana() -> String:
+	var ret:String = ""
+	for obj in _input_layer.get_children():
+		ret += obj.get_str()
 	return ret
 
 func _process(delta: float) -> void:
@@ -121,6 +168,9 @@ func _update_init(delta:float) -> void:
 		eMode.NUM:
 			# 数値入力の生成
 			_create_num_input()
+		eMode.KANA:
+			# 文字入力の生成
+			_create_kana_input()
 	
 	_state = eState.MAIN
 
@@ -134,9 +184,10 @@ func _update_main(delta:float) -> void:
 		return
 	
 	match _mode:
-		eMode.NUM:
+		eMode.NUM, eMode.KANA:
 			# 入力値を保存する
-			Global.var_set(_var_idx, _get_input_num())
+			if _var_idx >= 0:
+				Global.var_set(_var_idx, _get_input_num())
 		_:
 			pass
 	

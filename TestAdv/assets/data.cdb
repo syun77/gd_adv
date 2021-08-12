@@ -2222,7 +2222,7 @@
 			"name": "kanas",
 			"columns": [
 				{
-					"typeStr": "3",
+					"typeStr": "0",
 					"name": "id"
 				},
 				{
@@ -2248,172 +2248,21 @@
 			],
 			"lines": [
 				{
-					"answer": "Ａ５０",
-					"id": 1,
+					"answer": "テスト",
 					"choices": [
 						{
-							"moji": "ＤＥＦＡＢＣ"
+							"moji": "タチツテト"
 						},
 						{
-							"moji": "０１２３４５"
+							"moji": "サシスセソ"
 						},
 						{
-							"moji": "０１２３４５"
+							"moji": "タチツテト"
 						}
 					],
-					"ret": "VAR_096",
-					"auto_check": true
-				},
-				{
-					"id": 2,
-					"answer": "あそぼう",
-					"choices": [
-						{
-							"moji": "あいうえお"
-						},
-						{
-							"moji": "さしすせそ"
-						},
-						{
-							"moji": "ばびぶべぼ"
-						},
-						{
-							"moji": "あいうえお"
-						}
-					],
-					"ret": "VAR_096",
-					"auto_check": true
-				},
-				{
-					"id": 3,
-					"answer": "ノロイ",
-					"choices": [
-						{
-							"moji": "タチツテトナニヌネノ"
-						},
-						{
-							"moji": "カキクケコラリルレロ"
-						},
-						{
-							"moji": "アイウエオマミムメモ"
-						}
-					],
-					"auto_check": false,
-					"ret": "VAR_096"
-				},
-				{
-					"id": 4,
-					"answer": "あさがお",
-					"choices": [
-						{
-							"moji": "あいうえおかきくけこ"
-						},
-						{
-							"moji": "さしすせそたちつてと"
-						},
-						{
-							"moji": "がぎぐげごだぢづでど"
-						},
-						{
-							"moji": "あいうえおまみむめも"
-						}
-					],
-					"ret": "VAR_096",
-					"auto_check": true
-				},
-				{
-					"id": 5,
-					"answer": "アイリス",
-					"choices": [
-						{
-							"moji": "アイウエオマミムメモ"
-						},
-						{
-							"moji": "アイウエオカキクケコ"
-						},
-						{
-							"moji": "サシスセソラリルレロ"
-						},
-						{
-							"moji": "サシスセソワヲン"
-						}
-					],
-					"auto_check": false,
-					"ret": "VAR_096"
-				},
-				{
-					"id": 6,
-					"answer": "ナカマ",
-					"choices": [
-						{
-							"moji": "ナニヌネノハヒフヘホ"
-						},
-						{
-							"moji": "カキクケコナニヌネノ"
-						},
-						{
-							"moji": "カキクケコマミムメモ"
-						}
-					],
-					"ret": "VAR_096",
-					"auto_check": true
-				},
-				{
-					"id": 7,
-					"answer": "ヒトリ",
-					"choices": [
-						{
-							"moji": "タチツテトハヒフヘホ"
-						},
-						{
-							"moji": "アイウエオタチツテト"
-						},
-						{
-							"moji": "カキクケコラリルレロ"
-						}
-					],
-					"ret": "VAR_096",
-					"auto_check": true
-				},
-				{
-					"id": 8,
-					"answer": "じばくれい",
-					"choices": [
-						{
-							"moji": "さしすせそざじずぜぞ"
-						},
-						{
-							"moji": "わをんばびぶべぼ"
-						},
-						{
-							"moji": "かきくけこざじずぜぞ"
-						},
-						{
-							"moji": "らりるれろゃゅょ"
-						},
-						{
-							"moji": "あいうえお"
-						}
-					],
+					"ret": "LVAR_01",
 					"auto_check": true,
-					"ret": "VAR_096"
-				},
-				{
-					"id": 9,
-					"answer": "ゆっこ",
-					"choices": [
-						{
-							"moji": "さしすせそやゆよ"
-						},
-						{
-							"moji": "たちつてとっゃゅょ"
-						},
-						{
-							"moji": "かきくけこ"
-						}
-					],
-					"auto_check": true,
-					"ret": "VAR_096"
+					"id": "kana_001"
 				}
 			],
 			"separators": [],

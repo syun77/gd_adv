@@ -20,6 +20,8 @@ onready var _label = $Bg/Label
 func start(tbl:PoolStringArray, idx:int) -> void:
 	_char_tbl = tbl
 	_idx = idx # 初期位置
+	# 値の領域外チェック
+	_clamp_idx()
 
 # 点滅開始
 func start_blink() -> void:
@@ -29,6 +31,10 @@ func start_blink() -> void:
 # 選択している番号を取得する
 func get_idx() -> int:
 	return _idx
+
+# 選択している文字を取得する
+func get_str() -> String:
+	return _char_tbl[_idx]
 	
 # ボタンを非表示にする
 func hide_button() -> void:
@@ -45,13 +51,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_timer += delta
-	
-	# 値の領域外チェック
-	var num = _char_tbl.size()
-	if _idx < 0:
-		_idx = num - 1
-	if _idx >= num:
-		_idx = 0
 	
 	# クリックアニメーション
 	if _label_yofs > 0:
@@ -70,13 +69,25 @@ func _process(delta: float) -> void:
 		# 点滅させる
 		_bg.color = _bg_color.linear_interpolate(Color.white, abs(sin(_timer*PI*1.5)))
 
+# 領域外にならないように丸める
+func _clamp_idx() -> void:
+	var num = _char_tbl.size()
+	if _idx < 0:
+		_idx = num - 1
+	if _idx >= num:
+		_idx = 0
+
 func _on_UpButton_pressed() -> void:
 	# 上ボタンを押した
 	_idx -= 1
+	# 値の領域外チェック
+	_clamp_idx()
 	_label_yofs = -PRESS_OFS_Y
 
 
 func _on_DownButton_pressed() -> void:
 	# 下ボタンを押した
 	_idx += 1
+	# 値の領域外チェック
+	_clamp_idx()
 	_label_yofs = PRESS_OFS_Y

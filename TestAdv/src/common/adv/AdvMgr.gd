@@ -403,3 +403,12 @@ func _NUM_INPUT(_args:PoolStringArray) -> int:
 	_layer_menu.add_child(_exec_obj)
 	_next_state = eState.OBJ_WAIT
 	return AdvConst.eRet.YIELD
+	
+func _KANA_INPUT(_args:PoolStringArray) -> int:
+	# 文字入力の表示
+	var kana_id = _script.pop_stack()
+	_exec_obj = EscapeInputMenu.instance()
+	_exec_obj.start_kana_input(kana_id)
+	_layer_menu.add_child(_exec_obj)
+	_next_state = eState.OBJ_WAIT
+	return AdvConst.eRet.YIELD

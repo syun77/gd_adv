@@ -12,6 +12,8 @@ func script(text:String) -> void:
 	send(text, Color.navyblue)
 
 func send(text:String, color:Color=Color.black) -> void:
+	print(text)
+	
 	if AdvConst.DEBUG == false:
 		return # デバッグでなければ表示しない
 	

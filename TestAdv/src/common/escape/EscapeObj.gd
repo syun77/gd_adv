@@ -337,8 +337,10 @@ func _draw() -> void:
 
 func _debug_update() -> void:
 	if Input.is_action_just_pressed("ui_debug_save"):
+		Infoboard.send("Saving...")
 		Global.save_data()
 	if Input.is_action_just_pressed("ui_debug_load"):
+		Infoboard.send("Load Data")
 		Global.load_data()
 		Global.change_room()
 	if Input.is_action_just_pressed("ui_debug_reset"):

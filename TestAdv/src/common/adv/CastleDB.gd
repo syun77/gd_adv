@@ -43,7 +43,8 @@ func _ready() -> void:
 		
 		# ユニークIDを探す
 		var uid  = null
-		var has_value = false
+		var has_value = false # "value" が存在するかどうか
+		
 		for column in sheet["columns"]:
 			match int(column["typeStr"]):
 				eColumnType.UNIQUE_ID:
@@ -74,6 +75,7 @@ func get_sheet(sheet:String):
 	if sheet in _sheets:
 		return _sheets[sheet]
 	else:
+		print("存在するシート:", _sheets.keys())
 		Infoboard.error("Not found sheetname '%s'"%sheet)
 		return null
 
@@ -160,3 +162,23 @@ func bit_chk(bit_id:String) -> bool:
 	if v < 0:
 		return false
 	return Global.bit_chk(v)
+
+# 変数文字列に対応する変数番号を取得する
+func var_to_value(var_id:String) -> int:
+	var tbl = get_sheet("vars")
+	if var_id in tbl:
+		return int(tbl[var_id]["value"])
+	else:
+		return -1
+# 変数文字列から値を取得する
+func var_get(var_id:String):
+	var v = var_to_value(var_id)
+	if v < 0:
+		return 0
+	return Global.var_get(v)
+# 変数文字列から値を設定する
+func var_set(var_id:String, value) -> void:
+	var v = var_to_value(var_id)
+	if v < 0:
+		return
+	Global.var_set(v, value)
