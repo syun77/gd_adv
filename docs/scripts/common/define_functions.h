@@ -18,25 +18,6 @@ CH_SHAKE,     CH_SHAKE,   pos, intensity=0.01, frame=20
 CH_FLASH,     CH_FLASH,   pos, color=16777215, frame=60
 DRS,          DRS,        id, anime=1, xscale=1, yscale=1, rot=0
 ERS,          ERS,        
-SPINE_PLAY,        SPINE_PLAY, anime=1, cnt=1, speed=1, startFrame=0, stopFrame=-1
-SPINE_LOOP,        SPINE_LOOP, anime=1, speed=1, startFrame=0
-SPINE_CHAIN,       SPINE_CHAIN, anime=1, speed=1, startFrame=0
-SPINE_MOVE,        SPINE_MOVE, xofs=0, yofs=0, xscale=0, yscale=0, rot=0
-SPINE_SPEED,       SPINE_SPEED,speed=1
-SPINE_MIX,         SPINE_MIX,   first, second, duration=0.5
-SPINE_SE,          SPINE_SE, seID
-SPINE_VOICE,       SPINE_VOICE, voiceID
-SPINE_VOICE_ENABLE,SPINE_VOICE_ENABLE, flag=1
-SPINE_TRACK,       SPINE_TRACK, track, name, loop=1
-SPINE_TRACK_CLEAR, SPINE_TRACK_CLEAR, track
-SPINE_SLOT_ALPHA,  SPINE_SLOT_ALPHA, name, alpha
-SPINE_ATTACHMENT,  SPINE_ATTACHMENT, slot, name
-SPINE_SLOT_ALPHA2, SPINE_SLOT_ALPHA2, name, alpha
-SPINE_ATTACHMENT2, SPINE_ATTACHMENT2, slot, name
-SPINE_DELAY,       SPINE_DELAY, frame=1
-SPINE_CLEAR,       SPINE_CLEAR,
-SPINE_BIT_ON,      SPINE_BIT_ON, flag
-SPINE_BIT_OFF,     SPINE_BIT_OFF, flag
 DRI,          DRI,        id, effectId=3
 ERI,          ERI,        effectId=3
 SEQ_DRAW,     SEQ_DRAW,   "id", xpos=0, ypos=0
@@ -69,7 +50,7 @@ ITEM_UNEQUIP, ITEM_UNEQUIP
 CRAFT_CHK,    CRAFT_CHK,  itemId1, itemId2
 ITEM_DETAIL,  ITEM_DETAIL,itemId
 NUM_INPUT,    NUM_INPUT,  answer, idx, digit, autoCheck=0
-PIC_INPUT,    PIC_INPUT,  picId, idx, digit
+PIC_INPUT,    PIC_INPUT,  picId, answer, idx, digit, autoCheck=0
 KANA_INPUT,   KANA_INPUT, kanaId
 PANEL_INPUT,  PNL_INPUT,  panelId
 ESCAPE_EFFECT, ESCAPE_EFFECT, type
@@ -87,3 +68,22 @@ GOTO_ROOM,    GOTO_ROOM,  room="room_title"
 ADS_START,    ADS_START
 LIGHT_RESET,  LIGHT_RESET,
 PUZZLE,       PUZZLE,     puzzleId
+SPINE_PLAY,        SPINE_PLAY, anime=1, cnt=1, speed=1, startFrame=0, stopFrame=-1
+SPINE_LOOP,        SPINE_LOOP, anime=1, speed=1, startFrame=0
+SPINE_CHAIN,       SPINE_CHAIN, anime=1, speed=1, startFrame=0
+SPINE_MOVE,        SPINE_MOVE, xofs=0, yofs=0, xscale=0, yscale=0, rot=0
+SPINE_SPEED,       SPINE_SPEED,speed=1
+SPINE_MIX,         SPINE_MIX,   first, second, duration=0.5
+SPINE_SE,          SPINE_SE, seID
+SPINE_VOICE,       SPINE_VOICE, voiceID
+SPINE_VOICE_ENABLE,SPINE_VOICE_ENABLE, flag=1
+SPINE_TRACK,       SPINE_TRACK, track, name, loop=1
+SPINE_TRACK_CLEAR, SPINE_TRACK_CLEAR, track
+SPINE_SLOT_ALPHA,  SPINE_SLOT_ALPHA, name, alpha
+SPINE_ATTACHMENT,  SPINE_ATTACHMENT, slot, name
+SPINE_SLOT_ALPHA2, SPINE_SLOT_ALPHA2, name, alpha
+SPINE_ATTACHMENT2, SPINE_ATTACHMENT2, slot, name
+SPINE_DELAY,       SPINE_DELAY, frame=1
+SPINE_CLEAR,       SPINE_CLEAR,
+SPINE_BIT_ON,      SPINE_BIT_ON, flag
+SPINE_BIT_OFF,     SPINE_BIT_OFF, flag

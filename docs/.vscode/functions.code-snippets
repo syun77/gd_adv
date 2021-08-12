@@ -113,120 +113,6 @@
 		"body": "ERS()\n$1",
 		"description": "Spineを消去する\n\n",
 	},
-	"Spineアニメを再生する\n@param anime=1 アニメーション番号\n@param cnt=1 ループ回数\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n@param stopFrame=-1 停止位置\n\n":
-	{
-		"prefix": "SPINE_PLAY",
-		"body": "SPINE_PLAY(${1:anime=1}, ${2:cnt=1}, ${3:speed=1}, ${4:startFrame=0}, ${5:stopFrame=-1})\n$6",
-		"description": "Spineアニメを再生する\n@param anime=1 アニメーション番号\n@param cnt=1 ループ回数\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n@param stopFrame=-1 停止位置\n\n",
-	},
-	"Spineアニメをループ再生する\n@param anime=1 アニメーション番号\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n\n":
-	{
-		"prefix": "SPINE_LOOP",
-		"body": "SPINE_LOOP(${1:anime=1}, ${2:speed=1}, ${3:startFrame=0})\n$4",
-		"description": "Spineアニメをループ再生する\n@param anime=1 アニメーション番号\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n\n",
-	},
-	"Spineアニメ連続再生する\n@param anime=1 アニメーション番号\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n\n":
-	{
-		"prefix": "SPINE_CHAIN",
-		"body": "SPINE_CHAIN(${1:anime=1}, ${2:speed=1}, ${3:startFrame=0})\n$4",
-		"description": "Spineアニメ連続再生する\n@param anime=1 アニメーション番号\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n\n",
-	},
-	"Spineの移動 (現在の値に対するオフセット値)\n@param xofs=0\n@param yofs=0\n@param xscale=0 拡大率(X)\n@param yscale=0 拡大率(Y)\n@param rot=0 回転値\n\n":
-	{
-		"prefix": "SPINE_MOVE",
-		"body": "SPINE_MOVE(${1:xofs=0}, ${2:yofs=0}, ${3:xscale=0}, ${4:yscale=0}, ${5:rot=0})\n$6",
-		"description": "Spineの移動 (現在の値に対するオフセット値)\n@param xofs=0\n@param yofs=0\n@param xscale=0 拡大率(X)\n@param yscale=0 拡大率(Y)\n@param rot=0 回転値\n\n",
-	},
-	"Spineアニメの再生速度を設定する\n@param speed=1 再生速度\n\n":
-	{
-		"prefix": "SPINE_SPEED",
-		"body": "SPINE_SPEED(${1:speed=1})\n$2",
-		"description": "Spineアニメの再生速度を設定する\n@param speed=1 再生速度\n\n",
-	},
-	"Spineアニメ切替時のブレンド設定\n@param first 遷移元のアニメーション番号\n@param second 遷移先のアニメーション番号\n@param duration=0.5 線形補間する時間の割合(0.0～1.0)\n\n":
-	{
-		"prefix": "SPINE_MIX",
-		"body": "SPINE_MIX(${1:first}, ${2:second}, ${3:duration=0.5})\n$4",
-		"description": "Spineアニメ切替時のブレンド設定\n@param first 遷移元のアニメーション番号\n@param second 遷移先のアニメーション番号\n@param duration=0.5 線形補間する時間の割合(0.0～1.0)\n\n",
-	},
-	"Spine用の遅延SE再生\n@param seID SEのID\n\n":
-	{
-		"prefix": "SPINE_SE",
-		"body": "SPINE_SE(${1:seID})\n$2",
-		"description": "Spine用の遅延SE再生\n@param seID SEのID\n\n",
-	},
-	"Spine用の遅延ボイス再生\n@param voiceID ボイスのID\n\n":
-	{
-		"prefix": "SPINE_VOICE",
-		"body": "SPINE_VOICE(${1:voiceID})\n$2",
-		"description": "Spine用の遅延ボイス再生\n@param voiceID ボイスのID\n\n",
-	},
-	"Spine用のボイス再生設定\n@param flag=1 (1:有効 / 0:無効)\n\n":
-	{
-		"prefix": "SPINE_VOICE_ENABLE",
-		"body": "SPINE_VOICE_ENABLE(${1:flag=1})\n$2",
-		"description": "Spine用のボイス再生設定\n@param flag=1 (1:有効 / 0:無効)\n\n",
-	},
-	"SpineのTrackを設定する\n@param track Track番号\n@param name アニメーション名\n@param loop=1 ループ再生フラグ\n\n":
-	{
-		"prefix": "SPINE_TRACK",
-		"body": "SPINE_TRACK(${1:track}, ${2:name}, ${3:loop=1})\n$4",
-		"description": "SpineのTrackを設定する\n@param track Track番号\n@param name アニメーション名\n@param loop=1 ループ再生フラグ\n\n",
-	},
-	"SpineのTrack再生を消去する\n@param track 消去するTrack番号\n\n":
-	{
-		"prefix": "SPINE_TRACK_CLEAR",
-		"body": "SPINE_TRACK_CLEAR(${1:track})\n$2",
-		"description": "SpineのTrack再生を消去する\n@param track 消去するTrack番号\n\n",
-	},
-	"SPINE_SLOT_ALPHA":
-	{
-		"prefix": "SPINE_SLOT_ALPHA",
-		"body": "SPINE_SLOT_ALPHA(${1:name}, ${2:alpha})\n$3",
-		"description": "",
-	},
-	"SpineのSlotのアタッチメントを切り替える\n@parma slot スロット名\n@param name アタッチメント名\n\n":
-	{
-		"prefix": "SPINE_ATTACHMENT",
-		"body": "SPINE_ATTACHMENT(${1:slot}, ${2:name})\n$3",
-		"description": "SpineのSlotのアタッチメントを切り替える\n@parma slot スロット名\n@param name アタッチメント名\n\n",
-	},
-	"SPINE_SLOT_ALPHA2":
-	{
-		"prefix": "SPINE_SLOT_ALPHA2",
-		"body": "SPINE_SLOT_ALPHA2(${1:name}, ${2:alpha})\n$3",
-		"description": "",
-	},
-	"SpineのSlotのアタッチメントを切り替える (遅延設定)\n@parma slot スロット名\n@param name アタッチメント名\n\n":
-	{
-		"prefix": "SPINE_ATTACHMENT2",
-		"body": "SPINE_ATTACHMENT2(${1:slot}, ${2:name})\n$3",
-		"description": "SpineのSlotのアタッチメントを切り替える (遅延設定)\n@parma slot スロット名\n@param name アタッチメント名\n\n",
-	},
-	"Spineコマンドの遅延設定\n@param frame=1 フレーム数\n\n":
-	{
-		"prefix": "SPINE_DELAY",
-		"body": "SPINE_DELAY(${1:frame=1})\n$2",
-		"description": "Spineコマンドの遅延設定\n@param frame=1 フレーム数\n\n",
-	},
-	"Spineの初期化\n\n":
-	{
-		"prefix": "SPINE_CLEAR",
-		"body": "SPINE_CLEAR()\n$1",
-		"description": "Spineの初期化\n\n",
-	},
-	"Spine再生遅延時にフラグをONにする\n@param flag ONにするフラグ番号\n\n":
-	{
-		"prefix": "SPINE_BIT_ON",
-		"body": "SPINE_BIT_ON(${1:flag})\n$2",
-		"description": "Spine再生遅延時にフラグをONにする\n@param flag ONにするフラグ番号\n\n",
-	},
-	"Spine再生遅延時にフラグをOFFにする\n@param flag OFFにするフラグ番号\n\n":
-	{
-		"prefix": "SPINE_BIT_OFF",
-		"body": "SPINE_BIT_OFF(${1:flag})\n$2",
-		"description": "Spine再生遅延時にフラグをOFFにする\n@param flag OFFにするフラグ番号\n\n",
-	},
 	"アイテムの描画\n@param id アイテム番号\n\n":
 	{
 		"prefix": "DRI",
@@ -419,11 +305,11 @@
 		"body": "NUM_INPUT(${1:answer}, ${2:idx}, ${3:digit}, ${4:autoCheck=0})\n$5",
 		"description": "数値入力\n@param answer 正解の番号\n@param idx 結果を保存する変数番号\n@param digit 桁数\n@param auto_check 自動チェック\n\n",
 	},
-	"画像選択入力\n@param picID 画像番号\n@param idx 結果を保存する変数番号\n@param digit 答えの桁数\n\n":
+	"画像選択入力\n@param picID 画像番号\n@param answer 正解の番号\n@param idx 結果を保存する変数番号\n@param digit 答えの桁数\n@param auto_check 自動チェック\n\n":
 	{
 		"prefix": "PIC_INPUT",
-		"body": "PIC_INPUT(${1:picId}, ${2:idx}, ${3:digit})\n$4",
-		"description": "画像選択入力\n@param picID 画像番号\n@param idx 結果を保存する変数番号\n@param digit 答えの桁数\n\n",
+		"body": "PIC_INPUT(${1:picId}, ${2:answer}, ${3:idx}, ${4:digit}, ${5:autoCheck=0})\n$6",
+		"description": "画像選択入力\n@param picID 画像番号\n@param answer 正解の番号\n@param idx 結果を保存する変数番号\n@param digit 答えの桁数\n@param auto_check 自動チェック\n\n",
 	},
 	"KANA_INPUT":
 	{
@@ -526,5 +412,119 @@
 		"prefix": "PUZZLE",
 		"body": "PUZZLE(${1:puzzleId})\n$2",
 		"description": "パズルを開始する\n@param puzzleId パズル番号\n\n",
+	},
+	"Spineアニメを再生する\n@param anime=1 アニメーション番号\n@param cnt=1 ループ回数\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n@param stopFrame=-1 停止位置\n\n":
+	{
+		"prefix": "SPINE_PLAY",
+		"body": "SPINE_PLAY(${1:anime=1}, ${2:cnt=1}, ${3:speed=1}, ${4:startFrame=0}, ${5:stopFrame=-1})\n$6",
+		"description": "Spineアニメを再生する\n@param anime=1 アニメーション番号\n@param cnt=1 ループ回数\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n@param stopFrame=-1 停止位置\n\n",
+	},
+	"Spineアニメをループ再生する\n@param anime=1 アニメーション番号\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n\n":
+	{
+		"prefix": "SPINE_LOOP",
+		"body": "SPINE_LOOP(${1:anime=1}, ${2:speed=1}, ${3:startFrame=0})\n$4",
+		"description": "Spineアニメをループ再生する\n@param anime=1 アニメーション番号\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n\n",
+	},
+	"Spineアニメ連続再生する\n@param anime=1 アニメーション番号\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n\n":
+	{
+		"prefix": "SPINE_CHAIN",
+		"body": "SPINE_CHAIN(${1:anime=1}, ${2:speed=1}, ${3:startFrame=0})\n$4",
+		"description": "Spineアニメ連続再生する\n@param anime=1 アニメーション番号\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n\n",
+	},
+	"Spineの移動 (現在の値に対するオフセット値)\n@param xofs=0\n@param yofs=0\n@param xscale=0 拡大率(X)\n@param yscale=0 拡大率(Y)\n@param rot=0 回転値\n\n":
+	{
+		"prefix": "SPINE_MOVE",
+		"body": "SPINE_MOVE(${1:xofs=0}, ${2:yofs=0}, ${3:xscale=0}, ${4:yscale=0}, ${5:rot=0})\n$6",
+		"description": "Spineの移動 (現在の値に対するオフセット値)\n@param xofs=0\n@param yofs=0\n@param xscale=0 拡大率(X)\n@param yscale=0 拡大率(Y)\n@param rot=0 回転値\n\n",
+	},
+	"Spineアニメの再生速度を設定する\n@param speed=1 再生速度\n\n":
+	{
+		"prefix": "SPINE_SPEED",
+		"body": "SPINE_SPEED(${1:speed=1})\n$2",
+		"description": "Spineアニメの再生速度を設定する\n@param speed=1 再生速度\n\n",
+	},
+	"Spineアニメ切替時のブレンド設定\n@param first 遷移元のアニメーション番号\n@param second 遷移先のアニメーション番号\n@param duration=0.5 線形補間する時間の割合(0.0～1.0)\n\n":
+	{
+		"prefix": "SPINE_MIX",
+		"body": "SPINE_MIX(${1:first}, ${2:second}, ${3:duration=0.5})\n$4",
+		"description": "Spineアニメ切替時のブレンド設定\n@param first 遷移元のアニメーション番号\n@param second 遷移先のアニメーション番号\n@param duration=0.5 線形補間する時間の割合(0.0～1.0)\n\n",
+	},
+	"Spine用の遅延SE再生\n@param seID SEのID\n\n":
+	{
+		"prefix": "SPINE_SE",
+		"body": "SPINE_SE(${1:seID})\n$2",
+		"description": "Spine用の遅延SE再生\n@param seID SEのID\n\n",
+	},
+	"Spine用の遅延ボイス再生\n@param voiceID ボイスのID\n\n":
+	{
+		"prefix": "SPINE_VOICE",
+		"body": "SPINE_VOICE(${1:voiceID})\n$2",
+		"description": "Spine用の遅延ボイス再生\n@param voiceID ボイスのID\n\n",
+	},
+	"Spine用のボイス再生設定\n@param flag=1 (1:有効 / 0:無効)\n\n":
+	{
+		"prefix": "SPINE_VOICE_ENABLE",
+		"body": "SPINE_VOICE_ENABLE(${1:flag=1})\n$2",
+		"description": "Spine用のボイス再生設定\n@param flag=1 (1:有効 / 0:無効)\n\n",
+	},
+	"SpineのTrackを設定する\n@param track Track番号\n@param name アニメーション名\n@param loop=1 ループ再生フラグ\n\n":
+	{
+		"prefix": "SPINE_TRACK",
+		"body": "SPINE_TRACK(${1:track}, ${2:name}, ${3:loop=1})\n$4",
+		"description": "SpineのTrackを設定する\n@param track Track番号\n@param name アニメーション名\n@param loop=1 ループ再生フラグ\n\n",
+	},
+	"SpineのTrack再生を消去する\n@param track 消去するTrack番号\n\n":
+	{
+		"prefix": "SPINE_TRACK_CLEAR",
+		"body": "SPINE_TRACK_CLEAR(${1:track})\n$2",
+		"description": "SpineのTrack再生を消去する\n@param track 消去するTrack番号\n\n",
+	},
+	"SPINE_SLOT_ALPHA":
+	{
+		"prefix": "SPINE_SLOT_ALPHA",
+		"body": "SPINE_SLOT_ALPHA(${1:name}, ${2:alpha})\n$3",
+		"description": "",
+	},
+	"SpineのSlotのアタッチメントを切り替える\n@parma slot スロット名\n@param name アタッチメント名\n\n":
+	{
+		"prefix": "SPINE_ATTACHMENT",
+		"body": "SPINE_ATTACHMENT(${1:slot}, ${2:name})\n$3",
+		"description": "SpineのSlotのアタッチメントを切り替える\n@parma slot スロット名\n@param name アタッチメント名\n\n",
+	},
+	"SPINE_SLOT_ALPHA2":
+	{
+		"prefix": "SPINE_SLOT_ALPHA2",
+		"body": "SPINE_SLOT_ALPHA2(${1:name}, ${2:alpha})\n$3",
+		"description": "",
+	},
+	"SpineのSlotのアタッチメントを切り替える (遅延設定)\n@parma slot スロット名\n@param name アタッチメント名\n\n":
+	{
+		"prefix": "SPINE_ATTACHMENT2",
+		"body": "SPINE_ATTACHMENT2(${1:slot}, ${2:name})\n$3",
+		"description": "SpineのSlotのアタッチメントを切り替える (遅延設定)\n@parma slot スロット名\n@param name アタッチメント名\n\n",
+	},
+	"Spineコマンドの遅延設定\n@param frame=1 フレーム数\n\n":
+	{
+		"prefix": "SPINE_DELAY",
+		"body": "SPINE_DELAY(${1:frame=1})\n$2",
+		"description": "Spineコマンドの遅延設定\n@param frame=1 フレーム数\n\n",
+	},
+	"Spineの初期化\n\n":
+	{
+		"prefix": "SPINE_CLEAR",
+		"body": "SPINE_CLEAR()\n$1",
+		"description": "Spineの初期化\n\n",
+	},
+	"Spine再生遅延時にフラグをONにする\n@param flag ONにするフラグ番号\n\n":
+	{
+		"prefix": "SPINE_BIT_ON",
+		"body": "SPINE_BIT_ON(${1:flag})\n$2",
+		"description": "Spine再生遅延時にフラグをONにする\n@param flag ONにするフラグ番号\n\n",
+	},
+	"Spine再生遅延時にフラグをOFFにする\n@param flag OFFにするフラグ番号\n\n":
+	{
+		"prefix": "SPINE_BIT_OFF",
+		"body": "SPINE_BIT_OFF(${1:flag})\n$2",
+		"description": "Spine再生遅延時にフラグをOFFにする\n@param flag OFFにするフラグ番号\n\n",
 	},
 }

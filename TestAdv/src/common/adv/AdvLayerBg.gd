@@ -17,7 +17,12 @@ class AdvBg:
 	func _init(bg_rect:TextureRect):
 		bg = bg_rect
 	func load_texture(id:int):
-		bg.texture = load("res://assets/bg/bg%03d.jpg"%id)
+		var path = "res://assets/bg/bg%03d.jpg"%id
+		var f = File.new()
+		if f.file_exists(path) == false:
+			Infoboard.error("[AdvBg]存在しない画像:%s"%path)
+			return
+		bg.texture = load(path)
 	func dispose_texture():
 		bg.texture = null
 		_state = eBgState.HIDE

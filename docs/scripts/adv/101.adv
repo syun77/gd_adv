@@ -6,7 +6,9 @@ def init {
 
 def click1 {
 	//NUM_INPUT(1234, eVar.LVAR_00, 4, true)
-	KANA_INPUT(1)
+	//KANA_INPUT(1)
+	PIC_INPUT(1, 405312, eVar.LVAR_00, 6, true)
+	
 	if($RET) {
 		"正解/"
 		ITEM_ADD(ITEM_COLOR_RED)

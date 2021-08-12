@@ -329,8 +329,10 @@ SEの再生（ピッチ指定）
 * PIC_INPUT
 画像選択入力
 @param picID 画像番号
+@param answer 正解の番号
 @param idx 結果を保存する変数番号
 @param digit 答えの桁数
+@param auto_check 自動チェック
 
 * ESCAPE_EFFECT
 調査演出

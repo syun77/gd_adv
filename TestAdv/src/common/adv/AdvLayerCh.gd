@@ -27,7 +27,12 @@ class AdvCh:
 		ch = ch_rect
 		_xbase = ch.rect_position.x
 	func load_texture(id:int):
-		ch.texture = load("res://assets/ch/ch%03d.png"%id)
+		var path = "res://assets/ch/ch%03d.png"%id
+		var f = File.new()
+		if f.file_exists(path) == false:
+			Infoboard.error("[AdvCh]存在しない画像:%s"%path)
+			return
+		ch.texture = load(path)
 	func dispose_texture():
 		ch.texture = null
 		_state = eChState.HIDE

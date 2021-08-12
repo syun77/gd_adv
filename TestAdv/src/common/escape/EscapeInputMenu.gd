@@ -33,6 +33,7 @@ var _answer_num:int = 0 # 数値の場合の正解
 var _answer_kana:String = "" # 文字の場合の正解
 var _auto_check:bool = false # 自動で正解チェックを行うかどうか
 var _choices:PoolStringArray = [] # 文字入力時の選択文字
+var _pic_id:int = 0 # 画像入力の場合のID
 var _closed:bool = false # 閉じるボタンを押したかどうか
 
 onready var _input_layer = $InputLayer
@@ -56,6 +57,15 @@ func start_kana_input(kana_id:int) -> void:
 	for choice in data["choices"]:
 		_choices.append(choice["moji"])
 
+# 画像入力の開始
+func start_pic_input(pic_id:int, answer:int, var_idx:int, digit:int, auto_check:bool) -> void:
+	_mode = eMode.PIC
+	_pic_id = pic_id
+	_answer_num = answer
+	_var_idx = var_idx
+	_digit = digit
+	_auto_check = auto_check
+
 func _ready() -> void:
 	# テストデータ
 	"""
@@ -64,6 +74,13 @@ func _ready() -> void:
 		, Adv.eVar.LVAR_00
 		, 4
 		, true)
+	start_pic_input(
+		1
+		, 405312
+		, Adv.eVar.LVAR_00
+		, 6
+		, true
+	)
 	
 	if Global.initialized() == false:
 		# 初期化していなかったら初期化してしまう
@@ -122,10 +139,29 @@ func _create_kana_input() -> void:
 		px += w + DIAL_MARGIN_W
 		i += 1
 
+func _create_pic_input() -> void:
+	# 変数に保存した入力値
+	var input_val = int(Global.var_get(_var_idx))
+	
+	var px = AdvConst.WINDOW_CENTER_X
+	var py = DIAL_TOP_Y
+	var w = EscapeInputObj.WIDTH
+	px -= ((_digit * w) + (_digit - 1) * DIAL_MARGIN_W) * 0.5
+	for i in range(_digit):
+		var d = _digit - i - 1
+		var mod = int(pow(10, _digit - i))
+		var v = int((input_val % mod) / pow(10, d))
+		
+		var obj = EscapeInput.instance()
+		obj.rect_position = Vector2(px, py)
+		obj.start_pic(_pic_id, v)
+		_input_layer.add_child(obj)
+		px += w + DIAL_MARGIN_W
+		
 # 正解チェック
 func _check_correct() -> bool:
 	match _mode:
-		eMode.NUM:
+		eMode.NUM, eMode.PIC:
 			var ret = _get_input_num()
 			return ret == _answer_num
 		eMode.KANA:
@@ -133,6 +169,7 @@ func _check_correct() -> bool:
 			return ret == _answer_kana
 		_:
 			# 未実装
+			Infoboard.error("EscapeInputMenu._check_correct()が未実装 _mode=%d"%_mode)
 			return false
 
 func _get_input_num() -> int:
@@ -171,6 +208,9 @@ func _update_init(delta:float) -> void:
 		eMode.KANA:
 			# 文字入力の生成
 			_create_kana_input()
+		eMode.PIC:
+			# 画像入力の生成
+			_create_pic_input()
 	
 	_state = eState.MAIN
 
@@ -184,7 +224,7 @@ func _update_main(delta:float) -> void:
 		return
 	
 	match _mode:
-		eMode.NUM, eMode.KANA:
+		eMode.NUM, eMode.KANA, eMode.PIC:
 			# 入力値を保存する
 			if _var_idx >= 0:
 				Global.var_set(_var_idx, _get_input_num())

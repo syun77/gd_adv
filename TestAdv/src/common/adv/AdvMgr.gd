@@ -412,3 +412,16 @@ func _KANA_INPUT(_args:PoolStringArray) -> int:
 	_layer_menu.add_child(_exec_obj)
 	_next_state = eState.OBJ_WAIT
 	return AdvConst.eRet.YIELD
+	
+func _PIC_INPUT(_args:PoolStringArray) -> int:
+	# 画像入力の表示
+	var pic_id = _script.pop_stack()
+	var answer = _script.pop_stack()
+	var idx = _script.pop_stack()
+	var digit = _script.pop_stack()
+	var autoCheck = (_script.pop_stack() != false)
+	_exec_obj = EscapeInputMenu.instance()
+	_exec_obj.start_pic_input(pic_id, answer, idx, digit, autoCheck)
+	_layer_menu.add_child(_exec_obj)
+	_next_state = eState.OBJ_WAIT
+	return AdvConst.eRet.YIELD

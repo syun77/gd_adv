@@ -6,7 +6,7 @@
         {
             "label": "adv",
             "type": "shell",
-            "command": "python3 $HOME/Desktop/gms2_escape002/Escape002/docs/scripts/conv.py adv ${file}",
+            "command": "python3 $HOME/Desktop/gd_adv/docs/scripts/conv.py adv ${file}",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
@@ -16,7 +16,7 @@
         {
             "label": "adv_all",
             "type": "shell",
-            "command": "python3 $HOME/Desktop/gms2_escape002/Escape002/docs/scripts/conv.py adv",
+            "command": "python3 $HOME/Desktop/gd_adv/docs/scripts/conv.py adv",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
