@@ -94,7 +94,7 @@ func _update_init(_delta:float) -> void:
 		add_child(obj)
 	
 	# フェードイン
-	AdvFade.fade_in(Color.black, FADE_TIME)
+	AdvScreenFx.fade_in(Color.black, FADE_TIME)
 	
 	# ルーム開始イベントを開始
 	_start_script("init")
@@ -241,8 +241,8 @@ func _update_script(delta:float) -> void:
 
 # 更新 > 次のルームに移動する
 func _update_next_room(_delta:float) -> void:
-	if AdvFade.is_idle():
-		AdvFade.fade_out(Color.black, FADE_TIME)
+	if AdvScreenFx.is_idle():
+		AdvScreenFx.fade_out(Color.black, FADE_TIME)
 	yield(get_tree().create_timer(FADE_TIME), "timeout")
 	Global.change_room()
 
