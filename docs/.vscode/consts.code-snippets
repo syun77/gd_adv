@@ -1,22 +1,4 @@
 {
-	"色定数 (白)":
-	{
-		"prefix": "WHITE",
-		"body": "WHITE",
-		"description": "色定数 (白)",
-	},
-	"色定数 (黒)":
-	{
-		"prefix": "BLACK",
-		"body": "BLACK",
-		"description": "色定数 (黒)",
-	},
-	"色定数 (赤)":
-	{
-		"prefix": "RED",
-		"body": "RED",
-		"description": "色定数 (赤)",
-	},
 	"エフェクト (なし)":
 	{
 		"prefix": "EF_NONE",
@@ -77,29 +59,35 @@
 		"body": "SP_PRG_LIGHT",
 		"description": "スマートフォン進捗・ライトを付ける",
 	},
-	"C_WHITE":
+	"色定数(白)":
 	{
 		"prefix": "C_WHITE",
 		"body": "C_WHITE",
-		"description": "",
+		"description": "色定数(白)",
 	},
-	"C_RED":
+	"色定数(黒)":
+	{
+		"prefix": "C_BLACK",
+		"body": "C_BLACK",
+		"description": "色定数(黒)",
+	},
+	"色定数(赤)":
 	{
 		"prefix": "C_RED",
 		"body": "C_RED",
-		"description": "",
+		"description": "色定数(赤)",
 	},
-	"C_GREEN":
+	"色定数(緑)":
 	{
 		"prefix": "C_GREEN",
 		"body": "C_GREEN",
-		"description": "",
+		"description": "色定数(緑)",
 	},
-	"C_BLUE":
+	"色定数(青)":
 	{
 		"prefix": "C_BLUE",
 		"body": "C_BLUE",
-		"description": "",
+		"description": "色定数(青)",
 	},
 	"eSys.SYSBIT_000":
 	{

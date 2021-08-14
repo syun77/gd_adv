@@ -99,6 +99,8 @@ func _process(delta: float) -> void:
 			_update_wait(delta)
 		eState.OBJ_WAIT:
 			_update_obj_wait(delta)
+		eState.FADE_WAIT:
+			_update_fade_wait(delta)
 		eState.END:
 			# デバッグ用
 			#get_tree().change_scene("res://src/common/adv/AdvMgr.tscn")
@@ -168,6 +170,12 @@ func _update_wait(delta:float):
 # 更新・オブジェクトの終了待ち
 func _update_obj_wait(_delta:float):
 	if is_instance_valid(_exec_obj) == false:
+		# スクリプト実行に戻る
+		_next_state = eState.EXEC
+
+# 更新・フェード完了待ち
+func _update_fade_wait(_delta:float):
+	if AdvScreenFx.is_idle():
 		# スクリプト実行に戻る
 		_next_state = eState.EXEC
 
@@ -425,3 +433,32 @@ func _PIC_INPUT(_args:PoolStringArray) -> int:
 	_layer_menu.add_child(_exec_obj)
 	_next_state = eState.OBJ_WAIT
 	return AdvConst.eRet.YIELD
+
+func _FADE_IN(_args:PoolStringArray) -> int:
+	# フェードイン
+	var color = _script.pop_stack()
+	var time = _script.pop_stack()
+	Infoboard.send("[FADE_IN] color=%d time=%3.2f"%[color, time])
+	var c = AdvUtil.get_color(color)
+	AdvScreenFx.fade_in(c, time)
+	return AdvConst.eRet.CONTINUE
+
+func _FADE_OUT(_args:PoolStringArray) -> int:
+	# フェードアウト
+	var color = _script.pop_stack()
+	var time = _script.pop_stack()
+	Infoboard.send("[FADE_OUT] color=%d time=%3.2f"%[color, time])
+	var c = AdvUtil.get_color(color)
+	AdvScreenFx.fade_out(c, time)
+	return AdvConst.eRet.CONTINUE
+
+func _FADE_WAIT(_args:PoolStringArray) -> int:
+	# フェード完了待ち
+	Infoboard.send("[FADE_WAIT]")
+	if AdvScreenFx.is_busy():
+		# フェード中なので待つ
+		_next_state = eState.FADE_WAIT
+		return AdvConst.eRet.YIELD
+	else:
+		# フェード中でないので待つ必要なし
+		return AdvConst.eRet.CONTINUE

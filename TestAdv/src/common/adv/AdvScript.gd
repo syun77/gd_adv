@@ -162,6 +162,12 @@ func _BOOL(args) -> void:
 func _INT(args) -> void:
 	var p0 = int(args[0])
 	push_stack(p0)
+func _FLOAT(args) -> void:
+	var p0 = float(args[0])
+	push_stack(p0)
+func _STRING(args) -> void:
+	var p0 = args[0]
+	push_stack(p0)
 func _SET(args) -> void:
 	var op  = int(args[0])
 	var idx = int(args[1])

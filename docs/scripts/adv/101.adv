@@ -18,6 +18,13 @@ def click1 {
 	}
 }
 def click2 {
+	/*
+	FADE_OUT(C_BLACK, 1.0)
+	FADE_WAIT()
+	FADE_IN(C_WHITE, 3.0)
+	FADE_WAIT()
+	*/
+	
 	ITEM_DEL(ITEM_COLOR_RED)
 }
 

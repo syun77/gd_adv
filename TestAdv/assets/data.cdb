@@ -1966,21 +1966,6 @@
 			],
 			"lines": [
 				{
-					"id": "WHITE",
-					"value": 16777215,
-					"comment": "色定数 (白)"
-				},
-				{
-					"id": "BLACK",
-					"value": 0,
-					"comment": "色定数 (黒)"
-				},
-				{
-					"id": "RED",
-					"value": 255,
-					"comment": "色定数 (赤)"
-				},
-				{
 					"id": "EF_NONE",
 					"value": 0,
 					"comment": "エフェクト (なし)"
@@ -2032,19 +2017,28 @@
 				},
 				{
 					"id": "C_WHITE",
-					"value": 0
+					"value": 0,
+					"comment": "色定数(白)"
+				},
+				{
+					"id": "C_BLACK",
+					"value": 1,
+					"comment": "色定数(黒)"
 				},
 				{
 					"id": "C_RED",
-					"value": 1
+					"value": 2,
+					"comment": "色定数(赤)"
 				},
 				{
 					"id": "C_GREEN",
-					"value": 2
+					"value": 3,
+					"comment": "色定数(緑)"
 				},
 				{
 					"id": "C_BLUE",
-					"value": 3
+					"value": 4,
+					"comment": "色定数(青)"
 				}
 			],
 			"separators": [],

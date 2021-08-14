@@ -142,3 +142,17 @@ func item_set_state(idx:int, state:int) -> void:
 		return
 	
 	Global.item_set(idx, state)
+
+# ----------------------------
+# 色定数
+# ----------------------------
+func get_color(color:int) -> Color:
+	match color:
+		Adv.eConst.C_WHITE: return Color.white
+		Adv.eConst.C_BLACK: return Color.black
+		Adv.eConst.C_RED: return Color.red
+		Adv.eConst.C_GREEN: return Color.green
+		Adv.eConst.C_BLUE: return Color.blue
+		_:
+			Infoboard.warn("未定義の色: %d"%color)
+			return Color.black

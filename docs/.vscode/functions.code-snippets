@@ -14,13 +14,13 @@
 	"一時停止\n@param frame 停止フレーム数\n\n":
 	{
 		"prefix": "WAIT",
-		"body": "WAIT(${1:frame})\n$2",
+		"body": "WAIT(${1:time})\n$2",
 		"description": "一時停止\n@param frame 停止フレーム数\n\n",
 	},
 	"ゲームに制御を戻す\n@param frame=0 フレーム数\n\n":
 	{
 		"prefix": "YIELD",
-		"body": "YIELD(${1:frame=0})\n$2",
+		"body": "YIELD(${1:time=0.0})\n$2",
 		"description": "ゲームに制御を戻す\n@param frame=0 フレーム数\n\n",
 	},
 	"ゲームに制御を戻す (無限フレーム数)\n\n":
@@ -56,13 +56,13 @@
 	"背景色の設定\n@param color=C_WHITE 色タイプ\n@param frame=0 フェード時間\n\n":
 	{
 		"prefix": "BG_COLOR",
-		"body": "BG_COLOR(${1:color=0}, ${2:frame=0})\n$3",
+		"body": "BG_COLOR(${1:color=0}, ${2:time=0.0})\n$3",
 		"description": "背景色の設定\n@param color=C_WHITE 色タイプ\n@param frame=0 フェード時間\n\n",
 	},
 	"BG_THRETHOLD":
 	{
 		"prefix": "BG_THRETHOLD",
-		"body": "BG_THRETHOLD(${1:on=1}, ${2:color=0}, ${3:frame=0}, ${4:threthold=0.5})\n$5",
+		"body": "BG_THRETHOLD(${1:on=1}, ${2:color=0}, ${3:time=0.0}, ${4:threthold=0.5})\n$5",
 		"description": "",
 	},
 	"キャラクターの描画\n@param id キャラクターID\n@param pos 表示場所\n@param effectId=0 演出ID(EF_*)\n\n":
@@ -92,13 +92,13 @@
 	"キャラクターを揺らす\n@param pos 表示場所\n@param intensity=0.01 揺れ幅(画面サイズに対する割合)\n@param frame=20 フレーム数\n\n":
 	{
 		"prefix": "CH_SHAKE",
-		"body": "CH_SHAKE(${1:pos}, ${2:intensity=0.01}, ${3:frame=20})\n$4",
+		"body": "CH_SHAKE(${1:pos}, ${2:intensity=0.01}, ${3:time=0.3})\n$4",
 		"description": "キャラクターを揺らす\n@param pos 表示場所\n@param intensity=0.01 揺れ幅(画面サイズに対する割合)\n@param frame=20 フレーム数\n\n",
 	},
 	"キャラクターを光らせる\n@param pos 表示場所\n@param color 色(BGR)\n@param frame フレーム数\n\n":
 	{
 		"prefix": "CH_FLASH",
-		"body": "CH_FLASH(${1:pos}, ${2:color=16777215}, ${3:frame=60})\n$4",
+		"body": "CH_FLASH(${1:pos}, ${2:color=0}, ${3:time=1.0})\n$4",
 		"description": "キャラクターを光らせる\n@param pos 表示場所\n@param color 色(BGR)\n@param frame フレーム数\n\n",
 	},
 	"Spineを描画する\n@param id SpineのID\n@param anime=1 アニメーション番号\n@param cnt=1 ループ回数\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n@param stopFrame=-1 停止位置\n\n":
@@ -158,19 +158,19 @@
 	"BGMの再生\n@param id BGMリソース名\n@param frame フェードインフレーム数\n@param isLoop ループするかどうか\n\n":
 	{
 		"prefix": "BGM",
-		"body": "BGM(${1:\"id\"}, ${2:frame=0}, ${3:isLoop=1})\n$4",
+		"body": "BGM(${1:\"id\"}, ${2:time=0.0}, ${3:isLoop=1})\n$4",
 		"description": "BGMの再生\n@param id BGMリソース名\n@param frame フェードインフレーム数\n@param isLoop ループするかどうか\n\n",
 	},
 	"BGMの停止\n@param frame フェードアウトフレーム数\n\n":
 	{
 		"prefix": "BGM_OFF",
-		"body": "BGM_OFF(${1:frame=60})\n$2",
+		"body": "BGM_OFF(${1:time=1.0})\n$2",
 		"description": "BGMの停止\n@param frame フェードアウトフレーム数\n\n",
 	},
 	"BGMの音量変更\n@param vol 音量\n@param frame 音量変更のフレーム数\n\n":
 	{
 		"prefix": "BGM_VOL",
-		"body": "BGM_VOL(${1:vol=1}, ${2:frame=0})\n$3",
+		"body": "BGM_VOL(${1:vol=1}, ${2:time=0.0})\n$3",
 		"description": "BGMの音量変更\n@param vol 音量\n@param frame 音量変更のフレーム数\n\n",
 	},
 	"SEの再生\n@param id SEリソース名\n\n":
@@ -182,7 +182,7 @@
 	"SEの再生（ピッチ指定）\n@param id SEリソース名\n@param pitch ピッチ（標準は1.0）\n\n":
 	{
 		"prefix": "SE_PITCH",
-		"body": "SE_PITCH(${1:\"id\"}, ${2:pitch=1})\n$3",
+		"body": "SE_PITCH(${1:\"id\"}, ${2:pitch=1.0})\n$3",
 		"description": "SEの再生（ピッチ指定）\n@param id SEリソース名\n@param pitch ピッチ（標準は1.0）\n\n",
 	},
 	"ボイスの再生\n@param id ボイスリソース名\n\n":
@@ -200,13 +200,13 @@
 	"フェードイン\n@param color 色(BGR)\n@param frame フレーム数\n\n":
 	{
 		"prefix": "FADE_IN",
-		"body": "FADE_IN(${1:color}, ${2:frame})\n$3",
+		"body": "FADE_IN(${1:color}, ${2:time})\n$3",
 		"description": "フェードイン\n@param color 色(BGR)\n@param frame フレーム数\n\n",
 	},
 	"フェードアウト\n@param color 色(BGR)\n@param frame フレーム数\n\n":
 	{
 		"prefix": "FADE_OUT",
-		"body": "FADE_OUT(${1:color}, ${2:frame})\n$3",
+		"body": "FADE_OUT(${1:color}, ${2:time})\n$3",
 		"description": "フェードアウト\n@param color 色(BGR)\n@param frame フレーム数\n\n",
 	},
 	"フェード完了まで待つ\n\n":
@@ -218,13 +218,13 @@
 	"画面を揺らす\n@param intensity=0.02 揺れ幅\n@param frame=30 フレーム数\n\n":
 	{
 		"prefix": "SHAKE",
-		"body": "SHAKE(${1:intensity=0.002}, ${2:frame=30})\n$3",
+		"body": "SHAKE(${1:intensity=0.002}, ${2:time=0.5})\n$3",
 		"description": "画面を揺らす\n@param intensity=0.02 揺れ幅\n@param frame=30 フレーム数\n\n",
 	},
 	"画面をフラッシュする\n@param color 色(BGR)\n@param frame フレーム数\n\n":
 	{
 		"prefix": "FLASH",
-		"body": "FLASH(${1:color}, ${2:frame})\n$3",
+		"body": "FLASH(${1:color}, ${2:time})\n$3",
 		"description": "画面をフラッシュする\n@param color 色(BGR)\n@param frame フレーム数\n\n",
 	},
 	"別スクリプトにジャンプする\n@param advId スクリプト番号\n@param jumpId=1 関数番号\n\n":
@@ -412,119 +412,5 @@
 		"prefix": "PUZZLE",
 		"body": "PUZZLE(${1:puzzleId})\n$2",
 		"description": "パズルを開始する\n@param puzzleId パズル番号\n\n",
-	},
-	"Spineアニメを再生する\n@param anime=1 アニメーション番号\n@param cnt=1 ループ回数\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n@param stopFrame=-1 停止位置\n\n":
-	{
-		"prefix": "SPINE_PLAY",
-		"body": "SPINE_PLAY(${1:anime=1}, ${2:cnt=1}, ${3:speed=1}, ${4:startFrame=0}, ${5:stopFrame=-1})\n$6",
-		"description": "Spineアニメを再生する\n@param anime=1 アニメーション番号\n@param cnt=1 ループ回数\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n@param stopFrame=-1 停止位置\n\n",
-	},
-	"Spineアニメをループ再生する\n@param anime=1 アニメーション番号\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n\n":
-	{
-		"prefix": "SPINE_LOOP",
-		"body": "SPINE_LOOP(${1:anime=1}, ${2:speed=1}, ${3:startFrame=0})\n$4",
-		"description": "Spineアニメをループ再生する\n@param anime=1 アニメーション番号\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n\n",
-	},
-	"Spineアニメ連続再生する\n@param anime=1 アニメーション番号\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n\n":
-	{
-		"prefix": "SPINE_CHAIN",
-		"body": "SPINE_CHAIN(${1:anime=1}, ${2:speed=1}, ${3:startFrame=0})\n$4",
-		"description": "Spineアニメ連続再生する\n@param anime=1 アニメーション番号\n@param speed=1 再生速度\n@param startFrame=0 再生開始位置\n\n",
-	},
-	"Spineの移動 (現在の値に対するオフセット値)\n@param xofs=0\n@param yofs=0\n@param xscale=0 拡大率(X)\n@param yscale=0 拡大率(Y)\n@param rot=0 回転値\n\n":
-	{
-		"prefix": "SPINE_MOVE",
-		"body": "SPINE_MOVE(${1:xofs=0}, ${2:yofs=0}, ${3:xscale=0}, ${4:yscale=0}, ${5:rot=0})\n$6",
-		"description": "Spineの移動 (現在の値に対するオフセット値)\n@param xofs=0\n@param yofs=0\n@param xscale=0 拡大率(X)\n@param yscale=0 拡大率(Y)\n@param rot=0 回転値\n\n",
-	},
-	"Spineアニメの再生速度を設定する\n@param speed=1 再生速度\n\n":
-	{
-		"prefix": "SPINE_SPEED",
-		"body": "SPINE_SPEED(${1:speed=1})\n$2",
-		"description": "Spineアニメの再生速度を設定する\n@param speed=1 再生速度\n\n",
-	},
-	"Spineアニメ切替時のブレンド設定\n@param first 遷移元のアニメーション番号\n@param second 遷移先のアニメーション番号\n@param duration=0.5 線形補間する時間の割合(0.0～1.0)\n\n":
-	{
-		"prefix": "SPINE_MIX",
-		"body": "SPINE_MIX(${1:first}, ${2:second}, ${3:duration=0.5})\n$4",
-		"description": "Spineアニメ切替時のブレンド設定\n@param first 遷移元のアニメーション番号\n@param second 遷移先のアニメーション番号\n@param duration=0.5 線形補間する時間の割合(0.0～1.0)\n\n",
-	},
-	"Spine用の遅延SE再生\n@param seID SEのID\n\n":
-	{
-		"prefix": "SPINE_SE",
-		"body": "SPINE_SE(${1:seID})\n$2",
-		"description": "Spine用の遅延SE再生\n@param seID SEのID\n\n",
-	},
-	"Spine用の遅延ボイス再生\n@param voiceID ボイスのID\n\n":
-	{
-		"prefix": "SPINE_VOICE",
-		"body": "SPINE_VOICE(${1:voiceID})\n$2",
-		"description": "Spine用の遅延ボイス再生\n@param voiceID ボイスのID\n\n",
-	},
-	"Spine用のボイス再生設定\n@param flag=1 (1:有効 / 0:無効)\n\n":
-	{
-		"prefix": "SPINE_VOICE_ENABLE",
-		"body": "SPINE_VOICE_ENABLE(${1:flag=1})\n$2",
-		"description": "Spine用のボイス再生設定\n@param flag=1 (1:有効 / 0:無効)\n\n",
-	},
-	"SpineのTrackを設定する\n@param track Track番号\n@param name アニメーション名\n@param loop=1 ループ再生フラグ\n\n":
-	{
-		"prefix": "SPINE_TRACK",
-		"body": "SPINE_TRACK(${1:track}, ${2:name}, ${3:loop=1})\n$4",
-		"description": "SpineのTrackを設定する\n@param track Track番号\n@param name アニメーション名\n@param loop=1 ループ再生フラグ\n\n",
-	},
-	"SpineのTrack再生を消去する\n@param track 消去するTrack番号\n\n":
-	{
-		"prefix": "SPINE_TRACK_CLEAR",
-		"body": "SPINE_TRACK_CLEAR(${1:track})\n$2",
-		"description": "SpineのTrack再生を消去する\n@param track 消去するTrack番号\n\n",
-	},
-	"SPINE_SLOT_ALPHA":
-	{
-		"prefix": "SPINE_SLOT_ALPHA",
-		"body": "SPINE_SLOT_ALPHA(${1:name}, ${2:alpha})\n$3",
-		"description": "",
-	},
-	"SpineのSlotのアタッチメントを切り替える\n@parma slot スロット名\n@param name アタッチメント名\n\n":
-	{
-		"prefix": "SPINE_ATTACHMENT",
-		"body": "SPINE_ATTACHMENT(${1:slot}, ${2:name})\n$3",
-		"description": "SpineのSlotのアタッチメントを切り替える\n@parma slot スロット名\n@param name アタッチメント名\n\n",
-	},
-	"SPINE_SLOT_ALPHA2":
-	{
-		"prefix": "SPINE_SLOT_ALPHA2",
-		"body": "SPINE_SLOT_ALPHA2(${1:name}, ${2:alpha})\n$3",
-		"description": "",
-	},
-	"SpineのSlotのアタッチメントを切り替える (遅延設定)\n@parma slot スロット名\n@param name アタッチメント名\n\n":
-	{
-		"prefix": "SPINE_ATTACHMENT2",
-		"body": "SPINE_ATTACHMENT2(${1:slot}, ${2:name})\n$3",
-		"description": "SpineのSlotのアタッチメントを切り替える (遅延設定)\n@parma slot スロット名\n@param name アタッチメント名\n\n",
-	},
-	"Spineコマンドの遅延設定\n@param frame=1 フレーム数\n\n":
-	{
-		"prefix": "SPINE_DELAY",
-		"body": "SPINE_DELAY(${1:frame=1})\n$2",
-		"description": "Spineコマンドの遅延設定\n@param frame=1 フレーム数\n\n",
-	},
-	"Spineの初期化\n\n":
-	{
-		"prefix": "SPINE_CLEAR",
-		"body": "SPINE_CLEAR()\n$1",
-		"description": "Spineの初期化\n\n",
-	},
-	"Spine再生遅延時にフラグをONにする\n@param flag ONにするフラグ番号\n\n":
-	{
-		"prefix": "SPINE_BIT_ON",
-		"body": "SPINE_BIT_ON(${1:flag})\n$2",
-		"description": "Spine再生遅延時にフラグをONにする\n@param flag ONにするフラグ番号\n\n",
-	},
-	"Spine再生遅延時にフラグをOFFにする\n@param flag OFFにするフラグ番号\n\n":
-	{
-		"prefix": "SPINE_BIT_OFF",
-		"body": "SPINE_BIT_OFF(${1:flag})\n$2",
-		"description": "Spine再生遅延時にフラグをOFFにする\n@param flag OFFにするフラグ番号\n\n",
 	},
 }

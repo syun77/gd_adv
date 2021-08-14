@@ -5,9 +5,6 @@
 
 # 定数
 consts:
-  WHITE: 16777215 # 色定数 (白)
-  BLACK: 0 # 色定数 (黒)
-  RED: 255 # 色定数 (赤)
   EF_NONE: 0 # エフェクト (なし)
   EF_SLIDE: 1 # エフェクト (スライド)
   EF_ALPHA: 2 # エフェクト (アルファ)
@@ -18,10 +15,11 @@ consts:
   SP_PRG_NONE: 0 # スマートフォン進捗・何もしない
   SP_PRG_CALL_TAXI: 1 # スマートフォン進捗・タクシーに電話をかける
   SP_PRG_LIGHT: 2 # スマートフォン進捗・ライトを付ける
-  C_WHITE: 0
-  C_RED: 1
-  C_GREEN: 2
-  C_BLUE: 3
+  C_WHITE: 0 # 色定数(白)
+  C_BLACK: 1 # 色定数(黒)
+  C_RED: 2 # 色定数(赤)
+  C_GREEN: 3 # 色定数(緑)
+  C_BLUE: 4 # 色定数(青)
 
 # システムフラグ
 sysbits:
