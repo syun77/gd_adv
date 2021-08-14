@@ -63,6 +63,7 @@ SpriteUtil="*res://src/common/util/SpriteUtil.gd"
 Ease="*res://src/common/math/Ease.gd"
 Infoboard="*res://src/common/util/InfoboardMgr.tscn"
 AdvNoticeText="*res://src/common/adv/AdvNoticeText.tscn"
+AdvFade="*res://src/common/adv/AdvFade.tscn"
 
 [display]
 

@@ -12,7 +12,8 @@ const PRIO_ITEM_MENU = 10
 const PRIO_ADV       = 20
 const PRIO_ADV_BG    = 21
 const PRIO_ADV_CH    = 22
-const PRIO_ADV_TALK  = 23
+const PRIO_ADV_FADE  = 23
+const PRIO_ADV_TALK  = 24
 const PRIO_ADV_NOTICE = 30
 const PRIO_ADV_MENU = 31
 

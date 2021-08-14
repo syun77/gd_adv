@@ -2,7 +2,6 @@ extends Node2D
 ################################################
 # 脱出シーン管理
 ################################################
-
 # Adv管理シーン
 const AdvMgr = preload("res://src/common/adv/AdvMgr.tscn")
 # 移動カーソルオブジェクト
@@ -20,6 +19,8 @@ enum eState {
 	ITEM_MENU,
 }
 
+const FADE_TIME = 0.1
+
 # デバッグ用フォント
 onready var _font:BitmapFont = Control.new().get_font("font")
 
@@ -32,6 +33,8 @@ var _script_timer = 0
 var _is_init_event = false
 var _item_button = null # アイテムボタン
 var _item_menu = null # アイテムメニュー
+
+onready var _screen = $Screen
 
 # 開始処理
 func _ready() -> void:
@@ -89,7 +92,10 @@ func _update_init(_delta:float) -> void:
 		obj.visible = false
 		_moves.append(obj)
 		add_child(obj)
-		
+	
+	# フェードイン
+	AdvFade.fade_in(Color.black, FADE_TIME)
+	
 	# ルーム開始イベントを開始
 	_start_script("init")
 	_is_init_event = true
@@ -235,6 +241,9 @@ func _update_script(delta:float) -> void:
 
 # 更新 > 次のルームに移動する
 func _update_next_room(_delta:float) -> void:
+	if AdvFade.is_idle():
+		AdvFade.fade_out(Color.black, FADE_TIME)
+	yield(get_tree().create_timer(FADE_TIME), "timeout")
 	Global.change_room()
 
 # 更新 > アイテムメニュー
