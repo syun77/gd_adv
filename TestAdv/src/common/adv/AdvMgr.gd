@@ -146,7 +146,8 @@ func _update_key_wait(delta:float):
 		"SEL_WAIT":
 			_next_state = eState.SEL_WAIT
 		"EXEC":
-			_msg.clear()
+			if _talk_text.is_pagefeed:
+				_msg.clear()
 			_next_state = eState.EXEC
 		_:
 			pass # 続行
@@ -237,16 +238,21 @@ func _MSG(args:PoolStringArray) -> int:
 		AdvNoticeText.start(args[1])
 		return AdvConst.eRet.YIELD
 	
+	
 	var ret = AdvConst.eRet.CONTINUE
 	var texts = args[1]
 	_msg.add(texts)
 	match type:
 		eCmdMesType.CLICK:
-			# TODO: 未実装
-			pass
-		eCmdMesType.PF:
+			# 改ページなしテキスト
 			_talk_text.show()
-			_talk_text.start()
+			_talk_text.start(false) # 改ページなし
+			_next_state = eState.KEY_WAIT
+			ret = AdvConst.eRet.YIELD
+		eCmdMesType.PF:
+			# 改ページありテキスト
+			_talk_text.show()
+			_talk_text.start(true) # 改ページする
 			_next_state = eState.KEY_WAIT
 			ret = AdvConst.eRet.YIELD
 	
@@ -289,7 +295,7 @@ func _SEL_GOTO(args:PoolStringArray) -> int:
 	# テキスト表示→選択肢へ
 	_next_state = eState.KEY_WAIT
 	_talk_text.show()
-	_talk_text.start()
+	_talk_text.start(true)
 	return AdvConst.eRet.YIELD
 
 func _JUMP_SCENE(_args:PoolStringArray) -> int:

@@ -43,6 +43,8 @@ class SelectInfo:
 			button.destroy()
 			button = null
 
+var is_pagefeed setget ,_is_pagefeed # 改ページするかどうか
+
 onready var _talk_text = $Window/Text
 onready var _cursor    = $Window/Cursor
 onready var _face      = $Window/Face
@@ -52,6 +54,7 @@ var _cursor_timer:float  = 0 # カーソルタイマー
 var _cursor_timer2:float = 0 # カーソルタイマー２
 var _text_timer:float    = 0 # テキストタイマー
 var _sel_list            = [] # 選択肢のテキスト
+var _is_pf = true # 改ページするフラグ
 
 func _ready() -> void:
 	_talk_text.hide()
@@ -109,15 +112,24 @@ func sel_addr(args:PoolStringArray):
 			list.append(info)
 	_sel_list = list	
 	
-func start():
+func start(is_pf:bool):
 	_talk_text.show()
-	_talk_text.visible_characters = 0
+	if _is_pf:
+		# 前回改ページしていたら初期化する
+		_talk_text.visible_characters = 0
+	_is_pf = is_pf # 改ページするフラグ
 	_cursor.hide()
 
 func update_talk(delta:float, texts:String) -> String:
+	
+	# TODO: デバッグ文字描画
+	#update()
+	
 	_talk_text.bbcode_text = texts
 	# テキストの長さを求める
 	var total_text = _calc_bbtext_length(texts)
+	
+	Infoboard.send("total:%d"%total_text)
 	
 	# テキストが終端に到達したかどうか	
 	var is_disp_all = (_talk_text.visible_characters >= total_text)
@@ -138,15 +150,18 @@ func update_talk(delta:float, texts:String) -> String:
 			else:
 				# 次のテキストに進む
 				_cursor.hide()
-				_text_timer = 0
-				_talk_text.visible_characters = 0
+				if _is_pf:
+					# 改ページする
+					_text_timer = 0
+					_talk_text.visible_characters = 0
 				return "EXEC"
 	
 	# 会話テキスト表示
 	_talk_text.show()
 	# テキスト位置を更新
 	_text_timer += delta * TEXT_SPEED
-	_talk_text.visible_characters = min(total_text, _text_timer)
+	_text_timer = min(total_text, _text_timer)
+	_talk_text.visible_characters = _text_timer
 	
 	if is_disp_all:
 		# すべてのテキストを表示したのでカーソル表示
@@ -192,10 +207,20 @@ func set_name(name:String) -> void:
 	_name.show()
 func clear_name() -> void:
 	_name.hide()
+
+# ---------------------------------------
+# setter/getter
+# ---------------------------------------
+func _is_pagefeed() -> bool:
+	return _is_pf
 	
+# ---------------------------------------
+# デバッグ
+# ---------------------------------------
 func _draw():
 	# デバッグ用描画処理
 	var font = _talk_text.get_font("normal_font")
 	var s = "show" if _cursor.visible else "hide"
 	var c = Color.red if _cursor.visible else Color.white
-	#draw_string(font, Vector2(128, 500), "cursor:%s"%s, c)
+	draw_string(font, Vector2(128, 300), "cursor:%s"%s, c)
+	draw_string(font, Vector2(128, 340), "timer:%3.2f"%_text_timer, c)
