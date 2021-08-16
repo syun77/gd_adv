@@ -36,19 +36,20 @@ enum eCmdMesType {
 }
 
 # 内部管理変数
-var _script:AdvScript        = null
-var _talk_text:AdvTalkText   = null
-var _bg_mgr:AdvLayerBg       = null
-var _ch_mgr:AdvLayerCh       = null
-var _msg              := AdvTextMgr.new()
-var _state            = eState.INIT
-var _next_state       = eState.INIT
-var _wait             = 0
+var _script:AdvScript = null
+var _talk_text:AdvTalkText = null
+var _bg_mgr:AdvLayerBg = null
+var _ch_mgr:AdvLayerCh = null
+var _msg := AdvTextMgr.new()
+var _msg_mode = AdvConst.eMsgMode.TALK
+var _state = eState.INIT
+var _next_state = eState.INIT
+var _wait = 0
 var _exec_obj:Object = null
 
 # プロパティ
-var _script_path             = ""
-var _start_funcname          = ""
+var _script_path = ""
+var _start_funcname = ""
 
 # レイヤー
 onready var _layer_bg   = $LayerBg
@@ -227,6 +228,18 @@ func _CLS(_args:PoolStringArray) -> int:
 	_talk_text.clear_name()
 	return AdvConst.eRet.CONTINUE
 
+# メッセージモードを変更
+func _MSG_MODE(_args:PoolStringArray) -> int:
+	var mode = _script.pop_stack()
+	match mode:
+		Adv.eConst.MSG_TALK:
+			Infoboard.send("[MSG_MODE] TALK")
+			_msg_mode = AdvConst.eMsgMode.TALK
+		Adv.eConst.MSG_NOVEL:
+			Infoboard.send("[MSG_MODE] NOVEL")
+			_msg_mode = AdvConst.eMsgMode.NOVEL
+	return AdvConst.eRet.CONTINUE
+
 # メッセージ解析
 func _MSG(args:PoolStringArray) -> int:
 	var is_exit = false
@@ -246,12 +259,14 @@ func _MSG(args:PoolStringArray) -> int:
 		eCmdMesType.CLICK:
 			# 改ページなしテキスト
 			_talk_text.show()
+			_talk_text.set_msg_mode(_msg_mode)
 			_talk_text.start(false) # 改ページなし
 			_next_state = eState.KEY_WAIT
 			ret = AdvConst.eRet.YIELD
 		eCmdMesType.PF:
 			# 改ページありテキスト
 			_talk_text.show()
+			_talk_text.set_msg_mode(_msg_mode)
 			_talk_text.start(true) # 改ページする
 			_next_state = eState.KEY_WAIT
 			ret = AdvConst.eRet.YIELD

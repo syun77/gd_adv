@@ -30,3 +30,9 @@ enum eRet {
 	EXIT     = 2, # 終了
 }
 
+# メッセージ表示モード
+enum eMsgMode {
+	TALK, # 通常の会話モード
+	NOVEL, # ノベルモード
+}
+
