@@ -64,6 +64,7 @@ Ease="*res://src/common/math/Ease.gd"
 Infoboard="*res://src/common/util/InfoboardMgr.tscn"
 AdvNoticeText="*res://src/common/adv/AdvNoticeText.tscn"
 AdvScreenFx="*res://src/common/adv/AdvScreenFX.tscn"
+EscapeHud="*res://src/common/escape/EscapeHUD.tscn"
 
 [display]
 

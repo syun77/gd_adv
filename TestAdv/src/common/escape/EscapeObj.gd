@@ -356,3 +356,9 @@ func _debug_update() -> void:
 		# ゲームをリセットする
 		get_tree().change_scene("res://src/Boot.tscn")
 		
+
+
+func _on_SaveButton_pressed() -> void:
+	# セーブ実行
+	Global.save_data()
+	EscapeHud.start_save()
