@@ -237,6 +237,10 @@ func _update_script(delta:float) -> void:
 			# ルーム移動
 			_state = eState.NEXT_ROOM
 		else:
+			var scene = CastleDB.search_from_value("scenes", Global.now_room)
+			if scene:
+				# 場所情報の表示開始
+				EscapeHud.start_place(scene["name"])
 			_state = eState.MAIN
 
 # 更新 > 次のルームに移動する
@@ -244,6 +248,8 @@ func _update_next_room(_delta:float) -> void:
 	if AdvScreenFx.is_idle():
 		AdvScreenFx.fade_out(Color.black, FADE_TIME)
 	yield(get_tree().create_timer(FADE_TIME), "timeout")
+	# 場所情報をリセットする
+	EscapeHud.reset_place()
 	Global.change_room()
 
 # 更新 > アイテムメニュー
