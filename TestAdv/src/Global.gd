@@ -20,6 +20,7 @@ const PRIO_ADV_TALK  = 24
 const PRIO_ADV_NOTICE = 30
 const PRIO_ADV_MENU = 31
 const PRIO_ADV_HUD = 32
+const PRIO_ADV_LOGS = 33
 
 const LF_BEGIN = Adv.eBit.LF_00 # ローカルフラグ開始番号
 const LF_END   = Adv.eBit.LF_15 # ローカルフラグ終了番号

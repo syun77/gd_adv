@@ -10,6 +10,8 @@ const AdvMoveCursor = preload("res://src/common/adv/AdvMoveCursor.tscn")
 const ItemButton = preload("res://src/common/escape/ItemButton.tscn")
 # アイテムメニュー
 const ItemMenu = preload("res://src/common/escape/ItemMenu.tscn")
+# バックログ
+const BacklogUI = preload("res://src/common/escape/BacklogUI.tscn")
 # 状態
 enum eState {
 	INIT,
@@ -17,6 +19,7 @@ enum eState {
 	SCRIPT,
 	NEXT_ROOM,
 	ITEM_MENU,
+	BACKLOG_MENU,
 }
 
 const FADE_TIME = 0.1
@@ -33,6 +36,8 @@ var _script_timer = 0
 var _is_init_event = false
 var _item_button = null # アイテムボタン
 var _item_menu = null # アイテムメニュー
+var _open_backlog = false # バックログを開くかどうか
+var _backlog_menu = null # バックログメニュー
 
 onready var _screen = $Screen
 
@@ -63,6 +68,8 @@ func _process(delta: float) -> void:
 			_update_next_room(delta)
 		eState.ITEM_MENU:
 			_update_item_menu(delta)
+		eState.BACKLOG_MENU:
+			_update_backlog_menu(delta)
 	
 	if _state >= eState.MAIN:
 		# オブジェクトの表示状態を更新する
@@ -121,6 +128,14 @@ func _update_main(delta:float) -> void:
 		_item_button.hide()
 		
 		_state = eState.ITEM_MENU
+		return
+		
+	# バックログボタンの入力判定
+	if _open_backlog:
+		_open_backlog = false
+		_backlog_menu = BacklogUI.instance()
+		add_child(_backlog_menu)
+		_state = eState.BACKLOG_MENU
 		return
 	
 	# 移動カーソル更新
@@ -259,6 +274,11 @@ func _update_item_menu(_delta:float) -> void:
 		# アイテムボタンをリセットする
 		_item_button.reset()
 		_state = eState.MAIN
+		
+func _update_backlog_menu(_delta:float) -> void:
+	if is_instance_valid(_backlog_menu) == false:
+		# 閉じたのでメイン処理に戻る
+		_state = eState.MAIN
 
 # オブジェクトを更新
 func _obj_visibled(obj:Node2D) -> bool:
@@ -368,3 +388,8 @@ func _on_SaveButton_pressed() -> void:
 	# セーブ実行
 	Global.save_data()
 	EscapeHud.start_save()
+
+
+func _on_LogButton_pressed() -> void:
+	# ログボタンを押した
+	_open_backlog = true

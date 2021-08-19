@@ -21,4 +21,19 @@ text = "SAVE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="LogButton" type="Button" parent="."]
+margin_left = 1112.0
+margin_top = 600.0
+margin_right = 1217.0
+margin_bottom = 660.0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
+text = "LOGS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="LogButton" to="." method="_on_LogButton_pressed"]
