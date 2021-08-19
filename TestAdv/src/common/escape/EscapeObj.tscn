@@ -23,9 +23,9 @@ __meta__ = {
 }
 
 [node name="LogButton" type="Button" parent="."]
-margin_left = 1112.0
+margin_left = 1120.0
 margin_top = 600.0
-margin_right = 1217.0
+margin_right = 1228.0
 margin_bottom = 660.0
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 2 )

@@ -7,6 +7,7 @@ const AdvTextMgr = preload("res://src/common/adv/AdvTextMgr.gd")
 
 const AdvLayerBg       = preload("res://src/common/adv/AdvLayerBg.gd")
 const AdvLayerCh       = preload("res://src/common/adv/AdvLayerCh.gd")
+const AdvLayerItem     = preload("res://src/common/adv/AdvLayerItem.gd")
 const AdvTalkText      = preload("res://src/common/adv/AdvTalkText.gd")
 const AdvTalkTextScene = preload("res://src/common/adv/AdvTalkText.tscn")
 
@@ -40,6 +41,7 @@ var _script:AdvScript = null
 var _talk_text:AdvTalkText = null
 var _bg_mgr:AdvLayerBg = null
 var _ch_mgr:AdvLayerCh = null
+var _item_mgr:AdvLayerItem = null
 var _msg := AdvTextMgr.new()
 var _msg_mode = AdvConst.eMsgMode.TALK
 var _state = eState.INIT
@@ -73,9 +75,11 @@ func _ready() -> void:
 	_talk_text.hide()
 	_bg_mgr  = AdvLayerBg.new([$AdvLayerBg/BellowBg, $AdvLayerBg/AboveBg])
 	_ch_mgr  = AdvLayerCh.new([$AdvLayerCh/LeftCh, $AdvLayerCh/CenterCh, $AdvLayerCh/RightCh])
+	_item_mgr = AdvLayerItem.new($AdvLayerItem/Item)
 	
 	$AdvLayerBg.layer = Global.PRIO_ADV_BG
 	$AdvLayerCh.layer = Global.PRIO_ADV_CH
+	$AdvLayerItem.layer = Global.PRIO_ADV_ITEM
 	_layer_talk.layer = Global.PRIO_ADV_TALK
 	_layer_menu.layer = Global.PRIO_ADV_MENU
 	
@@ -112,6 +116,8 @@ func _process(delta: float) -> void:
 	_bg_mgr.update(delta)
 	# キャラ管理更新
 	_ch_mgr.update(delta)
+	# アイテム管理更新
+	_item_mgr.update(delta)
 	
 	if _state != _next_state:
 		_state = _next_state
@@ -208,6 +214,21 @@ func _ERC(_args:PoolStringArray) -> int:
 	var pos = _script.pop_stack()
 	var eft = _script.pop_stack()
 	_ch_mgr.erase_ch(pos, eft)
+	
+	return AdvConst.eRet.CONTINUE
+
+# アイテムオブジェクトを表示
+func _DRI(_args:PoolStringArray) -> int:
+	var id = _script.pop_stack()
+	var eft = _script.pop_stack()
+	_item_mgr.draw_item(id, eft)
+	
+	return AdvConst.eRet.CONTINUE
+
+# アイテムオブジェクトを消去
+func _ERI(_args:PoolStringArray) -> int:
+	var eft = _script.pop_stack()
+	_item_mgr.erase_item(eft)
 	
 	return AdvConst.eRet.CONTINUE
 	
