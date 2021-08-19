@@ -26,6 +26,8 @@ func _ready() -> void:
 
 # 表示開始
 func start(text:String) -> void:
+	# ログに追加
+	Global.add_backlog(text)
 	_text.bbcode_text = "[center]" + text + "[/center]"
 	_timer = APPEAR_TIME
 	_bg.visible = true

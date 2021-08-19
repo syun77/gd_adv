@@ -6,6 +6,9 @@ extends CanvasLayer
 const SAVE_FILE = "user://savedata.txt"
 const ROOM_PATH = "res://src/escape/room/%3d/EscapeRoom.tscn"
 
+const MAX_BACKLOG = 50 # バックログの最大数
+const DUPLICATE_CNT = 10 # 10件前に存在する場合はログに追加しない
+
 # 描画順.
 const PRIO_CLICKABLE = 1
 const PRIO_ITEM_MENU = 10
@@ -34,6 +37,7 @@ var _vars = [] # 変数
 var _items = [] # アイテム
 var _local_bits = {} # ローカルフラグ(LF_##)
 var _local_vars = {} # ローカル変数(LVAR_##)
+var _logs = []
 
 # アイテムの初期化
 func init_items():
@@ -50,6 +54,9 @@ func init_bits_and_vars():
 	_local_bits.clear()
 	_local_vars.clear()
 
+# バックログの初期化
+func init_backlog() -> void:
+	_logs = []
 # ------------------------------
 # アイテム
 # ------------------------------
@@ -155,6 +162,9 @@ func init() -> void:
 	# アイテムの初期化
 	init_items()
 	
+	# バックログログの初期化
+	init_backlog()
+	
 	# 開始ルーム番号を設定しておく
 	now_room = 101
 	next_room = now_room
@@ -166,6 +176,24 @@ func init() -> void:
 		# TODO: ウィンドウをリサイズ
 		OS.set_window_size(Vector2(853, 480))
 		#OS.set_window_size(Vector2(480, 270))
+
+# バックログの追加
+func add_backlog(s:String) -> void:
+	var idx = _logs.find_last(s)
+	if idx >= 0:
+		if idx + DUPLICATE_CNT >= _logs.size():
+			#Infoboard.send("重複テキスト:%s"%s)
+			#Infoboard.send("idx=%d size=%d"%[idx, _logs.size()])
+			return # 重複テキスト
+	
+	if _logs.size() >= MAX_BACKLOG:
+		# 最大数を超えた
+		_logs.pop_front()
+	_logs.append(s)
+	
+# バックログの取得
+func get_backlog():
+	return _logs
 
 # 初期化済みかどうか
 func initialized() -> bool:
@@ -206,6 +234,7 @@ func _get_save():
 		"vars" : _vars,
 		"lf" : _local_bits,
 		"lvar" : _local_vars,
+		"logs" : _logs,
 	}
 	return data
 func _copy_load(data):
@@ -214,7 +243,8 @@ func _copy_load(data):
 	_bits = data["bits"]
 	_vars = data["vars"]
 	_local_bits = data["lf"]
-	_local_vars = data["lvar"]	
+	_local_vars = data["lvar"]
+	_logs = data["logs"]
 	
 
 # ルーム変更可能かどうか

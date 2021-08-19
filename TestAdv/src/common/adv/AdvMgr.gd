@@ -254,6 +254,8 @@ func _MSG(args:PoolStringArray) -> int:
 	
 	var ret = AdvConst.eRet.CONTINUE
 	var texts = args[1]
+	# ログに追加
+	Global.add_backlog(texts)
 	_msg.add(texts)
 	match type:
 		eCmdMesType.CLICK:
