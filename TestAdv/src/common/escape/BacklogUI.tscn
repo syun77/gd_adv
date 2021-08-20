@@ -18,6 +18,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BgFrame" type="ColorRect" parent="Bg"]
+margin_left = 192.0
+margin_top = 32.0
+margin_right = 1088.0
+margin_bottom = 608.0
+color = Color( 0.270588, 0.270588, 0.270588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Text" type="RichTextLabel" parent="Bg"]
 margin_left = 210.0
 margin_top = 40.0
