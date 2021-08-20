@@ -228,49 +228,49 @@ func _VAR(args) -> void:
 func _EQ(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
-	push_stack(right == left)
+	push_stack(left == right)
 
 # '!='
 func _NE(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
-	push_stack(right != left)
+	push_stack(left != right)
 
 # '<'	
 func _LE(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
-	push_stack(right < left)
+	push_stack(left < right)
 
 # '<='	
 func _LESS(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
-	push_stack(right <= left)
+	push_stack(left <= right)
 
 # '>'	
 func _GE(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
-	push_stack(right > left)
+	push_stack(left > right)
 
 # '>='	
 func _GREATER(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
-	push_stack(right >= left)
+	push_stack(left >= right)
 
 # '&&'
 func _AND(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
-	push_stack(right && left)
+	push_stack(left && right)
 
 # '||'
 func _OR(_args) -> void:
 	var right = pop_stack()
 	var left  = pop_stack()
-	push_stack(right || left)
+	push_stack(left || right)
 
 # '!'
 func _NOT(_args) -> void:

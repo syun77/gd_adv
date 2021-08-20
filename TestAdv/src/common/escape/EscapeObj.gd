@@ -1,7 +1,8 @@
 extends Node2D
-################################################
+# ==============================================
 # 脱出シーン管理
-################################################
+# ==============================================
+
 # Adv管理シーン
 const AdvMgr = preload("res://src/common/adv/AdvMgr.tscn")
 # 移動カーソルオブジェクト
@@ -75,6 +76,8 @@ func _process(delta: float) -> void:
 		# オブジェクトの表示状態を更新する
 		for obj in _clickable_layer.get_children():
 			obj.visible = _obj_visibled(obj)
+			if obj is Sprite:
+				_obj_update_for_sprite(obj)
 	
 	# デバッグ用更新
 	if AdvConst.DEBUG:
@@ -306,7 +309,20 @@ func _obj_visibled(obj:Node2D) -> bool:
 	
 	# 表示する
 	return true
+
+# Spriteの場合の更新
+func _obj_update_for_sprite(obj:Sprite) -> void:
+	if obj.vframes == 1 and obj.hframes == 1:
+		# スプライトシートではないので更新不要
+		return
 	
+	if obj.has_meta("state") == false:
+		# "state" パラメータが指定されていないので更新不要
+		return
+	
+	# 変数から状態を取得して反映
+	var state = CastleDB.var_get(obj.get_meta("state"))
+	obj.frame = state
 	
 func _obj_clickable(obj:Node2D) -> bool:
 	if obj.has_meta("click") == false:

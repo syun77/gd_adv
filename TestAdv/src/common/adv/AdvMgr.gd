@@ -296,6 +296,7 @@ func _MSG(args:PoolStringArray) -> int:
 	
 	return ret
 
+# 一時停止
 func _WAIT(_args:PoolStringArray) -> int:
 	_wait = _script.pop_stack() / 60.0
 	_next_state = eState.WAIT

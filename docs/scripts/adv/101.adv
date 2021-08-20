@@ -28,6 +28,13 @@ def click2 {
 	ITEM_DEL(ITEM_COLOR_RED)
 }
 
+def click3 {
+	$LVAR_00 += 1
+	if($LVAR_00 >= 5) {
+		$LVAR_00 = 0
+	}
+}
+
 def move {
 	"移動します/"
 	JUMP_SCENE(eScene.S102_Event)

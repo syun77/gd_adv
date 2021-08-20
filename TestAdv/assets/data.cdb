@@ -43,6 +43,11 @@
 						{
 							"id": 2,
 							"click": "click2"
+						},
+						{
+							"id": 3,
+							"click": "click3",
+							"state": "LVAR_00"
 						}
 					],
 					"moves": [
