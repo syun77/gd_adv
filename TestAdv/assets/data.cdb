@@ -88,6 +88,14 @@
 						}
 					],
 					"events": []
+				},
+				{
+					"id": "S150_Event",
+					"name": "",
+					"value": 150,
+					"objs": [],
+					"moves": [],
+					"events": []
 				}
 			],
 			"separators": [],

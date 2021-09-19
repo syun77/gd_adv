@@ -469,5 +469,6 @@ enum eItem {
 enum eScene {
   S101_Event = 101, # 教室〜自分の席
   S102_Event = 102, # 教室〜自分のバッグ
+  S150_Event = 150,
 }
 

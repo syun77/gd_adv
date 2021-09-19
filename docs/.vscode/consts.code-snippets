@@ -2513,5 +2513,11 @@
 		"body": "eScene.S102_Event",
 		"description": "教室〜自分のバッグ",
 	},
+	"eScene.S150_Event":
+	{
+		"prefix": "eScene.S150_Event",
+		"body": "eScene.S150_Event",
+		"description": "",
+	},
 }
 

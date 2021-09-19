@@ -168,7 +168,7 @@ func init() -> void:
 	init_backlog()
 	
 	# 開始ルーム番号を設定しておく
-	now_room = 101
+	now_room = 150
 	next_room = now_room
 	
 	# 初期化済み

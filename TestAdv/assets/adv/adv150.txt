@@ -1,0 +1,5 @@
+FUNC_START,init
+MSG,1,こんにちは
+MSG,1,今日はいい天気ですね
+FUNC_END,init
+END

@@ -397,6 +397,8 @@ func _debug_update() -> void:
 	if Input.is_action_just_pressed("ui_debug_reset"):
 		# ゲームをリセットする
 		get_tree().change_scene("res://src/Boot.tscn")
+	if Input.is_action_just_pressed("ui_exit"):
+		get_tree().quit()
 		
 
 
