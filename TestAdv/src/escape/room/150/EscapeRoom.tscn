@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://src/escape/room/150/spr/bg.png" type="Texture" id=1]
 [ext_resource path="res://src/common/escape/EscapeObj.tscn" type="PackedScene" id=4]
 
 [node name="EscapeRoom" type="Node2D"]
 
 [node name="RoomLayer" type="CanvasLayer" parent="."]
+
+[node name="bg" type="Sprite" parent="RoomLayer"]
+texture = ExtResource( 1 )
+centered = false
 
 [node name="ClickableLayer" type="CanvasLayer" parent="RoomLayer"]
 
