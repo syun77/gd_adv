@@ -1,5 +1,7 @@
 extends Node2D
-
+# ===============================
+# ADV管理
+# ===============================
 # スクリプト管理
 const AdvScript = preload("res://src/common/adv/AdvScript.gd")
 # テキスト管理

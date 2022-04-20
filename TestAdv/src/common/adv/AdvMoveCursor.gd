@@ -1,5 +1,7 @@
 extends Sprite
-
+# ===============================
+# ADVルーム移動カーソル
+# ===============================
 const MOVE_OFFSET:float = 8.0
 const MOVE_SPEED:float = 3.0
 

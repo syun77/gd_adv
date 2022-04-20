@@ -1,5 +1,7 @@
 extends CanvasLayer
-
+# ===================================
+# 脱出HUD
+# ===================================
 const SAVE_START_POS = Vector2(AdvConst.WINDOW_WIDTH+32, 16)
 const PLACE_START_POS = Vector2(-320, 16)
 const PLACE_END_POS = Vector2(32, 16)

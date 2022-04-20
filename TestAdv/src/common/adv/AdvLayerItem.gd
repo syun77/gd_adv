@@ -1,4 +1,7 @@
 extends CanvasLayer
+# ===============================
+# ADVアイテム
+# ===============================
 
 const FADE_TIME = 0.5
 const BASE_POSITION = Vector2(AdvConst.WINDOW_CENTER_X, 128)

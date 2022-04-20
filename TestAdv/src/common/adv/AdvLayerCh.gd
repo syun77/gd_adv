@@ -1,5 +1,7 @@
 extends CanvasLayer
-
+# ===============================
+# ADVキャラ
+# ===============================
 const FADE_TIME = 0.5
 
 enum eChState {

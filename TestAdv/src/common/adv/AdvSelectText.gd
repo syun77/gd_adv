@@ -1,4 +1,7 @@
 extends Control
+# ===================================
+# ADV選択肢テキスト
+# ===================================
 
 onready var _text:RichTextLabel = $Text
 onready var _bg   := $Bg

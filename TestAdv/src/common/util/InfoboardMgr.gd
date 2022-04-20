@@ -1,5 +1,7 @@
 extends CanvasLayer
-
+# ===================================
+# 通知ボード管理
+# ===================================
 var InfoBoard = preload("res://src/common/util/InfoBoard.tscn")
 
 var _idx:int = 0 # 表示用カウンタ

@@ -1,5 +1,7 @@
 extends Sprite
-
+# ===================================
+# アイテムボタン
+# ===================================
 const HIT_RADIUS = 64 # クリック判定の半径
 const PATH_ITEM = "res://assets/adv/item/item%03d.png"
 const TIMER_CLICK = 1.0

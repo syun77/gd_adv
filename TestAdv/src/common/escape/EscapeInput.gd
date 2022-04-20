@@ -1,5 +1,7 @@
 extends Control
-
+# ===================================
+# ダイヤルボタン
+# ===================================
 class_name EscapeInputObj
 
 const PRESS_OFS_Y = 8.0 # アニメーションでずらす値
