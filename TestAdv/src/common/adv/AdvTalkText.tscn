@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/common/adv/AdvTalkText.gd" type="Script" id=1]
 [ext_resource path="res://src/common/adv/AdvText.tres" type="DynamicFont" id=2]
-[ext_resource path="res://assets/images/system/ cursor.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/system/cursor.png" type="Texture" id=3]
 
 [node name="AdvTalkText" type="Control"]
 anchor_right = 1.0
