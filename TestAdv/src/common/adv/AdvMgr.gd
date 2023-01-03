@@ -154,6 +154,7 @@ func _update_exec():
 # 更新・キー待ち
 func _update_key_wait(delta:float):
 	if Input.is_action_just_pressed("ui_open_log") or _talk_text.pressed_logbutton():
+		# バックログ表示.
 		_talk_text.clear_pressed_logbutton()
 		_exec_obj = BacklogObj.instance()
 		_layer_menu.add_child(_exec_obj)
@@ -174,6 +175,15 @@ func _update_key_wait(delta:float):
 
 # 更新・選択肢
 func _update_sel_wait(delta:float):
+	if Input.is_action_just_pressed("ui_open_log") or _talk_text.pressed_logbutton():
+		# バックログ表示.
+		_talk_text.clear_pressed_logbutton()
+		_exec_obj = BacklogObj.instance()
+		_layer_menu.add_child(_exec_obj)
+		_return_state = _state # 現在の状態を戻り先にしたい.
+		_next_state = eState.OBJ_WAIT
+		return
+
 	var ret = _talk_text.update_select(delta, _script)
 	match ret:
 		"EXEC":

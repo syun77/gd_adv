@@ -25,6 +25,7 @@ def click2 {
 	FADE_WAIT()
 	*/
 
+	/*
 	// ノベルモードにする.
 	MSG_MODE(MSG_NOVEL)
 	    "……ねえ、知っている？@"
@@ -43,6 +44,14 @@ def click2 {
 	// 元に戻す.
 	MSG_MODE()
 	"赤い絵の具を削除する/"
+	*/
+	select("選択肢")
+	{"はい"
+		"「はい」を選びました/"
+	}
+	{"いいえ"
+		"「いいえ」を選びました/"
+	}
 
 	ITEM_DEL(ITEM_COLOR_RED)
 }
