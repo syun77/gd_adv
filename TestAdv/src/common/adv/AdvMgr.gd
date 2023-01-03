@@ -10,24 +10,26 @@ const AdvTextMgr = preload("res://src/common/adv/AdvTextMgr.gd")
 const AdvLayerBg       = preload("res://src/common/adv/AdvLayerBg.gd")
 const AdvLayerCh       = preload("res://src/common/adv/AdvLayerCh.gd")
 const AdvLayerItem     = preload("res://src/common/adv/AdvLayerItem.gd")
-const AdvTalkText      = preload("res://src/common/adv/AdvTalkText.gd")
 const AdvTalkTextScene = preload("res://src/common/adv/AdvTalkText.tscn")
 
 # 入力メニュー
 const EscapeInputMenu = preload("res://src/common/escape/EscapeInputMenu.tscn")
+# バックログ.
+const BacklogObj = preload("res://src/common/escape/BacklogUI.tscn")
 
 # 状態
 enum eState {
-	INIT,
-	EXEC,
-	KEY_WAIT,
-	SEL_WAIT,
-	WAIT,
-	OBJ_WAIT,
-	FADE_WAIT,
-	YIELD,
-	YIELD2,
-	END,
+	NONE, # 無効.
+	
+	INIT, # 初期化.
+	EXEC, # スクリプト実行中.
+	KEY_WAIT, # キー入力待ち.
+	SEL_WAIT, # 選択肢決定待ち.
+	WAIT, # 一時停止中.
+	OBJ_WAIT, # オブジェクトの終了待ち.
+	FADE_WAIT, # フェード終了待ち.
+
+	END, # 終了.
 }
 
 # メッセージの種類
@@ -48,6 +50,7 @@ var _msg := AdvTextMgr.new()
 var _msg_mode = AdvConst.eMsgMode.TALK
 var _state = eState.INIT
 var _next_state = eState.INIT
+var _return_state = eState.NONE # 戻り先の状態.
 var _wait = 0
 var _exec_obj:Object = null
 
@@ -150,6 +153,13 @@ func _update_exec():
 
 # 更新・キー待ち
 func _update_key_wait(delta:float):
+	if Input.is_action_just_pressed("ui_open_log"):
+		_exec_obj = BacklogObj.instance()
+		_layer_menu.add_child(_exec_obj)
+		_return_state = _state # 現在の状態を戻り先にしたい.
+		_next_state = eState.OBJ_WAIT
+		return
+	
 	var ret = _talk_text.update_talk(delta, _msg.get_text())
 	match ret:
 		"SEL_WAIT":
@@ -180,8 +190,13 @@ func _update_wait(delta:float):
 # 更新・オブジェクトの終了待ち
 func _update_obj_wait(_delta:float):
 	if is_instance_valid(_exec_obj) == false:
-		# スクリプト実行に戻る
-		_next_state = eState.EXEC
+		if _return_state != eState.NONE:
+			# 戻り先の状態の指定がある.
+			_next_state = _return_state
+			_return_state = eState.NONE # 消しておく.
+		else:
+			# スクリプト実行に戻る
+			_next_state = eState.EXEC
 
 # 更新・フェード完了待ち
 func _update_fade_wait(_delta:float):

@@ -59,17 +59,17 @@ func _ready() -> void:
 # 更新
 func _process(delta: float) -> void:
 	match _state:
-		eState.INIT:
+		eState.INIT: # 初期化.
 			_update_init(delta)
-		eState.MAIN:
+		eState.MAIN: # メイン.
 			_update_main(delta)
-		eState.SCRIPT:
+		eState.SCRIPT: # スクリプト実行中.
 			_update_script(delta)
-		eState.NEXT_ROOM:
+		eState.NEXT_ROOM: # 次の部屋へ.
 			_update_next_room(delta)
-		eState.ITEM_MENU:
+		eState.ITEM_MENU: # アイテムメニュー表示中.
 			_update_item_menu(delta)
-		eState.BACKLOG_MENU:
+		eState.BACKLOG_MENU: # バックログ表示中.
 			_update_backlog_menu(delta)
 	
 	if _state >= eState.MAIN:
@@ -177,11 +177,11 @@ func _check_clickable_obj(mx:float, my:float) -> bool:
 	var children = _clickable_layer.get_children()
 	for i in range(children.size()-1, -1, -1):
 		var spr:Sprite = children[i]
-		# 当たり判定チェック
+		# スプライトから当たり判定チェックを行う.
 		var hit_rect:Rect2 = SpriteUtil.get_hitrect(spr)
-		var x1 = hit_rect.position.x
+		var x1 = hit_rect.position.x # 左上
 		var y1 = hit_rect.position.y
-		var x2 = x1 + hit_rect.size.x
+		var x2 = x1 + hit_rect.size.x # 右下.
 		var y2 = y1 + hit_rect.size.y
 		
 		if x1 <= mx and mx <= x2 and y1 <= my and my <= y2:
@@ -240,6 +240,7 @@ func _check_movable_obj(mx:float, my:float) -> bool:
 func _update_script(delta:float) -> void:
 	_script_timer += delta
 	
+	# 場所移動カーソルの更新.
 	for move in _moves:
 		if _script_timer < 0.1:
 			move.update_manual(delta)

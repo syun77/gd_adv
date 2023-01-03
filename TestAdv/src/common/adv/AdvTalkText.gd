@@ -2,6 +2,7 @@ extends Control
 # ==========================
 # 会話テキスト管理
 # ==========================
+class_name AdvTalkText
 
 # テキスト速度
 export(float) var TEXT_SPEED := 40.0
@@ -130,6 +131,7 @@ func start(is_pf:bool):
 	_is_pf = is_pf # 改ページするフラグ
 	_get_cursor().hide()
 
+## 会話テキスト更新.
 func update_talk(delta:float, texts:String) -> String:
 	
 	# TODO: デバッグ文字描画
@@ -142,7 +144,7 @@ func update_talk(delta:float, texts:String) -> String:
 	
 	# テキストが終端に到達したかどうか	
 	var is_disp_all = (talk_text.visible_characters >= total_text)
-	if Input.is_action_just_pressed("ui_accept"):
+	if _check_next_text():
 		# テキスト送り
 		if is_disp_all == false:
 			# テキストをすべて表示
@@ -218,17 +220,24 @@ func set_name(name:String) -> void:
 func clear_name() -> void:
 	_name.hide()
 
-func _window_hide():
+func _window_hide() -> void:
 	$Window.hide()
 	$Novel.hide()
 
-func _text_hide():
+func _text_hide() -> void:
 	$Window/Text.hide()
 	$Novel/Text.hide()
-func _cursor_hide():
+func _cursor_hide() -> void :
 	$Window/Cursor.hide()
 	$Novel/Cursor.hide()
 
+## テキスト送りするかどうか
+func _check_next_text() -> bool:
+	if Input.is_action_just_pressed("ui_next_text"):
+		return true
+	
+	return false
+	
 # ---------------------------------------
 # setter/getter
 # ---------------------------------------
