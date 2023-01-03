@@ -59,7 +59,6 @@ var _script_path = ""
 var _start_funcname = ""
 
 # レイヤー
-onready var _layer_bg   = $LayerBg
 onready var _layer_talk = $LayerTalk
 onready var _layer_menu = $LayerMenu
 

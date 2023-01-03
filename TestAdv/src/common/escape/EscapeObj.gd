@@ -40,8 +40,6 @@ var _item_menu = null # アイテムメニュー
 var _open_backlog = false # バックログを開くかどうか
 var _backlog_menu = null # バックログメニュー
 
-onready var _screen = $Screen
-
 # 開始処理
 func _ready() -> void:
 	
@@ -397,7 +395,7 @@ func _debug_update() -> void:
 		Global.change_room()
 	if Input.is_action_just_pressed("ui_debug_reset"):
 		# ゲームをリセットする
-		get_tree().change_scene("res://src/Boot.tscn")
+		var _err = get_tree().change_scene("res://src/Boot.tscn")
 	if Input.is_action_just_pressed("ui_exit"):
 		get_tree().quit()
 		
