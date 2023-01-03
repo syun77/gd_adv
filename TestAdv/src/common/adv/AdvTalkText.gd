@@ -4,20 +4,31 @@ extends Control
 # ==========================
 class_name AdvTalkText
 
+# --------------------------
+# exports
+# --------------------------
 # テキスト速度
 export(float) var TEXT_SPEED := 40.0
 
+# --------------------------
+# const
+# --------------------------
 # 選択肢
 const SEL_CENTER_Y := 240 # 中心座標
 const SEL_HEIGHT   := 80  # ボタンの高さ
 
-
+# --------------------------
+# preload.
+# --------------------------
 # スクリプト管理
-const AdvScript = preload("res://src/common/adv/AdvScript.gd")
+const AdvScriptObj = preload("res://src/common/adv/AdvScript.gd")
 
 # 選択肢テキスト
 const AdvSelectText = preload("res://src/common/adv/AdvSelectText.tscn")
 
+# --------------------------
+# class.
+# --------------------------
 # 選択肢情報
 class SelectInfo:
 	var index      = 0     # 選択肢番号
@@ -44,23 +55,44 @@ class SelectInfo:
 			button.destroy()
 			button = null
 
+# --------------------------
+# setter/getter.
+# --------------------------
 var is_pagefeed setget ,_is_pagefeed # 改ページするかどうか
 
+# --------------------------
+# onready.
+# --------------------------
 onready var _face = $Window/Face
 onready var _name = $Window/Name
 
+# --------------------------
+# vars.
+# --------------------------
 var _cursor_timer:float = 0 # カーソルタイマー
 var _cursor_timer2:float = 0 # カーソルタイマー２
 var _text_timer:float = 0 # テキストタイマー
 var _sel_list = [] # 選択肢のテキスト
 var _is_pf = true # 改ページするフラグ
-var _msg_mode = AdvConst.eMsgMode.TALK # メッセージ表示モード
+var _msg_mode = AdvConst.eMsgMode.TALK # メッセージ表示モード.
+var _pressed_logbutton = false # ログボタンを押した.
 
+# --------------------------
+# functions.
+# --------------------------
+## メッセージモードの設定.
 func set_msg_mode(mode:int) -> void:
 	_msg_mode = mode
 	_window_hide()
 	_get_window().show()
+	
+## ログボタンを押したかどうか.
+func pressed_logbutton() -> bool:
+	return _pressed_logbutton
+func clear_pressed_logbutton() -> void:
+	_pressed_logbutton = false
 
+## 開始処理.
 func _ready() -> void:
 	_window_hide()
 	_text_hide()
@@ -70,6 +102,7 @@ func _ready() -> void:
 	
 	set_msg_mode(AdvConst.eMsgMode.TALK)
 
+## BBテキストの末尾を計算する.
 func _calc_bbtext_length(var texts):
 	var regex = RegEx.new()
 	regex.compile("\\[[^\\]]+\\]") # BB Codeを除外した文字列の長さを求める
@@ -94,6 +127,7 @@ func _calc_bbtext_length(var texts):
 	
 	return text2.length()
 
+## 更新.
 func _process(delta: float) -> void:
 	_cursor_timer += delta
 	_cursor_timer2 += delta
@@ -136,6 +170,9 @@ func update_talk(delta:float, texts:String) -> String:
 	
 	# TODO: デバッグ文字描画
 	#update()
+	
+	# ログボタンを押したフラグを消しておく.
+	_pressed_logbutton = false
 	
 	var talk_text := _get_text()
 	talk_text.bbcode_text = texts
@@ -234,7 +271,10 @@ func _cursor_hide() -> void :
 ## テキスト送りするかどうか
 func _check_next_text() -> bool:
 	if Input.is_action_just_pressed("ui_next_text"):
-		return true
+		return true # テキスト送りのキーを押した.
+	
+	if Input.is_action_just_pressed("ui_click"):
+		return true # クリックした.
 	
 	return false
 	
@@ -279,3 +319,7 @@ func _draw():
 	var c = Color.red if cursor.visible else Color.white
 	draw_string(font, Vector2(128, 300), "cursor:%s"%s, c)
 	draw_string(font, Vector2(128, 340), "timer:%3.2f"%_text_timer, c)
+
+## ログボタンを押した.
+func _on_LogButton_button_down() -> void:
+	_pressed_logbutton = true

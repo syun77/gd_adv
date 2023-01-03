@@ -2,6 +2,8 @@
 # スクリプト管理
 # ===============================
 
+class_name AdvScript
+
 # 代入演算子
 const ASSIGN_NON = 0x00
 const ASSIGN_ADD = 0x01
