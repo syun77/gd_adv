@@ -33,7 +33,7 @@ func item_add(idx:int, is_play_se:bool=true) -> bool:
 		pass
 	
 	item_set_state(idx, eItemState.HAS)
-	item_equip(idx) # 自動で装備する
+	var _can_equip = item_equip(idx) # 自動で装備する
 	
 	return true
 
@@ -111,7 +111,7 @@ func item_del(idx:int) -> bool:
 
 func item_del_all() -> void:
 	for i in range(AdvConst.MAX_ITEM):
-		item_del(i)
+		var _is_delete = item_del(i)
 
 func item_equip(idx:int) -> bool:
 	if item_has(idx):

@@ -103,7 +103,7 @@ class AdvItem:
 				pass
 			
 	func _get_position_x() -> float:
-		return BASE_POSITION.x - _tex.texture.get_width()/2
+		return BASE_POSITION.x - _tex.texture.get_width()/2.0
 
 # ----------------------------------
 # メンバ変数

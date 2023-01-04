@@ -86,8 +86,7 @@ func bit_off(idx:int) -> void:
 
 func bit_set(idx:int, b:bool) -> void:
 	if idx < 0 or AdvConst.MAX_BIT <= idx:
-		Infoboard.error
-		("Error: 不正なフラグ番号 %d"%idx)
+		Infoboard.error("Error: 不正なフラグ番号 %d"%idx)
 		return
 	if LF_BEGIN <= idx and idx <= LF_END:
 		# ローカルフラグ
@@ -215,7 +214,7 @@ func load_data() -> void:
 	var f:File = File.new()
 	if f.file_exists(SAVE_FILE):
 		# セーブデータが存在する
-		f.open(SAVE_FILE, File.READ)
+		var _err = f.open(SAVE_FILE, File.READ)
 		var s = f.get_as_text()
 		var j = JSON.parse(s)
 		if j.error == OK:
@@ -275,7 +274,7 @@ func change_room() -> void:
 	var res_name = ROOM_PATH%next_room
 	now_room = next_room
 	Infoboard.send("ルーム移動: %s"%res_name)
-	get_tree().change_scene(res_name)
+	var _err = get_tree().change_scene(res_name)
 
 # 現在のルーム番号のsetter
 func _set_now_room(v:int) -> void:

@@ -202,7 +202,7 @@ func _process(delta: float) -> void:
 	
 
 # 更新 > 初期化
-func _update_init(delta:float) -> void:
+func _update_init(_delta:float) -> void:
 	match _mode:
 		eMode.NUM:
 			# 数値入力の生成
@@ -217,7 +217,7 @@ func _update_init(delta:float) -> void:
 	_state = eState.MAIN
 
 # 更新 > メイン
-func _update_main(delta:float) -> void:
+func _update_main(_delta:float) -> void:
 	if _closed:
 		if _check_correct():
 			# 正解

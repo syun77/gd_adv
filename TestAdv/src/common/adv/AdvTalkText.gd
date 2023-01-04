@@ -209,7 +209,7 @@ func update_talk(delta:float, texts:String) -> String:
 	# テキスト位置を更新
 	_text_timer += delta * TEXT_SPEED
 	_text_timer = min(total_text, _text_timer)
-	talk_text.visible_characters = _text_timer
+	talk_text.visible_characters = int(_text_timer)
 	
 	if is_disp_all:
 		# すべてのテキストを表示したのでカーソル表示
@@ -221,14 +221,14 @@ func update_talk(delta:float, texts:String) -> String:
 			cursor.scale.x = abs(sin((0.5 + _cursor_timer2) * PI))
 	return "NONE"
 
-func update_select(delta:float, script:AdvScript) -> String:
-	var idx = 0
+func update_select(_delta:float, script:AdvScript) -> String:
+	var _idx = 0
 	var sel_info:SelectInfo = null
 	for sel in _sel_list:
 		if sel.is_selected():
 			sel_info = sel
 			break
-		idx += 1
+		_idx += 1
 		
 	if sel_info:
 		# 選択肢を選んだ

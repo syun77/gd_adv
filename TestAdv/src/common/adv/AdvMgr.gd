@@ -2,6 +2,8 @@ extends Node2D
 # ===============================
 # ADV管理
 # ===============================
+class_name AdvMgr
+
 # スクリプト管理
 const AdvScript = preload("res://src/common/adv/AdvScript.gd")
 # テキスト管理
@@ -290,7 +292,6 @@ func _MSG_MODE(_args:PoolStringArray) -> int:
 
 # メッセージ解析
 func _MSG(args:PoolStringArray) -> int:
-	var is_exit = false
 	var type = eCmdMesType.NONE
 	if args[0] != "":
 		type = int(args[0])
@@ -391,7 +392,7 @@ func _ITEM_ADD(_args:PoolStringArray) -> int:
 	# 通知テキストを表示
 	AdvNoticeText.start(text)
 	
-	AdvUtil.item_add(item_id)
+	var _can_add = AdvUtil.item_add(item_id)
 	return AdvConst.eRet.CONTINUE
 
 func _ITEM_ADD2(_args:PoolStringArray) -> int:
@@ -403,11 +404,11 @@ func _ITEM_ADD2(_args:PoolStringArray) -> int:
 		Global.bit_on(flag)
 	var name = AdvUtil.item_cdb_search(item_id, "name")
 	Infoboard.send("[ITEM_ADD2] %s(%d)"%[name, item_id])
-	var text = name + Adv.ITEM_GET_MESSAGE
 	
-	# 通知テキストは表示しない
+	# このコマンドでは通知テキストは表示しない
+	#var text = name + Adv.ITEM_GET_MESSAGE
 	
-	AdvUtil.item_add(item_id)
+	var _can_add = AdvUtil.item_add(item_id)
 	return AdvConst.eRet.CONTINUE
 
 func _ITEM_HAS(_args:PoolStringArray) -> int:
@@ -423,7 +424,7 @@ func _ITEM_HAS(_args:PoolStringArray) -> int:
 func _ITEM_DEL(_args:PoolStringArray) -> int:
 	# アイテムを削除する
 	var item_id = _script.pop_stack()
-	AdvUtil.item_del(item_id)
+	var _can_delete = AdvUtil.item_del(item_id)
 	var name = AdvUtil.item_cdb_search(item_id, "name")
 	Infoboard.send("[ITEM_DEL] %s(%d)"%[name, item_id])
 	return AdvConst.eRet.CONTINUE

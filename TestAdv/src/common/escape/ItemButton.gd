@@ -120,14 +120,14 @@ func _updata_init(delta:float) -> void:
 	_start = position
 	_state = eState.IDLE
 
-func _update_idle(delta:float) -> void:
+func _update_idle(_delta:float) -> void:
 	if _is_click(eClick.JUST_PRESSED):
 		# クリック開始
 		_drag_start = get_global_mouse_position()
 		_state = eState.CLICK
 		_timer_click = TIMER_CLICK
 
-func _update_click(delta:float) -> void:
+func _update_click(_delta:float) -> void:
 	if _is_click(eClick.RELEASED):
 		_state = eState.RETURN_WAIT
 		return
@@ -139,13 +139,13 @@ func _update_click(delta:float) -> void:
 	if d > 32:
 		_state = eState.DRAG
 
-func _update_drag(delta:float) -> void:
+func _update_drag(_delta:float) -> void:
 	var d = get_global_mouse_position() - position
 	position += d * 0.3
 	if _is_click(eClick.RELEASED):
 		_state = eState.RETURN_WAIT
 
-func _update_return(delta:float) -> void:
+func _update_return(_delta:float) -> void:
 	var d = _start - position
 	if d.length() < 1:
 		position = _start
@@ -176,6 +176,7 @@ func _proc_click_effect(delta:float) -> void:
 			# 拡縮アニメーション
 			scale *= 1 + 0.02 * sin(_timer_animation * 12)
 
+## クリックしたかどうか.
 func _is_click(state:int) -> bool:
 	var check = false
 	match state:
@@ -197,7 +198,8 @@ func _is_click(state:int) -> bool:
 			return (Input.is_action_pressed("ui_click") == false)
 	if check == false:
 		return false
-	var rect = SpriteUtil.get_hitrect(self)
+	
+	# 半径で判定する.
 	var mouse_pos = get_global_mouse_position()
 	var d = position - mouse_pos
 	if d.length() < HIT_RADIUS:	

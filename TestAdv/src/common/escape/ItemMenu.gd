@@ -19,10 +19,10 @@ enum eState {
 # アイテムボタン
 const ItemButton = preload("res://src/common/escape/ItemButton.tscn")
 # ADV管理
-const AdvMgr = preload("res://src/common/adv/AdvMgr.tscn")
+const AdvMgrObj = preload("res://src/common/adv/AdvMgr.tscn")
 
 var _state = eState.MAIN
-var _script = null
+var _script:AdvMgr = null
 var _closed = false
 var _clicked_btn = null # クリックしているボタン
 var _overlaped_btn = null # 重なっているボタン
@@ -46,12 +46,8 @@ func _ready() -> void:
 			# グローバル変数を初期化
 			Global.init()
 		
-			# アイテムを所持していることにする
-			AdvUtil.item_add(Adv.eItem.ITEM_COLOR_RED)
-			AdvUtil.item_add(Adv.eItem.ITEM_COLOR_ORANGE)
-			AdvUtil.item_add(Adv.eItem.ITEM_COLOR_GREEN)
-			AdvUtil.item_add(Adv.eItem.ITEM_COLOR_INDIGO)
-			AdvUtil.item_add(Adv.eItem.ITEM_COLOR_PURPLE)
+			# デバッグ用でアイテムを所持したい場合はここに追加する.
+			#AdvUtil.item_add(Adv.eItem.ITEM_COLOR_RED)
 		
 		_update_item_list()
 
@@ -102,7 +98,7 @@ func _update_main(delta:float) -> void:
 			idx += 1
 		_state = eState.BTN_CLICK
 
-func _update_btn_click(delta:float) -> void:
+func _update_btn_click(_delta:float) -> void:
 	# 衝突判定
 	_overlaped_btn = _get_nearest_collide_btn(_clicked_btn)
 	
@@ -129,7 +125,7 @@ func _update_btn_click(delta:float) -> void:
 		_overlaped_btn.blinked = true
 		
 
-func _update_script(delta:float) -> void:
+func _update_script(_delta:float) -> void:
 	if is_instance_valid(_script) == false:
 		# スクリプト終了
 		# ボタンを更新
@@ -137,11 +133,11 @@ func _update_script(delta:float) -> void:
 		# ボタンを元の位置に戻す
 		_clicked_btn.start_return()
 		# 選んだボタンのアイテムを装備する
-		AdvUtil.item_equip(_clicked_btn.item)
+		var _can_equip = AdvUtil.item_equip(_clicked_btn.item)
 		
 		_state = eState.BTN_RETURN
 
-func _update_btn_return(delta:float) -> void:
+func _update_btn_return(_delta:float) -> void:
 	if is_instance_valid(_clicked_btn) == false:
 		_state = eState.MAIN
 	elif _clicked_btn.is_idle():
@@ -153,7 +149,7 @@ func _start_script(item1:int, item2:int) -> void:
 	Global.var_set(Adv.eVar.CRAFT2, item2) # 合成アイテム2
 	
 	var path = Global.get_item_script_path()
-	_script = AdvMgr.instance()
+	_script = AdvMgrObj.instance()
 	_script.start(path, "")
 	add_child(_script)
 
@@ -190,7 +186,7 @@ func _get_clicked_idx() -> int:
 
 func _idx_to_position(idx:int) -> Vector2:
 	var px = START_X + SIZE_W * (idx % MAX_LINE)
-	var py = START_Y + SIZE_H * floor(idx / MAX_LINE)
+	var py = START_Y + SIZE_H * floor(1.0 * idx / MAX_LINE)
 	return Vector2(px, py)
 
 func _update_item_list():

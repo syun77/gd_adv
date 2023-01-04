@@ -4,7 +4,7 @@ extends Node2D
 # ==============================================
 
 # Adv管理シーン
-const AdvMgr = preload("res://src/common/adv/AdvMgr.tscn")
+const AdvMgrObj = preload("res://src/common/adv/AdvMgr.tscn")
 # 移動カーソルオブジェクト
 const AdvMoveCursor = preload("res://src/common/adv/AdvMoveCursor.tscn")
 # アイテムボタン
@@ -32,7 +32,7 @@ onready var _font:BitmapFont = Control.new().get_font("font")
 var _clickable_layer:CanvasLayer
 var _moves = []
 var _state = eState.INIT
-var _script = null
+var _script:AdvMgr = null
 var _script_timer = 0
 var _is_init_event = false
 var _item_button = null # アイテムボタン
@@ -194,7 +194,7 @@ func _check_clickable_obj(mx:float, my:float) -> bool:
 
 # スクリプト開始
 func _start_script(func_name:String) -> void:
-	_script = AdvMgr.instance()
+	_script = AdvMgrObj.instance()
 	var script_path = Global.get_script_path()
 	# 開始パラメータを設定
 	_script.start(script_path, func_name)
