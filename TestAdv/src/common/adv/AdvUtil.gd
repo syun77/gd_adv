@@ -133,7 +133,7 @@ func item_has(idx:int) -> bool:
 func item_remove(idx:int) -> bool:
 	if item_del(idx):
 		# 削除できた
-		item_set_state(idx, eItemState.None)
+		item_set_state(idx, eItemState.NONE)
 		return true
 	return false
 
@@ -148,11 +148,11 @@ func item_set_state(idx:int, state:int) -> void:
 # ----------------------------
 func get_color(color:int) -> Color:
 	match color:
-		Adv.eConst.C_WHITE: return Color.white
-		Adv.eConst.C_BLACK: return Color.black
-		Adv.eConst.C_RED: return Color.red
-		Adv.eConst.C_GREEN: return Color.green
-		Adv.eConst.C_BLUE: return Color.blue
+		Adv.eConst.C_WHITE: return Color.WHITE
+		Adv.eConst.C_BLACK: return Color.BLACK
+		Adv.eConst.C_RED: return Color.RED
+		Adv.eConst.C_GREEN: return Color.GREEN
+		Adv.eConst.C_BLUE: return Color.BLUE
 		_:
 			Infoboard.warn("未定義の色: %d"%color)
-			return Color.black
+			return Color.BLACK

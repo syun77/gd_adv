@@ -4,7 +4,7 @@ extends Node
 # ===================================
 
 # 当たり判定の矩形を取得する	
-func get_hitrect(spr:Sprite) -> Rect2:
+func get_hitrect(spr:Sprite2D) -> Rect2:
 	var pos:Vector2 = spr.position
 	var rect:Rect2 = spr.get_rect()
 	rect.size.x *= spr.scale.x

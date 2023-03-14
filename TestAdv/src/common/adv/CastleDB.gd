@@ -28,14 +28,19 @@ var _sheets = {}
 var _values = {}
 
 func _ready() -> void:
-	var file = File.new()
-	file.open(PATH_CDB, File.READ)
+	var file = FileAccess.open(PATH_CDB, FileAccess.READ)
 	var text = file.get_as_text()
 	file.close()
 	
 	# JSONにパースする
-	var json_parse = JSON.parse(text)
-	_cdb = json_parse.result
+	var json = JSON.new()
+	var err = json.parse(text)
+	if err != OK:
+		# パースエラー.
+		push_error("パースエラー")
+
+	# パースした結果を取得.
+	_cdb = json.data
 	
 	# ユニークIDのハッシュテーブルを作成する
 	for sheet in _cdb["sheets"]:

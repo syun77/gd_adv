@@ -28,11 +28,6 @@ const LF_END   = Adv.eBit.LF_15 # ローカルフラグ終了番号
 const LVAR_BEGIN = Adv.eVar.LVAR_00 # ローカル変数開始番号
 const LVAR_END   = Adv.eVar.LVAR_07 # ローカル変数終了番号
 
-# 現在のルーム番号
-var now_room:int = 0 setget _set_now_room, _get_now_room
-# 次のルーム番号
-var next_room:int = 0 setget _set_next_room, _get_next_room
-
 var _initialized := false
 var _bits = [] # フラグ
 var _vars = [] # 変数
@@ -175,8 +170,9 @@ func init() -> void:
 	
 	if AdvConst.DEBUG:
 		# TODO: ウィンドウをリサイズ
-		OS.set_window_size(Vector2(853, 480))
-		#OS.set_window_size(Vector2(480, 270))
+		DisplayServer.window_set_size(Vector2(1280*2, 720*2))
+		#DisplayServer.window_set_size(Vector2(853, 480))
+		#DisplayServer.window_set_size(Vector2(480, 270))
 
 # バックログの追加
 func add_backlog(s:String) -> void:
@@ -202,21 +198,23 @@ func initialized() -> bool:
 
 # セーブ処理
 func save_data() -> void:
-	var f = File.new()
-	f.open(SAVE_FILE, File.WRITE)
+	# FileAccess.open()はstatic関数
+	var f = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
 	var data = _get_save()
-	var s = JSON.print(data)
+	# JSON.print() は JSON.parse()になりインスタン関数になった.
+	var json = JSON.new()
+	var s = json.parse(data)
 	f.store_string(s)
 	f.close()
 	
 # ロード処理
 func load_data() -> void:
-	var f:File = File.new()
-	if f.file_exists(SAVE_FILE):
+	if FileAccess.file_exists(SAVE_FILE):
 		# セーブデータが存在する
-		var _err = f.open(SAVE_FILE, File.READ)
+		var f = FileAccess.open(SAVE_FILE, FileAccess.READ)
 		var s = f.get_as_text()
-		var j = JSON.parse(s)
+		var json = JSON.new()
+		var j = json.parse(s)
 		if j.error == OK:
 			_copy_load(j.result)
 		else:
@@ -274,17 +272,22 @@ func change_room() -> void:
 	var res_name = ROOM_PATH%next_room
 	now_room = next_room
 	Infoboard.send("ルーム移動: %s"%res_name)
-	var _err = get_tree().change_scene(res_name)
+	var _err = get_tree().change_scene_to_file(res_name)
 
-# 現在のルーム番号のsetter
-func _set_now_room(v:int) -> void:
-	now_room = v
-# 現在のルーム番号のgetter
-func _get_now_room() -> int:
-	return now_room
-# 次のルーム番号のsetter
-func _set_next_room(v:int) -> void:
-	next_room = v
-# 次のルーム番号のgetter
-func _get_next_room() -> int:
-	return next_room
+# 現在のルーム番号
+var now_room:int = 0:
+	# 現在のルーム番号のsetter
+	set(v):
+		now_room = v
+	# 現在のルーム番号のgetter
+	get:
+		return now_room
+
+# 次のルーム番号
+var next_room:int = 0:
+	# 次のルーム番号のsetter
+	set(v):
+		next_room = v
+	# 次のルーム番号のgetter
+	get:
+		return next_room

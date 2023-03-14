@@ -7,13 +7,13 @@ var InfoBoard = preload("res://src/common/util/InfoBoard.tscn")
 var _idx:int = 0 # 表示用カウンタ
 
 func warn(text:String) -> void:
-	send(text, Color.yellow)
+	send(text, Color.YELLOW)
 func error(text:String) -> void:
-	send(text, Color.red)
+	send(text, Color.RED)
 func script(text:String) -> void:
-	send(text, Color.navyblue)
+	send(text, Color.NAVY_BLUE)
 
-func send(text:String, color:Color=Color.black) -> void:
+func send(text:String, color:Color=Color.BLACK) -> void:
 	print(text)
 	
 	if AdvConst.DEBUG == false:
@@ -26,7 +26,7 @@ func send(text:String, color:Color=Color.black) -> void:
 			obj.count_up()
 			return
 	
-	var obj = InfoBoard.instance()
+	var obj = InfoBoard.instantiate()
 	add_child(obj)
 	obj.start(text, _idx, color)
 	_idx += 1

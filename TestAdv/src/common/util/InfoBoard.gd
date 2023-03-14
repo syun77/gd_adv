@@ -44,7 +44,7 @@ func is_same(text:String) -> bool:
 	return text == _text
 
 func get_height() -> float:
-	return _bg.rect_size.y + MARGIN_Y
+	return _bg.get_rect().size.y + MARGIN_Y
 
 func get_yofs() -> int:
 	return _yofs
@@ -65,7 +65,7 @@ func _display_text() -> String:
 
 func _calc_width(text:String) -> float:
 	# 文字幅を計算する
-	var font = _label.get_font("font")
+	var font = _label.get_theme_font("font")
 	return max(MIN_WIDTH, font.get_string_size(text).x)
 
 func _process(delta: float) -> void:

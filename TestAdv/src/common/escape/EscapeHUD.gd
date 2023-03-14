@@ -8,8 +8,8 @@ const PLACE_END_POS = Vector2(32, 16)
 
 var _save_timer = 0.0
 
-onready var _label_save := $LabelSave
-onready var _label_place := $LabelPlace
+@onready var _label_save := $LabelSave
+@onready var _label_place := $LabelPlace
 
 # セーブ中演出の表示
 func start_save() -> void:
@@ -29,13 +29,13 @@ func start_save() -> void:
 
 # セーブ中演出の終了
 func _end_save():
-	yield(get_tree().create_timer(3.0), "timeout")
+	await get_tree().create_timer(3.0).timeout
 	
 	var tween = Tween.new()
 	tween.interpolate_property(
 		_label_save,
 		"rect_position",
-		_label_save.rect_position,
+		_label_save.position,
 		SAVE_START_POS,
 		0.5, Tween.TRANS_EXPO, Tween.EASE_IN
 	)
@@ -47,13 +47,13 @@ func _end_save():
 func start_place(name:String) -> void:
 	_label_place.text = name
 	
-	if _label_place.rect_position.x > PLACE_START_POS.x:
+	if _label_place.position.x > PLACE_START_POS.x:
 		return # 表示済みなので何もしない
 	
 	var tween = Tween.new()
 	tween.interpolate_property(
 		_label_place,
-		"rect_position",
+		"position",
 		PLACE_START_POS,
 		PLACE_END_POS,
 		0.5, Tween.TRANS_EXPO, Tween.EASE_OUT
@@ -67,7 +67,7 @@ func start_place(name:String) -> void:
 # 場所情報の表示をリセットする
 func reset_place() -> void:
 	_label_place.text = ""
-	_label_place.rect_position = PLACE_START_POS
+	_label_place.position = PLACE_START_POS
 
 # 場所情報の表示切り替え
 func visible_place(b:bool) -> void:
@@ -79,7 +79,7 @@ func _ready() -> void:
 
 # 更新
 func _process(delta:float) -> void:
-	if _label_save.rect_position.x < AdvConst.WINDOW_WIDTH:
+	if _label_save.position.x < AdvConst.WINDOW_WIDTH:
 		# セーブ演出の表示中
 		_update_save(delta)
 

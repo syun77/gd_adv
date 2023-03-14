@@ -4,7 +4,7 @@ extends CanvasLayer
 # バックログ
 # =====================================
 
-onready var _text = $Bg/Text
+@onready var _text = $Bg/Text
 
 func _ready() -> void:
 	layer = Global.PRIO_ADV_LOGS
